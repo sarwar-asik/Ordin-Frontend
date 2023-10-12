@@ -10,7 +10,7 @@ import {
 
 const Header = () => {
   return (
-    <div className="py-2 bg-[#2B3445] text-white px-2">
+    <div className="py-2 bg-primary text-white px-2">
       <div className=" hidden  lg:flex justify-between items-center py-2">
         <section className="flex items-center justify-start gap-2 text-white ">
           <h2>
