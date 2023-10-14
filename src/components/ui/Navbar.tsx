@@ -3,7 +3,7 @@
 import React from "react";
 import { Breadcrumb, Layout, Menu, theme } from "antd";
 import Link from "next/link";
-import SideBar from "./Sidebar";
+import SideBar from "./SideDrawer";
 
 const { Header, Content, Footer } = Layout;
 
@@ -11,6 +11,7 @@ const menuItems: { key: string; label: string; href: string }[] = [
   { key: "1", label: "Home", href: "/" },
   { key: "2", label: "Services", href: "/services" },
   { key: "3", label: "About", href: "/about-us" },
+  { key: "3", label: "signUp", href: "/sign-up" },
 ];
 
 const Navbar = () => {

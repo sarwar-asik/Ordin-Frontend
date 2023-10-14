@@ -48,7 +48,7 @@ const SideBar = ({ items }: { items?: any }) => {
               key={item?.key}
               href={item?.href}
               onClick={onClose}
-              className="py-3 hover:shadow-lg px-1 rounded-lg "
+              className="py-3 hover:shadow-lg px-1 rounded-lg border-2 border-red-500"
             >
               {item.label}
             </Link>
