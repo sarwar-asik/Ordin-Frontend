@@ -1,13 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
-import { Button, Checkbox, Form, Input, Upload, message } from "antd";
+import { Button, Checkbox, Form, Input, Typography, Upload, message } from "antd";
 import Uploader from "@/components/ui/Uploader";
 import Image from "next/image";
 import loginImg from "@/assets/login.png";
 import { useRouter } from "next/navigation";
 import { useUserLoginMutation } from "@/redux/api/authApi";
 import { storeUserInfo } from "@/utils/local.storeage";
+import Link from "next/link";
 
 const onFinishFailed = (errorInfo: any) => {
   console.log("Failed:", errorInfo);
@@ -82,6 +83,11 @@ const LoginPage = () => {
           rules={[{ required: true, message: "Please input your password!" }]}
         >
           <Input.Password />
+        </Form.Item>
+        <Form.Item >
+          <Typography style={{fontFamily:"monospace"}}>
+             Did not registered ?  <Link href="/sign-up">Sign UP please...</Link>
+          </Typography>
         </Form.Item>
 
         <Form.Item>
