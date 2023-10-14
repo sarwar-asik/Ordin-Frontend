@@ -11,10 +11,10 @@ export const authApi = baseApi.injectEndpoints({
       invalidatesTags: ["auth"],
     }),
     userLogin: build.mutation({
-      query: (signUpData) => ({
+      query: (loginData) => ({
         url: "/auth/login",
         method: "POST",
-        data: signUpData,
+        data: loginData,
       }),
       invalidatesTags: ["auth"],
     }),

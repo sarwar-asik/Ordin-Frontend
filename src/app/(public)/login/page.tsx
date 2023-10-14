@@ -7,7 +7,7 @@ import Image from "next/image";
 import loginImg from "@/assets/login.png";
 import { useRouter } from "next/navigation";
 import { useUserLoginMutation } from "@/redux/api/authApi";
-
+import { storeUserInfo } from "@/utils/local.storeage";
 
 const onFinishFailed = (errorInfo: any) => {
   console.log("Failed:", errorInfo);
@@ -23,12 +23,14 @@ const LoginPage = () => {
   const [userLogin] = useUserLoginMutation();
 
   const onFinish = async (values: any) => {
-
-    const file = values.img.file.originFileObj;
-
+    const response = await userLogin({ ...values }).unwrap()
+    console.log(response,"login response");
+    storeUserInfo({ accessToken: response?.accessToken });
+    if (response?.accessToken) {
+      message.success("Login SuccessFully")
+    }
 
     try {
-   
     } catch (error) {
       console.error("Error in onFinish:", error);
     }

@@ -12,7 +12,7 @@ const menuItems: { key: string; label: string; href: string }[] = [
   { key: "2", label: "Services", href: "/services" },
   { key: "3", label: "About", href: "/about-us" },
   { key: "4", label: "signUp", href: "/sign-up" },
-  { key: "4", label: "Login", href: "/login" },
+  { key: "5", label: "Login", href: "/login" },
 ];
 
 const Navbar = () => {
