@@ -7,6 +7,9 @@ import Image from "next/image";
 import loginImg from "@/assets/login.png";
 
 import uploadImgCloudinary from "@/hooks/cloudinary";
+import { useRouter } from "next/navigation";
+import { useUserSignUpMutation } from "@/redux/api/authApi";
+import { storeUserInfo } from "@/utils/local.storeage";
 // import "./sign.css"
 
 const onFinishFailed = (errorInfo: any) => {
@@ -23,23 +26,33 @@ type FieldType = {
 };
 
 const SignUpPage = () => {
+const router  = useRouter()
+const  [userSignUp] = useUserSignUpMutation()
+
   const onFinish = async (values: any) => {
-    console.log(values);
+    // console.log(values);
     const file = values.img.file.originFileObj;
 
     try {
       const data = await uploadImgCloudinary(file);
-      console.log(data, "imagebb data...");
+      // console.log(data, "imagebb data...");
       values.img = data;
-      console.log("newValue", values);
-      
+      // console.log("newValue", values);
+      const res =await userSignUp({...values}).unwrap()
+      console.log(res,"signup response");
+      storeUserInfo({accessToken:res?.accessToken})
+      if(res?.accessToken){
+        message.success("successfully Sign UP")
+      }
+
+
     } catch (error) {
       console.error("Error in onFinish:", error);
     }
   };
 
   return (
-    <div className="lg:flex items-center justify-between bg-slate-300 p-2 ">
+    <div className="lg:flex items-center justify-between shadow-xl p-2 ">
       <section className="lg:w-[45%]  ">
         <Image
           className="w-full h-screen  rounded-md"
@@ -51,8 +64,10 @@ const SignUpPage = () => {
       </section>
       <Form
         name="basic"
-        //   labelCol={{ span: 8 }}
-        wrapperCol={{ span: 16 }}
+        labelCol={{ span: 4 }}
+        wrapperCol={{ span: 20 }}
+        labelAlign="left"
+        labelWrap={true}
         className="w-full lg:w-[55%] my-1 mx-auto h-screen   pl-5"
         //   style={{ maxWidth: 600 }}
         initialValues={{ remember: true }}
@@ -60,21 +75,18 @@ const SignUpPage = () => {
         onFinishFailed={onFinishFailed}
         // autoComplete="off"
       >
-        <h2 className="text-[4rem] font-extrabold mb-3  fon-serif">Login </h2>
+        <h2 className="text-[4rem] font-extrabold mb-3  fon-serif">Sign Up</h2>
         <Form.Item<FieldType>
-          label="Name"
+          label={<span className="text-[1.2em] font-medium">Name</span>}
           name="name"
           // className="w-full py-1 input"
           className="w-full py-1 input"
           rules={[{ required: true, message: "Please input your username!" }]}
         >
-          {/* <label className="text-[1.2em] font-[400]">
-            Your Name
-          </label> */}
           <Input placeholder="Your Name" />
         </Form.Item>
         <Form.Item<FieldType>
-          label="Email"
+          label={<span className="text-[1.2em] font-medium">Email</span>}
           labelAlign="left"
           name="email"
           className="w-full py-1 input"
@@ -86,56 +98,43 @@ const SignUpPage = () => {
           <Input type="email" placeholder="example@gmail.com" />
         </Form.Item>
         <Form.Item<FieldType>
-          label="Contact Number"
+          label={<span className="text-[1.2em] font-medium">Contact</span>}
           name="contact"
           className="w-full py-1 input"
           rules={[
             { required: true, message: "Please input your Contact Num!" },
           ]}
         >
-          {/* <label className="text-[1.2em] font-[400]">
-            Contact Number
-          </label> */}
           <Input type="number" />
         </Form.Item>
 
-        {/* //! image upload */}
-
         <Form.Item<FieldType>
-          label="Select a Image"
+          label={
+            <span className="text-[1.2em] font-medium">Select a Image</span>
+          }
           name="img"
-          // className="w-full py-1 input"
           rules={[{ required: true, message: "Please Select the Image" }]}
         >
-          {/* <Uploader /> */}
           <Upload
             listType="picture-card"
             className="avatar-uploader"
             showUploadList={false}
-            // action="https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188"
-            // action="/api/file"
-            // action={url}
+            action="/api/file"
           >
             <Button>Upload</Button>
           </Upload>
         </Form.Item>
 
         <Form.Item<FieldType>
-          label="Password"
+          label={<span className="text-[1.2em] font-medium">Password</span>}
           name="password"
           className="w-full py-1 input"
           rules={[{ required: true, message: "Please input your password!" }]}
         >
-          {/* <label className="text-[1.2em] font-[400]">
-            Password
-          </label> */}
           <Input.Password />
         </Form.Item>
 
-        <Form.Item<FieldType>
-          // name="accept"
-          valuePropName="checked"
-        >
+        <Form.Item<FieldType> valuePropName="checked">
           <Checkbox>
             Agree to our <a href="">term and policy?</a>
           </Checkbox>
