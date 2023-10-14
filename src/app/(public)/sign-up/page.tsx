@@ -23,21 +23,19 @@ type FieldType = {
 };
 
 const SignUpPage = () => {
-
-  const onFinish = async(values: any) => {
+  const onFinish = async (values: any) => {
     console.log(values);
     const file = values.img.file.originFileObj;
 
     try {
-      const data = await uploadImgCloudinary(file)
+      const data = await uploadImgCloudinary(file);
       console.log(data, "imagebb data...");
       values.img = data;
-      console.log("newValue",values);
+      console.log("newValue", values);
+      
     } catch (error) {
       console.error("Error in onFinish:", error);
-  
     }
- 
   };
 
   return (
