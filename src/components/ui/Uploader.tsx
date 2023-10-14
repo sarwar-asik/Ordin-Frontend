@@ -38,6 +38,7 @@ const Uploader = ({name}:{name?:string}) => {
       getBase64(info.file.originFileObj as RcFile, (url) => {
         setLoading(false);
         setImageUrl(url);
+        return url
       });
     }
   };
@@ -50,7 +51,7 @@ const Uploader = ({name}:{name?:string}) => {
   );
 
   return (
-  
+
       <Upload
         // name={name?name:"img"}
         listType="picture-card"
@@ -65,7 +66,7 @@ const Uploader = ({name}:{name?:string}) => {
         {imageUrl ? <Image width={100} height={100} src={imageUrl} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
       </Upload>
       
-    
+
   );
 };
 
