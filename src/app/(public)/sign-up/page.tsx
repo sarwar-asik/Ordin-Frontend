@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Button, Checkbox, Form, Input, Typography, Upload, message } from "antd";
 import Uploader from "@/components/ui/Uploader";
 import Image from "next/image";
-import loginImg from "@/assets/login.png";
+import loginImg from "@/assets/signUpSider.png";
 
 import uploadImgCloudinary from "@/hooks/cloudinary";
 import { useRouter } from "next/navigation";

@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Button, Checkbox, Form, Input, Typography, Upload, message } from "antd";
 import Uploader from "@/components/ui/Uploader";
 import Image from "next/image";
-import loginImg from "@/assets/login.png";
+import loginImg from "@/assets/loginSider.png";
 import { useRouter } from "next/navigation";
 import { useUserLoginMutation } from "@/redux/api/authApi";
 import { storeUserInfo } from "@/utils/local.storeage";
@@ -38,7 +38,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="lg:flex items-center justify-between bg-slate-300 p-2 ">
+    <div className="lg:flex items-center justify-between  p-2 ">
       <section className="lg:w-[45%]  ">
         <Image
           className="w-full h-screen  rounded-md"
@@ -54,7 +54,7 @@ const LoginPage = () => {
         wrapperCol={{ span: 20 }}
         labelAlign="left"
         labelWrap={true}
-        className="w-full lg:w-[55%] my-1 mx-auto h-screen   pl-5"
+        className="w-full lg:w-[55%] my-1 mx-auto h-screen shadow-lg  pl-5"
         //   style={{ maxWidth: 600 }}
         initialValues={{ remember: true }}
         onFinish={onFinish}
@@ -90,7 +90,7 @@ const LoginPage = () => {
           </Typography>
         </Form.Item>
 
-        <Form.Item>
+        <Form.Item wrapperCol={{ offset: 10, span: 8 }}>
           <Button block type="primary" htmlType="submit">
             Submit
           </Button>
