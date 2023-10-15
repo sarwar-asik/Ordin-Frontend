@@ -29,28 +29,34 @@ export const ServiceApi = baseApi.injectEndpoints({
     }),
 
     SingleService: build.query({
-        query: (id) => ({
-          url: `/service/${id}`,
-          method: "GET",
-        }),
-        providesTags: ["service"],
+      query: (id) => ({
+        url: `/service/${id}`,
+        method: "GET",
       }),
-      updateService: build.mutation({
-        query: (data) => ({
-          url: `/service/${data?.id}`,
-          method: "PATCH",
-          data: data?.body,
-        }),
-        invalidatesTags: ["service"],
+      providesTags: ["service"],
+    }),
+    updateService: build.mutation({
+      query: (data) => ({
+        url: `/service/${data?.id}`,
+        method: "PATCH",
+        data: data?.body,
       }),
-      deleteService: build.mutation({
-        query: (id) => ({
-          url: `/service/${id}`,
-          method: "DELETE"
-        }),
-        invalidatesTags: ["service"],
+      invalidatesTags: ["service"],
+    }),
+    deleteService: build.mutation({
+      query: (id) => ({
+        url: `/service/${id}`,
+        method: "DELETE",
       }),
+      invalidatesTags: ["service"],
+    }),
   }),
 });
 
-export const { useCreateServiceMutation, useServicesQuery ,useSingleServiceQuery,useUpdateServiceMutation,useDeleteServiceMutation} = ServiceApi;
+export const {
+  useCreateServiceMutation,
+  useServicesQuery,
+  useSingleServiceQuery,
+  useUpdateServiceMutation,
+  useDeleteServiceMutation,
+} = ServiceApi;

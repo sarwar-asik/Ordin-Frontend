@@ -1,13 +1,17 @@
 import Header from "@/components/ui/Header";
-import Navbar from "@/components/ui/Navbar";
+import Navbar from "@/components/Navbar/Navbar";
+import React from "react";
+import ServicePage from "./(public)/services/page";
 
-
-export default function Home() {
+const HomePage = () => {
   return (
     <div className="min-h-screen">
       <Header></Header>
-      <Navbar/>
+      <Navbar />
+      <ServicePage />
       <h2>main routes</h2>
     </div>
   );
-}
+};
+
+export default HomePage;

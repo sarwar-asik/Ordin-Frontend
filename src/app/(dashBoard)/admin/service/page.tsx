@@ -3,6 +3,7 @@ import {
   DeleteOutlined,
   EditOutlined,
   EyeOutlined,
+  PlusCircleFilled,
   ReloadOutlined,
 } from "@ant-design/icons";
 import { Button, Input, message } from "antd";
@@ -65,7 +66,7 @@ const MainServicePage = () => {
     { title: "Address", dataIndex: "address" },
     { title: "status", dataIndex: "status" },
     { title: "Service Time", dataIndex: "serviceTime" },
-    { title: "Service Data", dataIndex: "serviceData" },
+    { title: "Service Date", dataIndex: "serviceDate" },
     {
       title: "CreatedAt",
       dataIndex: "createdAt",
@@ -146,7 +147,8 @@ const MainServicePage = () => {
         />
         <div>
           <Link href="/admin/service/create">
-            <Button type="primary">Create</Button>
+            <Button type="primary">Create <PlusCircleFilled/></Button>
+            
           </Link>
           {(!!sortBy || !!sortOrder || !!searchTerm) && (
             <Button

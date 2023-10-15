@@ -16,7 +16,7 @@ const Profile = () => {
     
     return (
         <div>
-            <h1>Profile</h1>
+            <h1>{user?.role} Profile of {user?.email}</h1>
         </div>
     );
 };
