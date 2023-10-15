@@ -11,7 +11,7 @@ import { useState } from "react";
 import ActionBarUI from "@/components/ui/ActionBarUI";
 import dayjs from "dayjs";
 import { useDebounced } from "@/redux/hooks";
-import { useServicesQuery } from "@/redux/api/serviceApi";
+import { useDeleteServiceMutation, useServicesQuery } from "@/redux/api/serviceApi";
 import BreadCumbUI from "@/components/ui/BreadCumbUI";
 import TableUI from "@/components/ui/TableUI";
 
@@ -23,7 +23,7 @@ const MainServicePage = () => {
   const [sortBy, setSortBy] = useState<string>("");
   const [sortOrder, setSortOrder] = useState<string>("");
   const [searchTerm, setSearchTerm] = useState<string>("");
-  //   const [deleteservice] = useDeleteserviceMutation();
+    const [deleteService] = useDeleteServiceMutation()
 
   query["limit"] = size;
   query["page"] = page;
@@ -47,8 +47,8 @@ const MainServicePage = () => {
   const deleteHandler = async (id: string) => {
     message.loading("Deleting.....");
     try {
-      //   console.log(data);
-      //   await deleteservice(id);
+     
+      deleteService(id)
       message.success("service Deleted successfully");
     } catch (err: any) {
       //   console.error(err.message);
