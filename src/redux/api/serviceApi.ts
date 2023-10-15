@@ -12,22 +12,22 @@ export const ServiceApi = baseApi.injectEndpoints({
       invalidatesTags: ["service"],
     }),
     services: build.query({
-        query: (arg: Record<string, any>) => {
-          return {
-            url: "/service",
-            method: "GET",
-            params: arg,
-          };
-        },
-        transformResponse: (response: any[], meta: IMeta) => {
-          return {
-            category: response,
-            meta,
-          };
-        },
-        providesTags: ["service"],
-      }),
+      query: (arg: Record<string, any>) => {
+        return {
+          url: "/service",
+          method: "GET",
+          params: arg,
+        };
+      },
+      transformResponse: (response: any[], meta: IMeta) => {
+        return {
+          services: response,
+          meta,
+        };
+      },
+      providesTags: ["service"],
+    }),
   }),
 });
 
-export const { useCreateServiceMutation,useServicesQuery } = ServiceApi;
+export const { useCreateServiceMutation, useServicesQuery } = ServiceApi;

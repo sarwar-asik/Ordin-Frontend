@@ -73,8 +73,9 @@ const CreateServicePage = () => {
       console.log("newValue", values);
         const res = await createService({ ...values }).unwrap();
         console.log(res, "service response");
-        if (res?.accessToken) {
+        if (res) {
           message.success("successfully created Service");
+          router.push('/admin/service')
         }
     } catch (error) {
       console.error("Error in onFinish the service create", error);

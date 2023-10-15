@@ -89,6 +89,11 @@ export const sidebarItems = (role: string) => {
       key: `/${role}/service`,
     },
     {
+      label: <Link href={`/${role}/category`}>Category</Link>,
+      icon: <FileTextOutlined />,
+      key: `/${role}/category`,
+    },
+    {
       label: <Link href={`/${role}/users`}>users</Link>,
       icon: <FileTextOutlined />,
       key: `/${role}/users`,
