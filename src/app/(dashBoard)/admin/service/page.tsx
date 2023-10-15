@@ -15,7 +15,6 @@ import { useServicesQuery } from "@/redux/api/serviceApi";
 import BreadCumbUI from "@/components/ui/BreadCumbUI";
 import TableUI from "@/components/ui/TableUI";
 
-
 const MainServicePage = () => {
   const query: Record<string, any> = {};
 
@@ -24,7 +23,7 @@ const MainServicePage = () => {
   const [sortBy, setSortBy] = useState<string>("");
   const [sortOrder, setSortOrder] = useState<string>("");
   const [searchTerm, setSearchTerm] = useState<string>("");
-//   const [deleteDepartment] = useDeleteDepartmentMutation();
+  //   const [deleteservice] = useDeleteserviceMutation();
 
   query["limit"] = size;
   query["page"] = page;
@@ -49,8 +48,8 @@ const MainServicePage = () => {
     message.loading("Deleting.....");
     try {
       //   console.log(data);
-    //   await deleteDepartment(id);
-      message.success("Department Deleted successfully");
+      //   await deleteservice(id);
+      message.success("service Deleted successfully");
     } catch (err: any) {
       //   console.error(err.message);
       message.error(err.message);
@@ -62,11 +61,11 @@ const MainServicePage = () => {
       title: "Title",
       dataIndex: "title",
     },
-    {title: "Price",dataIndex: "price"},
-    {title: "Address",dataIndex: "address"},
-    {title: "status",dataIndex: "status"},
-    {title: "Service Time",dataIndex: "serviceTime"},
-    {title: "Service Data",dataIndex: "serviceData"},
+    { title: "Price", dataIndex: "price" },
+    { title: "Address", dataIndex: "address" },
+    { title: "status", dataIndex: "status" },
+    { title: "Service Time", dataIndex: "serviceTime" },
+    { title: "Service Data", dataIndex: "serviceData" },
     {
       title: "CreatedAt",
       dataIndex: "createdAt",
@@ -133,7 +132,7 @@ const MainServicePage = () => {
         ]}
       />
 
-      <ActionBarUI title="Department List">
+      <ActionBarUI title="service List">
         <Input
           type="text"
           size="large"
@@ -146,7 +145,7 @@ const MainServicePage = () => {
           }}
         />
         <div>
-          <Link href="/admin/department/create">
+          <Link href="/admin/service/create">
             <Button type="primary">Create</Button>
           </Link>
           {(!!sortBy || !!sortOrder || !!searchTerm) && (
