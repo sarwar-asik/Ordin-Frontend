@@ -15,7 +15,7 @@ import Link from "next/link";
 import SideBar from "./SideDrawer";
 import { getUserInfo, removeUserInfo } from "@/utils/local.storeage";
 import { Avatar, Space } from "antd";
-import { UserOutlined } from "@ant-design/icons";
+import { ShoppingCartOutlined, UserOutlined } from "@ant-design/icons";
 import { authKey } from "@/constant/storageKey";
 
 const { Header } = Layout;
@@ -85,11 +85,15 @@ const Navbar = () => {
         </Menu>
 
         {user?.role ? (
+         <section style={{display:"flex",alignItems:"center",gap:"1.3em"}}>
+         <Link className="text-2xl" href="/user/cart">
+         <ShoppingCartOutlined  /></Link>
           <Dropdown menu={{ items }} placement="bottomLeft" arrow>
             <Space wrap size={16}>
               <Avatar size="large" icon={<UserOutlined />} />
             </Space>
           </Dropdown>
+         </section>
         ) : (
           <section>
             <Link href="/login">Login</Link>

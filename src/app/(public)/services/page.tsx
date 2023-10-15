@@ -1,5 +1,6 @@
 "use client";
 
+import { useCreateCartMutation } from "@/redux/api/cartApi";
 import { useServicesQuery } from "@/redux/api/serviceApi";
 import { getUserInfo } from "@/utils/local.storeage";
 import { Button, Card, Col,  Row, message } from "antd";
@@ -8,24 +9,31 @@ import React from "react";
 
 const ServicePage = () => {
     const isUser = getUserInfo() as any
+    const [createCart] = useCreateCartMutation()
   const { data, isLoading } = useServicesQuery({ page: 1, limit: 20 });
   console.log(data);
 
   const addToCart =(cartData:any)=>{
+    const cartCreateData ={
+        userId:isUser?.id,
+        serviceId:cartData?.id
+    }
+    createCart({...cartCreateData})
     message.success("Success")
-    console.log(cartData);
+    // console.log(cartData);
 
   }
   return (
     <div>
       <h1>Service Page</h1>
 
-      <Row gutter={16}>
+      <Row align="middle" gutter={16}>
         {data?.services?.map((product: any, i: number) => {
           const { img, title, price, contact, address, serviceTime } = product;
           return (
-            <Col key={i} xs={24} sm={12} md={8} lg={6}>
+            <Col  key={i} xs={24} sm={12} md={8} lg={6}>
               <Card
+              
                 hoverable
                 style={{ width: 300, margin: "16px" }}
                 cover={<img src={img} 

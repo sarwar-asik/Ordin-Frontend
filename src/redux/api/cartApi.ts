@@ -12,11 +12,11 @@ export const cartApi = baseApi.injectEndpoints({
       invalidatesTags: ["cart"],
     }),
     carts: build.query({
-      query: (arg: Record<string, any>) => {
+      query: () => {
         return {
           url: "/cart",
           method: "GET",
-          params: arg,
+         
         };
       },
       transformResponse: (response: any[], meta: IMeta) => {
