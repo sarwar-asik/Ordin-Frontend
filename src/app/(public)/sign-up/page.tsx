@@ -1,17 +1,24 @@
 "use client";
 
-import React, { useState } from "react";
-import { Button, Checkbox, Form, Input, Typography, Upload, message } from "antd";
-import Uploader from "@/components/ui/Uploader";
+import React from "react";
+import {
+  Button,
+  Checkbox,
+  Form,
+  Input,
+  Typography,
+  Upload,
+  message,
+} from "antd";
+
 import Image from "next/image";
 import loginImg from "@/assets/signUpSider.png";
 
 import uploadImgCloudinary from "@/hooks/cloudinary";
 import { useRouter } from "next/navigation";
 import { useUserSignUpMutation } from "@/redux/api/authApi";
-import { storeUserInfo } from "@/utils/local.storeage";
+
 import Link from "next/link";
-// import "./sign.css"
 
 const onFinishFailed = (errorInfo: any) => {
   console.log("Failed:", errorInfo);
@@ -27,8 +34,8 @@ type FieldType = {
 };
 
 const SignUpPage = () => {
-const router  = useRouter()
-const  [userSignUp] = useUserSignUpMutation()
+  const router = useRouter();
+  const [userSignUp] = useUserSignUpMutation();
 
   const onFinish = async (values: any) => {
     // console.log(values);
@@ -39,14 +46,12 @@ const  [userSignUp] = useUserSignUpMutation()
       // console.log(data, "imagebb data...");
       values.img = data;
       // console.log("newValue", values);
-      const res =await userSignUp({...values}).unwrap()
-      console.log(res,"signup response");
-      storeUserInfo({accessToken:res?.accessToken})
-      if(res?.accessToken){
-        message.success("successfully Sign UP")
+      const res = await userSignUp({ ...values }).unwrap();
+      console.log(res, "signup response");
+
+      if (res?.accessToken) {
+        message.success("successfully Sign UP");
       }
-
-
     } catch (error) {
       console.error("Error in onFinish:", error);
     }
@@ -141,13 +146,13 @@ const  [userSignUp] = useUserSignUpMutation()
           </Checkbox>
         </Form.Item>
 
-        <Form.Item >
-          <Typography style={{fontFamily:"monospace"}}>
-            Already registered ?  <Link href="/login">Login please...</Link>
+        <Form.Item>
+          <Typography style={{ fontFamily: "monospace" }}>
+            Already registered ? <Link href="/login">Login please...</Link>
           </Typography>
         </Form.Item>
 
-        <Form.Item  wrapperCol={{ offset: 8, span: 8 }}>
+        <Form.Item wrapperCol={{ offset: 8, span: 8 }}>
           <Button block type="primary" htmlType="submit">
             Submit
           </Button>

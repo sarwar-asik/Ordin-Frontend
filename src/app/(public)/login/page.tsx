@@ -1,7 +1,15 @@
 "use client";
 
 import React, { useState } from "react";
-import { Button, Checkbox, Form, Input, Typography, Upload, message } from "antd";
+import {
+  Button,
+  Checkbox,
+  Form,
+  Input,
+  Typography,
+  Upload,
+  message,
+} from "antd";
 import Uploader from "@/components/ui/Uploader";
 import Image from "next/image";
 import loginImg from "@/assets/loginSider.png";
@@ -24,14 +32,14 @@ const LoginPage = () => {
   const [userLogin] = useUserLoginMutation();
 
   const onFinish = async (values: any) => {
-    const response = await userLogin({ ...values }).unwrap()
-    console.log(response,"login response");
-    storeUserInfo({ accessToken: response?.accessToken });
-    if (response?.accessToken) {
-      message.success("Login SuccessFully")
-    }
-
     try {
+      const response = await userLogin({ ...values }).unwrap();
+      console.log(response, "login response");
+      storeUserInfo({ accessToken: response?.accessToken });
+      if (response?.accessToken) {
+        message.success("Login SuccessFully");
+        router.push("/profile");
+      }
     } catch (error) {
       console.error("Error in onFinish:", error);
     }
@@ -84,9 +92,9 @@ const LoginPage = () => {
         >
           <Input.Password />
         </Form.Item>
-        <Form.Item >
-          <Typography style={{fontFamily:"monospace"}}>
-             Did not registered ?  <Link href="/sign-up">Sign UP please...</Link>
+        <Form.Item>
+          <Typography style={{ fontFamily: "monospace" }}>
+            Did not registered ? <Link href="/sign-up">Sign UP please...</Link>
           </Typography>
         </Form.Item>
 

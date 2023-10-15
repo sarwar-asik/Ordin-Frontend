@@ -22,6 +22,7 @@ const {role} = getUserInfo() as any
       collapsed={collapsed}
       onCollapse={(value) => setCollapsed(value)}
       width={250}
+      
       style={{
         overflow: "auto",
         height: "100vh",
@@ -29,20 +30,21 @@ const {role} = getUserInfo() as any
         left: 0,
         top: 0,
         bottom: 0,
+        // background:"",
       }}
     >
       <div
         //  className="demo-logo-vertical"
         style={{
           color: "white",
-          fontSize: "1.5em",
+          fontSize: "1.2em",
           textAlign: "center",
           fontFamily: "serif",
           marginBottom: "1rem",
           marginTop: "10px",
         }}
       >
-      Ordain
+      DashBoard
       </div>
 
       <Menu

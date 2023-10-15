@@ -32,7 +32,7 @@ const SideBar = ({ items }: { items?: any }) => {
       </Space>
       <Drawer
         // title="Drawer with extra actions"
-        placement={placement}
+        placement={"right"}
         width={400}
         onClose={onClose}
         open={open}

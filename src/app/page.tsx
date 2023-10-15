@@ -5,7 +5,7 @@ import Navbar from "@/components/ui/Navbar";
 export default function Home() {
   return (
     <div className="min-h-screen">
-      {/* <Header></Header> */}
+      <Header></Header>
       <Navbar/>
       <h2>main routes</h2>
     </div>

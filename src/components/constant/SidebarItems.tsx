@@ -6,19 +6,47 @@ import {
   ThunderboltOutlined,
   CreditCardOutlined,
   FileTextOutlined,
+  HomeOutlined,
 } from "@ant-design/icons";
 import Link from "next/link";
 import { USER_ROLE } from "@/constant/userRole";
 
 export const sidebarItems = (role: string) => {
+
+  console.log(role,"role from sidebarItem");
+
+
+  const publicSidebarItems: MenuProps["items"] = [
+    {
+      label: <Link href={`/`}> Home</Link>,
+      key: `/Home`,
+    },
+    {
+      label: <Link href={`/service`}> Service</Link>,
+      key: `/service`,
+    },
+    {
+      label: <Link href={`/sign-up`}> sign Up</Link>,
+      key: `/sign-up`,
+    },
+    {
+      label: <Link href={`/login`}> Login</Link>,
+      key: `/login`,
+    },
+  ];
   const defaultSidebarItems: MenuProps["items"] = [
+    {
+      label: <Link href={`/`}> Home</Link>,
+      key: `/Home`,
+      icon:<HomeOutlined/>
+    },
     {
       label: "Profile",
       key: "profile",
       icon: <ProfileOutlined />,
       children: [
         {
-          label: <Link href={`/${role}/profile`}> Profile</Link>,
+          label: <Link href={`/profile`}> Profile</Link>,
           key: `/${role}/profile`,
         },
         {
@@ -115,6 +143,6 @@ export const sidebarItems = (role: string) => {
   else if (role === USER_ROLE.admin) return adminSidebarItems;
   else if (role === USER_ROLE.superAdmin) return superAdminSidebarItems;
   else {
-    return defaultSidebarItems;
+    return publicSidebarItems;
   }
 };
