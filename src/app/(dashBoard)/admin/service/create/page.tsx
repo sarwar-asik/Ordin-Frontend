@@ -1,30 +1,49 @@
 "use client";
 
 import React from "react";
-import { Button, Form, Input, Select, Upload, message } from "antd";
+import {
+  Button,
+  DatePicker,
+  Form,
+  Input,
+  Select,
+  TimePicker,
+  Upload,
+  message,
+} from "antd";
+
 
 import uploadImgCloudinary from "@/hooks/cloudinary";
 import { useRouter } from "next/navigation";
 
 import Link from "next/link";
 import { useCategoriesQuery } from "@/redux/api/categoryApi";
-import FormSelectField from "@/components/ui/Form/SelectForm";
+import { getUserInfo } from "@/utils/local.storeage";
+import { useCreateServiceMutation } from "@/redux/api/serviceApi";
 
 const onFinishFailed = (errorInfo: any) => {
   console.log("Failed:", errorInfo);
 };
 
 type FieldType = {
-  name: string;
-  password: string;
-  email: string;
-  category: string;
+  title: string;
+  details: string;
+  price: string;
+  address: string;
+  contact?: string;
   img: string;
-  accept?: string;
+  serviceTime: string;
+  serviceDate: string;
+  status: "upcoming" | "available" | "sold";
+  categoryId: string;
+  publisherId: string;
 };
 
 const CreateServicePage = () => {
   const router = useRouter();
+  const [createService] = useCreateServiceMutation()
+  const adminData = getUserInfo() as any
+  console.log(adminData,"admin Data");
   //   const [userSignUp] = useUserSignUpMutation();
   const { data, isLoading } = useCategoriesQuery({ page: 1, limit: 20 });
 
@@ -34,31 +53,31 @@ const CreateServicePage = () => {
   const CategoryOptions = CategoryData?.map((item) => {
     return {
       label: item?.title,
-      value: item?.title,
+      value: item?.id,
     };
   });
 
-  console.log(CategoryOptions, "category Data");
+
 
   const onFinish = async (values: any) => {
-    console.log(values);
+
     const file = values.img.file.originFileObj;
 
+    values['publisherId'] = adminData?.id
+
     try {
-      //   const data = await uploadImgCloudinary(file);
-      // console.log(data, "imagebb data...");
-      //   values.img = data;
-
-      console.log(values);
-      // console.log("newValue", values);
-      //   const res = await userSignUp({ ...values }).unwrap();
-      //   console.log(res, "signup response");
-
-      //   if (res?.accessToken) {
-      //     message.success("successfully Sign UP");
-      //   }
+        const data = await uploadImgCloudinary(file);
+  
+        values.img = data;
+        console.log(values);
+      console.log("newValue", values);
+        const res = await createService({ ...values }).unwrap();
+        console.log(res, "service response");
+        if (res?.accessToken) {
+          message.success("successfully created Service");
+        }
     } catch (error) {
-      console.error("Error in onFinish:", error);
+      console.error("Error in onFinish the service create", error);
     }
   };
 
@@ -74,67 +93,119 @@ const CreateServicePage = () => {
         labelAlign="left"
         labelWrap={true}
         className="w-full lg:w-[55%] my-1 mx-auto h-screen   pl-5"
-        //   style={{ maxWidth: 600 }}
+
         initialValues={{ remember: true }}
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
-        // autoComplete="off"
+  
       >
         <h2 className="text-[2rem] font-extrabold mb-3  fon-serif">
           Create Service
         </h2>
         <Form.Item<FieldType>
-          label={<span className="text-[1.2em] font-medium">Name</span>}
-          name="name"
-          // className="w-full py-1 input"
+          label={<span className="text-[1.2em] font-medium">Title</span>}
+          name="title"
+
           className="w-full py-1 input"
-          rules={[{ required: true, message: "Please input your username!" }]}
+          rules={[{ required: true, message: "Please input your Title!" }]}
         >
           <Input placeholder="Your Name" />
         </Form.Item>
         <Form.Item<FieldType>
-          label={<span className="text-[1.2em] font-medium">Email</span>}
-          labelAlign="left"
-          name="email"
+          label={<span className="text-[1.2em] font-medium">Address</span>}
+          name="address"
+          // className="w-full py-1 input"
           className="w-full py-1 input"
-          rules={[{ required: true, message: "Please input your email!" }]}
+          rules={[{ required: true, message: "Please input your Address!" }]}
         >
-          {/* <label  className="text-[1.2em] font-[400]">
-            Email
-          </label> */}
-          <Input type="email" placeholder="example@gmail.com" />
+          <Input placeholder="Your Name" />
         </Form.Item>
-        
-          {/* <FormSelectField label="category"  options={CategoryOptions } /> */}
+        <Form.Item<FieldType>
+          label={<span className="text-[1.2em] font-medium">Details</span>}
+          labelAlign="left"
+          name="details"
+          className="w-full py-1 input"
+          rules={[{ required: true, message: "Please input your Details!" }]}
+        >
+          <Input.TextArea placeholder="Details of the services" />
+        </Form.Item>
+
+        <Form.Item<FieldType>
+          label={<span className="text-[1.2em] font-medium">Contact</span>}
+          name="contact"
+          // className="w-full py-1 input"
+          className="w-full py-1 input"
+          rules={[{ required: true, message: "Please input your Contact!" }]}
+        >
+          <Input placeholder="Your Contact" type="number" />
+        </Form.Item>
+
+        <Form.Item<FieldType>
+          label={<span className="text-[1.2em] font-medium">Price</span>}
+          name="price"
+    
+          className="w-full py-1 input"
+          rules={[{ required: true, message: "Please input your P" }]}
+        >
+          <Input placeholder="product Price" type="number" />
+        </Form.Item>
+
+
 
         <Form.Item
           label={<span className="text-[1.2em] font-medium">Category</span>}
-          name="category" // Make sure the name matches the key you want to access.
+          name="categoryId" // Make sure the name matches the key you want to access.
           className="w-full py-1 input"
           rules={[{ required: true, message: "Please input your Category" }]}
         >
-          <Select
-            defaultValue="lucy"
-            options={[
-              { value: "jack", label: "Jack" },
-              { value: "lucy", label: "Lucy" },
-              { value: "Yiminghe", label: "yiminghe" },
-              { value: "disabled", label: "Disabled", disabled: true },
-            ]}
-          />
+          <Select 
+   
+           options={CategoryOptions as any} />
         </Form.Item>
 
-        {/* <Form.Item<FieldType>
-          label={<span className="text-[1.2em] font-medium">Contact</span>}
-          name="contact"
+        <Form.Item
+          label={<span className="text-[1.2em] font-medium">Status</span>}
+          name="status" // Make sure the name matches the key you want to access.
           className="w-full py-1 input"
-          rules={[
-            { required: true, message: "Please input your Contact Num!" },
-          ]}
+          rules={[{ required: true, message: "Please input your Category" }]}
         >
-          <Input type="number" />
-        </Form.Item> */}
+          <Select 
+        //   defaultValue="lucy"
+           options={[
+            {
+                label:"Upcoming",
+                value:"upcoming"
+            },
+            {
+                label:"available",
+                value:"available"
+            },
+           ]} />
+        </Form.Item>
 
+        
+
+        <Form.Item<FieldType>
+          label={<span className="text-[1.2em] font-medium">Select Time</span>}
+          name="serviceTime"
+          // className="w-full py-1 input"
+          className="w-full py-1 input"
+          rules={[{ required: true, message: "Please input your Time!" }]}
+        >
+          {/* <TimePicker format={"HH:mm"} /> */}
+          <Input type="Time"/>
+        </Form.Item>
+        <Form.Item<FieldType>
+          label={<span className="text-[1.2em] font-medium">Select Date</span>}
+          name="serviceDate"
+          // className="w-full py-1 input"
+          className="w-full py-1 input"
+          rules={[{ required: true, message: "Please input your  Date !" }]}
+        >
+          <Input  type="Date"/>
+        </Form.Item>
+
+        {/* //! Upload.... */}
         <Form.Item<FieldType>
           label={
             <span className="text-[1.2em] font-medium">Select a Image</span>

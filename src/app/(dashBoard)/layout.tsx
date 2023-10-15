@@ -25,7 +25,9 @@ const DashBoardLayout = ({ children }: { children: React.ReactNode }) => {
   return (
    <>
    <DashNavBar/>
-    <Layout hasSider style={{ minHeight: "100vh",background:"" }}>
+    <Layout hasSider
+    //  style={{ minHeight: "100vh",background:"" }}
+     >
     
 
     <SideBarDashBoard />
@@ -33,7 +35,9 @@ const DashBoardLayout = ({ children }: { children: React.ReactNode }) => {
 
     <Layout>
       {/* <Header /> */}
-      <Content style={{ margin: "0 16px" }}>{children}</Content>
+      <Content 
+      // style={{ margin: "0 16px" }}
+      >{children}</Content>
     </Layout>
   </Layout>
    </>

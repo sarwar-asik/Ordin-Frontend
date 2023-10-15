@@ -27,6 +27,7 @@ const {role} = getUserInfo() as any
         overflow: "auto",
         height: "100vh",
         position: "sticky",
+        zIndex:40,
         left: 0,
         top: 0,
         bottom: 0,
