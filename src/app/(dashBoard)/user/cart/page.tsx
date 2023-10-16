@@ -3,6 +3,7 @@
 import { useCartsQuery, useDeleteCartMutation } from "@/redux/api/cartApi";
 import { Button, message } from "antd";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const CartPage = () => {
@@ -10,10 +11,20 @@ const {data,isLoading} = useCartsQuery({page:1})
 const [deleteCart] = useDeleteCartMutation()
 //  console.log("🚀 ~ file: page.tsx:7 ~ CartPage ~ data:", data)
 
-const removeCartHandler =(cartData:any)=>{
+const removeCartHandler =async(cartData:any)=>{
+  try {
+ const response = await deleteCart(cartData?.id) as any
+ console.log(response);
+ if(response?.data){
   message.error("deleted cart")
+ }else{
+ message.error("failed to delete")
+ }
   // console.log(cartData,"cartData");
-  deleteCart(cartData?.id)
+} catch (error) {
+  console.log("🚀 ~ file: page.tsx:17 ~ removeCartHandler ~ error:", error)
+  
+}
 
 }
  
@@ -40,7 +51,7 @@ const removeCartHandler =(cartData:any)=>{
             </section>
 
             <section className="flex flex-col gap-2">
-              <Button  type="primary">Book</Button>
+              <Link href={`/user/booking/${service?.id}`} className="bg-primary p-2 font-bold rounded text-white">Book</Link>
               <Button onClick={()=>removeCartHandler(cart)} type="primary" danger>Remove</Button>
               
             </section>
