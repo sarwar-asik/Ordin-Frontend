@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import React, { useEffect } from 'react';
 import { Layout, Row, Col, Card, Avatar, Typography, Button } from 'antd';
 import { useProfileUserQuery } from '@/redux/api/userAPi';
+import { EditOutlined } from '@ant-design/icons';
 
 
 const { Content } = Layout;
@@ -32,8 +33,8 @@ const Profile = () => {
             <Col xs={24} sm={24} md={12} lg={8}>
               <Card>
                 <Avatar src={data?.img} size={128} />
-                <Title level={4}>{data?.role}</Title>
-                <Title level={5}>{data?.name}</Title>
+                <Title level={5}>{data?.role}</Title>
+                <Title level={2}>{data?.name}</Title>
               </Card>
             </Col>
             <Col xs={24} sm={24} md={12} lg={16}>
@@ -45,7 +46,7 @@ const Profile = () => {
                 <Text strong>Contact: </Text>
                 <Text>{data?.contact}</Text>
               </Card>
-              <Button type='dashed'>Update Profile</Button>
+              <Button onClick={()=>router.push('/profile/update')} type='dashed'> <EditOutlined /> Update Profile </Button>
             </Col>
           </Row>
         </Content>
