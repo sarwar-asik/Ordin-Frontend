@@ -1,6 +1,5 @@
 import { IMeta } from "@/interface";
 import { baseApi } from "./baseApi";
-
 export const cartApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     createCart: build.mutation({
@@ -12,11 +11,11 @@ export const cartApi = baseApi.injectEndpoints({
       invalidatesTags: ["cart"],
     }),
     carts: build.query({
-      query: () => {
+      query: (arg: Record<string, any>) => {
         return {
           url: "/cart",
           method: "GET",
-         
+          query: arg,
         };
       },
       transformResponse: (response: any[], meta: IMeta) => {
@@ -54,5 +53,9 @@ export const cartApi = baseApi.injectEndpoints({
 });
 
 export const {
- useCreateCartMutation, useCartsQuery,useSingleCartQuery,useUpdateCartMutation,useDeleteCartMutation
+  useCreateCartMutation,
+  useCartsQuery,
+  useSingleCartQuery,
+  useUpdateCartMutation,
+  useDeleteCartMutation,
 } = cartApi;
