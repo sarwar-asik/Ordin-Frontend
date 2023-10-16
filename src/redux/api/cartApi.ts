@@ -38,7 +38,7 @@ export const cartApi = baseApi.injectEndpoints({
       query: (data) => ({
         url: `/cart/${data?.id}`,
         method: "PATCH",
-        data: data?.body,
+        data: data
       }),
       invalidatesTags: ["cart"],
     }),
