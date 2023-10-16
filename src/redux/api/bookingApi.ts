@@ -26,22 +26,28 @@ export const bookingApi = baseApi.injectEndpoints({
       },
       providesTags: ["booking"],
     }),
-    
-    UserBooking: build.query({
-      query: (serviceId) => ({
-        url: `/booking/${serviceId}`,
+    userAllBookings: build.query({
+      query: () => ({
+        url: `/booking/userBooking`,
         method: "GET",
       }),
+      transformResponse: (response: any[], meta: IMeta) => {
+        return {
+          bookings: response,
+          meta,
+        };
+      },
       providesTags: ["booking"],
     }),
     updateBooking: build.mutation({
       query: (data) => ({
         url: `/booking/${data?.id}`,
         method: "PATCH",
-        data: data
+        data: data,
       }),
       invalidatesTags: ["booking"],
     }),
+    
     deleteBooking: build.mutation({
       query: (id) => ({
         url: `/booking/${id}`,
@@ -55,7 +61,7 @@ export const bookingApi = baseApi.injectEndpoints({
 export const {
   useCreateBookingMutation,
   useBookingsQuery,
-  useUserBookingQuery,
+  useUserAllBookingsQuery,
   useUpdateBookingMutation,
   useDeleteBookingMutation,
 } = bookingApi;

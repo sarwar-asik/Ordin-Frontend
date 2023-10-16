@@ -43,7 +43,7 @@ const TableUI = ({
       }
     : false;
 
-    console.log(paginationConfig);
+    console.log(paginationConfig,"tt");
 
   ///! on table change
 //   const onTableChange = (pagination: any, filter: any, sorter: any) => {
