@@ -1,5 +1,6 @@
 "use client"
 
+import { useUserBookingQuery } from "@/redux/api/bookingApi";
 import { useCartsQuery, useDeleteCartMutation } from "@/redux/api/cartApi";
 import { Button, message } from "antd";
 import Image from "next/image";
@@ -8,6 +9,9 @@ import React from "react";
 
 const CartPage = () => {
 const {data,isLoading} = useCartsQuery({page:1})
+console.log("🚀 ~ file: page.tsx:12 ~ CartPage ~ data:", data)
+
+// const {data :BookData} = useUserBookingQuery(serviceData?.id)
 const [deleteCart] = useDeleteCartMutation()
 //  console.log("🚀 ~ file: page.tsx:7 ~ CartPage ~ data:", data)
 

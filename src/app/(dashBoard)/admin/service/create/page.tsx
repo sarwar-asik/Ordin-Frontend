@@ -50,7 +50,7 @@ const CreateServicePage = () => {
   console.log("🚀 ~ file: page.tsx:40 ~ CreateServicePage ~ data:", data);
 
   const CategoryData = data?.category;
-  const CategoryOptions = CategoryData?.map((item) => {
+  const CategoryOptions = CategoryData?.map((item:any) => {
     return {
       label: item?.title,
       value: item?.id,

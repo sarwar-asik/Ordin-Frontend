@@ -5,6 +5,8 @@ import React from "react";
 
 import { Descriptions } from 'antd';
 import { CreditCardOutlined, CreditCardTwoTone } from "@ant-design/icons";
+import { getUserInfo } from "@/utils/local.storeage";
+import { useCreateBookingMutation, useUserBookingQuery } from "@/redux/api/bookingApi";
 
 
 const BookingCreatePage = ({
@@ -14,15 +16,62 @@ const BookingCreatePage = ({
 }) => {
   // console.log(serviceId,"serviceId");
   const {data,isLoading} = useSingleServiceQuery(serviceId)
+  const [createBooking] = useCreateBookingMutation()
+  
+  const useInfo = getUserInfo() as any
 
   const serviceData = data;
-  console.log(serviceData,"serviceData")
+
+  const {data :BookData} = useUserBookingQuery(serviceData?.id)
+
+  // console.log("🚀 ~ page.tsx:26 ~ BookData:", BookData);
+ 
+  if(BookData){
+ return (
+  <div style={{maxWidth:"40rem",marginInline:"auto"}}>
+    <h2 style={{fontFamily:"serif",margin:"16px 0"}}>Already Booked the Service</h2>
+    <Col  xs={24} lg={12}>
+    <div className="custom-section">
+    <Descriptions title="Booking Summary" bordered column={1}>
+      <Descriptions.Item label="Service Title">{serviceData?.title}</Descriptions.Item>
+      <Descriptions.Item label="Price">${serviceData?.price}</Descriptions.Item>
+      <Descriptions.Item label="Service Time">{serviceData?.serviceTime}</Descriptions.Item>
+      <Descriptions.Item label="Booked Status">{BookData?.paymentStatus}</Descriptions.Item>
+      <Descriptions.Item label="Booked Time">{BookData?.updatedAt}</Descriptions.Item> 
+
+    </Descriptions>
+
+    </div>
+  </Col>
+  </div>
+ )
+  }
+  // console.log(serviceData,"serviceData")
   
-  const onFinish = (values:any) => {
-    console.log('Received values:', values);
-    message.success("Booked Service")
+  const onFinish = async(values:any) => {
+    // console.log('Received values:', values);
+    
+    const submitData = {
+      userId:useInfo?.id,
+      serviceId:serviceData.id
+    }
+    console.log(submitData);
+    try {
+      const response = await createBooking({...submitData}) as any
+      console.log(response,"response of book");
+      if(response?.data){
+        message.success("Booked Service")
+      }
+      
+    } catch (error) {
+      console.log("🚀 ~ file: page.tsx:36 ~ onFinish ~ error:", error)
+      
+    }
+
     // You can handle the payment submission here.
   };
+
+
 
   return  <Row gutter={[16, 16]}>
   <Col xs={24} lg={12} style={{paddingInline:"10px"}}>
