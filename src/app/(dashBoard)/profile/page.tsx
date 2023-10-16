@@ -2,22 +2,54 @@
 import { getUserInfo } from '@/utils/local.storeage';
 import { useRouter } from 'next/navigation';
 import React, { useEffect } from 'react';
+import { Layout, Row, Col, Card, Avatar, Typography, Button } from 'antd';
+import { useProfileUserQuery } from '@/redux/api/userAPi';
+
+
+const { Content } = Layout;
+const { Title, Text } = Typography;
 
 const Profile = () => {
     const router = useRouter()
     const user = getUserInfo() as any
-    console.log(user);
+    // console.log(user);
+    const {data,isLoading} = useProfileUserQuery(undefined)
+    console.log("🚀 ~ file: ~ data:", data)
+
 
     useEffect(()=>{
    if(!user?.role){
     router.push('/')
    }
     },[user,router])
+
+    // const {role,email,img,contact} = data
     
     return (
-        <div>
-            <h1>{user?.role} Profile of {user?.email}</h1>
-        </div>
+        <Layout style={{ minHeight: '100vh' }}>
+        <Content style={{ padding: '24px' }}>
+          <Row gutter={16}>
+            <Col xs={24} sm={24} md={12} lg={8}>
+              <Card>
+                <Avatar src={data?.img} size={128} />
+                <Title level={4}>{data?.role}</Title>
+                <Title level={5}>{data?.name}</Title>
+              </Card>
+            </Col>
+            <Col xs={24} sm={24} md={12} lg={16}>
+              <Card>
+                <Title level={3}>Profile Details</Title>
+                <Text strong>Email: </Text>
+                <Text> {data?.email}</Text>
+                <br />
+                <Text strong>Contact: </Text>
+                <Text>{data?.contact}</Text>
+              </Card>
+              <Button type='dashed'>Update Profile</Button>
+            </Col>
+          </Row>
+        </Content>
+      </Layout>
     );
 };
 
