@@ -39,7 +39,7 @@ export const ServiceApi = baseApi.injectEndpoints({
       query: (data) => ({
         url: `/service/${data?.id}`,
         method: "PATCH",
-        data: data
+        data: data,
       }),
       invalidatesTags: ["service"],
     }),

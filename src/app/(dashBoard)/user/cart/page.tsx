@@ -1,5 +1,6 @@
 "use client"
 
+import BreadCumbUI from "@/components/ui/BreadCumbUI";
 import SingleCart from "@/components/ui/SingleCart";
 import { useUserBookingQuery } from "@/redux/api/bookingApi";
 import { useCartsQuery, useDeleteCartMutation } from "@/redux/api/cartApi";
@@ -35,6 +36,18 @@ const removeCartHandler =async(cartData:any)=>{
 
   return (
     <div>
+      <BreadCumbUI
+        items={[
+          {
+            label: "user",
+            link: "/profile",
+          },
+          {
+            label: "cart",
+            link: "/user/cart",
+          },
+        ]}
+      />
       <h2>Your Cart </h2>
 
       <section className="mt-2 ">

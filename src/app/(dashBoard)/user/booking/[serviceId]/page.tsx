@@ -10,6 +10,7 @@ import {
   useCreateBookingMutation,
   useUserBookingQuery,
 } from "@/redux/api/bookingApi";
+import BreadCumbUI from "@/components/ui/BreadCumbUI";
 
 const BookingCreatePage = ({
   params: { serviceId },
@@ -31,6 +32,22 @@ const BookingCreatePage = ({
   if (BookData) {
     return (
       <div style={{ maxWidth: "40rem", marginInline: "auto" }}>
+          <BreadCumbUI
+        items={[
+          {
+            label: "user",
+            link: "/profile",
+          },
+          {
+            label: "cart",
+            link: "/user/cart",
+          },
+          {
+            label: "booking",
+            link: `/user/booking/${serviceId}`,
+          },
+        ]}
+      />
         <h2 style={{ fontFamily: "serif", margin: "16px 0" }}>
           Already Booked the Service
         </h2>
@@ -82,7 +99,24 @@ const BookingCreatePage = ({
   };
 
   return (
-    <Row gutter={[16, 16]}>
+    <div className="">
+        <BreadCumbUI
+        items={[
+          {
+            label: "user",
+            link: "/profile",
+          },
+          {
+            label: "cart",
+            link: "/user/cart",
+          },
+          {
+            label: "booking",
+            link: `/user/booking/${serviceId}`,
+          },
+        ]}
+      />
+      <Row gutter={[16, 16]}>
       <Col xs={24} lg={12} style={{ paddingInline: "10px" }}>
         <div className="">
           <Form name="payment-form" onFinish={onFinish} layout="vertical">
@@ -188,6 +222,7 @@ const BookingCreatePage = ({
         </div>
       </Col>
     </Row>
+    </div>
   );
 };
 

@@ -63,8 +63,11 @@ const BookingPage = () => {
   const deleteHandler = async (id: string) => {
     message.loading("Deleting.....");
     try {
-      deleteBooking(id);
-      message.success("Booking Deleted successfully");
+    const res = await  deleteBooking(id);
+    if(res){
+        message.success("Booking Deleted successfully");
+    }
+     
     } catch (err: any) {
       //   console.error(err.message);
       message.error(err.message);
@@ -134,13 +137,17 @@ const BookingPage = () => {
       <BreadCumbUI
         items={[
           {
-            label: "admin",
-            link: "/admin",
+            label: "user",
+            link: "/profile",
+          },
+          {
+            label: "booking",
+            link: "/user/booking",
           },
         ]}
       />
 
-      <ActionBarUI title="service List">
+      <ActionBarUI title="Your Booked Service">
         <Input
           type="text"
           size="large"

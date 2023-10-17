@@ -9,4 +9,4 @@ const UpdateServicePage = () => {
     );
 };
 
-export default UpdateServicePage;
+export default UpdateServicePage; 
