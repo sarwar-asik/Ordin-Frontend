@@ -49,10 +49,11 @@ const AddReviewsPage = ({ serviceId }: { serviceId: string }) => {
     }
 
     try {
-      console.log(reviewData);
+      // console.log(reviewData);
       const response = await createReviews({ ...reviewData });
       //   console.log("🚀 ~ file: Reviews.tsx: ~ onFinish ~ response:", response)
       if (response) {
+        onReset()
         setVisible(false);
         message.success("Thank You Message");
       }
@@ -88,7 +89,7 @@ const AddReviewsPage = ({ serviceId }: { serviceId: string }) => {
           onCancel={handleCancel}
           footer={null}
         >
-          <Form name="reviewForm" onFinish={onFinish}>
+          <Form name="reviewForm" form={form} onFinish={onFinish}>
             <Form.Item
               name="rating"
               label="Rating"
@@ -109,6 +110,7 @@ const AddReviewsPage = ({ serviceId }: { serviceId: string }) => {
               <Input.TextArea placeholder="Place a suggestion to us." />
             </Form.Item>
             <Form.Item>
+              
               <Button type="primary" htmlType="submit">
                 Submit
               </Button>

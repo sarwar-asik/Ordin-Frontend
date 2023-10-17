@@ -12,8 +12,7 @@ import Footer from "@/components/ui/Footer";
 const { Header, Content } = Layout;
 
 const DashBoardLayout = ({ children }: { children: React.ReactNode }) => {
-
-  const router = useRouter()
+  const router = useRouter();
 
   const userLoggedIn = isLoggedIn();
   useEffect(() => {
@@ -22,28 +21,32 @@ const DashBoardLayout = ({ children }: { children: React.ReactNode }) => {
     }
   }, [router, userLoggedIn]);
 
-
   return (
-   <>
-   <DashNavBar/>
-    <Layout hasSider
-    //  style={{ minHeight: "100vh",background:"" }}
-     >
-    
+    <>
+      <DashNavBar />
+      <Layout
+        hasSider
+        //  style={{ minHeight: "100vh",background:"" }}
+      >
+        <SideBarDashBoard />
 
-    <SideBarDashBoard />
+        <Layout
+          style={{
+            overflowY: "auto",
+          }}
+          // className=" overflow-y-auto"
+        >
+          {/* <Header /> */}
+          <Content
+          // style={{ margin: "0 16px" }}
+          >
+            {children}
+          </Content>
+        </Layout>
 
-
-    <Layout>
-      {/* <Header /> */}
-      <Content 
-      // style={{ margin: "0 16px" }}
-      >{children}</Content>
-    </Layout>
-
-    {/* <Footer></Footer> */}
-  </Layout>
-   </>
+        {/* <Footer></Footer> */}
+      </Layout>
+    </>
   );
 };
 

@@ -35,8 +35,8 @@ export const cartApi = baseApi.injectEndpoints({
       providesTags: ["cart"],
     }),
     updateCart: build.mutation({
-      query: (data) => ({
-        url: `/cart/${data?.id}`,
+      query: ({data,id}) => ({
+        url: `/cart/${id}`,
         method: "PATCH",
         data: data,
       }),

@@ -47,8 +47,8 @@ export const bookingApi = baseApi.injectEndpoints({
       providesTags: ["booking"],
     }),
     updateBooking: build.mutation({
-      query: (data) => ({
-        url: `/booking/${data?.id}`,
+      query: ({data,id}) => ({
+        url: `/booking/${id}`,
         method: "PATCH",
         data: data?.body,
       }),
