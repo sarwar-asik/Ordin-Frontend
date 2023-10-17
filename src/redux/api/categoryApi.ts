@@ -12,22 +12,37 @@ export const CategoryApi = baseApi.injectEndpoints({
       invalidatesTags: ["category"],
     }),
     categories: build.query({
-        query: (arg: Record<string, any>) => {
-          return {
-            url: "/category",
-            method: "GET",
-            params: arg,
-          };
-        },
-        transformResponse: (response: any[], meta: IMeta) => {
-          return {
-            category: response,
-            meta,
-          };
-        },
-        providesTags: ["category"],
+      query: (arg: Record<string, any>) => {
+        return {
+          url: "/category",
+          method: "GET",
+          params: arg,
+        };
+      },
+      transformResponse: (response: any[], meta: IMeta) => {
+        return {
+          category: response,
+          meta,
+        };
+      },
+      providesTags: ["category"],
+    }),
+    updateCategory: build.mutation({
+      query: ({ data, id }) => ({
+        url: `/category/${id}`,
+        method: "PATCH",
+        data: data,
       }),
+      invalidatesTags: ["category"],
+    }),
+    deleteCategory: build.mutation({
+      query: (id) => ({
+        url: `/category/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["category"],
+    }),
   }),
 });
 
-export const { useCreateCategoryMutation,useCategoriesQuery  } = CategoryApi;
+export const { useCreateCategoryMutation, useCategoriesQuery,useUpdateCategoryMutation,useDeleteCategoryMutation } = CategoryApi;

@@ -51,7 +51,7 @@ const MainServicePage = () => {
     try {
       const res = await deleteUser(id);
       if (res) {
-        message.success("service Deleted successfully");
+        message.success("user Deleted successfully");
       }
     } catch (err: any) {
       //   console.error(err.message);
