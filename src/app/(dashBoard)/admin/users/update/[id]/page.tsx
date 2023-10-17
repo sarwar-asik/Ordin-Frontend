@@ -44,12 +44,12 @@ const UpdateUserPage = ({ params: { id } }: { params: { id: string } }) => {
 
     try {
       //   // console.log("newValue", values);
-      const res = await updateUser({ ...values }).unwrap();
-      console.log(res, "updateProfile response");
+      const res = await updateUser({ data:values,id}).unwrap();
+      // console.log(res, "updateProfile response");
 
       if (res) {
         message.success("successfully Updated Profile");
-        router.push("/profile");
+        router.push("/admin/users");
       }
     } catch (error) {
       console.error("Error in onFinish:", error);
