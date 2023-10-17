@@ -25,27 +25,19 @@ const UpdateUserPage = ({ params: { id } }: { params: { id: string } }) => {
   const { data: defaultProfile, isLoading } = useSingleUserQuery(id);
 
   const [updateUser] = useUpdateUserMutation();
-  //   console.log("🚀 ~ file: page.tsx:25", defaultProfile);
-
-  //   console.log(defaultProfile?.name);
-  //   console.log(defaultProfile?.img);
 
   const onFinish = async (values: any) => {
-    // console.log(values,"vvv");
     if (values.img?.file?.originFileObj) {
       const file = values.img.file.originFileObj;
       const data = await uploadImgCloudinary(file);
-      // console.log(data, "imagebb data...");
+
       values.img = data;
     } else {
       values.img = defaultProfile?.img;
-      console.log(values.img, "And", defaultProfile?.img);
     }
 
     try {
-      //   // console.log("newValue", values);
-      const res = await updateUser({ data:values,id}).unwrap();
-      // console.log(res, "updateProfile response");
+      const res = await updateUser({ data: values, id }).unwrap();
 
       if (res) {
         message.success("successfully Updated Profile");
@@ -59,9 +51,6 @@ const UpdateUserPage = ({ params: { id } }: { params: { id: string } }) => {
   if (isLoading) {
     return <div>Loading User ...</div>;
   }
-
-  //   const defaultName =JSON.stringify(defaultProfile?.name)
-  //   console.log(defaultName);
 
   return (
     <div className="lg:flex items-center  justify-between shadow-xl p-2">
@@ -127,8 +116,8 @@ const UpdateUserPage = ({ params: { id } }: { params: { id: string } }) => {
             defaultActiveFirstOption
             options={[
               {
-                label: defaultProfile?.role+"(current)",
-                value:defaultProfile?.role,
+                label: defaultProfile?.role + "(current)",
+                value: defaultProfile?.role,
               },
               {
                 label: "admin",
@@ -137,7 +126,7 @@ const UpdateUserPage = ({ params: { id } }: { params: { id: string } }) => {
               {
                 label: "user",
                 value: "user",
-              }
+              },
             ]}
           />
         </Form.Item>
