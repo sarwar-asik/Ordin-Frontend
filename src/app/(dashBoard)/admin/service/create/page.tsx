@@ -12,7 +12,6 @@ import {
   message,
 } from "antd";
 
-
 import uploadImgCloudinary from "@/hooks/cloudinary";
 import { useRouter } from "next/navigation";
 
@@ -41,42 +40,39 @@ type FieldType = {
 
 const CreateServicePage = () => {
   const router = useRouter();
-  const [createService] = useCreateServiceMutation()
-  const adminData = getUserInfo() as any
-  console.log(adminData,"admin Data");
+  const [createService] = useCreateServiceMutation();
+  const adminData = getUserInfo() as any;
+  console.log(adminData, "admin Data");
   //   const [userSignUp] = useUserSignUpMutation();
   const { data, isLoading } = useCategoriesQuery({ page: 1, limit: 20 });
 
   console.log("🚀 ~ file: page.tsx:40 ~ CreateServicePage ~ data:", data);
 
   const CategoryData = data?.category;
-  const CategoryOptions = CategoryData?.map((item:any) => {
+  const CategoryOptions = CategoryData?.map((item: any) => {
     return {
       label: item?.title,
       value: item?.id,
     };
   });
 
-
-
   const onFinish = async (values: any) => {
-
     const file = values.img.file.originFileObj;
 
-    values['publisherId'] = adminData?.id
+    values["publisherId"] = adminData?.id;
 
     try {
-        const data = await uploadImgCloudinary(file);
-  
-        values.img = data;
-        console.log(values);
+      const data = await uploadImgCloudinary(file);
+
+      values.img = data;
+      console.log(values);
       console.log("newValue", values);
-        const res = await createService({ ...values }).unwrap();
-        console.log(res, "service response");
-        if (res) {
-          message.success("successfully created Service");
-          router.push('/admin/service')
-        }
+      const res = await createService({ ...values }).unwrap();
+      console.log(res, "service response");
+      if (res) {
+        message.success("successfully created Service");
+        router.push("/admin/service");
+      }
     } catch (error) {
       console.error("Error in onFinish the service create", error);
     }
@@ -94,11 +90,9 @@ const CreateServicePage = () => {
         labelAlign="left"
         labelWrap={true}
         className="w-full lg:w-[55%] my-1 mx-auto h-screen   pl-5"
-
         initialValues={{ remember: true }}
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
-  
       >
         <h2 className="text-[2rem] font-extrabold mb-3  fon-serif">
           Create Service
@@ -106,7 +100,6 @@ const CreateServicePage = () => {
         <Form.Item<FieldType>
           label={<span className="text-[1.2em] font-medium">Title</span>}
           name="title"
-
           className="w-full py-1 input"
           rules={[{ required: true, message: "Please input your Title!" }]}
         >
@@ -144,14 +137,11 @@ const CreateServicePage = () => {
         <Form.Item<FieldType>
           label={<span className="text-[1.2em] font-medium">Price</span>}
           name="price"
-    
           className="w-full py-1 input"
           rules={[{ required: true, message: "Please input your P" }]}
         >
           <Input placeholder="product Price" type="number" />
         </Form.Item>
-
-
 
         <Form.Item
           label={<span className="text-[1.2em] font-medium">Category</span>}
@@ -159,9 +149,7 @@ const CreateServicePage = () => {
           className="w-full py-1 input"
           rules={[{ required: true, message: "Please input your Category" }]}
         >
-          <Select 
-   
-           options={CategoryOptions as any} />
+          <Select options={CategoryOptions as any} />
         </Form.Item>
 
         <Form.Item
@@ -170,21 +158,20 @@ const CreateServicePage = () => {
           className="w-full py-1 input"
           rules={[{ required: true, message: "Please input your Category" }]}
         >
-          <Select 
-        //   defaultValue="lucy"
-           options={[
-            {
-                label:"Upcoming",
-                value:"upcoming"
-            },
-            {
-                label:"available",
-                value:"available"
-            },
-           ]} />
+          <Select
+            //   defaultValue="lucy"
+            options={[
+              {
+                label: "Upcoming",
+                value: "upcoming",
+              },
+              {
+                label: "available",
+                value: "available",
+              },
+            ]}
+          />
         </Form.Item>
-
-        
 
         <Form.Item<FieldType>
           label={<span className="text-[1.2em] font-medium">Select Time</span>}
@@ -194,7 +181,7 @@ const CreateServicePage = () => {
           rules={[{ required: true, message: "Please input your Time!" }]}
         >
           {/* <TimePicker format={"HH:mm"} /> */}
-          <Input type="Time"/>
+          <Input type="Time" />
         </Form.Item>
         <Form.Item<FieldType>
           label={<span className="text-[1.2em] font-medium">Select Date</span>}
@@ -203,7 +190,7 @@ const CreateServicePage = () => {
           className="w-full py-1 input"
           rules={[{ required: true, message: "Please input your  Date !" }]}
         >
-          <Input  type="Date"/>
+          <Input type="Date" />
         </Form.Item>
 
         {/* //! Upload.... */}
