@@ -43,9 +43,8 @@ type FieldType = {
 };
 
 const UpdateServicePage = ({ params: { id } }: { params: { id: string } }) => {
-
   const router = useRouter();
-  const [updateService] = useUpdateServiceMutation()
+  const [updateService] = useUpdateServiceMutation();
   const adminData = getUserInfo() as any;
 
   const { data: defaultServiceData, isLoading } = useSingleServiceQuery(id);
@@ -61,25 +60,23 @@ const UpdateServicePage = ({ params: { id } }: { params: { id: string } }) => {
   });
 
   const onFinish = async (values: any) => {
+    console.log(values, "initial value");
 
     if (values.img?.file?.originFileObj) {
       const file = values.img.file.originFileObj;
       const data = await uploadImgCloudinary(file);
-    
+
       values.img = data;
     } else {
       values.img = defaultServiceData?.img;
-
     }
     try {
-   
-
-        const res = await updateService({ values,id }).unwrap();
-        // console.log(res, "service update response");
-        if (res) {
-          message.success("successfully created Service");
-          router.push("/admin/service");
-        }
+      const res = await updateService({data:values,id}).unwrap();
+      console.log(res, "service update response");
+      if (res) {
+        message.success("successfully created Service");
+        router.push("/admin/service");
+      }
     } catch (error) {
       console.error("Error in onFinish the service create", error);
     }
