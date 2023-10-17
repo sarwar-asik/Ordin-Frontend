@@ -99,9 +99,9 @@ export const sidebarItems = (role: string) => {
       key: `/${role}/users`,
     },
     {
-      label: <Link href={`/${role}/booking`}>booking</Link>,
+      label: <Link href={`/${role}/bookings`}>booking</Link>,
       icon: <FileTextOutlined />,
-      key: `/${role}/booking`,
+      key: `/${role}/bookings`,
     },
     {
       label: "Content Manage",
