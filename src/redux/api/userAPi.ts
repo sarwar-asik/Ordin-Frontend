@@ -8,7 +8,7 @@ export const userApi = baseApi.injectEndpoints({
         method: "POST",
         data: userData,
       }),
-      invalidatesTags: ["user"],
+      invalidatesTags: [ "user"],
     }),
     users: build.query({
       query: (arg: Record<string, any>) => {
@@ -56,4 +56,5 @@ export const {
   useProfileUserQuery,
   useUpdateProfileMutation,
   useDeleteUserMutation,
+  useUsersQuery
 } = userApi;
