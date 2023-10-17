@@ -65,7 +65,7 @@ export const sidebarItems = (role: string) => {
       key: `/${role}cart`,
     },
     {
-      label: <Link href={`/${role}/booking`}>Booking</Link>,
+      label: <Link href={`/${role}/booking`}>Bookings</Link>,
       icon: <ScheduleOutlined />,
       key: `/${role}/booking`,
     },

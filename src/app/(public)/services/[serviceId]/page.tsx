@@ -1,5 +1,7 @@
 "use client";
 import BreadCumbUI from "@/components/ui/BreadCumbUI";
+import AddToCartButton from "@/components/ui/Button/AddToCartButton";
+import AddReviewsPage from "@/components/ui/Reviews";
 import { useSingleServiceQuery } from "@/redux/api/serviceApi";
 
 import { Row, Col, Button, Divider } from "antd";
@@ -11,21 +13,10 @@ const ServiceDetails = ({
 }: {
   params: { serviceId: string };
 }) => {
-  console.log(serviceId);
+  // console.log(serviceId);
 
   const { data, isLoading } = useSingleServiceQuery(serviceId);
-  console.log("🚀 ~ file: page.tsx:17 ~ data:", data)
-
-  const serviceImageStyle = {};
-
-  const serviceTitleStyle = {
-    fontSize: "24px",
-    marginBottom: "10px",
-  };
-
-  const buttonStyle = {
-    marginTop: "20px",
-  };
+  console.log("🚀 ~ file: page.tsx:17 ~ data:", data);
 
   if (isLoading) {
     return <h2>Loading details ... </h2>;
@@ -49,6 +40,9 @@ const ServiceDetails = ({
       <Row
         align="middle"
         justify="space-between"
+        style={{
+          padding: "5px 10px",
+        }}
         gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}
       >
         <Col xs={24} md={12} lg={8}>
@@ -67,15 +61,21 @@ const ServiceDetails = ({
             />
           </div>
         </Col>
-        <Col style={{ width: "100%", height: "36rem" ,padding:"5px 16px"}} xs={24} md={12} lg={16}>
-          <div style={{
-            display:"flex",
-            flexDirection:"column",
-            gap:"0.6em"
-            
-          }}>
+        <Col
+          style={{ width: "100%", height: "36rem", padding: "5px 16px" }}
+          xs={24}
+          md={12}
+          lg={16}
+        >
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "0.6em",
+            }}
+          >
             <h1 style={{ fontSize: "24px", marginBottom: "10px" }}>
-            {data?.title} Details
+              {data?.title} Details
             </h1>
             <Divider
               plain
@@ -86,13 +86,9 @@ const ServiceDetails = ({
               }}
             />
 
-            <h1>
-              {data?.title}
-            </h1>
+            <h1>{data?.title}</h1>
             <p>
-             {data?.details}. 
-             And {data?.details}.
-              Always  {data?.details}
+              {data?.details}. And {data?.details}. Always {data?.details}
             </p>
             <p>
               <strong>Price:</strong> {data?.price}
@@ -109,12 +105,11 @@ const ServiceDetails = ({
             <p>
               <strong>Service Date:</strong> {data?.serviceData}
             </p>
-            <Button type="primary" style={buttonStyle}>
-              Add to Cart
-            </Button>
-            <Button type="primary" style={buttonStyle}>
-              Book
-            </Button>
+            <AddToCartButton service={data} />
+
+            <Button type="primary">Book</Button>
+
+            <AddReviewsPage serviceId={data?.id as string}></AddReviewsPage>
           </div>
         </Col>
       </Row>

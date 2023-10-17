@@ -1,35 +1,13 @@
-import { useCreateCartMutation } from "@/redux/api/cartApi";
 
-import { getUserInfo } from "@/utils/local.storeage";
-import { Button, Card, Col, message } from "antd";
+import { BookOutlined } from "@ant-design/icons";
+import { Button, Card, Col} from "antd";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import AddToCartButton from "./Button/AddToCartButton";
 
 const SingleService = ({ product }: { product: any }) => {
-  const isUser = getUserInfo() as any;
-  const [createCart] = useCreateCartMutation();
- 
-  const { img, title, price, contact, address, serviceTime } = product;
-
-  const addToCart = async (cartData: any) => {
-    const cartCreateData = {
-      userId: isUser?.id,
-      serviceId: cartData?.id,
-    };
-    try {
-      const response = (await createCart({ ...cartCreateData })) as any;
-      console.log(response);
-      if (response?.data) {
-        message.success("Success");
-      } else {
-        message.error("Can not add double");
-      }
-    } catch (error) {
-      console.log("🚀 ~ file: page.tsx ~ addToCart ~ error:", error);
-    }
-  
-  };
+  const { id, img, title, price, contact, address, serviceTime } = product;
 
   return (
     <Col key={title} xs={24} sm={12} md={8} lg={6}>
@@ -39,7 +17,8 @@ const SingleService = ({ product }: { product: any }) => {
         cover={
           <Image
             src={img}
-            height={200} width={200}
+            height={200}
+            width={200}
             style={{ height: "150px", marginInline: "auto" }}
             alt={title}
           />
@@ -56,23 +35,21 @@ const SingleService = ({ product }: { product: any }) => {
             marginBlock: "10px",
             display: "flex",
             justifyContent: "space-between",
-          
           }}
         >
-          <Button
-            onClick={() => addToCart(product)}
-            type="primary"
-            // icon={<i className="fas fa-shopping-cart"></i>}
-          >
-            Add to Cart
-          </Button>
-          <Button type="default" icon={<i className="fas fa-calendar-alt"></i>}>
-            Book
-          </Button>
+          <AddToCartButton service={product}></AddToCartButton>
+
+          <Link href={`/user/booking/${id}`}>
+            <Button type="default" icon={<BookOutlined />}>
+              Book
+            </Button>
+          </Link>
         </div>
-        <Link href={`/services/${product?.id}`}>
-        <Button type="primary" block>Details</Button></Link>
-        
+        <Link href={`/services/${id}`}>
+          <Button type="primary" block>
+            Details
+          </Button>
+        </Link>
       </Card>
     </Col>
   );

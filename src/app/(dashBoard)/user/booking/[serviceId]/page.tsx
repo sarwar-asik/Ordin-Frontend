@@ -27,55 +27,6 @@ const BookingCreatePage = ({
 
   const { data: BookData } = useUserBookingQuery(serviceData?.id);
 
-  // console.log("🚀 ~ page.tsx:26 ~ BookData:", BookData);
-
-  if (BookData) {
-    return (
-      <div style={{ maxWidth: "40rem", marginInline: "auto" }}>
-          <BreadCumbUI
-        items={[
-          {
-            label: "user",
-            link: "/profile",
-          },
-          {
-            label: "cart",
-            link: "/user/cart",
-          },
-          {
-            label: "booking",
-            link: `/user/booking/${serviceId}`,
-          },
-        ]}
-      />
-        <h2 style={{ fontFamily: "serif", margin: "16px 0" }}>
-          Already Booked the Service
-        </h2>
-        <Col xs={24} lg={12}>
-          <div className="custom-section">
-            <Descriptions title="Booking Summary" bordered column={1}>
-              <Descriptions.Item label="Service Title">
-                {serviceData?.title}
-              </Descriptions.Item>
-              <Descriptions.Item label="Price">
-                ${serviceData?.price}
-              </Descriptions.Item>
-              <Descriptions.Item label="Service Time">
-                {serviceData?.serviceTime}
-              </Descriptions.Item>
-              <Descriptions.Item label="Booked Status">
-                {BookData?.paymentStatus}
-              </Descriptions.Item>
-              <Descriptions.Item label="Booked Time">
-                {BookData?.updatedAt}
-              </Descriptions.Item>
-            </Descriptions>
-          </div>
-        </Col>
-      </div>
-    );
-  }
-  // console.log(serviceData,"serviceData")
 
   const onFinish = async (values: any) => {
     // console.log('Received values:', values);
@@ -100,7 +51,7 @@ const BookingCreatePage = ({
 
   return (
     <div className="">
-        <BreadCumbUI
+      <BreadCumbUI
         items={[
           {
             label: "user",
@@ -117,9 +68,17 @@ const BookingCreatePage = ({
         ]}
       />
       <Row gutter={[16, 16]}>
-      <Col xs={24} lg={12} style={{ paddingInline: "10px" }}>
-        <div className="">
-          <Form name="payment-form" onFinish={onFinish} layout="vertical">
+        <Col xs={24} lg={12} style={{ paddingInline: "10px" }}>
+          {BookData && (
+            <section>
+              <h2 style={{ fontFamily: "serif", margin: "16px 0" }}>
+                Already Booked the Service
+              </h2>
+            </section>
+          )}
+         <div hidden={BookData?true:false} className="">
+
+         <Form name="payment-form" onFinish={onFinish} layout="vertical">
             <h1 style={{ fontSize: "1.5rem" }}>Book {serviceData?.title}</h1>
 
             <Form.Item
@@ -204,24 +163,24 @@ const BookingCreatePage = ({
               </Button>
             </Form.Item>
           </Form>
-        </div>
-      </Col>
-      <Col xs={24} lg={12}>
-        <div className="custom-section">
-          <Descriptions title="Booking Summary" bordered column={1}>
-            <Descriptions.Item label="Service Title">
-              {serviceData?.title}
-            </Descriptions.Item>
-            <Descriptions.Item label="Price">
-              ${serviceData?.price}
-            </Descriptions.Item>
-            <Descriptions.Item label="Service Time">
-              {serviceData?.serviceTime}
-            </Descriptions.Item>
-          </Descriptions>
-        </div>
-      </Col>
-    </Row>
+         </div>
+        </Col>
+        <Col xs={24} lg={12}>
+          <div className="custom-section">
+            <Descriptions title="Booking Summary" bordered column={1}>
+              <Descriptions.Item label="Service Title">
+                {serviceData?.title}
+              </Descriptions.Item>
+              <Descriptions.Item label="Price">
+                ${serviceData?.price}
+              </Descriptions.Item>
+              <Descriptions.Item label="Service Time">
+                {serviceData?.serviceTime}
+              </Descriptions.Item>
+            </Descriptions>
+          </div>
+        </Col>
+      </Row>
     </div>
   );
 };
