@@ -79,8 +79,11 @@ const MainServicePage = () => {
       title: "Action",
       render: function (data: any) {
         return (
-          <>
-            <Link href={`/admin/users/update/${data?.id}`}>
+          <div  hidden={data.role === "super_admin" ? true : false}>
+            <Link
+             
+              href={`/admin/users/update/${data?.id}`}
+            >
               <Button
                 style={{
                   margin: "0px 5px",
@@ -92,13 +95,14 @@ const MainServicePage = () => {
               </Button>
             </Link>
             <Button
+              
               onClick={() => deleteHandler(data?.id)}
               type="primary"
               danger
             >
               <DeleteOutlined />
             </Button>
-          </>
+          </div>
         );
       },
     },
@@ -130,6 +134,10 @@ const MainServicePage = () => {
             label: "admin",
             link: "/admin",
           },
+          {
+            label: "users",
+            link: "/admin/users",
+          },
         ]}
       />
 
@@ -146,7 +154,6 @@ const MainServicePage = () => {
           }}
         />
         <div>
-         
           {(!!sortBy || !!sortOrder || !!searchTerm) && (
             <Button
               onClick={resetFilters}

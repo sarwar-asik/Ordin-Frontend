@@ -8,7 +8,7 @@ export const userApi = baseApi.injectEndpoints({
         method: "POST",
         data: userData,
       }),
-      invalidatesTags: [ "user"],
+      invalidatesTags: ["user"],
     }),
     users: build.query({
       query: (arg: Record<string, any>) => {
@@ -33,10 +33,25 @@ export const userApi = baseApi.injectEndpoints({
       }),
       providesTags: ["user"],
     }),
+    singleUser: build.query({
+      query: (id) => ({
+        url: `/user/${id}`,
+        method: "GET",
+      }),
+      providesTags: ["user"],
+    }),
     updateProfile: build.mutation({
       query: (userData) => ({
         url: `/user/update`,
         method: "PATCH",
+        data: userData,
+      }),
+      invalidatesTags: ["user"],
+    }),
+    updateUser: build.mutation({
+      query: (userData) => ({
+        url: `/user/update`,
+        method: "PUT",
         data: userData,
       }),
       invalidatesTags: ["user"],
@@ -56,5 +71,7 @@ export const {
   useProfileUserQuery,
   useUpdateProfileMutation,
   useDeleteUserMutation,
-  useUsersQuery
+  useUsersQuery,
+  useSingleUserQuery,
+  useUpdateUserMutation,
 } = userApi;
