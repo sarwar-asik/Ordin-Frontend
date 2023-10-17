@@ -12,7 +12,10 @@ import { useState } from "react";
 import ActionBarUI from "@/components/ui/ActionBarUI";
 import dayjs from "dayjs";
 import { useDebounced } from "@/redux/hooks";
-import { useDeleteServiceMutation, useServicesQuery } from "@/redux/api/serviceApi";
+import {
+  useDeleteServiceMutation,
+  useServicesQuery,
+} from "@/redux/api/serviceApi";
 import BreadCumbUI from "@/components/ui/BreadCumbUI";
 import TableUI from "@/components/ui/TableUI";
 
@@ -24,7 +27,7 @@ const MainServicePage = () => {
   const [sortBy, setSortBy] = useState<string>("");
   const [sortOrder, setSortOrder] = useState<string>("");
   const [searchTerm, setSearchTerm] = useState<string>("");
-    const [deleteService] = useDeleteServiceMutation()
+  const [deleteService] = useDeleteServiceMutation();
 
   query["limit"] = size;
   query["page"] = page;
@@ -48,9 +51,10 @@ const MainServicePage = () => {
   const deleteHandler = async (id: string) => {
     message.loading("Deleting.....");
     try {
-     
-      deleteService(id)
-      message.success("service Deleted successfully");
+      const res = await deleteService(id);
+      if (res) {
+        message.success("service Deleted successfully");
+      }
     } catch (err: any) {
       //   console.error(err.message);
       message.error(err.message);
@@ -80,7 +84,7 @@ const MainServicePage = () => {
       render: function (data: any) {
         return (
           <>
-            <Link href={`/admin/service/edit/${data?.id}`}>
+            <Link href={`/admin/service/update/${data?.id}`}>
               <Button
                 style={{
                   margin: "0px 5px",
@@ -147,8 +151,9 @@ const MainServicePage = () => {
         />
         <div>
           <Link href="/admin/service/create">
-            <Button type="primary">Create <PlusCircleFilled/></Button>
-            
+            <Button type="primary">
+              Create <PlusCircleFilled />
+            </Button>
           </Link>
           {(!!sortBy || !!sortOrder || !!searchTerm) && (
             <Button
