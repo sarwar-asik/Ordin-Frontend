@@ -21,7 +21,7 @@ const AvailableService = () => {
         </>
       )}
 
-      <Row align="middle" justify="center" gutter={16}>
+      <Row align="middle" justify="center" gutter={[10,18]}>
         {data?.services?.map((product: any, i: number) => {
           return <SingleService key={i} product={product} />;
         })}

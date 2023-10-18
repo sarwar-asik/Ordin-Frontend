@@ -57,7 +57,7 @@ const AllBookingsPage = () => {
     try {
       const res = await deleteBooking(id);
       if (res) {
-        message.success("service Booking successfully");
+        message.success("Booking Delete successfully");
       }
     } catch (err: any) {
       //   console.error(err.message);

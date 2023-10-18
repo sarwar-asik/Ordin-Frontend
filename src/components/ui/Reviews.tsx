@@ -15,7 +15,7 @@ const AddReviewsPage = ({ serviceId }: { serviceId: string }) => {
   const [createReviews] = useCreateReviewMutation();
   const { data } = useUserReviewByServiceQuery(serviceId);
   const alreadyReviewData = data;
-  console.log(alreadyReviewData);
+  // console.log(alreadyReviewData);
 
   const userInfo = getUserInfo() as any;
   const [form] = Form.useForm();
@@ -68,6 +68,7 @@ const AddReviewsPage = ({ serviceId }: { serviceId: string }) => {
           <>
             <br />
             <h2>Your Given a Review:</h2>
+            <Rate defaultValue={alreadyReviewData?.id}  disabled/>
             <p>{alreadyReviewData?.reviews}</p>
             <p>{alreadyReviewData?.suggestions }</p>
 

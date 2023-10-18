@@ -13,20 +13,20 @@ const SingleService = ({ product }: { product: any }) => {
     <Col key={title} xs={24} sm={12} md={8} lg={6}>
       <Card
         hoverable
-        style={{ width: 300, margin: "16px" }}
+        // style={{ width: 300, margin: "16px" }}
         cover={
           <Image
             src={img}
-            height={200}
+            height={230}
             width={200}
-            style={{ height: "150px", marginInline: "auto" }}
+            style={{ height: "200px"}}
             alt={title}
           />
         }
       >
         <div>
           <h3>{title}</h3>
-          <p>Price: {price}</p>
+          <p>Price: ${price}</p>
           <p>Contact: {contact}</p>
           <p>Address: {address}</p>
         </div>

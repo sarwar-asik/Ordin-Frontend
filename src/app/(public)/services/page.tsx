@@ -18,7 +18,7 @@ const ServicePage = () => {
 
       <Row align="middle" justify="center" gutter={16}>
         {data?.services?.map((product: any, i: number) => {
-          const { img, title, price, contact, address, serviceTime } = product;
+         
           return <SingleService key={i} product={product} />;
         })}
       </Row>

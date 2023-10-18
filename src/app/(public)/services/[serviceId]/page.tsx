@@ -4,7 +4,7 @@ import AddToCartButton from "@/components/ui/Button/AddToCartButton";
 import AddReviewsPage from "@/components/ui/Reviews";
 import { useSingleServiceQuery } from "@/redux/api/serviceApi";
 
-import { Row, Col, Button, Divider } from "antd";
+import { Row, Col, Button, Divider, Rate } from "antd";
 import Image from "next/image";
 import React from "react";
 
@@ -62,7 +62,7 @@ const ServiceDetails = ({
           </div>
         </Col>
         <Col
-          style={{ width: "100%", height: "36rem", padding: "5px 16px" }}
+          style={{ width: "100%", height: "36rem", padding: "5px 16px",display: "flex", flexDirection: "column",justifyContent:"space-between" }}
           xs={24}
           md={12}
           lg={16}
@@ -75,7 +75,7 @@ const ServiceDetails = ({
             }}
           >
             <h1 style={{ fontSize: "24px", marginBottom: "10px" }}>
-              {data?.title} Details
+              Service Details
             </h1>
             <Divider
               plain
@@ -105,6 +105,9 @@ const ServiceDetails = ({
             <p>
               <strong>Service Date:</strong> {data?.serviceData}
             </p>
+        
+          </div>
+          <div style={{ display: "flex", flexDirection: "column",gap:"5px" }}>
             <AddToCartButton service={data} />
 
             <Button type="primary">Book</Button>
