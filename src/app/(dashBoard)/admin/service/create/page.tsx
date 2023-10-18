@@ -65,10 +65,11 @@ const CreateServicePage = () => {
       const data = await uploadImgCloudinary(file);
 
       values.img = data;
-      console.log(values);
-      console.log("newValue", values);
+      // console.log(values);
+      // console.log("newValue", values);
+      message.loading("creating service")
       const res = await createService({ ...values }).unwrap();
-      console.log(res, "service response");
+      // console.log(res, "service response");
       if (res) {
         message.success("successfully created Service");
         router.push("/admin/service");
@@ -103,16 +104,16 @@ const CreateServicePage = () => {
           className="w-full py-1 input"
           rules={[{ required: true, message: "Please input your Title!" }]}
         >
-          <Input placeholder="Your Name" />
+          <Input placeholder="Service title" />
         </Form.Item>
         <Form.Item<FieldType>
           label={<span className="text-[1.2em] font-medium">Address</span>}
           name="address"
           // className="w-full py-1 input"
           className="w-full py-1 input"
-          rules={[{ required: true, message: "Please input your Address!" }]}
+          rules={[{ required: true, message: "Please input service Address!" }]}
         >
-          <Input placeholder="Your Name" />
+          <Input placeholder="Service Address" />
         </Form.Item>
         <Form.Item<FieldType>
           label={<span className="text-[1.2em] font-medium">Details</span>}
@@ -204,14 +205,15 @@ const CreateServicePage = () => {
           <Upload
             listType="picture-card"
             className="avatar-uploader"
-            showUploadList={false}
+            showUploadList={true}
+            maxCount={1}
             action="/api/file"
           >
             <Button>Upload</Button>
           </Upload>
         </Form.Item>
 
-        <Form.Item wrapperCol={{ offset: 8, span: 8 }}>
+        <Form.Item wrapperCol={{  span: 8 }}>
           <Button block type="primary" htmlType="submit">
             Submit
           </Button>

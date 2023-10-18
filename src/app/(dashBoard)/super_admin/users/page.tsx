@@ -16,8 +16,10 @@ import { useDebounced } from "@/redux/hooks";
 import BreadCumbUI from "@/components/ui/BreadCumbUI";
 import TableUI from "@/components/ui/TableUI";
 import { useDeleteUserMutation, useUsersQuery } from "@/redux/api/userAPi";
+import { getUserInfo } from "@/utils/local.storeage";
 
 const UsersList = () => {
+  const userInfo = getUserInfo() as any;
   const query: Record<string, any> = {};
 
   const [page, setPage] = useState<number>(1);
@@ -42,6 +44,7 @@ const UsersList = () => {
     query["searchTerm"] = debouncedTerm;
   }
   const { data, isLoading } = useUsersQuery({ ...query });
+  console.log("🚀 ~ file: page.tsx:45 ~ UsersList ~ data:", data);
 
   const usersData = data?.users;
   const meta = data?.meta;
@@ -79,30 +82,31 @@ const UsersList = () => {
       title: "Action",
       render: function (data: any) {
         return (
-          <div >
-            <Link
-             
-              href={`/super_admin/users/update/${data?.id}`}
-            >
+          <>
+            {userInfo?.id === data?.id && (
+              <Link href="/profile">Go profile {">>"}</Link>
+            )}
+            <div hidden={userInfo?.id === data?.id ? true : false}>
+              <Link href={`/super_admin/users/update/${data?.id}`}>
+                <Button
+                  style={{
+                    margin: "0px 5px",
+                  }}
+                  onClick={() => console.log(data)}
+                  type="primary"
+                >
+                  <EditOutlined />
+                </Button>
+              </Link>
               <Button
-                style={{
-                  margin: "0px 5px",
-                }}
-                onClick={() => console.log(data)}
+                onClick={() => deleteHandler(data?.id)}
                 type="primary"
+                danger
               >
-                <EditOutlined />
+                <DeleteOutlined />
               </Button>
-            </Link>
-            <Button
-              
-              onClick={() => deleteHandler(data?.id)}
-              type="primary"
-              danger
-            >
-              <DeleteOutlined />
-            </Button>
-          </div>
+            </div>
+          </>
         );
       },
     },

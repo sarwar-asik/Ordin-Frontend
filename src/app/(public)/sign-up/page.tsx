@@ -35,6 +35,7 @@ type FieldType = {
 
 const SignUpPage = () => {
   const router = useRouter();
+  const [form] = Form.useForm();
   const [userSignUp] = useUserSignUpMutation();
 
   const onFinish = async (values: any) => {
@@ -46,11 +47,14 @@ const SignUpPage = () => {
       // console.log(data, "imagebb data...");
       values.img = data;
       // console.log("newValue", values);
+      message.loading("sign up processing...")
       const res = await userSignUp({ ...values }).unwrap();
       console.log(res, "signup response");
 
-      if (res?.accessToken) {
+      if (res) {
         message.success("successfully Sign UP");
+        form.resetFields();
+        router.push("/profile");
       }
     } catch (error) {
       console.error("Error in onFinish:", error);
@@ -74,6 +78,7 @@ const SignUpPage = () => {
         wrapperCol={{ span: 20 }}
         labelAlign="left"
         labelWrap={true}
+        form={form}
         className="w-full lg:w-[55%] my-1 mx-auto h-screen   pl-5"
         //   style={{ maxWidth: 600 }}
         initialValues={{ remember: true }}
@@ -98,9 +103,6 @@ const SignUpPage = () => {
           className="w-full py-1 input"
           rules={[{ required: true, message: "Please input your email!" }]}
         >
-          {/* <label  className="text-[1.2em] font-[400]">
-            Email
-          </label> */}
           <Input type="email" placeholder="example@gmail.com" />
         </Form.Item>
         <Form.Item<FieldType>
@@ -124,7 +126,8 @@ const SignUpPage = () => {
           <Upload
             listType="picture-card"
             className="avatar-uploader"
-            showUploadList={false}
+            showUploadList={true}
+            maxCount={1}
             action="/api/file"
           >
             <Button>Upload</Button>
@@ -152,9 +155,9 @@ const SignUpPage = () => {
           </Typography>
         </Form.Item>
 
-        <Form.Item wrapperCol={{ offset: 8, span: 8 }}>
+        <Form.Item wrapperCol={{ span: 8 }}>
           <Button block type="primary" htmlType="submit">
-            Submit
+            Sign Up
           </Button>
         </Form.Item>
       </Form>

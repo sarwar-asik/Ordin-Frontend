@@ -20,7 +20,7 @@ type FieldType = {
 };
 
 const UpdateUserPage = ({ params: { id } }: { params: { id: string } }) => {
-  console.log(id);
+//   console.log(id);
   const router = useRouter();
   const { data: defaultProfile, isLoading } = useSingleUserQuery(id);
 
@@ -41,7 +41,7 @@ const UpdateUserPage = ({ params: { id } }: { params: { id: string } }) => {
 
       if (res) {
         message.success("successfully Updated Profile");
-        router.push("/admin/users");
+        router.push("/super_admin/users");
       }
     } catch (error) {
       console.error("Error in onFinish:", error);

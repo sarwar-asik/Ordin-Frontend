@@ -16,7 +16,10 @@ import { useDebounced } from "@/redux/hooks";
 import BreadCumbUI from "@/components/ui/BreadCumbUI";
 import TableUI from "@/components/ui/TableUI";
 import { useDeleteUserMutation, useUsersQuery } from "@/redux/api/userAPi";
-import { useCategoriesQuery, useDeleteCategoryMutation } from "@/redux/api/categoryApi";
+import {
+  useCategoriesQuery,
+  useDeleteCategoryMutation,
+} from "@/redux/api/categoryApi";
 
 const CategoriesPage = () => {
   const query: Record<string, any> = {};
@@ -26,7 +29,7 @@ const CategoriesPage = () => {
   const [sortBy, setSortBy] = useState<string>("");
   const [sortOrder, setSortOrder] = useState<string>("");
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [deleteCategory] = useDeleteCategoryMutation()
+  const [deleteCategory] = useDeleteCategoryMutation();
 
   query["limit"] = size;
   query["page"] = page;
@@ -66,7 +69,7 @@ const CategoriesPage = () => {
       dataIndex: "title",
     },
     { title: "Details", dataIndex: "details" },
-  
+
     {
       title: "CreatedAt",
       dataIndex: "createdAt",
@@ -79,11 +82,8 @@ const CategoriesPage = () => {
       title: "Action",
       render: function (data: any) {
         return (
-          <div  >
-            <Link
-             
-              href={`/admin/category/update/${data?.id}`}
-            >
+          <div>
+            <Link href={`/admin/category/update/${data?.id}`}>
               <Button
                 style={{
                   margin: "0px 5px",
@@ -95,7 +95,6 @@ const CategoriesPage = () => {
               </Button>
             </Link>
             <Button
-              
               onClick={() => deleteHandler(data?.id)}
               type="primary"
               danger
@@ -154,6 +153,12 @@ const CategoriesPage = () => {
           }}
         />
         <div>
+          <Link href="/admin/category/create">
+            <Button type="primary">
+              Create <PlusCircleFilled />
+            </Button>
+          </Link>
+
           {(!!sortBy || !!sortOrder || !!searchTerm) && (
             <Button
               onClick={resetFilters}

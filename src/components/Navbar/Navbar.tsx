@@ -17,6 +17,7 @@ import { getUserInfo, removeUserInfo } from "@/utils/local.storeage";
 import { Avatar, Space } from "antd";
 import { ShoppingCartOutlined, UserOutlined } from "@ant-design/icons";
 import { authKey } from "@/constant/storageKey";
+import { useRouter } from "next/navigation";
 
 const { Header } = Layout;
 
@@ -29,6 +30,14 @@ const menuItems: { key: string; label: string; href: string }[] = [
 ];
 
 const Navbar = () => {
+  const router = useRouter();
+
+  const logoutHandler = () => {
+    removeUserInfo(authKey);
+    message.error("Logout Successfully");
+    router.push("/login");
+  };
+
   const items: MenuProps["items"] = [
     {
       key: "1",
@@ -37,11 +46,7 @@ const Navbar = () => {
     {
       key: "2",
       label: (
-        <Button onClick={()=>{
-          removeUserInfo(authKey)
-          message.error("Logout Successfully")
-
-        }} type="primary" danger>
+        <Button onClick={logoutHandler} type="primary" danger>
           Logout
         </Button>
       ),
@@ -85,15 +90,18 @@ const Navbar = () => {
         </Menu>
 
         {user?.role ? (
-         <section style={{display:"flex",alignItems:"center",gap:"1.3em"}}>
-         <Link className="text-2xl" href="/user/cart">
-         <ShoppingCartOutlined  /></Link>
-          <Dropdown menu={{ items }} placement="bottomLeft" arrow>
-            <Space wrap size={16}>
-              <Avatar size="large" icon={<UserOutlined />} />
-            </Space>
-          </Dropdown>
-         </section>
+          <section
+            style={{ display: "flex", alignItems: "center", gap: "1.3em" }}
+          >
+            <Link className="text-2xl" href="/user/cart">
+              <ShoppingCartOutlined />
+            </Link>
+            <Dropdown menu={{ items }} placement="bottomLeft" arrow>
+              <Space wrap size={16}>
+                <Avatar size="large" icon={<UserOutlined />} />
+              </Space>
+            </Dropdown>
+          </section>
         ) : (
           <section>
             <Link href="/login">Login</Link>
