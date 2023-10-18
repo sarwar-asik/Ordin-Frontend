@@ -33,15 +33,16 @@ const SideBarDashBoard = ({
         left: 0,
         top: 0,
         bottom: 0,
+        padding:"10px 0 0 0"
         // width: "100%",
         // background: "red",
         // background:"",
       }}
     >
       <div
-        className={`text-white  text-center ${
-          collapsed ? "text-[0.7rem]" : "text-[1.5rem]"
-        }  `}
+        className={`font-semibold font-serif text-white  text-center ${
+          collapsed ? "text-[0.7rem]" : "text-[1.4rem]"
+        }  h-[4rem]`}
         // style={{
         //   color: "white",
         //   fontSize: "1rem",
