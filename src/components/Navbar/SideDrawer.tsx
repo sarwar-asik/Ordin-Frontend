@@ -1,9 +1,15 @@
 import React, { useState } from "react";
-import { Button, Drawer, Radio, Space } from "antd";
+import { Button, Drawer, Menu, Radio, Space } from "antd";
 import type { DrawerProps } from "antd/es/drawer";
 import type { RadioChangeEvent } from "antd/es/radio";
-import { MenuUnfoldOutlined, CloseOutlined } from "@ant-design/icons";
+import {
+  MenuUnfoldOutlined,
+  CloseOutlined,
+  FileOutlined,
+} from "@ant-design/icons";
 import Link from "next/link";
+import SideBarDashBoard from "./SideBarDashBoard";
+import Logo from "../ui/Logo";
 
 const SideBar = ({ items }: { items?: any }) => {
   const [open, setOpen] = useState(false);
@@ -19,6 +25,13 @@ const SideBar = ({ items }: { items?: any }) => {
 
   const onClose = () => {
     setOpen(false);
+  };
+
+  const [selectedItem, setSelectedItem] = useState<null | any>(null);
+
+  const handleItemClick = (item: any) => {
+    setSelectedItem(item);
+    onClose();
   };
 
   return (
@@ -38,22 +51,32 @@ const SideBar = ({ items }: { items?: any }) => {
         open={open}
         extra={
           <Space>
-            <Button onClick={onClose}>Close</Button>
+            <Button onClick={onClose}>
+              <Logo/>
+            </Button>
           </Space>
         }
       >
-        <section className="flex flex-col justify-start gap-5 text-primary font-bold ">
-          {items?.map((item: any) => (
-            <Link
-              key={item?.key}
-              href={item?.href}
-              onClick={onClose}
-              className="py-3 hover:shadow-lg px-1 rounded-lg border-2 border-red-500"
+        <Menu
+          mode="vertical"
+          selectedKeys={[selectedItem]}
+          style={{ borderRight: "none" }}
+        >
+          {items.map((item: any) => (
+            <Menu.Item
+              key={item.key}
+              onClick={() => handleItemClick(item.key)}
+              style={{
+                backgroundColor: selectedItem === item.key ? "#e6f7ff" : "",
+              }}
             >
-              {item.label}
-            </Link>
+              <Link href={item?.href} style={{display:"flex",gap:"1rem",alignItems:"center"}}>
+                <h2 >{item?.icon}</h2>
+                <h4>{item.label}</h4>
+              </Link>
+            </Menu.Item>
           ))}
-        </section>
+        </Menu>
       </Drawer>
     </>
   );

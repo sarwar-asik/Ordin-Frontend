@@ -1,18 +1,21 @@
 "use client";
 import dynamic from "next/dynamic";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
-import { Layout } from "antd";
+import { Button, Layout } from "antd";
 import SideBarDashBoard from "@/components/Navbar/SideBarDashBoard";
 import { isLoggedIn } from "@/utils/local.storeage";
 import { useRouter } from "next/navigation";
 import DashNavBar from "@/components/Navbar/DashNavBar";
 import Footer from "@/components/ui/Footer";
+import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 
 const { Header, Content } = Layout;
 
 const DashBoardLayout = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
+
+  const [collapsed, setCollapsed] = useState(false);
 
   const userLoggedIn = isLoggedIn();
   useEffect(() => {
@@ -23,12 +26,13 @@ const DashBoardLayout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <>
-      <DashNavBar />
+      {/* <DashNavBar /> */}
       <Layout
         hasSider
+        className="bg-red-300"
         //  style={{ minHeight: "100vh",background:"" }}
       >
-        <SideBarDashBoard />
+        <SideBarDashBoard collapsed={collapsed} setCollapsed={setCollapsed} />
 
         <Layout
           style={{
@@ -36,7 +40,7 @@ const DashBoardLayout = ({ children }: { children: React.ReactNode }) => {
           }}
           // className=" overflow-y-auto"
         >
-          {/* <Header /> */}
+          <DashNavBar collapsed={collapsed} setCollapsed={setCollapsed} />
           <Content
           // style={{ margin: "0 16px" }}
           >

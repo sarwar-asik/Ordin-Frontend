@@ -17,43 +17,24 @@ import { getUserInfo, removeUserInfo } from "@/utils/local.storeage";
 import { Avatar, Space } from "antd";
 import { ShoppingCartOutlined, UserOutlined } from "@ant-design/icons";
 import { authKey } from "@/constant/storageKey";
-import { useRouter } from "next/navigation";
+import Logo from "../ui/Logo";
+import { useSingleUserQuery } from "@/redux/api/userAPi";
+import UserAvatar from "../ui/UserAvatar";
 
 const { Header } = Layout;
 
-const menuItems: { key: string; label: string; href: string }[] = [
-  { key: "1", label: "Home", href: "/" },
-  { key: "2", label: "Services", href: "/services" },
-  { key: "3", label: "About", href: "/about-us" },
+const menuItems: { key: string; label: any; icon: any; href: string }[] = [
+  { key: "1", label: "Home", icon: <UserOutlined />, href: "/" },
+  { key: "2", label: "Service", icon: <UserOutlined />, href: "/services" },
+  { key: "3", label: "About", icon: <UserOutlined />, href: "/about-us" },
   // { key: "4", label: "signUp", href: "/sign-up" },
   // { key: "5", label: "Login", href: "/login" },
 ];
 
 const Navbar = () => {
-  const router = useRouter();
-
-  const logoutHandler = () => {
-    removeUserInfo(authKey);
-    message.error("Logout Successfully");
-    router.push("/login");
-  };
-
-  const items: MenuProps["items"] = [
-    {
-      key: "1",
-      label: <Link href="/profile">profile</Link>,
-    },
-    {
-      key: "2",
-      label: (
-        <Button onClick={logoutHandler} type="primary" danger>
-          Logout
-        </Button>
-      ),
-    },
-  ];
   const user = getUserInfo() as any;
-  console.log(user);
+
+  // console.log(user);
   return (
     <div>
       <Header className="bg-white text-black shadow-xl flex justify-between">
@@ -61,26 +42,13 @@ const Navbar = () => {
           <section className="flex lg:hidden">
             <SideBar items={menuItems}></SideBar>
           </section>
-          <Link
-            href="/"
-            className="demo-logo font-extrabold font-serif mt-1 text-[2rem] text-primary "
-          >
-            Ordin
-          </Link>
+          <Logo />
         </div>
         <Menu
           // theme="dark"
           mode="horizontal"
           className="hidden lg:flex"
           disabledOverflow
-          //   defaultSelectedKeys={["2"]}
-          // items={new Array(15).fill(null).map((_, index) => {
-          //   const key = index + 1;
-          //   return {
-          //     key,
-          //     label: `nav ${key}`,
-          //   };
-          // })}
         >
           {menuItems.map((item) => (
             <Menu.Item key={item.key}>
@@ -90,18 +58,7 @@ const Navbar = () => {
         </Menu>
 
         {user?.role ? (
-          <section
-            style={{ display: "flex", alignItems: "center", gap: "1.3em" }}
-          >
-            <Link className="text-2xl" href="/user/cart">
-              <ShoppingCartOutlined />
-            </Link>
-            <Dropdown menu={{ items }} placement="bottomLeft" arrow>
-              <Space wrap size={16}>
-                <Avatar size="large" icon={<UserOutlined />} />
-              </Space>
-            </Dropdown>
-          </section>
+          <UserAvatar userId={user?.id} />
         ) : (
           <section>
             <Link href="/login">Login</Link>

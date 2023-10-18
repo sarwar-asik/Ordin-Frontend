@@ -8,44 +8,50 @@ import { sidebarItems } from "../constant/SidebarItems";
 
 const { Sider } = Layout;
 
-const SideBarDashBoard = () => {
-
-
-  const [collapsed, setCollapsed] = useState(false);
-
-const {role} = getUserInfo() as any
-// console.log(role,"role of user");
+const SideBarDashBoard = ({
+  collapsed,
+  setCollapsed,
+}: {
+  collapsed: boolean;
+  setCollapsed: any;
+}) => {
+  const { role } = getUserInfo() as any;
+  // console.log(role,"role of user");
 
   return (
     <Sider
-      collapsible
+      // collapsible
       collapsed={collapsed}
       onCollapse={(value) => setCollapsed(value)}
       width={250}
-      
       style={{
         overflow: "auto",
         height: "110vh",
         position: "sticky",
-        zIndex:40,
+
+        zIndex: 40,
         left: 0,
         top: 0,
         bottom: 0,
+        // width: "100%",
+        // background: "red",
         // background:"",
       }}
     >
       <div
-        //  className="demo-logo-vertical"
-        style={{
-          color: "white",
-          fontSize: "1.2em",
-          textAlign: "center",
-          fontFamily: "serif",
-          marginBottom: "1rem",
-          marginTop: "10px",
-        }}
+        className={`text-white  text-center ${
+          collapsed ? "text-[0.7rem]" : "text-[1.5rem]"
+        }  `}
+        // style={{
+        //   color: "white",
+        //   fontSize: "1rem",
+        //   textAlign: "center",
+        //   fontFamily: "serif",
+        //   marginBottom: "1rem",
+        //   marginTop: "10px",
+        // }}
       >
-      DashBoard
+        DashBoard
       </div>
 
       <Menu

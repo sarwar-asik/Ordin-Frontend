@@ -19,11 +19,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <link rel="icon" type="../../assets/OrdainLogo.png" href="/public/books.png" />
       <body>
      
-        <Providers>{children}</Providers>
-        {/* <Footer/> */}
+        <Providers>
+          
+          {children}
+          
+          </Providers>
+       
       </body>
     </html>
   );
