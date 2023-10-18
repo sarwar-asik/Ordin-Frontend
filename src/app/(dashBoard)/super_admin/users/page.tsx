@@ -79,10 +79,10 @@ const UsersList = () => {
       title: "Action",
       render: function (data: any) {
         return (
-          <div  hidden={data.role === "super_admin" ? true : false}>
+          <div >
             <Link
              
-              href={`/admin/users/update/${data?.id}`}
+              href={`/super_admin/users/update/${data?.id}`}
             >
               <Button
                 style={{
@@ -131,12 +131,12 @@ const UsersList = () => {
       <BreadCumbUI
         items={[
           {
-            label: "admin",
-            link: "/admin",
+            label: "Super Admin",
+            link: "/super_admin",
           },
           {
             label: "users",
-            link: "/admin/users",
+            link: "/super_admin/users",
           },
         ]}
       />

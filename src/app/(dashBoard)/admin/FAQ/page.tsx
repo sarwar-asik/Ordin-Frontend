@@ -30,7 +30,7 @@ const FAQPage = () => {
   const [sortBy, setSortBy] = useState<string>("");
   const [sortOrder, setSortOrder] = useState<string>("");
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [deleteBlog] = useDeleteBlogMutation();
+  // const [deleteBlog] = useDeleteBlogMutation();
 
   query["limit"] = size;
   query["page"] = page;
@@ -54,10 +54,10 @@ const FAQPage = () => {
   const deleteHandler = async (id: string) => {
     message.loading("Deleting.....");
     try {
-      const res = await deleteBlog(id);
-      if (res) {
-        message.success("service Deleted successfully");
-      }
+      // const res = await deleteBlog(id);
+      // if (res) {
+      //   message.success("service Deleted successfully");
+      // }
     } catch (err: any) {
       //   console.error(err.message);
       message.error(err.message);
@@ -87,7 +87,7 @@ const FAQPage = () => {
       render: function (data: any) {
         return (
           <div>
-            <Link href={`/admin/books/update/${data?.id}`}>
+            <Link href={`/admin/FAQ/update/${data?.id}`}>
               <Button
                 style={{
                   margin: "0px 5px",

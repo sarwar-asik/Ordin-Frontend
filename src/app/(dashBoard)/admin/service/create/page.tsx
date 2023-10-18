@@ -191,7 +191,7 @@ const CreateServicePage = () => {
           rules={[{ required: true, message: "Please input your  Date !" }]}
         >
           <Input type="Date" />
-        </Form.Item>
+        </Form.Item> 
 
         {/* //! Upload.... */}
         <Form.Item<FieldType>

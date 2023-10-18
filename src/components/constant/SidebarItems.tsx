@@ -131,12 +131,12 @@ export const sidebarItems = (role: string) => {
       key: `/${role}/manage-user`,
       children: [
         {
-          label: <Link href={`/${role}/admin`}>Manage Admin</Link>,
+          label: <Link href={`/super_admin/users`}>All Users</Link>,
           icon: <TableOutlined />,
           key: `/${role}/admin`,
         },
         {
-          label: <Link href={`/${role}/user`}>Manage User</Link>,
+          label: <Link href={`/super_admin/create_admin`}>Create Admin</Link>,
           icon: <TableOutlined />,
           key: `/${role}/user`,
         },

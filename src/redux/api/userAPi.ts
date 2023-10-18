@@ -10,6 +10,14 @@ export const userApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ["user"],
     }),
+    createAdmin: build.mutation({
+      query: (adminData) => ({
+        url: "/user/create-admin",
+        method: "POST",
+        data: adminData,
+      }),
+      invalidatesTags: ["user"],
+    }),
     users: build.query({
       query: (arg: Record<string, any>) => {
         return {
@@ -74,4 +82,5 @@ export const {
   useUsersQuery,
   useSingleUserQuery,
   useUpdateUserMutation,
+  useCreateAdminMutation
 } = userApi;

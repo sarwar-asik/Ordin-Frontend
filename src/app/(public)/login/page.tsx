@@ -33,10 +33,11 @@ const LoginPage = () => {
 
   const onFinish = async (values: any) => {
     try {
+      message.loading("processing login....")
       const response = await userLogin({ ...values }).unwrap();
-      console.log(response, "login response");
-      storeUserInfo({ accessToken: response?.accessToken });
+      // console.log(response, "login response");
       if (response?.accessToken) {
+        storeUserInfo({ accessToken: response?.accessToken });
         message.success("Login SuccessFully");
         router.push("/profile");
       }
@@ -98,9 +99,9 @@ const LoginPage = () => {
           </Typography>
         </Form.Item>
 
-        <Form.Item wrapperCol={{ offset: 10, span: 8 }}>
+        <Form.Item wrapperCol={{ span: 8 }}>
           <Button block type="primary" htmlType="submit">
-            Submit
+            Login
           </Button>
         </Form.Item>
       </Form>
