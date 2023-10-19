@@ -1,24 +1,15 @@
 "use client";
 import dynamic from "next/dynamic";
 import React from "react";
-import {
-  Breadcrumb,
-  Button,
-  Dropdown,
-  Layout,
-  Menu,
-  MenuProps,
-  message,
-  theme,
-} from "antd";
+import { Layout, Menu } from "antd";
 import Link from "next/link";
 import SideBar from "./SideDrawer";
-import { getUserInfo, removeUserInfo } from "@/utils/local.storeage";
-import { Avatar, Space } from "antd";
-import { ShoppingCartOutlined, UserOutlined } from "@ant-design/icons";
-import { authKey } from "@/constant/storageKey";
+import { getUserInfo } from "@/utils/local.storeage";
+
+import { UserOutlined } from "@ant-design/icons";
+
 import Logo from "../ui/Logo";
-import { useSingleUserQuery } from "@/redux/api/userAPi";
+
 import UserAvatar from "../ui/UserAvatar";
 
 const { Header } = Layout;
