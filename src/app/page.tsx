@@ -9,9 +9,10 @@ const HomePage = () => {
     <div className="min-h-screen">
       <Header></Header>
       <Navbar />
-      <AvailableService />
-      <h2>main routes</h2>
-      <Footer/>
+      <section style={{padding:"0 1vw"}}>
+        <AvailableService />
+      </section>
+      <Footer />
     </div>
   );
 };

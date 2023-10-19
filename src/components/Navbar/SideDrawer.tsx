@@ -44,6 +44,7 @@ const SideBar = ({ items }: { items?: any }) => {
         )}
       </Space>
       <Drawer
+      className="bg-secondary"
         // title="Drawer with extra actions"
         placement={"right"}
         width={400}
@@ -51,13 +52,14 @@ const SideBar = ({ items }: { items?: any }) => {
         open={open}
         extra={
           <Space>
-            <Button onClick={onClose}>
+            <Button className="bg-secondary border-none " onClick={onClose}>
               <Logo/>
             </Button>
           </Space>
         }
       >
         <Menu
+        
           mode="vertical"
           selectedKeys={[selectedItem]}
           style={{ borderRight: "none" }}

@@ -37,7 +37,7 @@ const Navbar = () => {
   // console.log(user);
   return (
     <div>
-      <Header className="bg-white text-black shadow-xl flex justify-between">
+      <Header className="bg-white text-black shadow-xl lg:px-2 px-1 flex justify-between">
         <div className="flex items-center gap-2">
           <section className="flex lg:hidden">
             <SideBar items={menuItems}></SideBar>

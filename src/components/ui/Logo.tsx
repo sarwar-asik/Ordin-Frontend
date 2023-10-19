@@ -9,8 +9,11 @@ const Logo = () => {
         textDecoration: "none",
         fontWeight:"700",
         color:"black",
-        fontSize:"1.5rem",
-        fontFamily:"sans-serif"
+        fontSize:"1.3rem",
+        fontFamily:"sans-serif",
+        // background:"white",
+        // paddingBlock:"0.2rem",
+        // borderRadius:"5px"
       }}
     >
       <span style={{ fontSize: "2.3rem" }}>O</span>

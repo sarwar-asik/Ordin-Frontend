@@ -132,7 +132,11 @@ const MainServicePage = () => {
         items={[
           {
             label: "admin",
-            link: "/admin",
+            link: "/profile",
+          },
+          {
+            label: "Services",
+            link: "/admin/service",
           },
         ]}
       />

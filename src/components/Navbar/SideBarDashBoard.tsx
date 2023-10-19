@@ -5,6 +5,7 @@ import { Layout, Menu } from "antd";
 
 import { getUserInfo } from "@/utils/local.storeage";
 import { sidebarItems } from "../constant/SidebarItems";
+import Link from "next/link";
 
 const { Sider } = Layout;
 
@@ -21,26 +22,27 @@ const SideBarDashBoard = ({
   return (
     <Sider
       // collapsible
+      className="bg-secondary "
       collapsed={collapsed}
       onCollapse={(value) => setCollapsed(value)}
-      width={250}
+      width={300}
       style={{
         overflow: "auto",
         height: "110vh",
         position: "sticky",
-
         zIndex: 40,
         left: 0,
         top: 0,
         bottom: 0,
-        padding:"10px 0 0 0"
-        // width: "100%",
+        padding:"10px 0 0 0",
+        // width: "70vw",
         // background: "red",
         // background:"",
       }}
     >
-      <div
-        className={`font-semibold font-serif text-white  text-center ${
+      <Link
+      href={`/${role}`}
+        className={`font-semibold font-serif text-primary  text-center ${
           collapsed ? "text-[0.7rem]" : "text-[1.4rem]"
         }  h-[4rem]`}
         // style={{
@@ -53,10 +55,12 @@ const SideBarDashBoard = ({
         // }}
       >
         DashBoard
-      </div>
+      </Link>
 
       <Menu
-        theme="dark"
+
+        // theme="light"
+        className="bg-secondary"
         defaultSelectedKeys={["1"]}
         mode="inline"
         items={sidebarItems(role)}

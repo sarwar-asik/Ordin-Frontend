@@ -19,6 +19,7 @@ import Link from "next/link";
 import { useCategoriesQuery } from "@/redux/api/categoryApi";
 import { getUserInfo } from "@/utils/local.storeage";
 import { useCreateServiceMutation } from "@/redux/api/serviceApi";
+import BreadCumbUI from "@/components/ui/BreadCumbUI";
 
 const onFinishFailed = (errorInfo: any) => {
   console.log("Failed:", errorInfo);
@@ -80,10 +81,19 @@ const CreateServicePage = () => {
   };
 
   return (
-    <div className="shadow-xl block p-2 ">
-      <h4>
-        Go <Link href="/admin/service">Service page</Link>
-      </h4>
+    <div className="mt-3 ">
+      <BreadCumbUI
+        items={[
+          {
+            label: "service",
+            link: "/admin/service",
+          },
+          {
+            label: "Create Service",
+            link: "/admin/service/create",
+          },
+        ]}
+      />
       <Form
         name="basic"
         labelCol={{ span: 4 }}
@@ -215,7 +225,7 @@ const CreateServicePage = () => {
 
         <Form.Item wrapperCol={{  span: 8 }}>
           <Button block type="primary" htmlType="submit">
-            Submit
+            Create
           </Button>
         </Form.Item>
       </Form>

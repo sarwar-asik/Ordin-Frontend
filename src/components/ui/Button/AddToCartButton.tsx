@@ -31,11 +31,20 @@ const AddToCartButton = ({ service }: { service: any }) => {
   return (
     <Button
       onClick={() => addToCart(service)}
-      type="primary"
+      // type="primary"
+      // defaultColor={"#4BB4B4"}
+      style={{
+        backgroundColor: '#4BB4B4',
+        borderColor: '#4BB4B4', 
+        color: 'white',
+        borderRadius:"5px"
+      }}
+   
+      
       icon={<ShoppingCartOutlined />}
       // icon={<i className="fas fa-shopping-cart"></i>}
     >
-      Add Cart
+     Cart
     </Button>
   );
 };
