@@ -1,15 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import {
-  Button,
-  Checkbox,
-  Form,
-  Input,
-  Typography,
-  Upload,
-  message,
-} from "antd";
+import { Button, Checkbox, Form, Input, Typography, Upload, message, } from "antd";
 import Uploader from "@/components/ui/Uploader";
 import Image from "next/image";
 import loginImg from "@/assets/loginSider.png";

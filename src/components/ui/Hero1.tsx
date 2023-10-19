@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { Row, Col, Typography, Button, Image } from "antd";
-import heroImg from "../../assets/homeInteriorHero.jpg";
+import heroImg from "@/assets/homeInteriorHero.jpg";
 
 const { Title, Paragraph } = Typography;
 const heroStyles = {
@@ -20,7 +20,6 @@ const contentStyles = {
   padding: "36px 0",
   background: "rgba(0, 0, 0, 0.5)",
   color: "white",
-
 };
 
 const HeroOne = () => {
