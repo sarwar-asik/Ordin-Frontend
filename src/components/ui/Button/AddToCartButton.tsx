@@ -4,20 +4,26 @@ import { useCreateCartMutation } from "@/redux/api/cartApi";
 import { getUserInfo } from "@/utils/local.storeage";
 import { BookTwoTone, ShoppingCartOutlined } from "@ant-design/icons";
 import { Button, message } from "antd";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 const AddToCartButton = ({ service }: { service: any }) => {
   const isUser = getUserInfo() as any;
+  const router = useRouter();
   const [createCart] = useCreateCartMutation();
 
   const addToCart = async (cartData: any) => {
+    if (!isUser?.id) {
+      router.push("/login");
+    }
     const cartCreateData = {
       userId: isUser?.id,
       serviceId: cartData?.id,
     };
     try {
+      message.loading("adding to cart.........")
       const response = (await createCart({ ...cartCreateData })) as any;
-      console.log(response);
+      // console.log(response);
       if (response?.data) {
         message.success("Success");
       } else {
@@ -34,17 +40,15 @@ const AddToCartButton = ({ service }: { service: any }) => {
       // type="primary"
       // defaultColor={"#4BB4B4"}
       style={{
-        backgroundColor: '#4BB4B4',
-        borderColor: '#4BB4B4', 
-        color: 'white',
-        borderRadius:"5px"
+        backgroundColor: "#4BB4B4",
+        borderColor: "#4BB4B4",
+        color: "white",
+        borderRadius: "5px",
       }}
-   
-      
       icon={<ShoppingCartOutlined />}
       // icon={<i className="fas fa-shopping-cart"></i>}
     >
-     Cart
+      Cart
     </Button>
   );
 };

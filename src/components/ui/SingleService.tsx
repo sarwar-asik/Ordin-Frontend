@@ -4,26 +4,21 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import AddToCartButton from "./Button/AddToCartButton";
+import { getUserInfo } from "@/utils/local.storeage";
 
 const SingleService = ({ product }: { product: any }) => {
   const { id, img, title, price } = product;
-  console.log(product, "");
+  // console.log(product, "");
+  const userInfo = getUserInfo() as any;
 
   return (
-    <Col
-      style={{ background: "white" }}
-  
-      xs={24}
-      sm={24}
-      md={12}
-      lg={8}
-    >
+    <Col style={{ background: "white" }} xs={24} sm={24} md={12} lg={8}>
       <Card
         hoverable
-        style={{ width: 310,height:470 }}
+        style={{ width: 310, height: 470 }}
         cover={
           <Image
-          // className="transform transition-transform delay-300 hover:scale-110"
+            // className="transform transition-transform delay-300 hover:scale-110"
             src={img}
             height={300}
             width={120}
@@ -32,7 +27,8 @@ const SingleService = ({ product }: { product: any }) => {
           />
         }
       >
-        
+        <h4 className="text-[16px] text-right">{title}</h4>
+
         <section
           style={{
             display: "flex",
@@ -42,18 +38,17 @@ const SingleService = ({ product }: { product: any }) => {
             paddingInline: "0px",
             width: "100%",
             margin: "0 0 10px 0",
+            flexDirection:"column"
+        
           }}
         >
-          <div className="bg-primary">
-            <AddToCartButton service={product}></AddToCartButton>
-          </div>
+          <p  className="font-mono font-medium text-right">${price}</p>
           <div className="align-baseline text-right">
-            <h4 className="text-[16px]">{title}</h4>
-          
             <Rate
               count={5}
               style={{
-                height:"7px"
+                height: "7px",
+                textAlign: "right",
               }}
               defaultValue={
                 product?.reviews?.length > 1 ? product?.reviews?.length : 4
@@ -61,32 +56,20 @@ const SingleService = ({ product }: { product: any }) => {
               allowHalf
               disabled
             />
-              <p className="font-mono">${price}</p>
           </div>
-        </section>
-        {/* <div
-          style={{
-            marginBlock: "10px",
-            display: "flex",
-            justifyContent: "space-between",
-          }}
-        >
           <AddToCartButton service={product}></AddToCartButton>
+        </section>
 
-          <Link href={`/user/booking/${id}`}>
-            <Button type="default" icon={<BookOutlined />}>
-              Book
-            </Button>
-          </Link>
-        </div> */}
+           
+        {/* <div  className="bg-primary my-2 rounded-md">
+          </div> */}
+
         <Link href={`/services/${id}`}>
-          <Button  className="bg-primary text-white font-medium" block>
+          <Button className="bg-primary text-white font-medium" block>
             Details
           </Button>
         </Link>
       </Card>
-
-
     </Col>
   );
 };
