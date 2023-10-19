@@ -23,6 +23,7 @@ import {
   useSingleServiceQuery,
   useUpdateServiceMutation,
 } from "@/redux/api/serviceApi";
+import BreadCumbUI from "@/components/ui/BreadCumbUI";
 
 const onFinishFailed = (errorInfo: any) => {
   console.log("Failed:", errorInfo);
@@ -90,9 +91,18 @@ const UpdateServicePage = ({ params: { id } }: { params: { id: string } }) => {
 
   return (
     <div className="shadow-xl block p-2 ">
-      <h4>
-        Go <Link href="/admin/service">Service page</Link>
-      </h4>
+     <BreadCumbUI
+        items={[
+          {
+            label: "service",
+            link: "/admin/service",
+          },
+          {
+            label: `Update ${defaultServiceData?.title}`,
+            link: `/admin/service/update/${id}`,
+          },
+        ]}
+      />
 
       <Form
         name="basic"

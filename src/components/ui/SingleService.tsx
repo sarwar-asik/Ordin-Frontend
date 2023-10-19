@@ -6,13 +6,13 @@ import React from "react";
 import AddToCartButton from "./Button/AddToCartButton";
 
 const SingleService = ({ product }: { product: any }) => {
-  const { id, img, title, price, contact, address, serviceTime } = product;
+  const { id, img, title, price } = product;
   console.log(product, "");
 
   return (
     <Col
       style={{ background: "white" }}
-      key={title}
+  
       xs={24}
       sm={24}
       md={12}
@@ -20,7 +20,7 @@ const SingleService = ({ product }: { product: any }) => {
     >
       <Card
         hoverable
-        style={{ width: 310, marginInline: "auto",height:470 }}
+        style={{ width: 310,height:470 }}
         cover={
           <Image
           // className="transform transition-transform delay-300 hover:scale-110"
