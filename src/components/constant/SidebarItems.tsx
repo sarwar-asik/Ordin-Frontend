@@ -7,6 +7,16 @@ import {
   CreditCardOutlined,
   FileTextOutlined,
   HomeOutlined,
+  ShoppingCartOutlined,
+  ShopOutlined,
+  MessageOutlined,
+  DatabaseOutlined,
+  ControlOutlined,
+  UsergroupAddOutlined,
+  ContainerOutlined,
+  TabletOutlined,
+  QuestionOutlined,
+  PlusSquareOutlined,
 } from "@ant-design/icons";
 import Link from "next/link";
 import { USER_ROLE } from "@/constant/userRole";
@@ -61,12 +71,12 @@ export const sidebarItems = (role: string) => {
     ...defaultSidebarItems,
     {
       label: <Link href={`/${role}/cart`}>Cart</Link>,
-      icon: <TableOutlined />,
+      icon: <ShoppingCartOutlined/>,
       key: `/${role}cart`,
     },
     {
       label: <Link href={`/${role}/booking`}>Bookings</Link>,
-      icon: <ScheduleOutlined />,
+      icon: <ShopOutlined/>,
       key: `/${role}/booking`,
     },
     {
@@ -76,7 +86,7 @@ export const sidebarItems = (role: string) => {
     },
     {
       label: <Link href={`/${role}/notification`}>Notification</Link>,
-      icon: <CreditCardOutlined />,
+      icon: <MessageOutlined />,
       key: `/${role}/notification`,
     },
   ];
@@ -85,37 +95,37 @@ export const sidebarItems = (role: string) => {
     ...defaultSidebarItems,
     {
       label: <Link href={`/${role}/service`}>Services</Link>,
-      icon: <FileTextOutlined />,
+      icon:<DatabaseOutlined />,
       key: `/${role}/service`,
     },
     {
       label: <Link href={`/${role}/category`}>Category</Link>,
-      icon: <FileTextOutlined />,
+      icon: <ControlOutlined />,
       key: `/${role}/category`,
     },
     {
       label: <Link href={`/${role}/users`}>users</Link>,
-      icon: <FileTextOutlined />,
+      icon: <UsergroupAddOutlined />,
       key: `/${role}/users`,
     },
     {
       label: <Link href={`/${role}/bookings`}>booking</Link>,
-      icon: <FileTextOutlined />,
+      icon: <ShopOutlined/>,
       key: `/${role}/bookings`,
     },
     {
       label: "Content Manage",
-      icon: <FileTextOutlined />,
+      icon: <ContainerOutlined />,
       key: `contents`,
       children: [
         {
           label: <Link href={`/${role}/blogs`}>blogs</Link>,
-          icon: <FileTextOutlined />,
+          icon: <TabletOutlined/>,
           key: `/${role}/blogs`,
         },
         {
           label: <Link href={`/${role}/FAQ`}>FAQ</Link>,
-          icon: <FileTextOutlined />,
+          icon:<QuestionOutlined />,
           key: `/${role}/FAQ`,
         },
       ],
@@ -132,12 +142,12 @@ export const sidebarItems = (role: string) => {
       children: [
         {
           label: <Link href={`/super_admin/users`}>All Users</Link>,
-          icon: <TableOutlined />,
+          icon: <UsergroupAddOutlined/>,
           key: `/${role}/admin`,
         },
         {
           label: <Link href={`/super_admin/create_admin`}>Create Admin</Link>,
-          icon: <TableOutlined />,
+          icon: <PlusSquareOutlined />,
           key: `/${role}/user`,
         },
       ],
