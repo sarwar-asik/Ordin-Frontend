@@ -13,7 +13,7 @@ import { USER_ROLE } from "@/constant/userRole";
 
 export const sidebarItems = (role: string) => {
 
-  console.log(role,"role from sidebarItem");
+  // console.log(role,"role from sidebarItem");
 
 
   const publicSidebarItems: MenuProps["items"] = [
@@ -70,7 +70,7 @@ export const sidebarItems = (role: string) => {
       key: `/${role}/booking`,
     },
     {
-      label: <Link href={`/${role}/review`}>Reviews</Link>,
+      label: <Link href={`/${role}/reviews`}>Reviews</Link>,
       icon: <ThunderboltOutlined />,
       key: `/${role}/reviews`,
     },

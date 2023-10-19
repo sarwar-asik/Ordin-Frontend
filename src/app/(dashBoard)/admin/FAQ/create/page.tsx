@@ -1,58 +1,45 @@
 "use client";
 import uploadImgCloudinary from "@/hooks/cloudinary";
-import { useCreateBlogMutation } from "@/redux/api/blogsApi";
+
 import { getUserInfo } from "@/utils/local.storeage";
 import { Button, DatePicker, Form, Input, Upload, message } from "antd";
 import { useRouter } from "next/navigation";
 import React from "react";
 import FormateDateTime from "@/helpers/DateTimeFormated";
+import { useCreateFAQMutation } from "@/redux/api/FAQApi";
 
 interface FieldType {
-  title: string;
-  content: string;
-  author: string;
-  img: string;
-  portal: string;
-  publishedTime: Date;
+  question: string;
+  answer: string;
 }
 const onFinishFailed = (errorInfo: any) => {
   console.log("Failed:", errorInfo);
 };
 
 const CreateFAQ = () => {
-  const postBy = getUserInfo() as any;
+ 
   const router = useRouter();
-  const [createBlog] = useCreateBlogMutation();
+  const [createFAQ] = useCreateFAQMutation();
 
   const onFinish = async (values: any) => {
-    const file = values.img.file.originFileObj;
-
-    values["postBy"] = postBy?.id;
-
-
-   const formattedPublishedTime = FormateDateTime(values.publishedTime)
-
-    values.publishedTime = formattedPublishedTime
-    
-    // console.log(values,"newV");
+    console.log(values, "newV");
+    message.loading("creating Faq");
 
     try {
-        const data = await uploadImgCloudinary(file);
-        values.img = data;
-        const res = await createBlog({ ...values }).unwrap();
-        console.log(res, "blog response");
-        if (res) {
-          message.success("successfully created blog");
-          router.push("/admin/blogs");
-        }
+      const res = await createFAQ({ ...values }).unwrap();
+      console.log(res, "FAQ response");
+      if (res) {
+        message.success("successfully created FAQ");
+        router.push("/admin/FAQ");
+      }
     } catch (error) {
-      console.error("Error in onFinish the blog create", error);
+      console.error("Error in onFinish the FAQ create", error);
     }
   };
 
   return (
     <Form
-      name="blogs"
+      name="FAQs"
       labelCol={{ span: 4 }}
       wrapperCol={{ span: 20 }}
       labelAlign="left"
@@ -62,70 +49,26 @@ const CreateFAQ = () => {
       onFinish={onFinish}
       onFinishFailed={onFinishFailed} // Vertical layout for better responsiveness
     >
-      <h2 className="text-[2rem] font-extrabold mb-3  fon-serif">
-        Create Blogs
-      </h2>
+      <h2 className="text-[2rem] font-extrabold mb-3  fon-serif">Create FAQ</h2>
       <Form.Item
-        label={<span className="text-[1.2em] font-medium">Title</span>}
-        name="title"
-        rules={[{ required: true, message: "Title is required" }]}
+        label={<span className="text-[1.2em] font-medium">question</span>}
+        name="question"
+        rules={[{ required: true, message: "question is required" }]}
       >
         <Input />
       </Form.Item>
 
       <Form.Item
-        label="Content"
-        name="content"
-        rules={[{ required: true, message: "Content is required" }]}
+        label="answer"
+        name="answer"
+        rules={[{ required: true, message: "answer is required" }]}
       >
         <Input.TextArea rows={4} />
       </Form.Item>
 
-      <Form.Item
-        label="Author"
-        name="author"
-        rules={[{ required: true, message: "Author is required" }]}
-      >
-        <Input />
-      </Form.Item>
-      <Form.Item
-        label="Portal"
-        name="portal"
-        rules={[{ required: true, message: "Portal is required" }]}
-      >
-        <Input />
-      </Form.Item>
-
-      <Form.Item
-        label="Published Time"
-        name="publishedTime"
-        rules={[{ required: true, message: "Published Time is required" }]}
-      >
-        <DatePicker showTime />
-      </Form.Item>
-
-      
-
-      <Form.Item
-        label="Image Upload"
-        name="img"
-        rules={[{ required: true, message: "Image upload is required" }]}
-      >
-        <Upload
-          listType="picture-card"
-          showUploadList={true}
-          action="/api/file"
-          maxCount={1}
-        >
-          <Button>Upload</Button>
-        </Upload>
-      </Form.Item>
-
-     
-
       <Form.Item>
         <Button type="primary" htmlType="submit">
-          Submit
+          Create
         </Button>
       </Form.Item>
     </Form>

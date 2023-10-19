@@ -15,7 +15,7 @@ const { Header, Content } = Layout;
 const DashBoardLayout = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
 
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
 
   const userLoggedIn = isLoggedIn();
   useEffect(() => {

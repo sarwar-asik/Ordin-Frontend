@@ -10,16 +10,18 @@ import { Button, Input, message } from "antd";
 import Link from "next/link";
 import { useState } from "react";
 import ActionBarUI from "@/components/ui/ActionBarUI";
-import dayjs from "dayjs";
+
 import { useDebounced } from "@/redux/hooks";
 
 import BreadCumbUI from "@/components/ui/BreadCumbUI";
 import TableUI from "@/components/ui/TableUI";
-import { useDeleteFAQMutation, useFAQAllQuery } from "@/redux/api/FAQApi";
 
+import {
+  useDeleteReviewMutation,
+  useUserAllReviewsQuery,
+} from "@/redux/api/ReviewApi";
 
-
-const FAQPage = () => {
+const UserReviewPage = () => {
   const query: Record<string, any> = {};
 
   const [page, setPage] = useState<number>(1);
@@ -43,18 +45,18 @@ const FAQPage = () => {
   if (!!debouncedTerm) {
     query["searchTerm"] = debouncedTerm;
   }
-  const { data, isLoading } = useFAQAllQuery({ ...query });
-  const [deleteFAQ] = useDeleteFAQMutation()
+  const { data, isLoading } = useUserAllReviewsQuery({ ...query });
+  const [deleteReview] = useDeleteReviewMutation();
 
-  const usersData = data?.FAQs;
+  const usersData = data?.Reviews;
   const meta = data?.meta;
 
   const deleteHandler = async (id: string) => {
     message.loading("Deleting.....");
     try {
-      const res = await deleteFAQ(id);
+      const res = await deleteReview(id);
       if (res) {
-        message.success("service Deleted successfully");
+        message.success("Review Deleted successfully");
       }
     } catch (err: any) {
       //   console.error(err.message);
@@ -64,30 +66,16 @@ const FAQPage = () => {
 
   const columns = [
     {
-      title: "question",
-      dataIndex: "question",
+      title: "reviews",
+      dataIndex: "reviews",
     },
-    { title: "answer", dataIndex: "answer" },
- 
-  
-
+    { title: "rating", dataIndex: "rating" },
 
     {
       title: "Action",
       render: function (data: any) {
         return (
           <div>
-            <Link href={`/admin/FAQ/update/${data?.id}`}>
-              <Button
-                style={{
-                  margin: "0px 5px",
-                }}
-                onClick={() => console.log(data)}
-                type="primary"
-              >
-                <EditOutlined />
-              </Button>
-            </Link>
             <Button
               onClick={() => deleteHandler(data?.id)}
               type="primary"
@@ -146,13 +134,8 @@ const FAQPage = () => {
             setSearchTerm(e.target.value);
           }}
         />
-        
+
         <div>
-        <Link href="/admin/FAQ/create">
-          <Button type="primary">
-            Create <PlusCircleFilled />
-          </Button>
-        </Link>
           {(!!sortBy || !!sortOrder || !!searchTerm) && (
             <Button
               onClick={resetFilters}
@@ -180,4 +163,4 @@ const FAQPage = () => {
   );
 };
 
-export default FAQPage;
+export default UserReviewPage;
