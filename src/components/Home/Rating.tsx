@@ -28,7 +28,7 @@ const reviewsDaa = [
 ];
 
 const ReviewsPage = () => {
-  const { data } = useReviewsQuery({ page: 1, limit: 6 });
+  const { data ,isLoading} = useReviewsQuery({ page: 1, limit: 6 });
   
   // console.log("🚀 ~ file: Rating.tsx:32 ~ ReviewsPage ~ data:", data);
   const reviewsData = data?.reviews;
@@ -43,6 +43,8 @@ const ReviewsPage = () => {
         </p>
       </section>
       <Layout>
+        {isLoading&&
+        <h2>Loading reting....</h2>}
         <Content style={{ padding: "20px" }}>
           <List
             grid={{ gutter: 16, column: 2 }}
@@ -62,7 +64,7 @@ const ReviewsPage = () => {
                       <Space wrap size={16}>
                         <Avatar
                           shape="square"
-                          src={item?.img}
+                          src={item?.user?.img}
                           size={64}
                           icon={<UserOutlined />}
                         />

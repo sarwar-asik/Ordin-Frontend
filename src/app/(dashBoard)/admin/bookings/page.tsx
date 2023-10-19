@@ -20,7 +20,11 @@ import {
   useCategoriesQuery,
   useDeleteCategoryMutation,
 } from "@/redux/api/categoryApi";
-import { useBookingsQuery, useDeleteBookingMutation } from "@/redux/api/bookingApi";
+import {
+  useBookingsQuery,
+  useDeleteBookingMutation,
+  useUpdateBookingMutation,
+} from "@/redux/api/bookingApi";
 
 const AllBookingsPage = () => {
   const query: Record<string, any> = {};
@@ -30,7 +34,7 @@ const AllBookingsPage = () => {
   const [sortBy, setSortBy] = useState<string>("");
   const [sortOrder, setSortOrder] = useState<string>("");
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [deleteBooking] = useDeleteBookingMutation()
+  const [deleteBooking] = useDeleteBookingMutation();
 
   query["limit"] = size;
   query["page"] = page;
@@ -47,9 +51,10 @@ const AllBookingsPage = () => {
     query["searchTerm"] = debouncedTerm;
   }
   const { data, isLoading } = useBookingsQuery({ ...query });
-//   console.log("🚀 ~ file: page.tsx:50 ~ AllBookingsPage ~ data:", data)
+  const [updateBooking] = useUpdateBookingMutation()
+  //   console.log("🚀 ~ file: page.tsx:50 ~ AllBookingsPage ~ data:", data)
 
-  const usersData = data?.bookings
+  const usersData = data?.bookings;
   const meta = data?.meta;
 
   const deleteHandler = async (id: string) => {
@@ -65,13 +70,30 @@ const AllBookingsPage = () => {
     }
   };
 
+  const updateStatusHandler = async (id:string,type:string) => {
+    message.loading("Updating....");
+    try {
+      const upData ={
+        paymentStatus:type
+      }
+      console.log(upData,id);
+      const res = await updateBooking({data:upData,id})
+      console.log("🚀 ~ file: page.tsx:81 ~ updateStatusHandler ~ res:", res)
+      if (res) {
+        message.success("Booking updated successfully");
+      }
+    } catch (err: any) {
+      //   console.error(err.message);
+      message.error(err.message);
+    }
+  };
   const columns = [
     {
       title: "User Name",
-      dataIndex: ["user","name"],
+      dataIndex: ["user", "name"],
     },
-    { title: "Service Name", dataIndex:["service","title"] },
-    { title: "Pending Status", dataIndex:["paymentStatus"] },
+    { title: "Service Name", dataIndex: ["service", "title"] },
+    { title: "Pending Status", dataIndex: ["paymentStatus"] },
     {
       title: "CreatedAt",
       dataIndex: "createdAt",
@@ -80,28 +102,20 @@ const AllBookingsPage = () => {
       },
       sorter: true,
     },
+
     {
       title: "Action",
       render: function (data: any) {
         return (
           <div>
-            <Link href={`/admin/bookings/update/${data?.id}`}>
-              <Button
-                style={{
-                  margin: "0px 5px",
-                }}
-                onClick={() => console.log(data)}
-                type="primary"
-              >
-                <EditOutlined />
-              </Button>
-            </Link>
-            <Button
-              onClick={() => deleteHandler(data?.id)}
-              type="primary"
-              danger
-            >
-              <DeleteOutlined />
+            <Button onClick={() => updateStatusHandler(data?.id,"success")} type="primary">
+             success
+            </Button>
+             <Button onClick={() => updateStatusHandler(data?.id,"reject")} type="dashed" >
+             reject
+            </Button>
+            <Button type="primary" onClick={() => deleteHandler(data?.id)} danger>
+              Delete
             </Button>
           </div>
         );
@@ -142,7 +156,7 @@ const AllBookingsPage = () => {
         ]}
       />
 
-      <ActionBarUI title="Categories List">
+      <ActionBarUI title="Booking List">
         <Input
           type="text"
           size="large"

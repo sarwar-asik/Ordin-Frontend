@@ -50,7 +50,7 @@ export const bookingApi = baseApi.injectEndpoints({
       query: ({data,id}) => ({
         url: `/booking/${id}`,
         method: "PATCH",
-        data: data?.body,
+        data: data
       }),
       invalidatesTags: ["booking"],
     }),

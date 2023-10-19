@@ -47,7 +47,7 @@ const UpdateCategoryPage = ({ params: { id } }: { params: { id: string } }) => {
 
     try {
       //   // console.log("newValue", values);
-      const res = await updateCategory({ ...values }).unwrap();
+      const res = await updateCategory({data:values,id }).unwrap();
       console.log(res, "updateProfile response");
 
       if (res) {
