@@ -1,11 +1,15 @@
 import { Row, Col, Button, Divider } from "antd";
 import Link from "next/link";
 import Logo from "./Logo";
+
 import {
-  FacebookFilled,
+  FacebookOutlined,
   LinkedinOutlined,
   TwitterOutlined,
+  YoutubeOutlined,
+  FacebookFilled,
 } from "@ant-design/icons";
+import { Space, Tag } from "antd";
 
 const Footer = () => {
   return (
@@ -18,41 +22,49 @@ const Footer = () => {
         // bottom: 0,
         width: "100%",
         overflow: "auto",
-        fontFamily:"serif"
+        fontFamily: "serif",
       }}
     >
       <Row gutter={[16, 16]}>
         <Col xs={24} sm={12} md={8}>
-          <p style={{ background: "white", width: "6rem",borderRadius:"5px" }}>
+          <p
+            style={{ background: "white", width: "6rem", borderRadius: "5px" }}
+          >
             <Logo />
           </p>
-          <p>123 Company Street</p>
-          <p>City, Country</p>
-
+          <br />
+          <p>123 Stepen Road</p>
+          <p>Miami,Florida,USA</p>
           <p>Phone: +1 234 567 890</p>
         </Col>
         <Col xs={24} sm={12} md={8}>
-          <h2>Useful Links</h2>
-          <br/>
-          <div className="text-2xl flex gap-3 text-blue-400">
-            <FacebookFilled />
-            <LinkedinOutlined />
-            <TwitterOutlined />
+          <h2>Our Designs</h2>
+          <br />
+          <div className="text-base text-[1rem] flex flex-col  text-blue-200">
+          <h6>Home Interior</h6>
+          <h6>Office Interior</h6>
+          <h6>Restaurant Interior</h6>
+          <h6>Roof Interior</h6>
           </div>
         </Col>
         <Col xs={24} sm={12} md={8}>
           <h2>Follow Us</h2>
           <p>Stay connected on social media:</p>
-          <div>
-            <a href="#" target="_blank" rel="noopener noreferrer">
-              <i className="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer">
-              <i className="fab fa-twitter"></i>
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer">
-              <i className="fab fa-linkedin"></i>
-            </a>
+          <div style={{margin:"10px 0"}}>
+            <Space size={[0, 8]} wrap>
+              <Tag icon={<TwitterOutlined />} color="#55acee">
+                Twitter
+              </Tag>
+              <Tag icon={<YoutubeOutlined />} color="#cd201f">
+                Youtube
+              </Tag>
+              <Tag icon={<FacebookOutlined />} color="#3b5999">
+                Facebook
+              </Tag>
+              <Tag icon={<LinkedinOutlined />} color="#55acee">
+                LinkedIn
+              </Tag>
+            </Space>
           </div>
         </Col>
       </Row>
