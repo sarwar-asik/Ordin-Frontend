@@ -1,10 +1,11 @@
 "use client";
+import { useReviewsQuery } from "@/redux/api/ReviewApi";
 import { UserOutlined } from "@ant-design/icons";
 import { Layout, Card, Rate, List, Space, Avatar } from "antd";
 
 const { Content } = Layout;
 
-const reviewsData = [
+const reviewsDaa = [
   {
     id: 1,
     user: "User 1",
@@ -27,6 +28,12 @@ const reviewsData = [
 ];
 
 const ReviewsPage = () => {
+  const { data } = useReviewsQuery({ page: 1, limit: 6 });
+  
+  // console.log("🚀 ~ file: Rating.tsx:32 ~ ReviewsPage ~ data:", data);
+  const reviewsData = data?.reviews;
+  console.log("🚀 ~ file: Rating.tsx:35 ~ ReviewsPage ~ reviewsDat:", reviewsData)
+
   return (
     <div className="mt-[10rem] bg-secondary py-5 rounded-md px-1 ">
       <section className="">
@@ -55,6 +62,7 @@ const ReviewsPage = () => {
                       <Space wrap size={16}>
                         <Avatar
                           shape="square"
+                          src={item?.img}
                           size={64}
                           icon={<UserOutlined />}
                         />
@@ -64,15 +72,15 @@ const ReviewsPage = () => {
                           marginLeft: "10px",
                         }}
                       >
-                        {item.user}
+                        {item?.user?.name}
                       </span>
                     </div>
                     <div className="">
-                      <Rate disabled defaultValue={item.rating} />
+                      <Rate disabled defaultValue={item?.rating} />
                     </div>
                   </div>
                   <p style={{ color: "#94A3B8", marginTop: "10px" }}>
-                    {item.review.slice(0, 35)}
+                    {item?.reviews?.slice(0, 35)}
                   </p>
                 </Card>
               </List.Item>

@@ -154,6 +154,11 @@ const UsersList = () => {
           }}
         />
         <div>
+        <Link href="/admin/users/create">
+            <Button type="primary">
+              Create  <PlusCircleFilled />
+            </Button>
+          </Link>
           {(!!sortBy || !!sortOrder || !!searchTerm) && (
             <Button
               onClick={resetFilters}

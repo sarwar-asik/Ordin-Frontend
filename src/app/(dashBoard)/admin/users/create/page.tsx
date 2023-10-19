@@ -1,25 +1,13 @@
 "use client";
 
 import React from "react";
-import {
-  Button,
-  Checkbox,
-  Form,
-  Input,
-  Typography,
-  Upload,
-  message,
-} from "antd";
-
-import Image from "next/image";
-import loginImg from "@/assets/signUpSider.png";
-
+import { Button, Form, Input, Upload, message, } from "antd";
 import uploadImgCloudinary from "@/hooks/cloudinary";
 import { useRouter } from "next/navigation";
+import { useCreateAdminMutation } from "@/redux/api/userAPi";
 import { useUserSignUpMutation } from "@/redux/api/authApi";
 
-import Link from "next/link";
-import { useCreateAdminMutation } from "@/redux/api/userAPi";
+
 
 const onFinishFailed = (errorInfo: any) => {
   console.log("Failed:", errorInfo);
@@ -32,14 +20,16 @@ type FieldType = {
   contact: string;
   img: string;
   accept?: string;
-  role: "admin";
+  role: "user";
 };
 
-const CreateAdmin = () => {
+const SignUpPage = () => {
+
   const router = useRouter();
-  const [createAdmin] = useCreateAdminMutation();
+  const [userSIgnUp] =useUserSignUpMutation()
 const [form] = Form.useForm()
   const onFinish = async (values: any) => {
+    message.loading("creating user .....")
     // console.log(values);
     const file = values.img.file.originFileObj;
 
@@ -47,15 +37,15 @@ const [form] = Form.useForm()
       const data = await uploadImgCloudinary(file);
       // console.log(data, "imagebb data...");
       values.img = data;
-      values["role"] = "admin";
-    //   console.log("newValue", values);
-      const res = await createAdmin({ ...values }).unwrap();
-    //   console.log(res, "create Admin response");
+      
+ 
+      const res = await userSIgnUp({ ...values }).unwrap();
+    //   console.log(res, "create user response");
 
       if (res) {
-        message.success("created admin");
+        message.success("created user");
         form.resetFields()
-        router.push("/super_admin/users");
+        router.push("/super_user/users");
       }
     } catch (error) {
       console.error("Error in onFinish:", error);
@@ -77,26 +67,24 @@ const [form] = Form.useForm()
         // autoComplete="off"
       >
         <h2 className="text-[2rem] font-extrabold mb-3  fon-serif">
-          Create Admin
+          Create User
         </h2>
         <Form.Item<FieldType>
-          label={<span className="text-[1.2em] font-medium">Admin Name</span>}
+          label={<span className="text-[1.2em] font-medium">user Name</span>}
           name="name"
           className="w-full py-1 input"
           rules={[{ required: true, message: "Please input username!" }]}
         >
-          <Input placeholder="Admin Name" />
+          <Input placeholder="user Name" />
         </Form.Item>
         <Form.Item<FieldType>
           label={<span className="text-[1.2em] font-medium">Email</span>}
           labelAlign="left"
           name="email"
           className="w-full py-1 input"
-          rules={[{ required: true, message: "Please input admin email!" }]}
+          rules={[{ required: true, message: "Please input user email!" }]}
         >
-          {/* <label  className="text-[1.2em] font-[400]">
-            Email
-          </label> */}
+        
           <Input type="email" placeholder="example@gmail.com" />
         </Form.Item>
         <Form.Item<FieldType>
@@ -104,7 +92,7 @@ const [form] = Form.useForm()
           name="contact"
           className="w-full py-1 input"
           rules={[
-            { required: true, message: "Please input admin Contact Num!" },
+            { required: true, message: "Please input user Contact Num!" },
           ]}
         >
           <Input type="number" />
@@ -131,7 +119,7 @@ const [form] = Form.useForm()
           label={<span className="text-[1.2em] font-medium">Password</span>}
           name="password"
           className="w-full py-1 input"
-          rules={[{ required: true, message: "Please input admin password!" }]}
+          rules={[{ required: true, message: "Please input user password!" }]}
         >
           <Input.Password />
         </Form.Item>
@@ -140,7 +128,7 @@ const [form] = Form.useForm()
 
         <Form.Item wrapperCol={{ span: 8 }}>
           <Button block type="primary" htmlType="submit">
-            Submit
+           Create
           </Button>
         </Form.Item>
       </Form>
@@ -148,4 +136,4 @@ const [form] = Form.useForm()
   );
 };
 
-export default CreateAdmin;
+export default SignUpPage;

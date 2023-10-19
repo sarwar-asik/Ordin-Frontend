@@ -14,14 +14,14 @@ export const ReviewApi = baseApi.injectEndpoints({
     reviews: build.query({
       query: (arg: Record<string, any>) => {
         return {
-          url: "/review",
+          url: "/reviews",
           method: "GET",
           query: arg,
         };
       },
       transformResponse: (response: any[], meta: IMeta) => {
         return {
-          Reviews: response,
+          reviews: response,
           meta,
         };
       },

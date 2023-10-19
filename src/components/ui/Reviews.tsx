@@ -55,7 +55,7 @@ const AddReviewsPage = ({ serviceId }: { serviceId: string }) => {
       if (response) {
         onReset()
         setVisible(false);
-        message.success("Thank You Message");
+        message.success("Thank You ");
       }
     } catch (error) {
       console.log("🚀 ~ file: Reviews.tsx:50 ~ onFinish ~ error:", error);
@@ -63,8 +63,9 @@ const AddReviewsPage = ({ serviceId }: { serviceId: string }) => {
   };
   return (
     <div>
+    
       <div>
-        {userInfo?.id === alreadyReviewData?.user?.id ? (
+        {userInfo.id && userInfo?.id === alreadyReviewData?.user?.id ? (
           <>
             <br />
             <h2>Your Given a Review:</h2>

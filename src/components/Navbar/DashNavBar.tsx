@@ -1,15 +1,35 @@
 import React from "react";
 
 import Link from "next/link";
-import { Avatar, Button, Dropdown, Layout, Menu, MenuProps, Space, message, } from "antd";
-import { MenuFoldOutlined, MenuUnfoldOutlined, UserOutlined, } from "@ant-design/icons";
+import {
+  Avatar,
+  Button,
+  Dropdown,
+  Layout,
+  Menu,
+  MenuProps,
+  Space,
+  message,
+} from "antd";
+import {
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
+  ShoppingCartOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
 import { getUserInfo, removeUserInfo } from "@/utils/local.storeage";
 import { authKey } from "@/constant/storageKey";
 import Logo from "../ui/Logo";
 import UserAvatar from "../ui/UserAvatar";
 const { Header } = Layout;
 
-const DashNavBar = ({ collapsed, setCollapsed, }: { collapsed: boolean; setCollapsed: any; }) => {
+const DashNavBar = ({
+  collapsed,
+  setCollapsed,
+}: {
+  collapsed: boolean;
+  setCollapsed: any;
+}) => {
   const userInfo = getUserInfo() as any;
 
   return (
@@ -21,7 +41,7 @@ const DashNavBar = ({ collapsed, setCollapsed, }: { collapsed: boolean; setColla
         backgroundColor: "#ffffff",
         boxShadow:
           "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-          paddingInline:"3px"
+        paddingInline: "3px",
       }}
     >
       <section style={{ display: "flex", alignItems: "center" }}>
@@ -43,7 +63,16 @@ const DashNavBar = ({ collapsed, setCollapsed, }: { collapsed: boolean; setColla
           <UserAvatar userId={userInfo?.id} />
         </Menu.Item>
       </Menu> */}
-      <UserAvatar userId={userInfo?.id} />
+      <section style={{
+        display:"flex",
+        alignItems:"center",
+        gap:"5px"
+      }}>
+        <Link hidden={userInfo?.role ==="user"?false:true} style={{fontSize:"2rem"}} href="/user/cart">
+          <ShoppingCartOutlined />
+        </Link>
+        <UserAvatar userId={userInfo?.id} />
+      </section>
     </Header>
   );
 };

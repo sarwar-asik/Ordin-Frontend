@@ -10,6 +10,7 @@ import Link from "next/link";
 import React from "react";
 
 const CartPage = () => {
+  
 const {data,isLoading} = useCartsQuery({page:1})
 // console.log("🚀 ~ file: page.tsx:12 ~ CartPage ~ data:", data)
 

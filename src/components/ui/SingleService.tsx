@@ -33,12 +33,12 @@ const SingleService = ({ product }: { product: any }) => {
           style={{
             display: "flex",
             justifyContent: "space-between",
-            alignItems: "center",
+            alignItems: "flex-end",
             marginInline: "0px",
             paddingInline: "0px",
             width: "100%",
             margin: "0 0 10px 0",
-            flexDirection:"column"
+            flexDirection:"column",
         
           }}
         >

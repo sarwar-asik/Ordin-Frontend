@@ -11,6 +11,7 @@ import {
   useUserBookingQuery,
 } from "@/redux/api/bookingApi";
 import BreadCumbUI from "@/components/ui/BreadCumbUI";
+import AddReviewsPage from "@/components/ui/Reviews";
 
 const BookingCreatePage = ({
   params: { serviceId },
@@ -18,7 +19,7 @@ const BookingCreatePage = ({
   params: { serviceId: string };
 }) => {
   // console.log(serviceId,"serviceId");
-  const { data, isLoading } = useSingleServiceQuery(serviceId);
+  const { data,isLoading} = useSingleServiceQuery(serviceId);
   const [createBooking] = useCreateBookingMutation();
 
   const useInfo = getUserInfo() as any;
@@ -67,6 +68,10 @@ const BookingCreatePage = ({
           },
         ]}
       />
+      {
+        isLoading &&
+        <h2>Loading...</h2>
+      }
       <Row gutter={[16, 16]}>
         <Col xs={24} lg={12} style={{ paddingInline: "10px" }}>
           {BookData && (
@@ -74,6 +79,9 @@ const BookingCreatePage = ({
               <h2 style={{ fontFamily: "serif", margin: "16px 0" }}>
                 Already Booked the Service
               </h2>
+
+              <AddReviewsPage serviceId={serviceData?.id}/>
+
             </section>
           )}
          <div hidden={BookData?true:false} className="">

@@ -14,18 +14,20 @@ const AddToCartButton = ({ service }: { service: any }) => {
 
   const addToCart = async (cartData: any) => {
     if (!isUser?.id) {
+      message.info("login please");
       router.push("/login");
+      return;
     }
     const cartCreateData = {
       userId: isUser?.id,
       serviceId: cartData?.id,
     };
     try {
-      message.loading("adding to cart.........")
+      message.loading("adding to cart.........");
       const response = (await createCart({ ...cartCreateData })) as any;
       // console.log(response);
       if (response?.data) {
-        message.success("Success");
+        message.success("Added Cart");
       } else {
         message.error("Can not add double");
       }

@@ -6,7 +6,7 @@ import Link from "next/link";
 import SideBar from "./SideDrawer";
 import { getUserInfo } from "@/utils/local.storeage";
 
-import { UserOutlined } from "@ant-design/icons";
+import { ShoppingCartOutlined, UserOutlined } from "@ant-design/icons";
 
 import Logo from "../ui/Logo";
 
@@ -49,7 +49,16 @@ const Navbar = () => {
         </Menu>
 
         {user?.role ? (
-          <UserAvatar userId={user?.id} />
+          <section style={{
+            display:"flex",
+            alignItems:"center",
+            gap:"5px"
+          }}>
+            <Link hidden={user?.role ==="user"?false:true} style={{fontSize:"2rem"}} href="/user/cart">
+              <ShoppingCartOutlined />
+            </Link>
+            <UserAvatar userId={user?.id} />
+          </section>
         ) : (
           <section className="px-2 text-black">
             <Link className="font-semibold" href="/login">Login</Link>

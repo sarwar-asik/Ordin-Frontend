@@ -1,9 +1,10 @@
+import Loader from '@/components/ui/Loader';
 import React from 'react';
 
 const loading = () => {
     return (
         <div>
-            <h1>Loading Data...........</h1>     
+            <Loader/>    
         </div>
     );
 };
