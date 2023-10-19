@@ -4,6 +4,7 @@ import React from 'react';
 import { Card, Avatar, Typography, Image, Divider, Row, Col } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 
+
 const { Meta } = Card;
 const { Title, Paragraph,Text } = Typography;
 
@@ -35,7 +36,9 @@ const BlogDetailsPage = ({params:{id}}:{params:{id:string}}) => {
     // </div>
     <div style={{ padding: '24px' }}>
       <Card
-        cover={<img alt={blog.title} src={blog.img} />}
+        cover={<Image 
+          // height={200} width={200}
+           alt={blog.title} src={blog.img} />}
       >
         <Meta
           avatar={<Avatar icon={<UserOutlined />} />}

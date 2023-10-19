@@ -16,7 +16,7 @@ const SingleService = ({ product }: { product: any }) => {
       xs={24}
       sm={24}
       md={12}
-      lg={6}
+      lg={8}
     >
       <Card
         hoverable

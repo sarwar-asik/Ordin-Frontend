@@ -43,7 +43,7 @@ const TableUI = ({
       }
     : false;
 
-    console.log(paginationConfig,"tt");
+    // console.log(paginationConfig,"tt");
 
   ///! on table change
 //   const onTableChange = (pagination: any, filter: any, sorter: any) => {
@@ -55,6 +55,7 @@ const TableUI = ({
     <Table
       loading={loading}
       columns={columns}
+      
       dataSource={dataSource}
       pagination={paginationConfig}
       onChange={onTableChange}

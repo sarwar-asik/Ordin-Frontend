@@ -46,6 +46,7 @@ const HeroOne = () => {
         justifyContent: "center",
         color: "#fff",
         textAlign: "center",
+        marginTop:"5rem"
       }}
     >
       <div style={contentStyles}>
@@ -77,16 +78,21 @@ const HeroOne = () => {
           </Col>
 
           <Col lg={8} xs={24} md={12}>
-            <div>
+            <div  style={{
+                  color: "white",
+                  textAlign:"right",
+                  padding:"0 10px"
+                }}>
               <Title
                 level={2}
                 style={{
                   color: "white",
+                  textAlign:"right"
                 }}
               >
                 Why Choose Us
               </Title>
-              <div style={{ display: "flex" }}>
+              <div style={{ display: "flex",alignContent:"flex-end" }}>
                 <li>Experienced Designers</li>
                 <li>Customized Solutions</li>
                 <li>Quality Materials</li>

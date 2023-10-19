@@ -51,8 +51,8 @@ const Navbar = () => {
         {user?.role ? (
           <UserAvatar userId={user?.id} />
         ) : (
-          <section>
-            <Link href="/login">Login</Link>
+          <section className="px-2 text-black">
+            <Link className="font-semibold" href="/login">Login</Link>
           </section>
         )}
       </Header>

@@ -58,6 +58,7 @@ const CreateServicePage = () => {
   });
 
   const onFinish = async (values: any) => {
+    message.loading("creating service")
     const file = values.img.file.originFileObj;
 
     values["publisherId"] = adminData?.id;
@@ -68,7 +69,7 @@ const CreateServicePage = () => {
       values.img = data;
       // console.log(values);
       // console.log("newValue", values);
-      message.loading("creating service")
+    
       const res = await createService({ ...values }).unwrap();
       // console.log(res, "service response");
       if (res) {

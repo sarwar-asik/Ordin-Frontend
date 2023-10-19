@@ -23,6 +23,10 @@ const CategoriesPage = () => {
           desing.Here upcoming interior service of our best Service .
         </p>
       </section>
+      {
+        isLoading&& 
+        <h4>Loading Category....</h4>
+      }
 
       <Row align="middle" justify="center" gutter={[10, 18]}>
         {categories?.category?.map((category: any, i: number) => {

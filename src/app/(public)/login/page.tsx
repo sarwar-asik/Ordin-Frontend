@@ -33,6 +33,9 @@ const LoginPage = () => {
         message.success("Login SuccessFully");
         router.push("/profile");
       }
+      else{
+        message.error("Your Password or email Wrong!")
+      }
     } catch (error) {
       console.error("Error in onFinish:", error);
     }

@@ -87,6 +87,7 @@ const UsersList = () => {
               <Link href="/profile">Go profile {">>"}</Link>
             )}
             <div hidden={userInfo?.id === data?.id ? true : false}>
+              
               <Link href={`/super_admin/users/update/${data?.id}`}>
                 <Button
                   style={{

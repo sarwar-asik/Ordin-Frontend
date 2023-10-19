@@ -25,6 +25,7 @@ const CreateBlogs = () => {
   const [createBlog] = useCreateBlogMutation();
 
   const onFinish = async (values: any) => {
+    message.loading("creating blog...")
     const file = values.img.file.originFileObj;
 
     values["postBy"] = postBy?.id;
@@ -125,7 +126,7 @@ const CreateBlogs = () => {
 
       <Form.Item>
         <Button type="primary" htmlType="submit">
-          Submit
+          Create
         </Button>
       </Form.Item>
     </Form>

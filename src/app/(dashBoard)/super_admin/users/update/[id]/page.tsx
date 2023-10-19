@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useSingleUserQuery, useUpdateUserMutation } from "@/redux/api/userAPi";
 import { UploadOutlined, UserOutlined } from "@ant-design/icons";
+import BreadCumbUI from "@/components/ui/BreadCumbUI";
 
 const onFinishFailed = (errorInfo: any) => {
   console.log("Failed:", errorInfo);
@@ -54,6 +55,22 @@ const UpdateUserPage = ({ params: { id } }: { params: { id: string } }) => {
 
   return (
     <div className="lg:flex items-center  justify-between shadow-xl p-2">
+      <BreadCumbUI
+        items={[
+          {
+            label: "super_admin",
+            link: "/profile",
+          },
+          {
+            label: "users",
+            link: "/super_admin/users",
+          },
+          {
+            label: "user update",
+            link: "/super_admin/users/update",
+          },
+        ]}
+      />
       <Form
         name="basic"
         labelCol={{ span: 8 }}
@@ -156,7 +173,7 @@ const UpdateUserPage = ({ params: { id } }: { params: { id: string } }) => {
         </Form.Item>
         <Form.Item wrapperCol={{ span: 8 }}>
           <Button type="primary" htmlType="submit" block>
-            Submit
+            Update
           </Button>
         </Form.Item>
       </Form>
