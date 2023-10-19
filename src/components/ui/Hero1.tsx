@@ -17,9 +17,10 @@ const heroStyles = {
 };
 
 const contentStyles = {
-  padding: "24px",
+  padding: "36px 0",
   background: "rgba(0, 0, 0, 0.5)",
-  color:"white"
+  color: "white",
+
 };
 
 const HeroOne = () => {
@@ -49,21 +50,21 @@ const HeroOne = () => {
       }}
     >
       <div style={contentStyles}>
-        <Row gutter={24} align="middle">
-          <Col xs={24} md={12}>
+        <Row gutter={[18, 36]} align="middle">
+          <Col lg={16} xs={24} md={12}>
             <Title
               level={1}
               style={{
-                
                 fontFamily: 'Georgia, Cambria, "Times New Roman", Times, serif',
+                color: "white",
               }}
             >
               Modern Interior Design{" "}
             </Title>
             <Paragraph
               style={{
-                fontSize: "1.2rem",
-     
+                fontSize: "1rem",
+                color: "white",
                 maxWidth: "600px",
                 margin: "0 auto",
                 fontFamily:
@@ -76,17 +77,22 @@ const HeroOne = () => {
             </Paragraph>
           </Col>
 
-          <Col xs={24} md={12}>
+          <Col lg={8} xs={24} md={12}>
             <div>
-              <Title level={3} style={{
-                color:""
-              }}>Why Choose Us</Title>
-              <ul>
+              <Title
+                level={2}
+                style={{
+                  color: "white",
+                }}
+              >
+                Why Choose Us
+              </Title>
+              <div style={{ display: "flex" }}>
                 <li>Experienced Designers</li>
                 <li>Customized Solutions</li>
                 <li>Quality Materials</li>
                 <li>On-Time Delivery</li>
-              </ul>
+              </div>
             </div>
           </Col>
         </Row>
