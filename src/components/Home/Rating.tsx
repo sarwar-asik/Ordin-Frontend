@@ -44,7 +44,7 @@ const ReviewsPage = () => {
       </section>
       <Layout>
         {isLoading&&
-        <h2>Loading reting....</h2>}
+        <h2>Loading rating....</h2>}
         <Content style={{ padding: "20px" }}>
           <List
             grid={{ gutter: 16, column: 2 }}

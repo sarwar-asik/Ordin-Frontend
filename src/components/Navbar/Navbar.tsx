@@ -6,7 +6,7 @@ import Link from "next/link";
 import SideBar from "./SideDrawer";
 import { getUserInfo } from "@/utils/local.storeage";
 
-import { ShoppingCartOutlined, UserOutlined } from "@ant-design/icons";
+import { HomeOutlined, InsertRowLeftOutlined, ShoppingCartOutlined, SnippetsOutlined, UserOutlined } from "@ant-design/icons";
 
 import Logo from "../ui/Logo";
 
@@ -15,9 +15,10 @@ import UserAvatar from "../ui/UserAvatar";
 const { Header } = Layout;
 
 const menuItems: { key: string; label: any; icon: any; href: string }[] = [
-  { key: "1", label: "Home", icon: <UserOutlined />, href: "/" },
-  { key: "2", label: "Service", icon: <UserOutlined />, href: "/services" },
+  { key: "1", label: "Home", icon: <HomeOutlined/>, href: "/" },
+  { key: "2", label: "Service", icon: <InsertRowLeftOutlined />, href: "/services" },
   { key: "3", label: "About", icon: <UserOutlined />, href: "/about-us" },
+  { key: "3", label: "Blogs", icon: <SnippetsOutlined/>, href: "/blogs" },
   // { key: "4", label: "signUp", href: "/sign-up" },
   // { key: "5", label: "Login", href: "/login" },
 ];

@@ -10,6 +10,7 @@ import SurveyOverviewPage from "@/components/Home/Servey";
 import BlogPage from "@/components/Home/Blogs";
 import ReviewsPage from "@/components/Home/Rating";
 import HeroOne from "@/components/ui/Hero1";
+import HeroTwo from "@/components/Home/HeroTwo";
 
 const HomePage = () => {
   return (
@@ -22,9 +23,9 @@ const HomePage = () => {
         <CategoriesPage/>
         <HeroOne/>
         <ServiceTabs/>
-
         <SurveyOverviewPage/>
       <BlogPage/>
+      <HeroTwo></HeroTwo>
       <ReviewsPage/>
       </section>
       <Footer />

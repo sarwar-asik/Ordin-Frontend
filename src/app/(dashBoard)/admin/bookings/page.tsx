@@ -76,9 +76,9 @@ const AllBookingsPage = () => {
       const upData ={
         paymentStatus:type
       }
-      console.log(upData,id);
+      // console.log(upData,id);
       const res = await updateBooking({data:upData,id})
-      console.log("🚀 ~ file: page.tsx:81 ~ updateStatusHandler ~ res:", res)
+      // console.log("🚀 ~ file: page.tsx:81 ~ updateStatusHandler ~ res:", res)
       if (res) {
         message.success("Booking updated successfully");
       }

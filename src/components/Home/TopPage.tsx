@@ -96,7 +96,7 @@ const TopPage = () => {
         <Link href="/login" style={buttonStyle}>
           Get Started
         </Link>
-        <a href="/about" style={buttonStyle}>
+        <a href="/about-us" style={buttonStyle}>
           Learn More
         </a>
       </div>
