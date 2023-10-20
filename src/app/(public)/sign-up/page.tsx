@@ -54,7 +54,7 @@ const SignUpPage = () => {
       if (res) {
         message.success("successfully Sign UP");
         form.resetFields();
-        router.push("/profile");
+
       }
     } catch (error) {
       console.error("Error in onFinish:", error);
