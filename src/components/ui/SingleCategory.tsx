@@ -1,27 +1,24 @@
-import { BookOutlined } from "@ant-design/icons";
-import { Button, Card, Col, Image, Rate } from "antd";
+import { Card, Col, Image } from "antd";
 
-import Link from "next/link";
 import React from "react";
-import AddToCartButton from "./Button/AddToCartButton";
 
 const SingleCategory = ({ category }: { category: any }) => {
   return (
     <Col
-      style={{ background: "white" }}
+      style={{ background: "white", padding: "0 auto" }}
       key={category?.title}
       xs={24}
       sm={24}
       md={12}
-      lg={8}
+      lg={6}
     >
       <Card
-        className="hover:shadow-xl"
+        // className="hover:shadow-2xl transform-cpu transition-transform delay-100 hover:scale-110"
         hoverable
-        style={{ width: 310, marginInline: "auto", padding: "10px" }}
+        style={{ width: 310, marginInline: "auto", padding: "0 10px" }}
         cover={
           <Image
-            className="transform transition-transform delay-300 hover:scale-110"
+            // className="transform transition-transform delay-300 hover:scale-110"
             src={category.img}
             // height={230}
             // width={120}

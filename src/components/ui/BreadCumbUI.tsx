@@ -27,7 +27,7 @@ const BreadCumbUI = ({
         })
     ]
 
-  return <Breadcrumb style={{marginBottom:"1em",padding:"0.3em 0.7em"}} items={breadCrumbsItems} />
+  return <Breadcrumb style={{marginInline:"1em",padding:"0.3em 0.7em"}} items={breadCrumbsItems} />
 };
 
 export default BreadCumbUI;

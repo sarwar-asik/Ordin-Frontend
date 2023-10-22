@@ -1,4 +1,3 @@
-import { BookOutlined } from "@ant-design/icons";
 import { Button, Card, Col, Rate } from "antd";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,19 +7,19 @@ import { getUserInfo } from "@/utils/local.storeage";
 
 const SingleService = ({ product }: { product: any }) => {
   const { id, img, title, price } = product;
-  // console.log(product, "");
+
   const userInfo = getUserInfo() as any;
 
   return (
-    <Col style={{ background: "white" }} xs={24} sm={24} md={12} lg={8}>
+    <Col style={{ background: "white" }} xs={24} sm={24} md={12} lg={6}>
       <Card
         hoverable
-        style={{ width: 310, height: 470 }}
+        style={{ width: 310, height: 376 }}
         cover={
           <Image
             // className="transform transition-transform delay-300 hover:scale-110"
             src={img}
-            height={300}
+            height={230}
             width={120}
             // style={{ height: "200px"}}
             alt={title}
@@ -35,15 +34,15 @@ const SingleService = ({ product }: { product: any }) => {
             justifyContent: "space-between",
             alignItems: "flex-end",
             marginInline: "0px",
-            paddingInline: "0px",
+            padding: "0px",
             width: "100%",
             margin: "0 0 10px 0",
-            flexDirection:"column",
-        
+            // flexDirection: "column",
           }}
         >
-          <p  className="font-mono font-medium text-right">${price}</p>
+          <AddToCartButton service={product}></AddToCartButton>
           <div className="align-baseline text-right">
+            <p className="font-mono font-medium text-right">${price}</p>
             <Rate
               count={5}
               style={{
@@ -57,12 +56,7 @@ const SingleService = ({ product }: { product: any }) => {
               disabled
             />
           </div>
-          <AddToCartButton service={product}></AddToCartButton>
         </section>
-
-           
-        {/* <div  className="bg-primary my-2 rounded-md">
-          </div> */}
 
         <Link href={`/services/${id}`}>
           <Button className="bg-primary text-white font-medium" block>

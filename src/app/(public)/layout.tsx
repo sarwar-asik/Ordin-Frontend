@@ -8,8 +8,8 @@ const PublicLayout = ({ children }: { children: React.ReactNode }) => {
     <div>
       <Header />
       <Navbar></Navbar>
-      {children}
-      <Footer/>
+      <section style={{padding:"0 2rem",minHeight:"100vh",margin:"1rem 0"}}>{children}</section>
+      <Footer />
     </div>
   );
 };

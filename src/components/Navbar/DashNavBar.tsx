@@ -58,19 +58,13 @@ const DashNavBar = ({
 
         <Logo></Logo>
       </section>
-      {/* <Menu mode="horizontal" className="hidden lg:flex" disabledOverflow>
-        <Menu.Item key="item-1">
-          <UserAvatar userId={userInfo?.id} />
-        </Menu.Item>
-      </Menu> */}
+   
       <section style={{
         display:"flex",
         alignItems:"center",
         gap:"5px"
       }}>
-        <Link hidden={userInfo?.role ==="user"?false:true} style={{fontSize:"2rem"}} href="/user/cart">
-          <ShoppingCartOutlined />
-        </Link>
+        
         <UserAvatar userId={userInfo?.id} />
       </section>
     </Header>

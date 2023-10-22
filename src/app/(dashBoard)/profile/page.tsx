@@ -6,6 +6,8 @@ import { Layout, Row, Col, Card, Avatar, Typography, Button } from "antd";
 import { useProfileUserQuery } from "@/redux/api/userAPi";
 import { EditOutlined } from "@ant-design/icons";
 import Link from "next/link";
+import BreadCumbUI from "@/components/ui/BreadCumbUI";
+import LoadingData from "@/components/ui/Loader/LoadingData";
 
 const { Content } = Layout;
 const { Title, Text } = Typography;
@@ -26,6 +28,23 @@ const Profile = () => {
   // const {role,email,img,contact} = data
 
   return (
+ <>
+
+<BreadCumbUI
+        items={[
+          {
+            label: `${data?.role}`,
+            link: "/profile",
+          },
+          {
+            label: `${data?.name}`,
+            link: "/profile",
+          },
+        ]}
+      />
+      {
+        isLoading&& <LoadingData/>
+      }
     <Layout style={{ minHeight: "100vh" }}>
       <Content style={{ padding: "24px" }}>
         <Row gutter={16}>
@@ -55,6 +74,7 @@ const Profile = () => {
         </Row>
       </Content>
     </Layout>
+ </>
   );
 };
 

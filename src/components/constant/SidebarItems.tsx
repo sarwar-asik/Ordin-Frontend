@@ -1,23 +1,5 @@
 import type { MenuProps } from "antd";
-import {
-  ProfileOutlined,
-  TableOutlined,
-  ScheduleOutlined,
-  ThunderboltOutlined,
-  CreditCardOutlined,
-  FileTextOutlined,
-  HomeOutlined,
-  ShoppingCartOutlined,
-  ShopOutlined,
-  MessageOutlined,
-  DatabaseOutlined,
-  ControlOutlined,
-  UsergroupAddOutlined,
-  ContainerOutlined,
-  TabletOutlined,
-  QuestionOutlined,
-  PlusSquareOutlined,
-} from "@ant-design/icons";
+import { ProfileOutlined, TableOutlined, ThunderboltOutlined, HomeOutlined, ShoppingCartOutlined, ShopOutlined, MessageOutlined, DatabaseOutlined, ControlOutlined, UsergroupAddOutlined, ContainerOutlined, TabletOutlined, QuestionOutlined, PlusSquareOutlined, } from "@ant-design/icons";
 import Link from "next/link";
 import { USER_ROLE } from "@/constant/userRole";
 
@@ -60,7 +42,7 @@ export const sidebarItems = (role: string) => {
           key: `/${role}/profile`,
         },
         {
-          label: <Link href={`/${role}/change-password`}>Change Password</Link>,
+          label: <Link href={`/user/change-password`}>Change Password</Link>,
           key: `/${role}/change-password`,
         },
       ],

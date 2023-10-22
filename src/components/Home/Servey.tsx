@@ -86,7 +86,7 @@ const SurveyOverviewPage = () => {
     transition: "background-color 0.3s",
   };
   return (
-    <div className="mt-[10rem] bg-secondary py-5 rounded-md px-1">
+    <div className=" bg-secondary py-5 rounded-md px-1">
       <div
         style={{
           textAlign: "center",

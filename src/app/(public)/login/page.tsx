@@ -45,7 +45,7 @@ const LoginPage = () => {
     <div className="lg:flex items-center justify-between  p-2 ">
       <section className="lg:w-[45%]  ">
         <Image
-          className="w-full h-screen  rounded-md"
+          className="w-full h-screen  round"
           height={350}
           width={400}
           src={loginImg}
@@ -58,14 +58,14 @@ const LoginPage = () => {
         wrapperCol={{ span: 20 }}
         labelAlign="left"
         labelWrap={true}
-        className="w-full lg:w-[55%] my-1 mx-auto h-screen shadow-lg  pl-5"
+        className="w-full lg:w-[55%] my-1 mx-auto min-h-scre shadow-lg  pl-5"
         //   style={{ maxWidth: 600 }}
         initialValues={{ remember: true }}
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
         // autoComplete="off"
       >
-        <h2 className="text-[4rem] font-extrabold mb-3  fon-serif">Login </h2>
+        <h2 className="text-[3rem] font-extrabold mb-3  fon-serif">Login </h2>
 
         <Form.Item<FieldType>
           label={<span className="text-[1.2em] font-medium">Email</span>}

@@ -18,7 +18,7 @@ const menuItems: { key: string; label: any; icon: any; href: string }[] = [
   { key: "1", label: "Home", icon: <HomeOutlined/>, href: "/" },
   { key: "2", label: "Service", icon: <InsertRowLeftOutlined />, href: "/services" },
   { key: "3", label: "About", icon: <UserOutlined />, href: "/about-us" },
-  { key: "3", label: "Blogs", icon: <SnippetsOutlined/>, href: "/blogs" },
+  { key: "4", label: "Blogs", icon: <SnippetsOutlined/>, href: "/blogs" },
   // { key: "4", label: "signUp", href: "/sign-up" },
   // { key: "5", label: "Login", href: "/login" },
 ];
@@ -50,16 +50,8 @@ const Navbar = () => {
         </Menu>
 
         {user?.role ? (
-          <section style={{
-            display:"flex",
-            alignItems:"center",
-            gap:"5px"
-          }}>
-            <Link hidden={user?.role ==="user"?false:true} style={{fontSize:"2rem"}} href="/user/cart">
-              <ShoppingCartOutlined />
-            </Link>
+         
             <UserAvatar userId={user?.id} />
-          </section>
         ) : (
           <section className="px-2 text-black">
             <Link className="font-semibold" href="/login">Login</Link>

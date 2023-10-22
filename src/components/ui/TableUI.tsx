@@ -9,7 +9,6 @@ type ITableProps = {
   dataSource?: any;
   pageSize?: number;
   totalPages?: number;
-
   showSizeChanger?: boolean;
   onPaginationChange?: (page: number, pageSize: number) => void;
   onTableChange?: (pagination: any, filter: any, sorter: any) => void;
@@ -28,9 +27,7 @@ const TableUI = ({
   showPagination = true,
 }: ITableProps) => {
   //! for pagination
-  //   const onPaginationChange = (page: number, pageSize: number) => {
-  //     console.log(page, "page", pageSize, "pageSIze");
-  //   };
+
 
   ///! table data config /
   const paginationConfig = showPagination
@@ -42,14 +39,6 @@ const TableUI = ({
         onChange: onPaginationChange,
       }
     : false;
-
-    // console.log(paginationConfig,"tt");
-
-  ///! on table change
-//   const onTableChange = (pagination: any, filter: any, sorter: any) => {
-//     const { order, field } = sorter;
-//     console.log("🚀order:", order, field);
-//   };
 
   return (
     <Table

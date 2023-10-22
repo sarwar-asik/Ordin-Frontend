@@ -1,6 +1,7 @@
 "use client";
 import BreadCumbUI from "@/components/ui/BreadCumbUI";
 import AddToCartButton from "@/components/ui/Button/AddToCartButton";
+import LoadingData from "@/components/ui/Loader/LoadingData";
 import AddReviewsPage from "@/components/ui/Reviews";
 import { useSingleServiceQuery } from "@/redux/api/serviceApi";
 
@@ -16,10 +17,10 @@ const ServiceDetails = ({
   // console.log(serviceId);
 
   const { data, isLoading } = useSingleServiceQuery(serviceId);
-  console.log("🚀 ~ file: page.tsx:17 ~ data:", data);
+  // console.log("🚀 ~ file: page.tsx:17 ~ data:", data);
 
   if (isLoading) {
-    return <h2>Loading details ... </h2>;
+    return <LoadingData/>
   }
 
   return (
@@ -31,7 +32,7 @@ const ServiceDetails = ({
             link: "/services",
           },
           {
-            label: "Service Details",
+            label: `${data?.title}`,
             link: `/services/${serviceId}`,
           },
         ]}

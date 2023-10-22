@@ -12,9 +12,12 @@ instance.defaults.headers.post["Content-Type"] = "application/json";
 instance.defaults.headers["Accept"] = "application/json";
 instance.defaults.timeout = 60000;
 
+//! FOR REQUEST >>>
+
 instance.interceptors.request.use(
   function (config) {
-    const accessToken = getFromLocalStorage(authKey);
+    
+    const accessToken = getFromLocalStorage(authKey); //! for yor localStorage accessToken
     if (accessToken) {
       config.headers.Authorization = accessToken;
     }
@@ -27,6 +30,7 @@ instance.interceptors.request.use(
 // ! for remove ts type error
 // @ts-ignore
 
+//! RESPONSE
 instance.interceptors.response.use(function (response) {
     const responseObject: ResponseSuccessType = {
     //// ! these property depend on your server response data
@@ -36,6 +40,7 @@ instance.interceptors.response.use(function (response) {
 
     return responseObject;
   },
+
   function (error) {
     const  responseObject:IGenericErrorResponse ={
             //// ! these property depend on your server response data

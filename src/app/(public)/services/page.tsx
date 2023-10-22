@@ -1,5 +1,6 @@
 "use client";
 
+import LoadingData from "@/components/ui/Loader/LoadingData";
 import SingleService from "@/components/ui/SingleService";
 
 import { useServicesQuery } from "@/redux/api/serviceApi";
@@ -16,15 +17,15 @@ const ServicesRoutes = () => {
     <div className=" mt-[8vh] pt-3 rounded-sm">
       {isLoading && (
         <>
-          <h2 className="font-mono">Loading services...</h2>
+          <LoadingData/>
         </>
       )}
 
       <section className="my-7 ">
-        <h1 className=" text-[2.3rem] font-serif">Interior Services</h1>
+        <h1 className=" text-[2.3rem] font-serif">Our All Category Services</h1>
       </section>
 
-      <Row align="middle" justify="center" gutter={[24, 18]}>
+      <Row align="middle" justify="start" gutter={[24, 18]}>
         {data?.services?.map((product: any, i: number) => {
           return <SingleService key={i} product={product} />;
         })}

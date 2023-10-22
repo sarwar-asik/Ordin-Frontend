@@ -2,17 +2,16 @@
 import { useBlogsQuery } from "@/redux/api/blogsApi";
 import { Layout, Row, Col, Card, Button } from "antd";
 import Link from "next/link";
+import LoadingData from "../ui/Loader/LoadingData";
 
 const { Content } = Layout;
 
-
-
 const BlogPage = () => {
-  const { data:blogs, isLoading } = useBlogsQuery({ page: 1, limit: 10 });
-  console.log("🚀 ~ file: Blogs.tsx:32 ~ BlogPage ~ data:", blogs)
+  const { data: blogs, isLoading } = useBlogsQuery({ page: 1, limit: 10 });
+  // console.log("🚀 ~ file: Blogs.tsx:32 ~ BlogPage ~ data:", blogs);
 
   return (
-    <div className="mt-[10rem] bg-secondary py-5 rounded-md px-1 ">
+    <div className=" bg-secondary py-5  px-2 ">
       <section className="">
         <h1 className=" text-[2.3rem] font-serif my-3">Our Blogs</h1>
         <p className="mt-3 font-medium font-sans">
@@ -20,25 +19,34 @@ const BlogPage = () => {
           very popular in the worldwide .
         </p>
       </section>
-      {isLoading&&
-      <>Loading....</>}
+      {isLoading && <LoadingData />}
       <Layout>
         <Content style={{ padding: "20px" }}>
           <Row gutter={16}>
-            {blogs?.blogs?.map((blog:any) => (
-              <Col key={blog.id} span={8}>
-                <Card title={blog.title}>
-                  <p
-                    style={{
-                      color: "#94A3B8",
-                    }}
+            {blogs?.blogs?.map((blog: any) => {
+              return (
+                <Col key={blog.id} sm={12} lg={8}>
+                  <Card
+                    title={blog.title}
+                    extra={<span>Author: {blog?.author}</span>}
                   >
-                    {blog.content.slice(0, 40)}
-                  </p>
-                  <Link className="text-primary" href={`/blogs/${blog.id}`}>reed more....</Link>
-                </Card>
-              </Col>
-            ))}
+                    <p
+                      style={{
+                        color: "#94A3B8",
+                      }}
+                    >
+                      <Card.Meta
+                        title={blog?.publishedTime}
+                        description={blog.content.slice(0, 220)}
+                      />
+                    </p>
+                    <Link className="text-primary" href={`/blogs/${blog.id}`}>
+                      reed more....
+                    </Link>
+                  </Card>
+                </Col>
+              );
+            })}
           </Row>
         </Content>
       </Layout>

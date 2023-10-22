@@ -6,36 +6,10 @@ import Link from "next/link";
 const { Title, Paragraph } = Typography;
 
 const TopPage = () => {
-  const headerStyle = {
-    textAlign: "center",
-    padding: "2rem",
-    backgroundColor: "#4BB4B4",
-  };
-
-  const titleStyle = {
-    fontSize: "2rem",
-    color: "white",
-  };
-
-  const descriptionStyle = {
-    textAlign: "center",
-    padding: "2rem",
-  };
-
-  const paragraphStyle = {
-    fontSize: "1.2rem",
-    color: "#333",
-    maxWidth: "600px",
-    margin: "0 auto",
-  };
-
-  const buttonContainerStyle = {
-    textAlign: "center",
-    marginTop: "2rem",
-  };
+ 
 
   const buttonStyle = {
-    display: "inline-block",
+    // display: "inline-block",
     padding: "1rem 2rem",
     backgroundColor: "#4BB4B4",
     color: "white",
@@ -43,14 +17,15 @@ const TopPage = () => {
     borderRadius: "5px",
     margin: "0 1rem",
     fontSize: "1rem",
-    transition: "background-color 0.3s",
+    transition: "backgroundColor 0.3s",
+   
   };
   return (
-    <div>
+    <div className=" py-6 mt-7">
       <div
         style={{
           textAlign: "center",
-          padding: "1.5rem",
+          padding: "0.8rem 1.5rem",
           color: "black",
           //   backgroundColor: "#4BB4B4",
         }}
@@ -62,13 +37,13 @@ const TopPage = () => {
             fontFamily: 'Georgia, Cambria, "Times New Roman", Times, serif',
           }}
         >
-          Interior Design Services
+       Best  Interior Design 
         </Title>
       </div>
       <div
         style={{
           textAlign: "center",
-          padding: "2rem",
+          padding: "0 2rem",
         }}
       >
         <Paragraph
@@ -77,8 +52,7 @@ const TopPage = () => {
             color: "#333",
             maxWidth: "600px",
             margin: "0 auto",
-            fontFamily:
-              'Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+          //  fontFamily: 'Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
           }}
         >
           Welcome to our interior design service! We are dedicated to
@@ -88,17 +62,34 @@ const TopPage = () => {
         </Paragraph>
       </div>
       <div
-        style={{
-          textAlign: "center",
-          marginTop: "2rem",
-        }}
+        // style={{
+          // textAlign: "center",
+          // marginTop: "2rem",
+        //   padding:"0.7em 0",
+        //   display:"flex",
+        //   flexDirection:"column",
+          
+        // }}
+        className="text-center mt-[2rem] py-[0.7rem]   flex lg:inline-block  flex-col  justify-center gap-2   w-full"
       >
-        <Link href="/login" style={buttonStyle}>
+        <Link href="/login" style={{...buttonStyle}}>
           Get Started
         </Link>
-        <a href="/about-us" style={buttonStyle}>
+        <Link href="/about-us" style={{
+           padding: "1rem 2rem",
+          //  backgroundColor: "#4BB4B4",
+
+           color: "#4BB4B4",
+           textDecoration: "none",
+           borderRadius: "5px",
+           margin: "0 1rem",
+           fontSize: "1rem",
+           transition: "color 0.1s",
+           border:"1px solid ",
+          
+        }}>
           Learn More
-        </a>
+        </Link>
       </div>
     </div>
   );

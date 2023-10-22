@@ -1,7 +1,8 @@
 "use client";
 import { useReviewsQuery } from "@/redux/api/ReviewApi";
 import { UserOutlined } from "@ant-design/icons";
-import { Layout, Card, Rate, List, Space, Avatar } from "antd";
+import { Layout, Card, Rate, List, Space, Avatar, Tooltip } from "antd";
+import LoadingData from "../ui/Loader/LoadingData";
 
 const { Content } = Layout;
 
@@ -28,65 +29,87 @@ const reviewsDaa = [
 ];
 
 const ReviewsPage = () => {
-  const { data ,isLoading} = useReviewsQuery({ page: 1, limit: 6 });
-  
+  const { data, isLoading } = useReviewsQuery({ page: 1, limit: 6 });
+
   // console.log("🚀 ~ file: Rating.tsx:32 ~ ReviewsPage ~ data:", data);
   const reviewsData = data?.reviews;
-  console.log("🚀 ~ file: Rating.tsx:35 ~ ReviewsPage ~ reviewsDat:", reviewsData)
+  console.log(
+    "🚀 ~ file: Rating.tsx:35 ~ ReviewsPage ~ reviewsDat:",
+    reviewsData
+  );
 
   return (
-    <div className="mt-[10rem] bg-secondary py-5 rounded-md px-1 ">
-      <section className="">
+    <div className=" bg-secondary py- rounded-md px-1 ">
+      <section className="mb-5">
         <h1 className=" text-[2.3rem] font-serif my-3">Customer Reviews</h1>
         <p className="mt-3 font-medium font-sans">
           After satisfaction service our customer reviewed about our interior
+          about the interior service that he booked or choose.
         </p>
       </section>
       <Layout>
-        {isLoading&&
-        <h2>Loading rating....</h2>}
-        <Content style={{ padding: "20px" }}>
+        {isLoading && <LoadingData />}
+        <Content style={{ padding: "20px 0" }}>
           <List
-            grid={{ gutter: 16, column: 2 }}
+            grid={{
+              gutter: 12,
+              xs: 1,
+              sm: 1,
+              md: 2,
+              lg: 5,
+            }}
             dataSource={reviewsData}
-            renderItem={(item) => (
-              <List.Item>
+            renderItem={(item:any) => {
+              let reviews =""
+              if(item?.reviews?.length < 50){
+                 reviews=`${item?.reviews}.I am satisfied with the interior `
+              }
+              else{
+                reviews= item.reviews
+              }
+              return <List.Item>
                 <Card
                   style={{
-                    borderRadius: "10px", // Adjust the border radius as needed
-                    padding: "16px",
+                    borderRadius: "10px",
+                    padding: "0px",
                     boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-                    margin: "8px",
+                    borderTopRightRadius: "30%",
+
+                    // margin: "8px",
                   }}
                 >
                   <div className="block lg:flex  items-center justify-between gap-2">
                     <div style={{ display: "flex", alignItems: "center" }}>
                       <Space wrap size={16}>
-                        <Avatar
-                          shape="square"
-                          src={item?.user?.img}
-                          size={64}
-                          icon={<UserOutlined />}
-                        />
+                        <Tooltip title={item?.user?.name}>
+                          <Avatar
+                            shape="square"
+                            src={item?.user?.img}
+                            size={64}
+                            icon={item?.user?.name}
+                          />
+                        </Tooltip>
                       </Space>
-                      <span
-                        style={{
-                          marginLeft: "10px",
-                        }}
-                      >
-                        {item?.user?.name}
-                      </span>
+                      {/* <span
+                          style={{
+                            marginLeft: "10px",
+                          }}
+                        >
+                          
+                        </span> */}
                     </div>
                     <div className="">
                       <Rate disabled defaultValue={item?.rating} />
                     </div>
                   </div>
                   <p style={{ color: "#94A3B8", marginTop: "10px" }}>
-                    {item?.reviews?.slice(0, 35)}
+                    {reviews?.slice(0, 64)} 
+                    {/* {item?.reviews?.length < 50 &&
+                      ` I am satisfied with the interior `} */}
                   </p>
                 </Card>
-              </List.Item>
-            )}
+              </List.Item>;
+            }}
           />
         </Content>
       </Layout>

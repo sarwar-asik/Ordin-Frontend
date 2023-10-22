@@ -65,7 +65,7 @@ const SignUpPage = () => {
     <div className="lg:flex items-center justify-between shadow-xl p-2 ">
       <section className="lg:w-[45%]  ">
         <Image
-          className="w-full h-screen  rounded-md"
+          className="w-full h-screen "
           height={350}
           width={400}
           src={loginImg}
@@ -79,14 +79,14 @@ const SignUpPage = () => {
         labelAlign="left"
         labelWrap={true}
         form={form}
-        className="w-full lg:w-[55%] my-1 mx-auto h-screen   pl-5"
+        className="w-full lg:w-[55%] my-1 mx-auto h-scree   pl-5"
         //   style={{ maxWidth: 600 }}
         initialValues={{ remember: true }}
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
         // autoComplete="off"
       >
-        <h2 className="text-[4rem] font-extrabold mb-3  fon-serif">Sign Up</h2>
+        <h2 className="text-[3rem] font-extrabold mb-3  fon-serif">Sign Up</h2>
         <Form.Item<FieldType>
           label={<span className="text-[1.2em] font-medium">Name</span>}
           name="name"

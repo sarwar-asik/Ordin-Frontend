@@ -16,7 +16,7 @@ const Logo = () => {
         // borderRadius:"5px"
       }}
     >
-      <span style={{ fontSize: "2.3rem" }}>O</span>
+      <span style={{ fontSize: "2.5rem" }}>O</span>
       rdain
     </Link>
   );

@@ -18,15 +18,15 @@ const HomePage = () => {
       <Header></Header>
       <Navbar />
       {/* //! Content */}
-      <section style={{padding:"2vh 5vw"}}>
+      <section style={{padding:"2vh 5vw",display:"flex",flexDirection:"column",gap:"6rem"}}>
         <TopPage></TopPage>
         <CategoriesPage/>
         <HeroOne/>
-        <ServiceTabs/>
-        <SurveyOverviewPage/>
+      <ServiceTabs/>
       <BlogPage/>
-      <HeroTwo></HeroTwo>
       <ReviewsPage/>
+      <HeroTwo></HeroTwo>
+        {/* <SurveyOverviewPage/> */}
       </section>
       <Footer />
     </div>

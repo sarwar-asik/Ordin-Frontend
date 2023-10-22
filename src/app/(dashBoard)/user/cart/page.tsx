@@ -1,6 +1,7 @@
 "use client"
 
 import BreadCumbUI from "@/components/ui/BreadCumbUI";
+import LoadingData from "@/components/ui/Loader/LoadingData";
 import SingleCart from "@/components/ui/SingleCart";
 import { useUserBookingQuery } from "@/redux/api/bookingApi";
 import { useCartsQuery, useDeleteCartMutation } from "@/redux/api/cartApi";
@@ -49,7 +50,10 @@ const removeCartHandler =async(cartData:any)=>{
           },
         ]}
       />
-      <h2>Your Cart </h2>
+      <h2 style={{textAlign:"center",fontSize:"3em",marginBlock:"1em"}}>Your Cart </h2>
+      {
+        isLoading && <LoadingData/>
+      }
 
       <section className="mt-2 ">
         {

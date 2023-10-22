@@ -4,6 +4,7 @@ import React from "react";
 import { Row } from "antd";
 import { useCategoriesQuery } from "@/redux/api/categoryApi";
 import SingleCategoryPage from "@/components/ui/SingleCategory";
+import LoadingData from "@/components/ui/Loader/LoadingData";
 
 const CategoriesPage = () => {
   const { data: categories, isLoading } = useCategoriesQuery({
@@ -13,7 +14,7 @@ const CategoriesPage = () => {
 //   console.log("🚀 ~ file: Page.tsx:11 ~ CategoriesPage ~ data:", categories);
 
   return (
-    <div className="mt-[10rem] bg-secondary py-5 rounded-md px-1">
+    <div className=" bg-secondary py-5 rounded-md px-1">
       <section className="my-7 ">
         <h1 className=" text-[2.3rem] font-serif">Interior Categories</h1>
 
@@ -25,10 +26,12 @@ const CategoriesPage = () => {
       </section>
       {
         isLoading&& 
-        <h4>Loading Category....</h4>
+        <LoadingData/>
       }
 
-      <Row align="middle" justify="center" gutter={[10, 18]}>
+      <Row align="middle" justify="start" gutter={20} style={{
+        marginTop:"3rem"
+      }}>
         {categories?.category?.map((category: any, i: number) => {
           return <SingleCategoryPage key={i} category={category} />;
         })}
