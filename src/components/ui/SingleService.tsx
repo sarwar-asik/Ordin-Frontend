@@ -1,5 +1,5 @@
-import { Button, Card, Col, Rate } from "antd";
-import Image from "next/image";
+import { Button, Card, Col, Image, Rate } from "antd";
+// import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import AddToCartButton from "./Button/AddToCartButton";
@@ -19,9 +19,10 @@ const SingleService = ({ product }: { product: any }) => {
           <Image
             // className="transform transition-transform delay-300 hover:scale-110"
             src={img}
-            height={230}
-            width={120}
-            // style={{ height: "200px"}}
+            // height={230}
+            // width={120}
+            style={{ height: "230px",width:"10-%"}}
+            preview={false}
             alt={title}
           />
         }
@@ -46,8 +47,9 @@ const SingleService = ({ product }: { product: any }) => {
             <Rate
               count={5}
               style={{
-                height: "7px",
+                
                 textAlign: "right",
+                fontSize:"16px"
               }}
               defaultValue={
                 product?.reviews?.length > 1 ? product?.reviews?.length : 4

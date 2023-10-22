@@ -1,16 +1,7 @@
 "use client";
 
 import React from "react";
-import {
-  Button,
-  DatePicker,
-  Form,
-  Input,
-  Select,
-  TimePicker,
-  Upload,
-  message,
-} from "antd";
+import { Button, Form, Input, Select, Upload, message, } from "antd";
 
 import uploadImgCloudinary from "@/hooks/cloudinary";
 import { useRouter } from "next/navigation";
@@ -101,7 +92,7 @@ const CreateServicePage = () => {
         wrapperCol={{ span: 20 }}
         labelAlign="left"
         labelWrap={true}
-        className="w-full lg:w-[55%] my-1 mx-auto h-screen   pl-5"
+        className="w-full lg:w-[55%] my-1 mx-auto h-scr  pl-5"
         initialValues={{ remember: true }}
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}

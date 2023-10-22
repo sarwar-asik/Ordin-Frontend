@@ -17,7 +17,7 @@ const ServiceTabs = () => {
 
   const handleTabClick = (key: any) => {
     setActiveTabKey(key);
-    console.log(key);
+    // console.log(key);
   };
 
   const ServiceTabStyle = {
@@ -78,7 +78,7 @@ const ServiceTabs = () => {
         size="large"
         placeholder="Search Interior by title,price.."
         style={{
-          width: "100%",
+          width: "60%",
         }}
         onChange={(e) => {
           setSearchTerm(e.target.value);
@@ -97,7 +97,7 @@ const ServiceTabs = () => {
     <div className=" bg-secondary py-5 rounded-md px-1">
       <section className="">
         <h1 className=" text-[2.3rem] font-serif my-3">
-          Our Interior Services
+          Our Interior Package
         </h1>
         <p className="mt-3 font-medium font-sans">
           Best interior service of our . We provide the services in flexible
@@ -108,10 +108,10 @@ const ServiceTabs = () => {
       {isLoading && <LoadingData />}
       
       <Tabs
-        style={{ margin: "3rem 0" }}
+        style={{ marginBlock: "3rem" }}
         activeKey={activeTabKey}
         onChange={handleTabClick}
-        type="card"
+        type="line"
         // type="editable-card"
         tabBarExtraContent={OperationsSlot}
         centered
@@ -122,7 +122,7 @@ const ServiceTabs = () => {
           tab={
             <span
               className={`${
-                activeTabKey === "0" ? "text-primary font-semibold" : ""
+                activeTabKey === "0" ? "text-white  bg-primary py-3 px-2 " : ""
               }`}
             >
               All Interior
@@ -140,7 +140,7 @@ const ServiceTabs = () => {
           tab={
             <span
               className={`${
-                activeTabKey === "1" ? "text-primary font-semibold" : ""
+                activeTabKey === "1" ? "text-white  bg-primary py-3 px-2 " : ""
               }`}
             >
               Available Interior
@@ -155,7 +155,7 @@ const ServiceTabs = () => {
           tab={
             <span
               className={`${
-                activeTabKey === "2" ? "text-primary font-semibold" : "d"
+                activeTabKey === "2" ? "text-white  bg-primary py-3 px-2 " : "d"
               }`}
             >
               Upcoming Interior
