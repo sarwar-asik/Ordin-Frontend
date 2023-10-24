@@ -52,7 +52,7 @@ const ReviewsPage = () => {
 
   return (
     <div className=" bg-secondary py- rounded-md px-2 py-5">
-      <section className="mb-5">
+      <section className="mb-7 text-center">
         <h1 className=" text-[2.3rem] font-serif my-3">Customer Reviews</h1>
         <p className="mt-3 font-medium font-sans">
           After satisfaction service our customer reviewed about our interior

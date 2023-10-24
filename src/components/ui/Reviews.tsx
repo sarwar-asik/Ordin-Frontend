@@ -37,6 +37,12 @@ const AddReviewsPage = ({ serviceId }: { serviceId: string }) => {
     // Handle form submission, e.g., send data to the server
     // console.log("Review:", values);
 
+    if(!userInfo?.role){
+        message.error("Login Please")
+        setVisible(false)
+    }
+
+
     const reviewData: any = {
       // after tuition
       userId: userInfo?.id,
@@ -80,9 +86,10 @@ const AddReviewsPage = ({ serviceId }: { serviceId: string }) => {
             icon={<CommentOutlined />}
             type="dashed"
             onClick={showModal}
-            block
+            // block
           >
             Review and FeedBack
+            <Rate disabled defaultValue={1} count={2} style={{fontSize:"16px",marginInline:"2px"}}/>
           </Button>
         )}
         <Modal

@@ -12,7 +12,7 @@ const BlogPage = () => {
 
   return (
     <div className=" bg-secondary py-5  px-2 ">
-      <section className="">
+      <section className="text-center mb-4">
         <h1 className=" text-[2.3rem] font-serif my-3">Our Blogs</h1>
         <p className="mt-3 font-medium font-sans">
           Some blogs about our service are present for you .Our Interior are

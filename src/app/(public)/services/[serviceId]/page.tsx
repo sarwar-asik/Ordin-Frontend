@@ -20,7 +20,7 @@ const ServiceDetails = ({
   // console.log("🚀 ~ file: page.tsx:17 ~ data:", data);
 
   if (isLoading) {
-    return <LoadingData/>
+    return <LoadingData />;
   }
 
   return (
@@ -63,7 +63,14 @@ const ServiceDetails = ({
           </div>
         </Col>
         <Col
-          style={{ width: "100%", height: "36rem", padding: "5px 16px",display: "flex", flexDirection: "column",justifyContent:"space-between" }}
+          style={{
+            width: "100%",
+            height: "36rem",
+            padding: "5px 16px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+          }}
           xs={24}
           md={12}
           lg={16}
@@ -106,15 +113,21 @@ const ServiceDetails = ({
             <p>
               <strong>Service Date:</strong> {data?.serviceData}
             </p>
-        
           </div>
-          <div style={{ display: "flex", flexDirection: "column",gap:"5px" }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent:"space-between",
+              // flexDirection: "column",
+              // gap: "5px",
+              maxWidth: "15rem",
+            }}
+          >
             <AddToCartButton service={data} />
 
             <Button type="primary">Book</Button>
-
-            <AddReviewsPage serviceId={data?.id as string}></AddReviewsPage>
           </div>
+          <AddReviewsPage serviceId={data?.id as string}></AddReviewsPage>
         </Col>
       </Row>
     </div>

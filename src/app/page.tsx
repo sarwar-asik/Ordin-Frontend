@@ -19,6 +19,7 @@ import {
 } from "@ant-design/icons";
 
 import { FloatButton, Switch } from "antd";
+import TrustedBy from "@/components/Home/TrustedBy";
 
 const HomePage = () => {
   const [open, setOpen] = useState(true);
@@ -39,6 +40,7 @@ const HomePage = () => {
           gap: "6rem",
         }}
       >
+        {/*//! Float Icon */}
         <FloatButton.Group
           trigger="click"
           type="primary"
@@ -54,9 +56,11 @@ const HomePage = () => {
           <FloatButton icon={<CommentOutlined />} />
         </FloatButton.Group>
 
+
         <TopPage></TopPage>
         <CategoriesPage />
-        <HeroOne />
+        {/* <HeroOne /> */}
+        <TrustedBy></TrustedBy>
         <ServiceTabs />
         <BlogPage />
         <ReviewsPage />

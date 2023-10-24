@@ -95,7 +95,7 @@ const ServiceTabs = () => {
 
   return (
     <div className=" bg-secondary py-5 rounded-md px-1">
-      <section className="">
+      <section className="text-center">
         <h1 className=" text-[2.3rem] font-serif my-3">
           Our Interior Package
         </h1>
@@ -111,7 +111,7 @@ const ServiceTabs = () => {
         style={{ marginBlock: "3rem" }}
         activeKey={activeTabKey}
         onChange={handleTabClick}
-        type="line"
+        // type="line"
         // type="editable-card"
         tabBarExtraContent={OperationsSlot}
         centered
@@ -119,6 +119,7 @@ const ServiceTabs = () => {
         // color="blue"
       >
         <TabPane
+        
           tab={
             <span
               className={`${
