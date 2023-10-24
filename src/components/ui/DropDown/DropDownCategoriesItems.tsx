@@ -2,16 +2,16 @@ import { SmileOutlined } from "@ant-design/icons";
 import { MenuProps } from "antd";
 import Link from "next/link";
 
-const serviceItems: MenuProps["items"] = [
+const CategoriesItems: MenuProps["items"] = [
     {
       key: "1",
       label: (
         <Link href="/"
           // target="_blank"
-          rel="noopener noreferrer"
+          // rel="noopener noreferrer"
 
         >
-         All Interior
+        Home Interior
         </Link>
       ),
     },
@@ -20,10 +20,10 @@ const serviceItems: MenuProps["items"] = [
       label: (
         <Link href="/"
           // target="_blank"
-          rel="noopener noreferrer"
+          // rel="noopener noreferrer"
 
         >
-         Upcoming Design
+       Office Interior
         </Link>
       ),
     },
@@ -33,10 +33,23 @@ const serviceItems: MenuProps["items"] = [
       label: (
         <Link href="/"
           // target="_blank"
-          rel="noopener noreferrer"
+          // rel="noopener noreferrer"
    
         >
-          Available Design 
+          Resturant design
+        </Link>
+      ),
+    //   disabled: true,
+    },
+    {
+      key: "4",
+      label: (
+        <Link href="/"
+          // target="_blank"
+          // rel="noopener noreferrer"
+   
+        >
+         Office Interior
         </Link>
       ),
     //   disabled: true,
@@ -45,4 +58,4 @@ const serviceItems: MenuProps["items"] = [
   ];
 
 
-  export default serviceItems
+  export default CategoriesItems

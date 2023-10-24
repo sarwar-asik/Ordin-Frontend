@@ -13,12 +13,7 @@ import LoadingData from "../ui/Loader/LoadingData";
 const { TabPane } = Tabs;
 
 const ServiceTabs = () => {
-  const [activeTabKey, setActiveTabKey] = useState("0");
-
-  const handleTabClick = (key: any) => {
-    setActiveTabKey(key);
-    // console.log(key);
-  };
+  const [activeTabKey, setActiveTabKey] = useState("1");
 
   const ServiceTabStyle = {
     padding: "8px 16px",
@@ -69,8 +64,28 @@ const ServiceTabs = () => {
 
   // console.log(query,"quer-2");
   const { data, isLoading } = useServicesQuery({ ...query });
+  const tabsItems: TabsProps["items"] = [
+    {
+      label: <Button className=""> All Interior</Button>,
+      key: "1",
+      children: <AllService data={data?.services}></AllService>,
+    },
+    {
+      label: <Button> Available</Button>,
+      key: "2",
+      children: <AvailableService data={data?.services}></AvailableService>,
+    },
+    {
+      label: <Button> Upcoming</Button>,
+      key: "3",
+      children: <UpcomingService data={data?.services}></UpcomingService>,
+    },
+  ];
   // console.log(data);
-
+  const handleTabClick = (key: any) => {
+    setActiveTabKey(key);
+    console.log(key);
+  };
   const OperationsSlot: Record<"right" | "left", React.ReactNode> = {
     left: (
       <Input
@@ -92,29 +107,12 @@ const ServiceTabs = () => {
     ),
   };
 
-
-  const tabsItems: TabsProps["items"] = [
-    {
-      label: "All Interior",
-      key: "all",
-      children: <AllService data={data?.services}></AllService>,
-    },
-    {
-      label: "Available ",
-      key: "Available",
-      children: <AvailableService data={data?.services}></AvailableService>,
-    },
-    {
-      label: "Upcoming ",
-      key: "upcoming",
-      children: <UpcomingService data={data?.services}></UpcomingService>,
-    },
-  ];
-
   return (
     <div className=" bg-secondary py-5 rounded-md px-1">
       <section className="text-center">
-        <h1 className=" text-[2.3rem] font-serif my-3">Our Interior Package</h1>
+        <h1 className=" text-[2.3rem] font-serif my-3 ">
+          Our Interior Package
+        </h1>
         <p className="mt-3 font-medium font-sans">
           Best interior service of our . We provide the services in flexible
           time with best demandable design. <br /> Here service of our
@@ -125,17 +123,24 @@ const ServiceTabs = () => {
 
       <Tabs
         style={{ marginBlock: "3rem" }}
+        defaultActiveKey="1"
         activeKey={activeTabKey}
         onChange={handleTabClick}
         type="line"
         // type="editable-card"
         tabBarExtraContent={OperationsSlot}
         centered
-        destroyInactiveTabPane
+        // destroyInactiveTabPane
+        // className="shadow-lg"
+        tabBarStyle={{
+          // border: "1px solid #4BB4B4",
+          borderRadius: "5px",
+          padding: "10px 5px",
+          boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+        }}
         // color="blue"
         items={tabsItems}
-      >
-      </Tabs>
+      ></Tabs>
     </div>
   );
 };

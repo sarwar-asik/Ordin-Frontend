@@ -23,8 +23,9 @@ import Link from "next/link";
 import { USER_ROLE } from "@/constant/userRole";
 import DropDownMenuUI from "../ui/DropDown/DropDownMenu";
 import serviceItems from "../ui/DropDown/DropDownServiceItems";
+import CategoriesItems from "../ui/DropDown/DropDownCategoriesItems";
 
-export const sidebarItems = (role: string ) => {
+export const sidebarItems = (role: string) => {
   // console.log(role,"role from sidebarItem");
   // console.log(role, "form side bar items");
 
@@ -35,12 +36,16 @@ export const sidebarItems = (role: string ) => {
       key: `/Home`,
     },
     {
-      label: <DropDownMenuUI name="service" items={serviceItems}/>,
+      label: <DropDownMenuUI name="service" items={serviceItems} />,
+      key: `/service`,
+    },
+    {
+      label: <DropDownMenuUI name="Category" items={CategoriesItems} />,
       key: `/service`,
     },
     {
       key: "about",
-      label: <Link href="about-us">ABout</Link>,
+      label: <Link href="about-us">About</Link>,
     },
     {
       key: "blogs",
@@ -59,17 +64,16 @@ export const sidebarItems = (role: string ) => {
       key: `/Home`,
     },
     {
-      label: <Link href={`/service`}> Service</Link>,
+      label: <Link href={`/services`}> Service</Link>,
       key: `/service`,
       icon: <InsertRowLeftOutlined />,
-      children: [
-        { label: <Link href="/services">All Design</Link>, key: "/all-desing" },
-        {
-          label: <Link href="/available">Available Design</Link>,
-          key: "/available",
-        },
-        { label: <Link href="/services">Upcoming</Link>, key: "/upcoming" },
-      ],
+      children: serviceItems,
+    },
+    {
+      label: <Link href={`/`}> Categories</Link>,
+      key: `/categoriesInt`,
+      icon: <ContainerOutlined />,
+      children: CategoriesItems,
     },
     {
       key: "about",
