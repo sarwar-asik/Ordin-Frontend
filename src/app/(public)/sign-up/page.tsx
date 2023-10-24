@@ -72,14 +72,18 @@ const SignUpPage = () => {
           alt="login"
         />
       </section>
+      <div className="w-full lg:w-[55%] my-1 mx-auto h-scree   pl-5">
+
+     
       <Form
         name="basic"
-        labelCol={{ span: 4 }}
-        wrapperCol={{ span: 20 }}
+        labelCol={{ span: 6 }}
+        wrapperCol={{ span: 16 }}
         labelAlign="left"
         labelWrap={true}
         form={form}
-        className="w-full lg:w-[55%] my-1 mx-auto h-scree   pl-5"
+        className="px-10 lg:w-[70%]"
+        
         //   style={{ maxWidth: 600 }}
         initialValues={{ remember: true }}
         onFinish={onFinish}
@@ -161,6 +165,7 @@ const SignUpPage = () => {
           </Button>
         </Form.Item>
       </Form>
+      </div>
     </div>
   );
 };

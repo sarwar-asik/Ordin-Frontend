@@ -2,12 +2,11 @@
 import React from "react";
 import { Button, Typography } from "antd";
 import Link from "next/link";
+import Logo from "../ui/Logo";
 
 const { Title, Paragraph } = Typography;
 
 const TopPage = () => {
- 
-
   const buttonStyle = {
     // display: "inline-block",
     padding: "1rem 2rem",
@@ -18,32 +17,37 @@ const TopPage = () => {
     margin: "0 1rem",
     fontSize: "1rem",
     transition: "backgroundColor 0.3s",
-   
   };
   return (
-    <div className=" py-6 mt-7">
+    <div className=" py- mt-7">
       <div
         style={{
           textAlign: "center",
-          padding: "0.8rem 1.5rem",
+          // padding: "0.8rem 1.5rem",
           color: "black",
-          //   backgroundColor: "#4BB4B4",
+          // backgroundColor: "#4BB4B4",
+          marginBottom: "0px",
         }}
       >
         <Title
           style={{
-            fontSize: "2.5rem",
+            fontSize: "2.7rem",
             color: "black",
-            fontFamily: 'Georgia, Cambria, "Times New Roman", Times, serif',
+            fontWeight: "700",
+
+            // fontFamily: 'Georgia, Cambria, "Times New Roman", Times, serif',
           }}
         >
-       Best  Interior Design 
+          Decorate Your Interior with
+          <p className="tex-3xl font-bold text-primary">Ordin</p>
         </Title>
       </div>
       <div
         style={{
           textAlign: "center",
           padding: "0 2rem",
+          // background: "red",
+          marginTop: "0px",
         }}
       >
         <Paragraph
@@ -52,42 +56,43 @@ const TopPage = () => {
             color: "#333",
             maxWidth: "600px",
             margin: "0 auto",
-          //  fontFamily: 'Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+            //  fontFamily: 'Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
           }}
         >
           Welcome to our interior design service! We are dedicated to
           transforming your space into a beautiful and functional environment.
-          Our team of experts is here to help you with all your interior design
-          needs.
+          Our team of experts is here to help you with all your interior .
         </Paragraph>
       </div>
       <div
         // style={{
-          // textAlign: "center",
-          // marginTop: "2rem",
+        // textAlign: "center",
+        // marginTop: "2rem",
         //   padding:"0.7em 0",
         //   display:"flex",
         //   flexDirection:"column",
-          
+
         // }}
         className="text-center mt-[2rem] py-[0.7rem]   flex lg:inline-block  flex-col  justify-center gap-2   w-full"
       >
-        <Link href="/login" style={{...buttonStyle}}>
+        <Link href="/login" style={{ ...buttonStyle }}>
           Get Started
         </Link>
-        <Link href="/about-us" style={{
-           padding: "1rem 2rem",
-          //  backgroundColor: "#4BB4B4",
+        <Link
+          href="/about-us"
+          style={{
+            padding: "1rem 2rem",
+            //  backgroundColor: "#4BB4B4",
 
-           color: "#4BB4B4",
-           textDecoration: "none",
-           borderRadius: "5px",
-           margin: "0 1rem",
-           fontSize: "1rem",
-           transition: "color 0.1s",
-           border:"1px solid ",
-          
-        }}>
+            color: "#4BB4B4",
+            textDecoration: "none",
+            borderRadius: "5px",
+            margin: "0 1rem",
+            fontSize: "1rem",
+            transition: "color 0.1s",
+            border: "1px solid ",
+          }}
+        >
           Learn More
         </Link>
       </div>

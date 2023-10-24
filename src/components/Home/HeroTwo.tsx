@@ -32,27 +32,39 @@ const HeroTwo = () => {
   };
 
   return (
-    <div className="bg-secondary py-2 pr-2">
+    <div className="bg-secondary  pr-2">
       <Row gutter={16}>
         <Col xs={24} sm={24} md={12} lg={12} xl={12}>
           <Image
             src={heroImg}
             alt="Interior Design"
-            height={400}
+            height={500}
             width={200}
             style={{ width: "100%" }}
           />
         </Col>
-        <Col xs={24} sm={24} md={12} lg={12} xl={12}>
+        <Col
+          xs={24}
+          sm={24}
+          md={12}
+          lg={12}
+          xl={12}
+          style={{
+            // display: "flex",
+            // justifyContent:"space-around",
+            // flexDirection:"column",
+         
+          }}
+        >
           <div>
             <Title level={1}>
               <Divider
                 // dashed
                 orientation="center"
                 style={{
-                  fontSize: "1.3rem",
+                  fontSize: "1.7rem",
                   fontWeight: "800",
-                  marginBottom: "1rem",
+                  marginBottom: "2rem",
                 }}
               >
                 Manage Interior
@@ -75,13 +87,16 @@ const HeroTwo = () => {
             style={{
               display: "inline-block",
               padding: "1em 2rem",
-              backgroundColor: "#4BB4B4",
+              background: "#4BB4B4",
               color: "white",
               textDecoration: "none",
               // borderRadius: "5px",
               marginBlock: "1rem",
               fontSize: "1rem",
-              transition: "background-color 0.3s",
+              transition: "background 0.3s",
+              width:"16%",
+              marginTop: "6rem",
+              // background: "red",
             }}
           >
             Lets get Start
