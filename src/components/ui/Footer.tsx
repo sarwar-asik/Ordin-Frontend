@@ -17,10 +17,10 @@ const Footer = () => {
       style={{
         backgroundColor: "#001529",
         color: "white",
-        padding: "3rem 0",
+        padding: "8rem 1em",
         // position: "fixed",
         // bottom: 0,
-        width: "100%",
+        // width: "100%",
         overflow: "auto",
         fontFamily: "serif",
       }}
@@ -38,9 +38,9 @@ const Footer = () => {
           <p>Phone: +1 234 567 890</p>
         </Col>
         <Col xs={24} sm={12} md={8}>
-          <h2>Our Designs</h2>
+          <h1>Our Designs</h1>
           <br />
-          <div className="text-base text-[1rem] flex flex-col  text-blue-200">
+          <div className="text-base text-[1.3rem] flex flex-col  text-blue-200">
           <h6>Home Interior</h6>
           <h6>Office Interior</h6>
           <h6>Restaurant Interior</h6>
