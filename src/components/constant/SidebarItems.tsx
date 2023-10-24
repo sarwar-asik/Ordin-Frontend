@@ -1,16 +1,37 @@
 import type { MenuProps } from "antd";
-import { ProfileOutlined, TableOutlined, ThunderboltOutlined, HomeOutlined, ShoppingCartOutlined, ShopOutlined, MessageOutlined, DatabaseOutlined, ControlOutlined, UsergroupAddOutlined, ContainerOutlined, TabletOutlined, QuestionOutlined, PlusSquareOutlined, } from "@ant-design/icons";
+import {
+  ProfileOutlined,
+  TableOutlined,
+  ThunderboltOutlined,
+  HomeOutlined,
+  ShoppingCartOutlined,
+  ShopOutlined,
+  MessageOutlined,
+  DatabaseOutlined,
+  ControlOutlined,
+  UsergroupAddOutlined,
+  ContainerOutlined,
+  TabletOutlined,
+  QuestionOutlined,
+  PlusSquareOutlined,
+  InsertRowLeftOutlined,
+  UserOutlined,
+  SnippetsOutlined,
+  ContactsFilled,
+} from "@ant-design/icons";
 import Link from "next/link";
 import { USER_ROLE } from "@/constant/userRole";
+import DropDownMenuUI from "../ui/DropDown/DropDownMenu";
+import serviceItems from "../ui/DropDown/DropDownServiceItems";
 
-export const sidebarItems = (role: string) => {
-
+export const sidebarItems = (role: string ) => {
   // console.log(role,"role from sidebarItem");
+  // console.log(role, "form side bar items");
 
-
-  const publicSidebarItems: MenuProps["items"] = [
+  const navBarItems: MenuProps["items"] = [
     {
       label: <Link href={`/`}> Home</Link>,
+
       key: `/Home`,
     },
     {
@@ -18,19 +39,59 @@ export const sidebarItems = (role: string) => {
       key: `/service`,
     },
     {
-      label: <Link href={`/sign-up`}> sign Up</Link>,
-      key: `/sign-up`,
+      key: "about",
+      label: <Link href="about-us">ABout</Link>,
     },
     {
-      label: <Link href={`/login`}> Login</Link>,
-      key: `/login`,
+      key: "blogs",
+      label: <Link href="blogs">Blogs</Link>,
+    },
+    {
+      key: "contact",
+      label: <Link href="contact">Contact Us</Link>,
+    },
+  ];
+
+  const publicSidebarItems: MenuProps["items"] = [
+    {
+      label: <Link href={`/`}> Home</Link>,
+      icon: <HomeOutlined />,
+      key: `/Home`,
+    },
+    {
+      label: <Link href={`/service`}> Service</Link>,
+      key: `/service`,
+      icon: <InsertRowLeftOutlined />,
+      children: [
+        { label: <Link href="/services">All Design</Link>, key: "/all-desing" },
+        {
+          label: <Link href="/available">Available Design</Link>,
+          key: "/available",
+        },
+        { label: <Link href="/services">Upcoming</Link>, key: "/upcoming" },
+      ],
+    },
+    {
+      key: "about",
+      label: <Link href="about-us">ABout</Link>,
+      icon: <UserOutlined />,
+    },
+    {
+      key: "blogs",
+      label: <Link href="blogs">Blogs</Link>,
+      icon: <SnippetsOutlined />,
+    },
+    {
+      key: "contact",
+      label: <Link href="contact">Contact Us</Link>,
+      icon: <ContactsFilled />,
     },
   ];
   const defaultSidebarItems: MenuProps["items"] = [
     {
       label: <Link href={`/`}> Home</Link>,
       key: `/Home`,
-      icon:<HomeOutlined/>
+      icon: <HomeOutlined />,
     },
     {
       label: "Profile",
@@ -53,12 +114,12 @@ export const sidebarItems = (role: string) => {
     ...defaultSidebarItems,
     {
       label: <Link href={`/${role}/cart`}>Cart</Link>,
-      icon: <ShoppingCartOutlined/>,
+      icon: <ShoppingCartOutlined />,
       key: `/${role}cart`,
     },
     {
       label: <Link href={`/${role}/booking`}>Bookings</Link>,
-      icon: <ShopOutlined/>,
+      icon: <ShopOutlined />,
       key: `/${role}/booking`,
     },
     {
@@ -77,7 +138,7 @@ export const sidebarItems = (role: string) => {
     ...defaultSidebarItems,
     {
       label: <Link href={`/${role}/service`}>Services</Link>,
-      icon:<DatabaseOutlined />,
+      icon: <DatabaseOutlined />,
       key: `/${role}/service`,
     },
     {
@@ -92,7 +153,7 @@ export const sidebarItems = (role: string) => {
     },
     {
       label: <Link href={`/${role}/bookings`}>booking</Link>,
-      icon: <ShopOutlined/>,
+      icon: <ShopOutlined />,
       key: `/${role}/bookings`,
     },
     {
@@ -102,12 +163,12 @@ export const sidebarItems = (role: string) => {
       children: [
         {
           label: <Link href={`/${role}/blogs`}>blogs</Link>,
-          icon: <TabletOutlined/>,
+          icon: <TabletOutlined />,
           key: `/${role}/blogs`,
         },
         {
           label: <Link href={`/${role}/FAQ`}>FAQ</Link>,
-          icon:<QuestionOutlined />,
+          icon: <QuestionOutlined />,
           key: `/${role}/FAQ`,
         },
       ],
@@ -124,7 +185,7 @@ export const sidebarItems = (role: string) => {
       children: [
         {
           label: <Link href={`/super_admin/users`}>All Users</Link>,
-          icon: <UsergroupAddOutlined/>,
+          icon: <UsergroupAddOutlined />,
           key: `/${role}/admin`,
         },
         {
@@ -139,7 +200,6 @@ export const sidebarItems = (role: string) => {
   if (role === USER_ROLE.user) return userSidebarItems;
   else if (role === USER_ROLE.admin) return adminSidebarItems;
   else if (role === USER_ROLE.superAdmin) return superAdminSidebarItems;
-  else {
-    return publicSidebarItems;
-  }
+  else if (role === "sidebar") return publicSidebarItems;
+  else if (role === "nav") return navBarItems;
 };

@@ -10,8 +10,9 @@ import {
 import Link from "next/link";
 import SideBarDashBoard from "./SideBarDashBoard";
 import Logo from "../ui/Logo";
+import { sidebarItems } from "../constant/SidebarItems";
 
-const SideBar = ({ items }: { items?: any }) => {
+const SideBar = () => {
   const [open, setOpen] = useState(false);
   const [placement, setPlacement] = useState<DrawerProps["placement"]>("left");
 
@@ -19,9 +20,9 @@ const SideBar = ({ items }: { items?: any }) => {
     setOpen(true);
   };
 
-  const onChange = (e: RadioChangeEvent) => {
-    setPlacement(e.target.value);
-  };
+  // const onChange = (e: RadioChangeEvent) => {
+  //   setPlacement(e.target.value);
+  // };
 
   const onClose = () => {
     setOpen(false);
@@ -29,10 +30,10 @@ const SideBar = ({ items }: { items?: any }) => {
 
   const [selectedItem, setSelectedItem] = useState<null | any>(null);
 
-  const handleItemClick = (item: any) => {
-    setSelectedItem(item);
-    onClose();
-  };
+  // const handleItemClick = (item: any) => {
+  //   setSelectedItem(item);
+  //   onClose();
+  // };
 
   return (
     <>
@@ -44,7 +45,7 @@ const SideBar = ({ items }: { items?: any }) => {
         )}
       </Space>
       <Drawer
-      className="bg-secondary"
+        className="bg-secondary"
         // title="Drawer with extra actions"
         placement={"right"}
         width={400}
@@ -53,18 +54,18 @@ const SideBar = ({ items }: { items?: any }) => {
         extra={
           <Space>
             <Button className="bg-secondary border-none " onClick={onClose}>
-              <Logo/>
+              <Logo />
             </Button>
           </Space>
         }
       >
         <Menu
-        
-          mode="vertical"
+          mode="inline"
           selectedKeys={[selectedItem]}
           style={{ borderRight: "none" }}
+          items={sidebarItems("sidebar")}
         >
-          {items.map((item: any) => (
+          {/* {items.map((item: any) => (
             <Menu.Item
               key={item.key}
               onClick={() => handleItemClick(item.key)}
@@ -77,7 +78,7 @@ const SideBar = ({ items }: { items?: any }) => {
                 <h4>{item.label}</h4>
               </Link>
             </Menu.Item>
-          ))}
+          ))} */}
         </Menu>
       </Drawer>
     </>
