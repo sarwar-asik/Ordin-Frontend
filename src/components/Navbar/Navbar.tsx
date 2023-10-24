@@ -11,12 +11,14 @@ import { HomeOutlined, InsertRowLeftOutlined, ShoppingCartOutlined, SnippetsOutl
 import Logo from "../ui/Logo";
 
 import UserAvatar from "../ui/UserAvatar";
+import DropDownMenuUI from "../ui/DropDown/DropDownMenu";
+import serviceItems from "../ui/DropDown/DropDownServiceItems";
 
 const { Header } = Layout;
 
 const menuItems: { key: string; label: any; icon: any; href: string }[] = [
   { key: "1", label: "Home", icon: <HomeOutlined/>, href: "/" },
-  { key: "2", label: "Service", icon: <InsertRowLeftOutlined />, href: "/services" },
+  { key: "2", label: <DropDownMenuUI name="service" items={serviceItems}/>, icon: <InsertRowLeftOutlined />, href: "/services" },
   { key: "3", label: "About", icon: <UserOutlined />, href: "/about-us" },
   { key: "4", label: "Blogs", icon: <SnippetsOutlined/>, href: "/blogs" },
   // { key: "4", label: "signUp", href: "/sign-up" },
