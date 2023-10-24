@@ -35,7 +35,7 @@ export const sidebarItems = (role: string ) => {
       key: `/Home`,
     },
     {
-      label: <Link href={`/service`}> Service</Link>,
+      label: <DropDownMenuUI name="service" items={serviceItems}/>,
       key: `/service`,
     },
     {
