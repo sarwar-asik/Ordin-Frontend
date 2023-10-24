@@ -18,44 +18,48 @@ import {
   message,
 } from "antd";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
-const items: MenuProps["items"] = [
-  {
-    key: "1",
-    label: (
-      <Badge count={3} size="small">
-        <Link href="/user/notification" className="text-md">
-        notification <AlertOutlined /> 
-        </Link>
-      </Badge>
-    ),
-  },
-  {
-    key: "2",
-    label: <Link href="/profile">Profile</Link>,
-  },
-  
-  {
-    key: "3",
-    label: (
-      <Button
-        onClick={() => {
-          removeUserInfo(authKey);
-          message.error("Logout Successfully");
-        }}
-        type="primary"
-        danger
-      >
-        Logout
-      </Button>
-    ),
-  },
-];
+
 const UserAvatar = ({ userId }: { userId: string }) => {
+  const router = useRouter();
+
   const { data: userData } = useSingleUserQuery(userId);
   const { data: cartData, isLoading } = useCartsQuery({ page: 1 });
   const cartDataLength = cartData?.carts?.length || 0;
   // console.log("🚀 ~ file: UserAvatar.tsx:42 ~ UserAvatar ~ cartData:", cartData)
+  const logoutHandler = () => {
+    // message.loading("logging out");
+    removeUserInfo(authKey);
+    message.error("Logout Successfully");
+    router.push("/");
+  };
+
+  const items: MenuProps["items"] = [
+    {
+      key: "1",
+      label: (
+        <Badge count={3} size="small">
+          <Link href="/user/notification" className="text-md">
+            notification <AlertOutlined />
+          </Link>
+        </Badge>
+      ),
+    },
+    {
+      key: "2",
+      label: <Link href="/profile">Profile</Link>,
+    },
+
+    {
+      key: "3",
+      label: (
+        <Button onClick={logoutHandler} type="primary" danger>
+          Logout
+        </Button>
+      ),
+    },
+  ];
 
   return (
     <section style={{ display: "flex", alignItems: "center", gap: "1.5em" }}>
