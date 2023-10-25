@@ -1,85 +1,29 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import NotFImg from "@/assets/notFoun.jpg";
 
-const imageStyle = {
-  maxWidth: "100%",
-  maxHeight: "200px",
-  marginBottom: "20px",
-};
-
-const headingStyle = {
-  fontSize: "1.5rem",
-  marginBottom: "10px",
-};
-
-const paragraphStyle = {
-  fontSize: "1rem",
-  marginBottom: "20px",
-};
-
-const linkStyle = {
-  color: "#0070f3",
-  textDecoration: "none",
-};
-
-const linkHoverStyle = {
-  textDecoration: "underline",
-};
 const NotFoundPage = () => {
   return (
     <>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          height: "100vh",
-          position: "relative",
-          color:"white",
-          fontFamily:"cursive"
-          // width:"100%"
-        }}
-      >
-        <section
-          style={{
-            position: "absolute",
-            top: "5rem",
-          }}
-        >
-          <h2 style={headingStyle}>Page Not Found</h2>
-          <p style={paragraphStyle}>
-            The page you are looking for does not exist.
-          </p>
-          <Link
-            style={{
-              color: "white",
-              textDecoration: "none",
-              fontWeight:"800",
-              padding:"1em",
-              background:"#4BB4B4",
-              borderRadius:"10px",
-              margin:"1rem 0"
+      <main className="h-screen w-full flex flex-col justify-center items-center bg-[#1A2238]">
+        <h1 className="text-9xl font-extrabold text-white tracking-widest">
+          404
+        </h1>
+        <div className="bg-primary px-2 text-sm rounded rotate-12 absolute">
+          Page Not Found
+        </div>
+        <button className="mt-5">
+          <a className="relative inline-block text-sm font-medium text-primary group active:text-orange-500 focus:outline-none focus:ring">
+            <span className="absolute inset-0 transition-transform translate-x-0.5 translate-y-0.5 bg-primary group-hover:translate-y-0 group-hover:translate-x-0"></span>
 
-            }}
-            href="/"
-          >
-            Go back to the homepage
-          </Link>
-        </section>
-        <Image
-          src={NotFImg}
-          height={300}
-          width={300}
-          style={{
-            width: "100vw",
-            height: "100%",
-          }}
-          alt="Not Found"
-        />
-      </div>
+            <span className="relative block px-8 py-3 bg-[#1A2238] border border-current">
+              <Link href="/" className="text-white no-underline">
+                Go Home
+              </Link>
+            </span>
+          </a>
+        </button>
+      </main>
     </>
   );
 };
