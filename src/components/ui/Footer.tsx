@@ -1,30 +1,24 @@
-import { Row, Col, Button, Divider } from "antd";
 import Link from "next/link";
-import Logo from "./Logo";
 
 import {
   FacebookOutlined,
   LinkedinOutlined,
   TwitterOutlined,
   YoutubeOutlined,
-  FacebookFilled,
 } from "@ant-design/icons";
 import { Space, Tag } from "antd";
 
 const Footer = () => {
   return (
-    <footer className=" w-full  px-4 divide-y  bg-[#001529] text-white  no-underline">
+    <footer className="   px-4 divide-y  bg-[#001529] text-white  no-underline">
       <div className=" flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
-        <div className="lg:w-1/3">
-          <Link
-            href="/"
-            className="flex justify-center flex-col space-x-3 gap-3 lg:justify-start text-white no-underline"
-          >
-            <h2 className=" text-3xl font-semibold w-[3rem]">Ordain</h2>
-            <p>123 Stepen Road</p>
-            <p>Miami,Florida,USA</p>
-            <p>Phone: +1 234 567 890</p>
+        <div className="flex justify-center flex-col space-x-3 gap-3 lg:justify-start lg:w-1/3">
+          <Link href="/" className=" text-white no-underline">
+            <span className=" text-3xl font-semibold w-[3rem]">Ordain</span>
           </Link>
+          <p>123 Stepen Road</p>
+          <p>Miami,Florida,USA</p>
+          <p>Phone: +1 234 567 890</p>
         </div>
         <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 px-3 lg:px-1 sm:grid-cols-4">
           <div className="space-y-3">
