@@ -21,12 +21,14 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
 
+
+
 const UserAvatar = ({ userId }: { userId: string }) => {
   const router = useRouter();
 
   const { data: userData } = useSingleUserQuery(userId);
   const { data: cartData, isLoading } = useCartsQuery({ page: 1 });
-  const cartDataLength = cartData?.carts?.length || 0;
+  const cartDataLength = cartData?.carts?.length || 1;
   // console.log("🚀 ~ file: UserAvatar.tsx:42 ~ UserAvatar ~ cartData:", cartData)
   const logoutHandler = () => {
     // message.loading("logging out");
@@ -88,5 +90,7 @@ const UserAvatar = ({ userId }: { userId: string }) => {
     </section>
   );
 };
+
+
 
 export default UserAvatar;

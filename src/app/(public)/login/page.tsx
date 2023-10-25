@@ -62,8 +62,8 @@ const LoginPage = () => {
       <div className="w-full lg:w-[55%] my-1 mx-auto min-h-scre shadow-lg  px-5 ">
         <Form
           name="basic"
-          labelCol={{ span: 4 }}
-          wrapperCol={{ span: 20 }}
+          labelCol={{ span: 6}}
+          wrapperCol={{ span: 18 }}
           labelAlign="left"
           labelWrap={true}
             // style={{ maxWidth: 600 }}
