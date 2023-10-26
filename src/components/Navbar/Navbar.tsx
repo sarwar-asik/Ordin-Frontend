@@ -8,6 +8,7 @@ import { getUserInfo } from "@/utils/local.storeage";
 import Logo from "../ui/Logo";
 import UserAvatar from "../ui/UserAvatar";
 import { sidebarItems } from "../constant/SidebarItems";
+import dynamic from "next/dynamic";
 const { Header } = Layout;
 
 const Navbar = () => {
@@ -17,20 +18,18 @@ const Navbar = () => {
   return (
     <div>
       <Header className="bg-white text-black shadow-xl lg:px-2 px-1 flex justify-between">
-        <div className="flex items-center gap-2">
-          <section className="flex lg:hidden">
+        <section className="flex items-center gap-2">
+          <div className="flex lg:hidden">
             <SideBar></SideBar>
-          </section>
+          </div>
           <Logo />
-        </div>
+        </section>
         <Menu
-          // theme="dark"
           mode="horizontal"
           className="hidden lg:flex"
           disabledOverflow
           items={sidebarItems("nav")}
-        ></Menu>
-
+        />
         {user?.role ? (
           <UserAvatar userId={user?.id} />
         ) : (
@@ -45,8 +44,8 @@ const Navbar = () => {
   );
 };
 
-// export default dynamic(() => Promise.resolve(Navbar), {
-//   ssr: false,
-// });
+export default dynamic(() => Promise.resolve(Navbar), {
+  ssr: false,
+});
 
-export default Navbar
+// export default Navbar;

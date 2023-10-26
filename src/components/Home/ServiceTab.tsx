@@ -9,6 +9,7 @@ import { ReloadOutlined, RestFilled } from "@ant-design/icons";
 import { useDebounced } from "@/redux/hooks";
 import { useServicesQuery } from "@/redux/api/serviceApi";
 import LoadingData from "../ui/Loader/LoadingData";
+import dynamic from "next/dynamic";
 
 const { TabPane } = Tabs;
 
@@ -66,17 +67,17 @@ const ServiceTabs = () => {
   const { data, isLoading } = useServicesQuery({ ...query });
   const tabsItems: TabsProps["items"] = [
     {
-      label: <Button className=""> All Interior</Button>,
+      label: <p className=""> All Interior</p>,
       key: "1",
       children: <AllService data={data?.services}></AllService>,
     },
     {
-      label: <Button> Available</Button>,
+      label: <p> Available</p>,
       key: "2",
       children: <AvailableService data={data?.services}></AvailableService>,
     },
     {
-      label: <Button> Upcoming</Button>,
+      label: <p> Upcoming</p>,
       key: "3",
       children: <UpcomingService data={data?.services}></UpcomingService>,
     },
@@ -144,5 +145,11 @@ const ServiceTabs = () => {
     </div>
   );
 };
+
+// export default dynamic(() => Promise.resolve(Navbar), {
+//   ssr: false,
+// });
+
+
 
 export default ServiceTabs;
