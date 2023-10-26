@@ -9,7 +9,7 @@ import LoaderRating from "../ui/Loader/LoaderRating";
 const { Content } = Layout;
 
 const ReviewsPage = () => {
-  const { data, isLoading } = useReviewsQuery({ page: 1, limit: 6 });
+  const { data, isLoading } = useReviewsQuery({});
 
   // console.log("🚀 ~ file: Rating.tsx:32 ~ ReviewsPage ~ data:", data);
   const reviewsData = data?.reviews;

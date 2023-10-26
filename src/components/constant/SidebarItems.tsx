@@ -18,6 +18,7 @@ import {
   UserOutlined,
   SnippetsOutlined,
   ContactsFilled,
+  CommentOutlined,
 } from "@ant-design/icons";
 import Link from "next/link";
 import { USER_ROLE } from "@/constant/userRole";
@@ -159,6 +160,11 @@ export const sidebarItems = (role: string) => {
       label: <Link href={`/${role}/bookings`}>booking</Link>,
       icon: <ShopOutlined />,
       key: `/${role}/bookings`,
+    },
+    {
+      label: <Link href={`/admin/reviews`}>Reviews</Link>,
+      icon: <CommentOutlined />,
+      key: `/admin/reviews`,
     },
     {
       label: "Content Manage",
