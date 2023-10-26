@@ -6,8 +6,12 @@
 - TypeScript 
 - Redux ,RTK
 - Ant Design
+- CSS 
 - Tailwind
 - JWT
+- Axios 
+- Axios instance for Redux 
+
 
 
 

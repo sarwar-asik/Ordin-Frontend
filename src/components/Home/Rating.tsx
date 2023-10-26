@@ -4,6 +4,7 @@ import { LeftOutlined } from "@ant-design/icons";
 import { Layout, Card, Rate, List, Space, Avatar, Tooltip, Image, Row, Col, } from "antd";
 import LoadingData from "../ui/Loader/LoadingData";
 import "./rating.css";
+import LoaderRating from "../ui/Loader/LoaderRating";
 
 const { Content } = Layout;
 
@@ -32,6 +33,11 @@ const ReviewsPage = () => {
      
 
       <section className="mt-3">
+
+        {
+          isLoading && <LoaderRating/>
+        }
+        {/* <LoaderRating/> */}
        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {reviewsData?.map((item: any) => {

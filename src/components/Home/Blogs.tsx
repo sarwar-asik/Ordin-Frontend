@@ -3,6 +3,7 @@ import { useBlogsQuery } from "@/redux/api/blogsApi";
 import { Layout, Row, Col, Card, Button } from "antd";
 import Link from "next/link";
 import LoadingData from "../ui/Loader/LoadingData";
+import LoaderBlogs from "../ui/Loader/LoaderBlogs";
 
 const { Content } = Layout;
 
@@ -19,7 +20,8 @@ const BlogPage = () => {
           very popular in the worldwide .
         </p>
       </section>
-      {isLoading && <LoadingData />}
+      {isLoading && <LoaderBlogs/>}
+      {/* <LoaderBlogs/> */}
       <Layout>
         <Content style={{ padding: "20px" }}>
           <Row gutter={16}>
