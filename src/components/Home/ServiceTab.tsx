@@ -10,6 +10,7 @@ import { useDebounced } from "@/redux/hooks";
 import { useServicesQuery } from "@/redux/api/serviceApi";
 import LoadingData from "../ui/Loader/LoadingData";
 import dynamic from "next/dynamic";
+import LoaderService from "../ui/Loader/LoaderService";
 
 const { TabPane } = Tabs;
 
@@ -109,7 +110,7 @@ const ServiceTabs = () => {
   };
 
   return (
-    <div className=" bg-secondary py-5 rounded-md px-1">
+    <div className=" bg-secondary text-center py-5 rounded-md px-1">
       <section className="text-center">
         <h1 className=" text-[2.3rem] font-serif my-3 ">
           Our Interior Package
@@ -120,7 +121,8 @@ const ServiceTabs = () => {
           available,upcoming Service interior.
         </p>
       </section>
-      {isLoading && <LoadingData />}
+      {isLoading &&  <LoaderService/>}
+     
 
       <Tabs
         style={{ marginBlock: "3rem" }}

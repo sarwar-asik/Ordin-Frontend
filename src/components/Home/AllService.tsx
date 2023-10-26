@@ -8,7 +8,7 @@ const AllService = ({data}:{data:any}) => {
 
 
   return (
-    <div className=" mt-[8vh] pt-3 rounded-sm ">
+    <div className=" text-center mt-[8vh] pt-3 rounded-sm ">
      
  
       <Row align="middle" justify="start"  gutter={[24, 18]}>

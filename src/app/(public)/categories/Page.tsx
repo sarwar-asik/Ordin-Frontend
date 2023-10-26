@@ -5,6 +5,7 @@ import { Divider, Row } from "antd";
 import { useCategoriesQuery } from "@/redux/api/categoryApi";
 import SingleCategoryPage from "@/components/ui/SingleCategory";
 import LoadingData from "@/components/ui/Loader/LoadingData";
+import LoaderCategory from "@/components/ui/Loader/LoaderCategory";
 
 const CategoriesPage = () => {
   const { data: categories, isLoading } = useCategoriesQuery({
@@ -33,9 +34,10 @@ const CategoriesPage = () => {
       </section>
       {
         isLoading&& 
-        <LoadingData/>
+        <LoaderCategory/>
       }
-
+      
+      
       <Row align="middle" justify="start" gutter={20} style={{
         marginTop:"3rem"
       }}>

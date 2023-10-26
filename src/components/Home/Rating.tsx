@@ -39,9 +39,9 @@ const ReviewsPage = () => {
             return (
               <div
                 key={item?.name}
-                className="flex flex-col max-w-sm mx-4 my-6 shadow-lg"
+                className="flex flex-col justify-between max-w-sm mx-4 my-6 shadow-lg bg-gray-100"
               >
-                <div className="px-4 py-12 rounded-t-lg sm:px-8 md:px-12 bg-gray-100">
+                <div className="px-4 py-12 rounded-t-lg sm:px-8 md:px-12">
                   <p className="relative px-6 py-1 text-lg italic text-center text-gray-800">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

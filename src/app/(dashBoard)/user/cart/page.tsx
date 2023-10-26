@@ -3,16 +3,14 @@
 import BreadCumbUI from "@/components/ui/BreadCumbUI";
 import LoadingData from "@/components/ui/Loader/LoadingData";
 import SingleCart from "@/components/ui/SingleCart";
-import { useUserBookingQuery } from "@/redux/api/bookingApi";
+
 import { useCartsQuery, useDeleteCartMutation } from "@/redux/api/cartApi";
-import { Button, message } from "antd";
-import Image from "next/image";
-import Link from "next/link";
+import { message } from "antd";
 import React from "react";
 
 const CartPage = () => {
   
-const {data,isLoading} = useCartsQuery({page:1})
+const {data,isLoading} = useCartsQuery({})
 // console.log("🚀 ~ file: page.tsx:12 ~ CartPage ~ data:", data)
 
 

@@ -19,8 +19,8 @@ const TopPage = () => {
     transition: "backgroundColor 0.3s",
   };
   return (
-    <div className="">
-      <div className="lg:shadow-2xl py-12 lg:py-32 mt rounded-md">
+    <div className=" ">
+      <div className=" bg-slate-100 lg:shadow- py-12 lg:py-32 mt rounded-md">
         <div
           style={{
             textAlign: "center",
