@@ -13,12 +13,12 @@ const SingleCart = ({
 }) => {
   const service = cart?.service;
   const { data: BookData } = useUserBookingQuery(service?.id);
-  console.log("🚀  BookData:", BookData);
+  // console.log("🚀  BookData:", BookData);
 
   return (
     <div
       key={service?.title}
-      className="shadow-lg px-2 py-3 flex justify-between items-cente rounded max-w-[36rem] mx-auto"
+      className="shadow-lg px-2 py-3  block lg:flex gap-3 justify-between items-cente rounded max-w-[36rem] mx-auto"
     >
       <section>
         <Image
@@ -38,7 +38,7 @@ const SingleCart = ({
         <h5>Service Date:{service?.serviceDate}</h5>
       </section>
 
-      <section className="flex flex-col gap-2">
+      <section className="mt-4 lg:mt--0 flex flex-col gap-2">
         {BookData ? (
           <Button disabled>Booked</Button>
         ) : (

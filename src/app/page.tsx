@@ -60,7 +60,7 @@ const HomePage = () => {
 
         <TopPage></TopPage>
         <CategoriesPage />
-        <HeroOne />
+        {/* <HeroOne /> */}
         <TrustedBy></TrustedBy>
         <ServiceTabs />
         <BlogPage />

@@ -29,7 +29,7 @@ const AddToCartButton = ({ service }: { service: any }) => {
       if (response?.data) {
         message.success("Added Cart");
       } else {
-        message.error("Can not add double");
+        message.error("Can not add the cart");
       }
     } catch (error) {
       console.log("🚀 ~ file: page.tsx ~ addToCart ~ error:", error);
