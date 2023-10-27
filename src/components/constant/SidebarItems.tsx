@@ -46,15 +46,19 @@ export const sidebarItems = (role: string) => {
     },
     {
       key: "about",
-      label: <Link href="about-us">About</Link>,
+      label: <Link href="/about-us">About</Link>,
+    },
+    {
+      key: "gallery",
+      label: <Link href="/gallery">Gallery</Link>,
     },
     {
       key: "blogs",
-      label: <Link href="blogs">Blogs</Link>,
+      label: <Link href="/blogs">Blogs</Link>,
     },
     {
       key: "contact",
-      label: <Link href="contact">Contact Us</Link>,
+      label: <Link href="/contact">Contact Us</Link>,
     },
   ];
 
@@ -85,6 +89,11 @@ export const sidebarItems = (role: string) => {
       key: "blogs",
       label: <Link href="blogs">Blogs</Link>,
       icon: <SnippetsOutlined />,
+    },
+    {
+      key: "gallery",
+      label: <Link href="/gallery">Gallery</Link>,
+      icon: <TabletOutlined/>,
     },
     {
       key: "contact",
