@@ -34,7 +34,7 @@ const ContactPage = () => {
             </div>
           </div>
           <Form
-            className="w-full lg:w-[55%] mx-auto space-y-6 rounded-md  text-black px-2 mt-5"
+            className="w-full lg:w-[55%]  mx-auto space-y-6 rounded-md  text-black px-7 mt-5"
             onFinish={onFinish}
           >
             <h2 className="text-3xl font-bold leading">Contact us</h2>
