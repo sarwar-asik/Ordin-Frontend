@@ -12,7 +12,7 @@ const CategoriesPage = () => {
     page: 1,
     limit: 10,
   });
-//   console.log("🚀 ~ file: Page.tsx:11 ~ CategoriesPage ~ data:", categories);
+
 
   return (
     <div className=" bg-secondary py-5 rounded-md px-1">
