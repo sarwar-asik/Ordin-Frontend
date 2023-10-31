@@ -34,7 +34,7 @@ const ContactPage = () => {
             </div>
           </div>
           <Form
-            className="w-full lg:w-[55%]  mx-auto space-y-6 rounded-md  text-black px-7 mt-5"
+            className="w-full lg:w-[55%]   mx-auto space-y-6 rounded-md  text-black px-12 mt-5"
             onFinish={onFinish}
           >
             <h2 className="text-3xl font-bold leading">Contact us</h2>
@@ -62,7 +62,7 @@ const ContactPage = () => {
             <Form.Item name="message">
               <Input.TextArea
                 placeholder="Message..."
-                autoSize={{ minRows: 3 }}
+                autoSize={{ minRows: 4}}
                 className="block w-full p-2 rounded autoexpand focus:outline-none focus:ring focus:ring-ri focus:ring-ri "
               />
             </Form.Item>

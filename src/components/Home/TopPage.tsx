@@ -20,7 +20,7 @@ const TopPage = () => {
   };
   return (
     <div className=" ">
-      <div className=" bg-slate-100 lg:shadow- py-12 lg:py-32 mt rounded-md">
+      <div className=" bg-slate-300 lg:shadow- py-12 lg:py-32 mt rounded-md">
         <div
           style={{
             textAlign: "center",

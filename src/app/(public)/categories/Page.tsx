@@ -17,7 +17,7 @@ const CategoriesPage = () => {
   return (
     <div className=" bg-secondary py-5 rounded-md px-1">
       <section className="my-7 text-center">
-        <h1 className=" text-[2.3rem] font-serif">Interior Categories</h1>
+        <h1 className=" text-[2.3rem] font-serif">Which Interior we Provide?</h1>
 
         {/* <Divider orientation="center" style={{
           background:"black",

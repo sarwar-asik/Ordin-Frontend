@@ -43,18 +43,18 @@ const SignUpPage = () => {
     const file = values.img.file.originFileObj;
 
     try {
+      // / ! Image upload hook
       const data = await uploadImgCloudinary(file);
       // console.log(data, "imagebb data...");
       values.img = data;
       // console.log("newValue", values);
-      message.loading("sign up processing...")
+      message.loading("sign up processing...");
       const res = await userSignUp({ ...values }).unwrap();
-      console.log(res, "signup response");
+      // console.log(res, "signup respoFnse");
 
       if (res) {
         message.success("successfully Sign UP");
         form.resetFields();
-
       }
     } catch (error) {
       console.error("Error in onFinish:", error);
@@ -73,98 +73,97 @@ const SignUpPage = () => {
         />
       </section>
       <div className="w-full lg:w-[55%] my-1 mx-auto h-scree   pl-5">
-
-     
-      <Form
-        name="basic"
-        labelCol={{ span: 6 }}
-        wrapperCol={{ span: 16 }}
-        labelAlign="left"
-        labelWrap={true}
-        form={form}
-        className="px-10 lg:w-[70%]"
-        
-        //   style={{ maxWidth: 600 }}
-        initialValues={{ remember: true }}
-        onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
-        // autoComplete="off"
-      >
-        <h2 className="text-[3rem] font-extrabold mb-3  fon-serif">Sign Up</h2>
-        <Form.Item<FieldType>
-          label={<span className="text-[1.2em] font-medium">Name</span>}
-          name="name"
-          // className="w-full py-1 input"
-          className="w-full py-1 input"
-          rules={[{ required: true, message: "Please input your username!" }]}
-        >
-          <Input placeholder="Your Name" />
-        </Form.Item>
-        <Form.Item<FieldType>
-          label={<span className="text-[1.2em] font-medium">Email</span>}
+        <Form
+          name="basic"
+          labelCol={{ span: 6 }}
+          wrapperCol={{ span: 16 }}
           labelAlign="left"
-          name="email"
-          className="w-full py-1 input"
-          rules={[{ required: true, message: "Please input your email!" }]}
+          labelWrap={true}
+          form={form}
+          className="px-10 lg:w-[70%]"
+          //   style={{ maxWidth: 600 }}
+          initialValues={{ remember: true }}
+          onFinish={onFinish}
+          onFinishFailed={onFinishFailed}
+          // autoComplete="off"
         >
-          <Input type="email" placeholder="example@gmail.com" />
-        </Form.Item>
-        <Form.Item<FieldType>
-          label={<span className="text-[1.2em] font-medium">Contact</span>}
-          name="contact"
-          className="w-full py-1 input"
-          rules={[
-            { required: true, message: "Please input your Contact Num!" },
-          ]}
-        >
-          <Input type="number" />
-        </Form.Item>
-
-        <Form.Item<FieldType>
-          label={
-            <span className="text-[1.2em] font-medium">Select a Image</span>
-          }
-          name="img"
-          rules={[{ required: true, message: "Please Select the Image" }]}
-        >
-          <Upload
-            listType="picture-card"
-            className="avatar-uploader"
-            showUploadList={true}
-            maxCount={1}
-            action="/api/file"
-          >
-            <Button>Upload</Button>
-          </Upload>
-        </Form.Item>
-
-        <Form.Item<FieldType>
-          label={<span className="text-[1.2em] font-medium">Password</span>}
-          name="password"
-          className="w-full py-1 input"
-          rules={[{ required: true, message: "Please input your password!" }]}
-        >
-          <Input.Password />
-        </Form.Item>
-
-        <Form.Item<FieldType> valuePropName="checked">
-          <Checkbox>
-            Agree to our <a href="">term and policy?</a>
-          </Checkbox>
-        </Form.Item>
-
-        <Form.Item>
-          <Typography style={{ fontFamily: "monospace" }}>
-            Already registered ? <Link href="/login">Login please...</Link>
-          </Typography>
-        </Form.Item>
-
-        <Form.Item wrapperCol={{ span: 8 }}>
-          <Button block type="primary" htmlType="submit">
+          <h2 className="text-[3rem] font-extrabold mb-3  fon-serif">
             Sign Up
-          </Button>
-        </Form.Item>
-      </Form>
+          </h2>
+          <Form.Item<FieldType>
+            label={<span className="text-[1.2em] font-medium">Name</span>}
+            name="name"
+            // className="w-full py-1 input"
+            className="w-full py-1 input"
+            rules={[{ required: true, message: "Please input your username!" }]}
+          >
+            <Input placeholder="Your Name" />
+          </Form.Item>
+          <Form.Item<FieldType>
+            label={<span className="text-[1.2em] font-medium">Email</span>}
+            labelAlign="left"
+            name="email"
+            className="w-full py-1 input"
+            rules={[{ required: true, message: "Please input your email!" }]}
+          >
+            <Input type="email" placeholder="example@gmail.com" />
+          </Form.Item>
+          <Form.Item<FieldType>
+            label={<span className="text-[1.2em] font-medium">Contact</span>}
+            name="contact"
+            className="w-full py-1 input"
+            rules={[
+              { required: true, message: "Please input your Contact Num!" },
+            ]}
+          >
+            <Input type="number" />
+          </Form.Item>
+
+          <Form.Item<FieldType>
+            label={
+              <span className="text-[1.2em] font-medium">Select a Image</span>
+            }
+            name="img"
+            rules={[{ required: true, message: "Please Select the Image" }]}
+          >
+            <Upload
+              listType="picture-card"
+              className="avatar-uploader"
+              showUploadList={true}
+              maxCount={1}
+              action="/api/file"
+            >
+              <Button>Upload</Button>
+            </Upload>
+          </Form.Item>
+
+          <Form.Item<FieldType>
+            label={<span className="text-[1.2em] font-medium">Password</span>}
+            name="password"
+            className="w-full py-1 input"
+            rules={[{ required: true, message: "Please input your password!" }]}
+          >
+            <Input.Password />
+          </Form.Item>
+
+          <Form.Item<FieldType> valuePropName="checked">
+            <Checkbox>
+              Agree to our <a href="">term and policy?</a>
+            </Checkbox>
+          </Form.Item>
+
+          <Form.Item>
+            <Typography style={{ fontFamily: "monospace" }}>
+              Already registered ? <Link href="/login">Login please...</Link>
+            </Typography>
+          </Form.Item>
+
+          <Form.Item wrapperCol={{ span: 8 }}>
+            <Button block type="primary" htmlType="submit">
+              Sign Up
+            </Button>
+          </Form.Item>
+        </Form>
       </div>
     </div>
   );
