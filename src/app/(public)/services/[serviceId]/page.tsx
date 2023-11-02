@@ -4,6 +4,7 @@ import AddToCartButton from "@/components/ui/Button/AddToCartButton";
 import LoadingData from "@/components/ui/Loader/LoadingData";
 import AddReviewsPage from "@/components/ui/Reviews";
 import { useSingleServiceQuery } from "@/redux/api/serviceApi";
+import { getUserInfo } from "@/utils/local.storeage";
 
 import { Row, Col, Button, Divider, Rate } from "antd";
 import Image from "next/image";
@@ -17,11 +18,12 @@ const ServiceDetails = ({
   // console.log(serviceId);
 
   const { data, isLoading } = useSingleServiceQuery(serviceId);
+  const userInfo = getUserInfo() as any;
   // console.log("🚀 ~ file: page.tsx:17 ~ data:", data);
 
-  if (isLoading) {
-    return <LoadingData />;
-  }
+  // if (isLoading) {
+  //   return <LoadingData />;
+  // }
 
   return (
     <div>
@@ -37,7 +39,7 @@ const ServiceDetails = ({
           },
         ]}
       />
-
+      {isLoading && <LoadingData />}
       <Row
         align="middle"
         justify="space-between"
@@ -51,6 +53,7 @@ const ServiceDetails = ({
             <Image
               src={data?.img}
               height={300}
+              unoptimized
               width={200}
               alt="Service"
               style={{
@@ -115,10 +118,11 @@ const ServiceDetails = ({
             </p>
           </div>
           <div
+            hidden={userInfo?.email ? false : true}
             style={{
               display: "flex",
-              justifyContent:"space-between",
-              marginBottom:"1em",
+              justifyContent: "space-between",
+              marginBottom: "1em",
               // flexDirection: "column",
               // gap: "5px",
               maxWidth: "15rem",
@@ -126,7 +130,9 @@ const ServiceDetails = ({
           >
             <AddToCartButton service={data} />
 
-            <Button type="primary">Book</Button>
+            <Button href={`/user/booking/${data?.id}`} type="primary">
+              Book
+            </Button>
           </div>
           <AddReviewsPage serviceId={data?.id as string}></AddReviewsPage>
         </Col>
