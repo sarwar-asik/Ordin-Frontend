@@ -7,8 +7,8 @@
 
     developer: "Sarwar Hossain",
     technology: [ "NextJs App router", "Redux", "Axios instance",
-                "TypeScript", "Ant Design", "Tailwind", "CSS",
-                "Cookie", "local_storage" ],
+                "TypeScript", "Ant Design", "Tailwind","Cloudinary"
+                 "CSS", "Cookie", "local_storage" ],
 
     live_server: "https://ordain-interior.vercel.app/",
     data_source: "Rest API",
@@ -20,6 +20,9 @@
 }
 ```
 
+#### server site repo
+https://github.com/sarwar-asik/Ordin-Server
+
 ## Used Technology :::
 
 - Next Js App Router
@@ -28,6 +31,7 @@
 - Ant Design
 - CSS
 - Tailwind
+- Cloudinary
 - JWT
 - Axios
 - Axios instance for Redux
@@ -136,4 +140,4 @@ The Interior Service Website project is a sophisticated online platform that bri
 
 ### Conclusion
 
-The Interior Service Website project is aimed at providing a seamless experience for both users and service providers in the interior design industry. These requirements ensure that the project functions effectively, maintains a high level of security, and delivers a user-friendly experience.
+The Interior Service Website project is aimed at providing a seamless experience for both users and service providers in the interior design industry. These requirements ensure that the project functions effectively, maintains a high level of security, and delivers a user-friendly experience .

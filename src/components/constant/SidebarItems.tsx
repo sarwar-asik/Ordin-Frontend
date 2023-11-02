@@ -42,7 +42,7 @@ export const sidebarItems = (role: string) => {
     },
     {
       label: <DropDownMenuUI name="Category" items={CategoriesItems} />,
-      key: `/service`,
+      key: `/category`,
     },
     {
       key: "about",

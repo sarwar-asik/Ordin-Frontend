@@ -1,8 +1,10 @@
 "use client";
 import React from "react";
-import { Button, Image, Typography } from "antd";
+import { Button, Typography } from "antd";
 import Link from "next/link";
 import Logo from "../ui/Logo";
+import banner from "@/assets/offices.jpg"
+import Image from "next/image";
 
 const { Title, Paragraph } = Typography;
 
@@ -20,7 +22,7 @@ const TopPage = () => {
   };
   return (
     <div className=" ">
-      <div className=" bg-slate-300 lg:shadow- py-12 lg:py-32 mt rounded-md">
+      <div className=" bg-slate-200 lg:shadow- py-12 lg:pb-32 mt rounded-md">
         <div
           style={{
             textAlign: "center",
@@ -76,11 +78,12 @@ const TopPage = () => {
           // }}
           className="text-center mt-[2rem] py-[0.7rem]   flex lg:inline-block  flex-col  justify-center gap-2   w-full"
         >
-          <Link href="/login" style={{ ...buttonStyle }}>
+          <Link href="/login" className="hover:text-primary  hover:bg-slate-100" style={{ ...buttonStyle }}>
             Get Started
           </Link>
           <Link
             href="/about-us"
+            className="hover:bg-primary  hover:text-white"
             style={{
               padding: "1rem 2rem",
               //  backgroundColor: "#4BB4B4",
@@ -100,7 +103,12 @@ const TopPage = () => {
       
       </div>
       <section className="text-center hidden lg:flex justify-center -mt-[5rem] mx-auto">
-      <Image preview={false}  className="w-[85vw] h-[65vh] rounded-md mx-auto" src="https://img.freepik.com/free-photo/interior-design-with-photoframes-white-couch_23-2149385438.jpg?w=826&t=st=1698266311~exp=1698266911~hmac=57d0854d8b5336cf86500383baef1151bd26012642e419dc0403e0bcd0f7691f" alt="a"  />
+      <Image height={65} width={85}   className="w-[84vw] h-[65vh] rounded-md mx-auto" 
+      // src="http://localhost:3000/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdwaiudyzc%2Fimage%2Fupload%2Fv1697736781%2Foffices_kjkjc8.jpg&w=256&q=75" 
+      // preview={false}
+      src={banner}
+      unoptimized
+      alt="a"  />
       </section>
       
     </div>

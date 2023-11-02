@@ -38,6 +38,8 @@ const HeroTwo = () => {
           <Image
             src={heroImg}
             alt="Interior Design"
+            unoptimized
+            
             height={500}
             width={200}
             style={{ width: "100%" }}

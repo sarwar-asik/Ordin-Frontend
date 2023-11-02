@@ -57,14 +57,13 @@ const HomePage = () => {
           />
           <FloatButton icon={<CommentOutlined />} />
         </FloatButton.Group>
-
-
+{/* //! main content */}
         <TopPage></TopPage>
         <CategoriesPage />
         {/* <HeroOne /> */}
         <TrustedBy></TrustedBy>
         <ServiceTabs />
-        <GalleryPage/>
+        <GalleryPage />
         <BlogPage />
         <ReviewsPage />
         <HeroTwo></HeroTwo>
