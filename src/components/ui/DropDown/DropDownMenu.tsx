@@ -7,7 +7,7 @@ import { Dropdown, Space } from "antd";
 const DropDownMenuUI = ({ name, items }: { name: string; items: any }) => (
   <Dropdown menu={{ items }} placement="bottom">
     <a onClick={(e) => e.preventDefault()}>
-      <Space >
+      <Space>
         {name}
         <DownOutlined />
       </Space>

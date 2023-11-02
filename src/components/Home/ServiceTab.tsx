@@ -36,7 +36,7 @@ const ServiceTabs = () => {
   const query: Record<string, any> = {};
 
   const [page, setPage] = useState<number>(1);
-  const [size, setSize] = useState<number>(10);
+  const [size, setSize] = useState<number>(16);
   const [sortBy, setSortBy] = useState<string>("");
   const [sortOrder, setSortOrder] = useState<string>("");
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -86,7 +86,7 @@ const ServiceTabs = () => {
   // console.log(data);
   const handleTabClick = (key: any) => {
     setActiveTabKey(key);
-    console.log(key);
+    // console.log(key);
   };
   const OperationsSlot: Record<"right" | "left", React.ReactNode> = {
     left: (
@@ -122,7 +122,7 @@ const ServiceTabs = () => {
           available,upcoming Service interior.
         </p>
       </section>
-      {isLoading && <LoaderService />}
+    
       <section className="flex justify-between lg:hidden  mt-4 mb-2">
         <Input
           type="text"
@@ -161,6 +161,7 @@ const ServiceTabs = () => {
         // color="blue"
         items={tabsItems}
       />
+        {isLoading && <LoaderService />}
     </div>
   );
 };

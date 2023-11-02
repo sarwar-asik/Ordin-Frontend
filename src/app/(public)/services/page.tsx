@@ -1,5 +1,6 @@
 "use client";
 
+import LoaderService from "@/components/ui/Loader/LoaderService";
 import LoadingData from "@/components/ui/Loader/LoadingData";
 import SingleService from "@/components/ui/SingleService";
 
@@ -15,15 +16,12 @@ const ServicesRoutes = () => {
 
   return (
     <div className=" mt-[8vh] pt-3 rounded-sm">
-      {isLoading && (
-        <>
-          <LoadingData/>
-        </>
-      )}
-
-      <section className="my-7 ">
-        <h1 className=" text-[2.3rem] font-serif">Our All Category Services</h1>
+      <section className="my-1 mb-[3rem] pb-3 ">
+        <h1 className=" text-[2.3rem] font-serif text-center ">
+          Our All Interior Packages{" "}
+        </h1>
       </section>
+      {isLoading && <LoaderService />}
 
       <Row align="middle" justify="start" gutter={[24, 18]}>
         {data?.services?.map((product: any, i: number) => {

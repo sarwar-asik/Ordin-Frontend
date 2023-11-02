@@ -11,7 +11,7 @@ const SingleService = ({ product }: { product: any }) => {
   const userInfo = getUserInfo() as any;
 
   return (
-    <Col style={{ background: "white",marginInline:"auto" }} xs={24} sm={24} md={12} lg={6}>
+    <Col style={{ background: "white",}} xs={24} sm={24} md={12} lg={6}>
       <Card
         // hoverable
         style={{ width: 310, height: 376 }}
