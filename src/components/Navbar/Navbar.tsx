@@ -1,6 +1,6 @@
 "use client";
 // import dynamic from "next/dynamic";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Layout, Menu } from "antd";
 import Link from "next/link";
 import SideBar from "./SideDrawer";
@@ -14,13 +14,19 @@ const { Header } = Layout;
 const Navbar = () => {
   const user = getUserInfo() as any;
 
+  const [isClient, setClient] = useState(false);
+
+  useEffect(() => {
+    setClient(true);
+  }, []);
+
   // console.log(user);
   return (
     <div>
       <Header className="bg-white text-black shadow-xl lg:px-2 px-1 flex justify-between">
         <section className="flex items-center gap-2">
           <div className="flex lg:hidden">
-            <SideBar></SideBar>
+            {isClient && <SideBar />}
           </div>
           <Logo />
         </section>
@@ -30,11 +36,11 @@ const Navbar = () => {
           disabledOverflow
           items={sidebarItems("nav")}
         />
-        {user?.role ? (
+        {isClient && user?.role ? (
           <UserAvatar userId={user?.id} />
         ) : (
           <section className="px-2 text-black">
-            <Link className="font-semibold text-primary" href="/login">
+            <Link href="/login" className="font-semibold text-primary">
               Login
             </Link>
           </section>
@@ -44,8 +50,8 @@ const Navbar = () => {
   );
 };
 
-export default dynamic(() => Promise.resolve(Navbar), {
-  ssr: false,
-});
+// export default dynamic(() => Promise.resolve(Navbar), {
+//   ssr: false,
+// });
 
-// export default Navbar;
+export default Navbar;

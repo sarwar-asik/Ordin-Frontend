@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import { Button, Drawer, Menu, Radio, Space } from "antd";
 import type { DrawerProps } from "antd/es/drawer";
@@ -64,22 +65,9 @@ const SideBar = () => {
           selectedKeys={[selectedItem]}
           style={{ borderRight: "none" }}
           items={sidebarItems("sidebar")}
-        >
-          {/* {items.map((item: any) => (
-            <Menu.Item
-              key={item.key}
-              onClick={() => handleItemClick(item.key)}
-              style={{
-                backgroundColor: selectedItem === item.key ? "#e6f7ff" : "",
-              }}
-            >
-              <Link href={item?.href} style={{display:"flex",gap:"1rem",alignItems:"center"}}>
-                <h2 >{item?.icon}</h2>
-                <h4>{item.label}</h4>
-              </Link>
-            </Menu.Item>
-          ))} */}
-        </Menu>
+        />
+       
+       
       </Drawer>
     </>
   );

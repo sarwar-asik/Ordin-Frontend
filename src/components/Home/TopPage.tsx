@@ -13,12 +13,14 @@ const TopPage = () => {
     // display: "inline-block",
     padding: "1rem 2rem",
     // backgroundColor: "#4BB4B4",
+    border:"1px solid",
     color: "white",
     textDecoration: "none",
     borderRadius: "5px",
     margin: "0 1rem",
     fontSize: "1rem",
-    transition: "backgroundColor 0.3s",
+    transition: "border 0.3s",
+    
   };
   return (
     <div className=" ">
@@ -41,8 +43,9 @@ const TopPage = () => {
               // fontFamily: 'Georgia, Cambria, "Times New Roman", Times, serif',
             }}
           >
-            Decorate Your Interior with
-            <p className="tex-3xl font-bold text-[#E3364E]">Ordin</p>
+            <span>Decorate Your Interior with</span>
+            <br />
+            <span className="tex-3xl font-bold text-primary">Ordin</span>
           </Title>
         </div>
         <div
@@ -97,7 +100,7 @@ const TopPage = () => {
             Get Started
           
           </Link>
-          <Link href="/login" className="bg-primary hover:text-primary  hover:bg-slate-100" style={{ ...buttonStyle }}>
+          <Link href="/login" className="bg-primary hover:text-primary  hover:bg-slate-200" style={{ ...buttonStyle }}>
           Learn More
           </Link>
         

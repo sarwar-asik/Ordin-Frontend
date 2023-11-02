@@ -118,6 +118,7 @@ const ServiceDetails = ({
             style={{
               display: "flex",
               justifyContent:"space-between",
+              marginBottom:"1em",
               // flexDirection: "column",
               // gap: "5px",
               maxWidth: "15rem",

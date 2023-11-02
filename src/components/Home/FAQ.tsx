@@ -8,7 +8,7 @@ import dynamic from 'next/dynamic';
 
 const FAQPage = () => {
     const {data,isLoading} = useFAQAllQuery({page:1,limit:12})
-    console.log("🚀 ~ file: FAQ.tsx:9 ~ FAQPage ~ data:", data)
+    // console.log("🚀 ~ file: FAQ.tsx:9 ~ FAQPage ~ data:", data)
     const FAQData = data?.FAQs;
 
     

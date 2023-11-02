@@ -67,6 +67,7 @@ const HeroTwo = () => {
                   fontSize: "1.7rem",
                   fontWeight: "800",
                   marginBottom: "2rem",
+                  marginTop:"3.5em"
                 }}
               >
                 Manage Interior
@@ -89,16 +90,16 @@ const HeroTwo = () => {
             href="/login"
             style={{
               display: "inline-block",
-              padding: "1em 2rem",
+              padding: "1em",
               background: "#4BB4B4",
               color: "white",
               textDecoration: "none",
-              // borderRadius: "5px",
+              borderRadius: "5px",
               marginBlock: "1rem",
               fontSize: "1rem",
               transition: "background 0.3s",
               width:"16%",
-              marginTop: "6rem",
+              marginTop: "6.2rem",
               // background: "red",
             }}
           >

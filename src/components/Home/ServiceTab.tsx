@@ -94,6 +94,7 @@ const ServiceTabs = () => {
         type="text"
         size="large"
         placeholder="Search Interior by title,price.."
+        className="hidden  lg:flex"
         style={{
           width: "60%",
         }}
@@ -103,7 +104,7 @@ const ServiceTabs = () => {
       />
     ),
     right: (
-      <Button onClick={resetFilters}>
+      <Button className="hidden  lg:flex" onClick={resetFilters}>
         <ReloadOutlined />
       </Button>
     ),
@@ -121,8 +122,24 @@ const ServiceTabs = () => {
           available,upcoming Service interior.
         </p>
       </section>
-      {isLoading &&  <LoaderService/>}
-     
+      {isLoading && <LoaderService />}
+      <section className="flex justify-between lg:hidden  mt-4 mb-2">
+        <Input
+          type="text"
+          size="large"
+          placeholder="Search Interior by title,price.."
+       
+          style={{
+            width: "60%",
+          }}
+          onChange={(e) => {
+            setSearchTerm(e.target.value);
+          }}
+        />
+        <Button  onClick={resetFilters}>
+          <ReloadOutlined />
+        </Button>
+      </section>
 
       <Tabs
         style={{ marginBlock: "3rem" }}
@@ -143,7 +160,7 @@ const ServiceTabs = () => {
         }}
         // color="blue"
         items={tabsItems}
-      ></Tabs>
+      />
     </div>
   );
 };
@@ -151,7 +168,5 @@ const ServiceTabs = () => {
 // export default dynamic(() => Promise.resolve(Navbar), {
 //   ssr: false,
 // });
-
-
 
 export default ServiceTabs;
