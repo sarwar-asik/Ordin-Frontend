@@ -5,6 +5,7 @@ import StyledComponentsRegistry from "./AntdRegistry";
 import { Provider } from "react-redux";
 import { store } from "@/redux/store";
 import { ConfigProvider } from "antd";
+import { themeItem } from "@/helpers/theme";
 const Providers = ({ children }: { children: React.ReactNode }) => {
   return (
     <Provider store={store}>
@@ -14,10 +15,10 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
             token: {
               // Seed Token
               // colorPrimary: "#00b96b",
-              colorPrimary: "#4BB4B4",
+              // colorPrimary: "#4BB4B4",
+              // colorPrimary: "#E3364E",
+              colorPrimary: themeItem?.color,
               // borderRadius: 2,
-
-
             },
           }}
         >

@@ -34,7 +34,7 @@ const Navbar = () => {
           <UserAvatar userId={user?.id} />
         ) : (
           <section className="px-2 text-black">
-            <Link className="font-semibold" href="/login">
+            <Link className="font-semibold text-primary" href="/login">
               Login
             </Link>
           </section>

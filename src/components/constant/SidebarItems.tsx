@@ -69,7 +69,7 @@ export const sidebarItems = (role: string) => {
       key: `/Home`,
     },
     {
-      label: <Link href={`/services`}> Service</Link>,
+      label: <Link href={`/services`}> Services</Link>,
       key: `/service`,
       icon: <InsertRowLeftOutlined />,
       children: serviceItems,

@@ -12,7 +12,7 @@ const TopPage = () => {
   const buttonStyle = {
     // display: "inline-block",
     padding: "1rem 2rem",
-    backgroundColor: "#4BB4B4",
+    // backgroundColor: "#4BB4B4",
     color: "white",
     textDecoration: "none",
     borderRadius: "5px",
@@ -42,7 +42,7 @@ const TopPage = () => {
             }}
           >
             Decorate Your Interior with
-            <p className="tex-3xl font-bold text-primary">Ordin</p>
+            <p className="tex-3xl font-bold text-[#E3364E]">Ordin</p>
           </Title>
         </div>
         <div
@@ -78,17 +78,14 @@ const TopPage = () => {
           // }}
           className="text-center mt-[2rem] py-[0.7rem]   flex lg:inline-block  flex-col  justify-center gap-2   w-full"
         >
-          <Link href="/login" className="hover:text-primary  hover:bg-slate-100" style={{ ...buttonStyle }}>
-            Get Started
-          </Link>
-          <Link
+            <Link
             href="/about-us"
-            className="hover:bg-primary  hover:text-white"
+            className="text-primary hover:bg-primary  hover:text-white"
             style={{
               padding: "1rem 2rem",
               //  backgroundColor: "#4BB4B4",
 
-              color: "#4BB4B4",
+              // color: "#E3364E",
               textDecoration: "none",
               borderRadius: "5px",
               margin: "0 1rem",
@@ -97,8 +94,13 @@ const TopPage = () => {
               border: "1px solid ",
             }}
           >
-            Learn More
+            Get Started
+          
           </Link>
+          <Link href="/login" className="bg-primary hover:text-primary  hover:bg-slate-100" style={{ ...buttonStyle }}>
+          Learn More
+          </Link>
+        
         </div>
       
       </div>

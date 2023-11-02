@@ -85,6 +85,7 @@ const HeroTwo = () => {
             </Paragraph>
           </div>
           <Link
+          className="bg-primary"
             href="/login"
             style={{
               display: "inline-block",

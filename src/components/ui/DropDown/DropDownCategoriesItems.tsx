@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const CategoriesItems: MenuProps["items"] = [
     {
-      key: "1",
+      key: "cate-1",
       label: (
         <Link href="/"
           // target="_blank"
@@ -16,7 +16,7 @@ const CategoriesItems: MenuProps["items"] = [
       ),
     },
     {
-      key: "2",
+      key: "cate-2",
       label: (
         <Link href="/"
           // target="_blank"
@@ -29,7 +29,7 @@ const CategoriesItems: MenuProps["items"] = [
     },
   
     {
-      key: "3",
+      key: "cate-3",
       label: (
         <Link href="/"
           // target="_blank"
@@ -42,7 +42,7 @@ const CategoriesItems: MenuProps["items"] = [
     //   disabled: true,
     },
     {
-      key: "4",
+      key: "cate-4",
       label: (
         <Link href="/"
           // target="_blank"

@@ -97,9 +97,12 @@ const LoginPage = () => {
             <Input.Password />
           </Form.Item>
           <Form.Item>
+           <Link href="/login" className="text-red-400"> Forgot Password</Link>
+          </Form.Item>
+          <Form.Item>
             <Typography style={{ fontFamily: "monospace" }}>
               Did not registered ?{" "}
-              <Link href="/sign-up">Sign UP please...</Link>
+              <Link href="/sign-up" className="text-primary">Sign UP please...</Link>
             </Typography>
           </Form.Item>
 
