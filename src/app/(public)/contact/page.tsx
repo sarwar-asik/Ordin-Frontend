@@ -11,11 +11,11 @@ const ContactPage = () => {
   return (
     <div>
      
-        <div className="block lg:flex items-center gap-2 mt-12">
+        <div className="block lg:flex items-center w-full lg:w-[70%] mx-auto gap-2 mt-12">
           <div className="w-full lg:w-[45%]">
             <h1 className="text-4xl font-bold">Get in touch</h1>
             <p className="pt-7 pb-4">
-              You reach to us by this address or Your can message us .
+              You reach to us by this address or Your can message us.
 
             </p>
             <div className="space-y-4 mt-3">

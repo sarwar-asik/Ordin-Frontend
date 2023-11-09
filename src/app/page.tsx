@@ -22,6 +22,7 @@ import { FloatButton, Switch } from "antd";
 import TrustedBy from "@/components/Home/TrustedBy";
 import FAQPage from "@/components/Home/FAQ";
 import GalleryPage from "./(public)/gallery/page";
+import StoryHero from "@/components/Home/StoryHero";
 
 const HomePage = () => {
   const [open, setOpen] = useState(true);
@@ -68,6 +69,7 @@ const HomePage = () => {
         <ReviewsPage />
         <HeroTwo></HeroTwo>
         {/* <SurveyOverviewPage/> */}
+        <StoryHero/>
         <FAQPage></FAQPage>
       </section>
       <Footer />
