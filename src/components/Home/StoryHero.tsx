@@ -1,7 +1,14 @@
-'use client'
-import { ContainerOutlined, TableOutlined, ThunderboltOutlined } from '@ant-design/icons';
-import { Row, Col, Typography, Space, Image as AntImage } from 'antd';
-import { ReactElement } from 'react';
+"use client";
+import {
+  ContainerOutlined,
+  ShoppingCartOutlined,
+  TableOutlined,
+  ThunderboltOutlined,
+} from "@ant-design/icons";
+import { Row, Col, Typography, Space, Image as AntImage } from "antd";
+import { ReactElement } from "react";
+import heroImg from "@/assets/chairBg.jpg";
+import Image from "next/image";
 // import { IoAnalyticsSharp, IoLogoBitcoin, IoSearchSharp } from 'react-icons/io5';
 
 const { Text, Title } = Typography;
@@ -12,17 +19,17 @@ interface FeatureProps {
   icon?: ReactElement;
 }
 
-const Feature = ({ text, icon, iconBg }:FeatureProps) => {
+const Feature = ({ text, icon, iconBg }: FeatureProps) => {
   return (
     <Space align="center">
       <div
         style={{
-          width: '40px',
-          height: '40px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          borderRadius: '50%',
+          width: "40px",
+          height: "40px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          borderRadius: "50%",
           backgroundColor: iconBg,
         }}
       >
@@ -35,40 +42,59 @@ const Feature = ({ text, icon, iconBg }:FeatureProps) => {
 
 const StoryHero: React.FC = () => {
   return (
-    <Row gutter={16} justify="center">
+    <Row gutter={16} justify="center" className="bg-secondary">
       <Col xs={{ span: 24 }} md={{ span: 12 }}>
-        <div style={{ padding: '12px' }}>
+        <div style={{ padding: "16px" }}>
           <Text
             style={{
-              textTransform: 'uppercase',
-              color: 'blue',
+              textTransform: "uppercase",
+              color: "blue",
               fontWeight: 600,
-              fontSize: 'sm',
-              backgroundColor: '#e6f7ff',
-              padding: '8px',
-              borderRadius: '4px',
+              fontSize: "sm",
+              backgroundColor: "#e6f7ff",
+              padding: "8px",
+              borderRadius: "4px",
             }}
           >
             Our Story
           </Text>
-          <Title level={2}>A digital Product design agency</Title>
-          <Text style={{ color: 'gray' }}>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-            eirmod tempor invidunt ut labore
+          <Title level={2}>
+            <span style={{ textTransform: "capitalize" }}>
+              A digital Interior Provider
+            </span>
+          </Title>
+          <Text style={{ color: "gray" }}>
+            Whether its your home, office, or any commercial space, our interior
+            design solutions are tailored to meet your needs. We believe that
+            good design enhances the quality of life and work.
           </Text>
-          <Space direction="vertical" style={{ width: '100%' }} size="middle">
+          <Space
+            direction="vertical"
+            style={{ width: "100%", margin: "16px 0" }}
+            size="middle"
+          >
             <Feature
-              icon={<TableOutlined style={{ color: 'yellow', fontSize: '20px' }} />}
+              icon={
+                <TableOutlined style={{ color: "blue", fontSize: "20px" }} />
+              }
               iconBg="#fffbe6"
-              text="Business Planning"
+              text="Unique Design"
             />
             <Feature
-              icon={<ContainerOutlined style={{ color: 'green', fontSize: '20px' }} />}
+              icon={
+                <ShoppingCartOutlined
+                  style={{ color: "green", fontSize: "20px" }}
+                />
+              }
               iconBg="#e6ffed"
-              text="Financial Planning"
+              text="Early Delivery"
             />
             <Feature
-              icon={<ThunderboltOutlined style={{ color: 'purple', fontSize: '20px' }} />}
+              icon={
+                <ThunderboltOutlined
+                  style={{ color: "purple", fontSize: "20px" }}
+                />
+              }
               iconBg="#f9e6ff"
               text="Market Analysis"
             />
@@ -76,11 +102,14 @@ const StoryHero: React.FC = () => {
         </div>
       </Col>
       <Col xs={{ span: 24 }} md={{ span: 12 }}>
-        <AntImage
-          src="https://images.pexels.com/photos/1586973/pexels-photo-1586973.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        <Image
+          src={heroImg}
+          height={500}
+          width={200}
           alt="feature image"
-          preview={false}
-          style={{ width: '100%', borderRadius: '8px' }}
+          //   preview={false}
+          unoptimized
+          style={{ width: "100%", borderRadius: "8px" }}
         />
       </Col>
     </Row>

@@ -38,7 +38,7 @@ console.log("🚀 ~ file: page.tsx:14 ~ BlogDetailsPage ~ blog:", blog)
       <Card
         cover={<Image 
           // height={200} width={200}
-          height={300}
+          height={480}
            alt={blog?.title} src={blog?.img} />}
       >
         <Meta
