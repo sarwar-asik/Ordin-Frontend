@@ -44,6 +44,9 @@ const TableUI = ({
     <Table
       loading={loading}
       columns={columns}
+      style={{
+        overflowX:"auto"
+      }}
       
       dataSource={dataSource}
       pagination={paginationConfig}

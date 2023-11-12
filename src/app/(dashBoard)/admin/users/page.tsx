@@ -21,7 +21,7 @@ const UsersList = () => {
   const query: Record<string, any> = {};
 
   const [page, setPage] = useState<number>(1);
-  const [size, setSize] = useState<number>(10);
+  const [size, setSize] = useState<number>(5);
   const [sortBy, setSortBy] = useState<string>("");
   const [sortOrder, setSortOrder] = useState<string>("");
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -43,7 +43,8 @@ const UsersList = () => {
   }
   const { data, isLoading } = useUsersQuery({ ...query });
 
-  const usersData = data?.users;
+  const usersData = data?.users 
+  // || [{},{},{}];
   const meta = data?.meta;
 
   const deleteHandler = async (id: string) => {
