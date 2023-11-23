@@ -12,7 +12,7 @@ import React from "react";
 
 const ServicesRoutes = () => {
   const { data, isLoading } = useServicesQuery({ page: 1, limit: 20 });
-  // console.log(data);
+  console.log(data);
 
   return (
     <div className=" mt-[8vh] pt-3 rounded-sm">

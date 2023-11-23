@@ -43,7 +43,8 @@ const HomePage = () => {
           gap: "6rem",
         }}
       >
-        {/*//! Float Icon */}
+        
+        {/* //! Float Icon */ }
         <FloatButton.Group
           trigger="click"
           type="primary"
@@ -58,7 +59,7 @@ const HomePage = () => {
           />
           <FloatButton icon={<CommentOutlined />} />
         </FloatButton.Group>
-{/* //! main content */}
+        {/* //! main content */}
         <TopPage></TopPage>
         <CategoriesPage />
         {/* <HeroOne /> */}
@@ -69,7 +70,7 @@ const HomePage = () => {
         <ReviewsPage />
         {/* <HeroTwo></HeroTwo> */}
         {/* <SurveyOverviewPage/> */}
-        <StoryHero/>
+        <StoryHero />
         <FAQPage></FAQPage>
       </section>
       <Footer />

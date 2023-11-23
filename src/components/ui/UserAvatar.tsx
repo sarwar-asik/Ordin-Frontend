@@ -1,5 +1,5 @@
 "use client";
-import { authKey } from "@/constant/storageKey";
+
 import { useCartsQuery } from "@/redux/api/cartApi";
 import { useSingleUserQuery } from "@/redux/api/userAPi";
 import { removeUserInfo } from "@/utils/local.storeage";
@@ -32,7 +32,7 @@ const UserAvatar = ({ userId }: { userId: string }) => {
   // console.log("🚀 ~ file: UserAvatar.tsx:42 ~ UserAvatar ~ cartData:", cartData)
   const logoutHandler = () => {
     // message.loading("logging out");
-    removeUserInfo(authKey);
+    removeUserInfo();
     message.error("Logout Successfully");
     router.push("/");
   };

@@ -4,6 +4,7 @@ import {
   getFromLocalStorage,
   getNewAccessToken,
   setToLocalStorage,
+  storeUserInfo,
 } from "@/utils/local.storeage";
 
 import axios from "axios";
@@ -33,8 +34,8 @@ instance.interceptors.request.use(
 //! RESPONSE
 instance.interceptors.response.use(
   // @ts-ignore
-
   function (response) {
+    // console.log(response, "response");
     const responseObject: ResponseSuccessType = {
       //// ! these property depend on your server response data
       data: response?.data?.data,
@@ -47,19 +48,16 @@ instance.interceptors.response.use(
   async function (error) {
     const config = error?.config;
 
-    // console.log("🚀 ~ file: axios.instance.ts:44 ~ error:", error);
+    console.log("🚀 ~ file: axios.instance.ts:44 ~ error:", error);
     if (error?.response?.data?.message === "jwt expired" && !config?.sent) {
-      config.sent =true
-      // console.log("Jjjjjjjjjjjjjjjjjjjjjjjjj");
+      config.sent = true;
+   
       const response = await getNewAccessToken();
-      // console.log(response);
+
       const accessToken = response?.data?.accessToken;
-      // console.log(
-      //   "🚀 ~ file: axios.instance.ts:50 ~ accessToken:",
-      //   accessToken
-      // );
+ 
       config.headers["Authorization"] = accessToken;
-      setToLocalStorage(authKey, accessToken);
+      storeUserInfo(accessToken);
 
       return instance(config);
     }

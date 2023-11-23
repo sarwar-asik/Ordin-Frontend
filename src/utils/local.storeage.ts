@@ -40,8 +40,8 @@ export const isLoggedIn = () => {
   return !!authLocalStorageToken;
 };
 
-export const removeUserInfo = (key: string) => {
-  return localStorage.removeItem(key);
+export const removeUserInfo = () => {
+  return localStorage.removeItem(authKey);
 };
 
 export const getNewAccessToken = async () => {
