@@ -42,7 +42,7 @@ const SideBarDashBoard = ({
     >
       <Link
       href={`/${role}`}
-        className={`font-semibold font-serif text-primary  text-center ${
+        className={`font-semibold font-serif text-primary  text-center px-2 ${
           collapsed ? "text-[0.7rem]" : "text-[1.4rem]"
         }  h-[4rem]`}
         // style={{
@@ -60,7 +60,7 @@ const SideBarDashBoard = ({
       <Menu
 
         // theme="light"
-        className="bg-secondary"
+        className="bg-secondary  lg:mt-4"
         defaultSelectedKeys={["1"]}
         mode="inline"
         items={sidebarItems(role)}
