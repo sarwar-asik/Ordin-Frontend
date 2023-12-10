@@ -4,13 +4,15 @@ WORKDIR /app
 
 COPY package.json ./
 
-RUN npm install
+RUN yarn install
 
 COPY . .
 
-RUN npm run build
+RUN yarn build
 
 COPY .next ./.next
 
-CMD ["npm","run","dev"]
+ENV NEXT_PUBLIC_API_URL=http://localhost:3000
+
+CMD ["yarn","dev"]
 
