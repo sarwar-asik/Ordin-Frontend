@@ -25,9 +25,6 @@ const Navbar = () => {
     <div>
       <Header className="bg-white text-black shadow-xl lg:px-2 px-1 flex justify-between">
         <section className="flex items-center gap-2">
-          <div className="flex lg:hidden">
-            {isClient && <SideBar />}
-          </div>
           <Logo />
         </section>
         <Menu
@@ -45,6 +42,9 @@ const Navbar = () => {
             </Link>
           </section>
         )}
+        <div className="flex lg:hidden">
+          {isClient && <SideBar />}
+        </div>
       </Header>
     </div>
   );

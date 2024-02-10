@@ -11,17 +11,17 @@ const SingleService = ({ product }: { product: any }) => {
   const userInfo = getUserInfo() as any;
 
   return (
-    <Col style={{ background: "white",}} xs={24} sm={24} md={12} lg={6}>
+    <Col style={{ background: "white", }} xs={24} sm={24} md={12} lg={6}>
       <Card
         // hoverable
-        style={{ width: 310, height: 376 }}
+        style={{ width: 310, height: 376, marginInline: "auto" }}
         cover={
           <Image
             // className="transform transition-transform delay-300 hover:scale-110"
             src={img}
             // height={230}
             // width={120}
-            style={{ height: "230px",width:"10-%"}}
+            style={{ height: "230px", width: "10-%" }}
             preview={false}
             alt={title}
           />
@@ -47,9 +47,9 @@ const SingleService = ({ product }: { product: any }) => {
             <Rate
               count={5}
               style={{
-                
+
                 textAlign: "right",
-                fontSize:"16px"
+                fontSize: "16px"
               }}
               defaultValue={
                 product?.reviews?.length > 1 ? product?.reviews?.length : 4

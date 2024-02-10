@@ -5,7 +5,7 @@ const { Title, Paragraph } = Typography;
 
 const About = () => {
   return (
-    <div style={{ padding: "24px" }}>
+    <div style={{ padding: "24px" }} className=" mx-auto min-h-screen mt-2 lg:mt-7">
       <Title
         style={{
           fontSize: "2.5rem",
