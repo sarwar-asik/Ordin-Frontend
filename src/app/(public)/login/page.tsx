@@ -184,23 +184,23 @@ const LoginPage = () => {
             </div>
             <div className="flex items-center gap-4 justify-between mt-4">
               <div className="flex items-center">
-                <input id="remember-me" name="remember-me" type="checkbox" className="shrink-0 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" />
+                <input id="remember-me" name="remember-me" type="checkbox" className="shrink-0 h-4 w-4 text-primary focus:ring-blue-500 border-gray-300 rounded" />
                 <label className="ml-3 block text-sm">
                   Remember me
                 </label>
               </div>
               <div className="text-sm">
-                <a href="jajvascript:void(0);" className="text-blue-600 hover:underline">
+                <a href="jajvascript:void(0);" className="text-primary hover:underline">
                   Forgot your password?
                 </a>
               </div>
             </div>
             <div className="mt-10">
-              <Button type="primary" htmlType="submit" style={{ "paddingTop": "0.75rem", "paddingBottom": "0.75rem", "paddingLeft": "1rem", "paddingRight": "1rem", "borderRadius": "0.25rem", "width": "100%", "fontSize": "0.875rem", "lineHeight": "1.25rem", "fontWeight": 600, "color": "#ffffff", "backgroundColor": "#2563EB", "boxShadow": "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)", height: "3rem" }}>
+              <Button type="primary" htmlType="submit" style={{ "paddingTop": "0.75rem", "paddingBottom": "0.75rem", "paddingLeft": "1rem", "paddingRight": "1rem", "borderRadius": "0.25rem", "width": "100%", "fontSize": "0.875rem", "lineHeight": "1.25rem", "fontWeight": 600, "color": "#ffffff", "backgroundColor": "#16697a", "boxShadow": "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)", height: "3rem" }}>
                 Log in
               </Button>
             </div>
-            <p className="text-sm mt-10 text-center">Dont have an account <Link href="/sign-up" className="text-blue-600 font-semibold hover:underline ml-1">Register here</Link></p>
+            <p className="text-sm mt-10 text-center">Dont have an account <Link href="/sign-up" className="text-primary font-semibold hover:underline ml-1">Register here</Link></p>
           </Form>
           <div className="h-full md:py-6 flex items-center relative max-md:before:hidden before:absolute before:bg-gradient-to-r before:from-gray-50 before:via-[#E4FE66] before:to-[#55F5A3] before:h-full before:w-3/4 before:right-0 before:z-0">
             <Image

@@ -64,21 +64,22 @@ const ServiceTabs = () => {
     setSearchTerm("");
   };
 
+  const activeClass = `text-white font-bold bg-primary mx w-full text-center text-[15px] py-2.5 px-4 rounded-tl-2xl rounded-tr-2xl cursor-pointer`
   // console.log(query,"quer-2");
   const { data, isLoading } = useServicesQuery({ ...query });
   const tabsItems: TabsProps["items"] = [
     {
-      label: <p className=""> All Interior</p>,
+      label: <p className={` ${activeTabKey === "1" && activeClass} py-2.5 px-4 text-center text-[15px]  font-semibold`}> All Interior</p>,
       key: "1",
       children: <AllService data={data?.services}></AllService>,
     },
     {
-      label: <p> Available</p>,
+      label: <p className={` ${activeTabKey === "2" && activeClass} py-2.5 px-4 text-center text-[15px]  font-semibold`}> Available</p>,
       key: "2",
       children: <AvailableService data={data?.services}></AvailableService>,
     },
     {
-      label: <p> Upcoming</p>,
+      label: <p className={` ${activeTabKey === "3" && activeClass} py-2.5 px-4 text-center text-[15px]  font-semibold`}> Upcoming</p>,
       key: "3",
       children: <UpcomingService data={data?.services}></UpcomingService>,
     },
@@ -122,13 +123,13 @@ const ServiceTabs = () => {
           available,upcoming Service interior.
         </p>
       </section>
-    
+
       <section className="flex justify-between lg:hidden  mt-4 mb-2">
         <Input
           type="text"
           size="large"
           placeholder="Search Interior by title,price.."
-       
+
           style={{
             width: "60%",
           }}
@@ -136,32 +137,32 @@ const ServiceTabs = () => {
             setSearchTerm(e.target.value);
           }}
         />
-        <Button  onClick={resetFilters}>
+        <Button onClick={resetFilters}>
           <ReloadOutlined />
         </Button>
       </section>
 
       <Tabs
-        style={{ marginBlock: "3rem" }}
+        style={{ marginBlock: "1rem" }}
         defaultActiveKey="1"
         activeKey={activeTabKey}
         onChange={handleTabClick}
         type="line"
         // type="editable-card"
         tabBarExtraContent={OperationsSlot}
-        centered
+        // centered
         // destroyInactiveTabPane
         // className="shadow-lg"
         tabBarStyle={{
           // border: "1px solid #4BB4B4",
           borderRadius: "5px",
           padding: "10px 5px",
-          boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+          // boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
         }}
         // color="blue"
         items={tabsItems}
       />
-        {isLoading && <LoaderService />}
+      {isLoading && <LoaderService />}
     </div>
   );
 };
