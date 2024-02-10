@@ -114,7 +114,7 @@ const LoginPage = () => {
           </Form.Item>
         </Form>
       </div> */}
-      <div className="font-[sans-serif] text-[#333] max-w-7xl mx-auto h-screen">
+      <div className="font-[sans-serif] text-[#333] w-full max-w-7xl mx-auto h-full lg:h-screen">
         <div className="grid md:grid-cols-2 items-center gap-8 h-full">
           <Form
             name="login"
@@ -204,9 +204,10 @@ const LoginPage = () => {
           </Form>
           <div className="h-full md:py-6 flex items-center relative max-md:before:hidden before:absolute before:bg-gradient-to-r before:from-gray-50 before:via-[#E4FE66] before:to-[#55F5A3] before:h-full before:w-3/4 before:right-0 before:z-0">
             <Image
-              className="rounded-md lg:w-4/5 md:w-11/12 z-50 relative"
-              height={350}
-              width={400}
+              className="rounded-md w-[350px] lg:w-4/5 h-[400px] lg:h-auto z- relative"
+              height={650}
+
+              width={550}
               src={loginImg}
               alt="login"
             />
