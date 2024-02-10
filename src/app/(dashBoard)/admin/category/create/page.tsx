@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import FormateDateTime from "@/helpers/DateTimeFormated";
 import { useCreateCategoryMutation } from "@/redux/api/categoryApi";
+import uploadImgBB from "@/hooks/imgbbUploads";
 
 interface FieldType {
   title: string;
@@ -27,11 +28,13 @@ const CreateCategoryPage = () => {
   const onFinish = async (values: any) => {
     const file = values.img.file.originFileObj;
 
-    console.log(values, "newV");
+    // console.log(values, "newV");
+    const data = await uploadImgBB(file);
+    console.log(data)
+    values.img = data;
 
     try {
-      const data = await uploadImgCloudinary(file);
-      values.img = data;
+      console.log(values)
       message.loading("creating category...");
       const res = await createCategory({ ...values }).unwrap();
       console.log(res, "Category response");

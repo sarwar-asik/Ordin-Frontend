@@ -54,7 +54,7 @@ const SideBarDashBoard = ({
         //   marginTop: "10px",
         // }}
       >
-        DashBoard
+
       </Link>
 
       <Menu
