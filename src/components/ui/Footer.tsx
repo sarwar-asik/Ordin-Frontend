@@ -10,7 +10,7 @@ import { Space, Tag } from "antd";
 
 const Footer = () => {
   return (
-    <footer className="   px-4 divide-y  bg-[#001529] text-white  no-underline">
+    <footer className="   px-4 divide-y  bg-[#16697a] text-white  no-underline">
       <div className=" flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
         <div className="flex justify-center flex-col space-x-3 gap-3 lg:justify-start lg:w-1/3">
           <Link href="/" className=" text-white no-underline">

@@ -68,6 +68,7 @@ const HomePage = () => {
         <GalleryPage />
         <BlogPage />
         <ReviewsPage />
+        
         {/* <HeroTwo></HeroTwo> */}
         {/* <SurveyOverviewPage/> */}
         <StoryHero />

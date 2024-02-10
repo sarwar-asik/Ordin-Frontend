@@ -7,10 +7,10 @@ const Logo = () => {
       href="/"
       style={{
         textDecoration: "none",
-        fontWeight:"700",
-        color:"black",
-        fontSize:"1.3rem",
-        fontFamily:"sans-serif",
+        fontWeight: "700",
+        color: "16697a",
+        fontSize: "1.3rem",
+        fontFamily: "sans-serif",
         // background:"white",
         // paddingBlock:"0.2rem",
         // borderRadius:"5px"
