@@ -10,6 +10,7 @@ import {
   useUpdateCategoryMutation,
 } from "@/redux/api/categoryApi";
 import BreadCumbUI from "@/components/ui/BreadCumbUI";
+import uploadImgBB from "@/hooks/imgbbUploads";
 
 const onFinishFailed = (errorInfo: any) => {
   console.log("Failed:", errorInfo);
@@ -37,7 +38,8 @@ const UpdateCategoryPage = ({ params: { id } }: { params: { id: string } }) => {
     message.loading("updating .........");
     if (values.img?.file?.originFileObj) {
       const file = values.img.file.originFileObj;
-      const data = await uploadImgCloudinary(file);
+      // const data = await uploadImgCloudinary(file);
+      const data = await uploadImgBB(file);
 
       values.img = data;
     } else {

@@ -6,6 +6,7 @@ import uploadImgCloudinary from "@/hooks/cloudinary";
 import { useRouter } from "next/navigation";
 import { useCreateAdminMutation } from "@/redux/api/userAPi";
 import { useUserSignUpMutation } from "@/redux/api/authApi";
+import uploadImgBB from "@/hooks/imgbbUploads";
 
 
 
@@ -34,7 +35,8 @@ const [form] = Form.useForm()
     const file = values.img.file.originFileObj;
 
     try {
-      const data = await uploadImgCloudinary(file);
+      // const data = await uploadImgCloudinary(file);
+      const data = await uploadImgBB(file);
       // console.log(data, "imagebb data...");
       values.img = data;
       

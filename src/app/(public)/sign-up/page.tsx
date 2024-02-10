@@ -19,6 +19,7 @@ import { useRouter } from "next/navigation";
 import { useUserSignUpMutation } from "@/redux/api/authApi";
 
 import Link from "next/link";
+import uploadImgBB from "@/hooks/imgbbUploads";
 
 const onFinishFailed = (errorInfo: any) => {
   console.log("Failed:", errorInfo);
@@ -44,7 +45,8 @@ const SignUpPage = () => {
 
     try {
       // / ! Image upload hook
-      const data = await uploadImgCloudinary(file);
+      // const data = await uploadImgCloudinary(file);
+      const data = await uploadImgBB(file);
       // console.log(data, "imagebb data...");
       values.img = data;
       // console.log("newValue", values);

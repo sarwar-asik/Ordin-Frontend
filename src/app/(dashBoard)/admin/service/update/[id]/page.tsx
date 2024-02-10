@@ -24,6 +24,7 @@ import {
   useUpdateServiceMutation,
 } from "@/redux/api/serviceApi";
 import BreadCumbUI from "@/components/ui/BreadCumbUI";
+import uploadImgBB from "@/hooks/imgbbUploads";
 
 const onFinishFailed = (errorInfo: any) => {
   console.log("Failed:", errorInfo);
@@ -65,7 +66,8 @@ const UpdateServicePage = ({ params: { id } }: { params: { id: string } }) => {
 
     if (values.img?.file?.originFileObj) {
       const file = values.img.file.originFileObj;
-      const data = await uploadImgCloudinary(file);
+      // const data = await uploadImgCloudinary(file);
+      const data = await uploadImgBB(file);
 
       values.img = data;
     } else {

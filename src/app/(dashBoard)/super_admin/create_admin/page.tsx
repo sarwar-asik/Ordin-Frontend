@@ -20,6 +20,7 @@ import { useUserSignUpMutation } from "@/redux/api/authApi";
 
 import Link from "next/link";
 import { useCreateAdminMutation } from "@/redux/api/userAPi";
+import uploadImgBB from "@/hooks/imgbbUploads";
 
 const onFinishFailed = (errorInfo: any) => {
   console.log("Failed:", errorInfo);
@@ -44,7 +45,8 @@ const [form] = Form.useForm()
     const file = values.img.file.originFileObj;
 
     try {
-      const data = await uploadImgCloudinary(file);
+      // const data = await uploadImgCloudinary(file);
+      const data = await uploadImgBB(file);
       // console.log(data, "imagebb data...");
       values.img = data;
       values["role"] = "admin";

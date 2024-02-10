@@ -9,6 +9,7 @@ import {
   useUpdateProfileMutation,
 } from "@/redux/api/userAPi";
 import { UploadOutlined, UserOutlined } from "@ant-design/icons";
+import uploadImgBB from "@/hooks/imgbbUploads";
 
 const onFinishFailed = (errorInfo: any) => {
   console.log("Failed:", errorInfo);
@@ -34,7 +35,8 @@ const UpdateProfilePage = () => {
     // console.log(values,"vvv");
     if (values.img?.file?.originFileObj) {
       const file = values.img.file.originFileObj;
-      const data = await uploadImgCloudinary(file);
+      // const data = await uploadImgCloudinary(file);
+      const data = await uploadImgBB(file);
       // console.log(data, "imagebb data...");
       values.img = data;
     } else {

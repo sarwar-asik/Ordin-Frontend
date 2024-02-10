@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useSingleUserQuery, useUpdateUserMutation } from "@/redux/api/userAPi";
 import { UploadOutlined, UserOutlined } from "@ant-design/icons";
+import uploadImgBB from "@/hooks/imgbbUploads";
 
 const onFinishFailed = (errorInfo: any) => {
   console.log("Failed:", errorInfo);
@@ -29,7 +30,8 @@ const UpdateUserPage = ({ params: { id } }: { params: { id: string } }) => {
   const onFinish = async (values: any) => {
     if (values.img?.file?.originFileObj) {
       const file = values.img.file.originFileObj;
-      const data = await uploadImgCloudinary(file);
+      // const data = await uploadImgCloudinary(file);
+      const data = await uploadImgBB(file);
 
       values.img = data;
     } else {

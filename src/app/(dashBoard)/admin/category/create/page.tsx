@@ -29,6 +29,7 @@ const CreateCategoryPage = () => {
     const file = values.img.file.originFileObj;
 
     // console.log(values, "newV");
+    //     const data = await uploadImgCloudinary(file);
     const data = await uploadImgBB(file);
     console.log(data)
     values.img = data;

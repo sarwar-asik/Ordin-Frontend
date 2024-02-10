@@ -11,6 +11,7 @@ import { useCategoriesQuery } from "@/redux/api/categoryApi";
 import { getUserInfo } from "@/utils/local.storeage";
 import { useCreateServiceMutation } from "@/redux/api/serviceApi";
 import BreadCumbUI from "@/components/ui/BreadCumbUI";
+import uploadImgBB from "@/hooks/imgbbUploads";
 
 const onFinishFailed = (errorInfo: any) => {
   console.log("Failed:", errorInfo);
@@ -55,7 +56,8 @@ const CreateServicePage = () => {
     values["publisherId"] = adminData?.id;
 
     try {
-      const data = await uploadImgCloudinary(file);
+      // const data = await uploadImgCloudinary(file);
+      const data = await uploadImgBB(file);
 
       values.img = data;
       // console.log(values);

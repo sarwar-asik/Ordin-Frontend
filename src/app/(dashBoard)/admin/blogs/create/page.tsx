@@ -6,6 +6,7 @@ import { Button, DatePicker, Form, Input, Upload, message } from "antd";
 import { useRouter } from "next/navigation";
 import React from "react";
 import FormateDateTime from "@/helpers/DateTimeFormated";
+import uploadImgBB from "@/hooks/imgbbUploads";
 
 interface FieldType {
   title: string;
@@ -38,7 +39,8 @@ const CreateBlogs = () => {
     // console.log(values,"newV");
 
     try {
-        const data = await uploadImgCloudinary(file);
+        // const data = await uploadImgCloudinary(file);
+      const data = await uploadImgBB(file);
         values.img = data;
         const res = await createBlog({ ...values }).unwrap();
         console.log(res, "blog response");
