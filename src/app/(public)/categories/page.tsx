@@ -14,7 +14,7 @@ const CategoriesPage = () => {
   });
 
 
-  const categoryData:any = categories?.category || []
+  const categoryData: any = categories?.category || []
   // console.log(categories,'categories');
 
   return (
@@ -41,13 +41,18 @@ const CategoriesPage = () => {
       }
 
 
-      <Row align="middle" justify="start" gutter={20} style={{
-        marginTop: "3rem"
-      }}>
+      <div
+
+        //  align="middle" justify="start" gutter={30} style={{
+        //   marginTop: "3rem"
+        // }}
+        className="grid grid-cols-1 md:grid-cols-3 lg:rid-cols-4 xl:rid-cols-4 gap-3"
+
+      >
         {categories?.category?.map((category: any, i: number) => {
           return <SingleCategoryPage key={i} category={category} />;
         })}
-      </Row>
+      </div>
     </div>
   );
 };

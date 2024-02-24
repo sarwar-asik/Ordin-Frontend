@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar/Navbar";
 import React, { useState } from "react";
 import AvailableService from "@/components/Home/AvailableService";
 import Footer from "@/components/ui/Footer";
-import CategoriesPage from "./(public)/categories/Page";
+import CategoriesPage from "./(public)/categories/page";
 import ServiceTabs from "@/components/Home/ServiceTab";
 import BannerHome from "@/components/Home/BannerHome";
 import SurveyOverviewPage from "@/components/Home/Servey";
