@@ -55,7 +55,7 @@ const BannerHome = () => {
     {
       title: 'OUR PROJECT',
       description: 'Discover our portfolio of completed interior design projects for various clients.',
-      details: 'Browse through our work to find inspiration for your own space.',
+      details: 'Browse through our work to find inspiration for your.',
       icon: <BookOutlined style={{ fontSize: '70px', color: "#989696" }} />,
     },
   ]
@@ -89,7 +89,7 @@ const BannerHome = () => {
 
                   </div>
                   <div className="">
-                    <h5 className=" text-[2rem] text-center mt-7 leading-3 text-slate-600" style={{ color: '#252525', marginTop: '6px' }}>
+                    <h5 className=" text-[2rem] text-center mt-7 leading-3 text-[#4d4c4c]" style={{ color: '#252525', marginTop: '6px' }}>
                       {card?.title}
                     </h5>
                     <p className="mt-5" style={{ color: '#585858' }}>

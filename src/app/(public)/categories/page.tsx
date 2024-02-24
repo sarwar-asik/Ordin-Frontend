@@ -46,7 +46,7 @@ const CategoriesPage = () => {
         //  align="middle" justify="start" gutter={30} style={{
         //   marginTop: "3rem"
         // }}
-        className="grid grid-cols-1 md:grid-cols-3 lg:rid-cols-4 xl:rid-cols-4 gap-3"
+        className="container mx-auto mt-[3rem] grid grid-cols-1 md:grid-cols-3 lg:rid-cols-3 xl:rid-cols-3 gap-3"
 
       >
         {categories?.category?.map((category: any, i: number) => {
