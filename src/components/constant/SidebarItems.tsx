@@ -36,15 +36,16 @@ export const sidebarItems = (role: string) => {
 
       key: `/Home`,
     },
+    // {
+    //   // label: <DropDownMenuUI name="Category" items={CategoriesItems} />,
+    //   label: <Link href={`/category`}> Category</Link>,
+    //   key: `/category`,
+    // },
     {
       label: <Link href={`/services`}> Services</Link>,
       key: `/service`,
     },
-    {
-      // label: <DropDownMenuUI name="Category" items={CategoriesItems} />,
-      label: <Link href={`/services`}> Services</Link>,
-      key: `/category`,
-    },
+
     {
       key: "Packages",
       label: <Link href="/packages">Packages</Link>,

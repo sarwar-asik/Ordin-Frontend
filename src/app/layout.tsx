@@ -19,14 +19,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body >
-     
+      <body className="overflow-x-hidden mx-0">
+
         <Providers>
-          
+
           {children}
-          
-          </Providers>
-       
+
+        </Providers>
+
       </body>
     </html>
   );

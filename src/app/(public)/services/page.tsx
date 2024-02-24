@@ -17,7 +17,7 @@ const ServicesRoutes = () => {
   return (
     <div className=" mt-[8vh] pt-3 rounded-sm">
       <section className="my-1 mb-[3rem] pb-3 ">
-        <h1 className=" text-[2.3rem] font-serif text-center ">
+        <h1 className=" text-[2.3rem] font-serif uppercase text-[#4d4c4c]">
           Our All Interior Packages{" "}
         </h1>
       </section>

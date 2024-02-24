@@ -7,15 +7,18 @@ import {
   YoutubeOutlined,
 } from "@ant-design/icons";
 import { Space, Tag } from "antd";
+import Logo from "./Logo";
 
 const Footer = () => {
   return (
-    <footer className="w-full px-4 divide-y  bg-[#080808] text-white  no-underline">
+    <footer className="w-full px-4 divide-  bg-[#080808] text-white  no-underline">
       <div className="container mx-auto flex flex-col justify-between py-[8rem]  space-y-8 lg:flex-row lg:space-y-0">
         <div className="flex justify-center flex-col space-x-3 gap-3 lg:justify-start lg:w-1/3">
-          <Link href="/" className=" text-white no-underline">
+          {/* <Link href="/" className=" text-white no-underline">
             <span className=" text-3xl font-semibold w-[3rem]">Ordain</span>
-          </Link>
+          </Link> */}
+
+          <Logo />
           <p>123 Stepen Road</p>
           <p>Miami,Florida,USA</p>
           <p>Phone: +1 234 567 890</p>

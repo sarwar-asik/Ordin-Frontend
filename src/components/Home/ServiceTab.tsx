@@ -114,10 +114,10 @@ const ServiceTabs = () => {
   return (
     <div className=" bg-secondary text-center py-5 rounded-md px-1">
       <section className="text-center">
-        <h1 className=" text-[2.3rem] font-serif my-3 ">
+        <h1 className=" text-[2.3rem] font-serif uppercase text-[#4d4c4c]">
           Our Interior Package
         </h1>
-        <p className="mt-3 font-medium font-sans">
+        <p className="mt-3 font-medium font-sans text-[#5f5d5d]">
           Best interior service of our . We provide the services in flexible
           time with best demandable design. <br /> Here service of our
           available,upcoming Service interior.

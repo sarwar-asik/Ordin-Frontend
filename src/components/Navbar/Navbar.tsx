@@ -22,8 +22,8 @@ const Navbar = () => {
 
   // console.log(user);
   return (
-    <div className="bg-transparent   backdrop-blur-sm py-2 lg:py-4  text-black shadow-xl lg:px-5 px-3 sticky -top-[0rem]  lg:-top-[0.2rem] z-40">
-      <div className="bg-whit   flex justify-between container mx-auto">
+    <div className="bg-transparent   backdrop-blur-sm py-2 lg:py-4  text-black shadow-xl lg:px-5 px-3 sticky -top-[0rem]  lg:-top-[0.2rem] z-40 mx-auto">
+      <div className="bg-whit   flex justify-between items-center container mx-auto">
         <div className="flex lg:hidden">
           {isClient && <SideBar />}
         </div>
@@ -39,8 +39,8 @@ const Navbar = () => {
         {isClient && user?.role ? (
           <UserAvatar userId={user?.id} />
         ) : (
-          <section className="px-2 text-black">
-            <Link href="/login" className="font-semibold text-primary">
+          <section className="px-2 ">
+            <Link href="/login" className="font-semibold text-primary text-[18px]">
               Login
             </Link>
           </section>
