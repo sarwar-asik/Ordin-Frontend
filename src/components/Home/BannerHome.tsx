@@ -40,11 +40,23 @@ const BannerHome = () => {
   }, []);
 
   const cardData = [
-    { title: "Our Office", description: "Lorem ipsum dolor sit amet, iusto quando vocibus te vim no mea.", details: "", icon: <EnvironmentOutlined style={{ color: '#231f20', fontSize: '58px' }} /> },
-    { title: "WHAT WE DO", description: "Lorem ipsum dolor sit amet, iusto quando vocibus te vim no mea.", details: "", icon: <LineChartOutlined style={{ color: '#231f20', fontSize: '58px' }} /> },
     {
-      title: "OUR PROJECT", description: "Duo erat iriure inciderint no, pro ad decore laudem. Lorem ipsum.", details: "",
-      icon: <BookOutlined style={{ color: '#231f20', fontSize: '58px' }} />
+      title: 'Our Office',
+      description: 'Visit our office in Hatiya, Chattogram, Bangladesh to explore our design ideas.',
+      details: 'Hatiya, Chattogram, Bangladesh',
+      icon: <EnvironmentOutlined style={{ fontSize: '70px', color: "#989696" }} />,
+    },
+    {
+      title: 'WHAT WE DO',
+      description: 'Transforming spaces with innovative interior design solutions to enhance your lifestyle.',
+      details: 'Explore our diverse range of interior design services.',
+      icon: <LineChartOutlined style={{ fontSize: '70px', color: "#989696" }} />,
+    },
+    {
+      title: 'OUR PROJECT',
+      description: 'Discover our portfolio of completed interior design projects for various clients.',
+      details: 'Browse through our work to find inspiration for your own space.',
+      icon: <BookOutlined style={{ fontSize: '70px', color: "#989696" }} />,
     },
   ]
 
@@ -66,29 +78,27 @@ const BannerHome = () => {
         </div>
 
         {/* //!  card section */}
-        <div className="bg-white -mt-[5rem] container mx-auto grid grid-cols-1 lg:grid-cols-3 py-3 ">
+        <div className="bg-white -mt-[8.5rem] max-w-[84%]  mx-auto grid grid-cols-1 lg:grid-cols-3 py-3 ">
           {
             cardData?.map((card) => {
 
-              return <div className="border border-white px-4 py-7 shadow-lg" style={{ backgroundColor: '#ffffff' }} key={card?.title}>
+              return <div className=" border border-white px-7 py-[5rem] shadow-lg" style={{ backgroundColor: '#ffffff' }} key={card?.title}>
                 <div className="flex flex-col items-center justify-center gap-2">
-                  <div className="">
+                  <div className="t">
                     {card?.icon}
 
                   </div>
                   <div className="">
-                    <h5 className=" text-xl text-center my-3" style={{ color: '#252525', marginTop: '6px' }}>
+                    <h5 className=" text-[2rem] text-center mt-7 leading-3 text-slate-600" style={{ color: '#252525', marginTop: '6px' }}>
                       {card?.title}
                     </h5>
-                    <p className="" style={{ color: '#585858' }}>
+                    <p className="mt-5" style={{ color: '#585858' }}>
                       {card?.description}
                     </p>
                   </div>
-                  <div className="  ">
-                    <div className="">
-                      .......
-                    </div>
-                  </div>
+
+                  <p className="text-xl mt-3  text-slate-600">{card?.details}</p>
+
                 </div>
               </div>
 
