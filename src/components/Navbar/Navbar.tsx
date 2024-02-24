@@ -23,7 +23,7 @@ const Navbar = () => {
   // console.log(user);
   return (
     <div>
-      <Header className="bg-white text-black shadow-xl lg:px-2 px-1 flex justify-between">
+      <div className="bg-white  text-black shadow-xl lg:px-2 px-1 flex justify-between">
         <section className="flex items-center gap-2">
           <Logo />
         </section>
@@ -33,7 +33,7 @@ const Navbar = () => {
           disabledOverflow
           items={sidebarItems("nav")}
         />
-        {isClient && user?.role ? (
+        {/* {isClient && user?.role ? (
           <UserAvatar userId={user?.id} />
         ) : (
           <section className="px-2 text-black">
@@ -41,11 +41,11 @@ const Navbar = () => {
               Login
             </Link>
           </section>
-        )}
+        )} */}
         <div className="flex lg:hidden">
           {isClient && <SideBar />}
         </div>
-      </Header>
+      </div>
     </div>
   );
 };

@@ -32,7 +32,7 @@ const HomePage = () => {
   };
   return (
     <div className="min-h-s">
-      <Header></Header>
+      {/* <Header></Header> */}
       <Navbar />
       {/* //! Content */}
       <section
@@ -45,7 +45,7 @@ const HomePage = () => {
       >
         
         {/* //! Float Icon */ }
-        <FloatButton.Group
+        {/* <FloatButton.Group
           trigger="click"
           type="primary"
           style={{ right: 24 }}
@@ -58,7 +58,7 @@ const HomePage = () => {
             icon={<QuestionCircleOutlined />}
           />
           <FloatButton icon={<CommentOutlined />} />
-        </FloatButton.Group>
+        </FloatButton.Group> */}
         {/* //! main content */}
         <TopPage></TopPage>
         <CategoriesPage />
