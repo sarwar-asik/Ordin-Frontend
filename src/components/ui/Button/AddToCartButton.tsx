@@ -37,22 +37,33 @@ const AddToCartButton = ({ service }: { service: any }) => {
   };
 
   return (
-    <Button
-      onClick={() => addToCart(service)}
-      type="primary"
-      // defaultColor={"#4BB4B4"}
-      style={{
-        // backgroundColor: "#4BB4B4",
-        borderColor: "#4BB4B4",
-        color: "white",
-        borderRadius: "5px",
-      }}
+    // <Button
+    //   onClick={() => addToCart(service)}
+    //   // type="primary"
+    //   // defaultColor={"#4BB4B4"}
+    //   // style={{
+    //   //   // backgroundColor: "#4BB4B4",
+    //   //   borderColor: "#4BB4B4",
+    //   //   color: "white",
+    //   //   borderRadius: "5px",
+    //   // }}
 
-      icon={<ShoppingCartOutlined />}
-      // icon={<i className="fas fa-shopping-cart"></i>}
-    >
-      Cart
-    </Button>
+    //   icon={<ShoppingCartOutlined style={{
+    //     background: "",
+    //     color: "black",
+    //     fontSize: "22px",
+    //   }} />}
+    // // icon={<i className="fas fa-shopping-cart"></i>}
+    // >
+    //   Cart
+    // </Button>
+    <div onClick={() => addToCart(service)}  className="">
+      <ShoppingCartOutlined style={{
+        background: "",
+        color: "black",
+        fontSize: "22px",
+      }} />
+    </div>
   );
 };
 

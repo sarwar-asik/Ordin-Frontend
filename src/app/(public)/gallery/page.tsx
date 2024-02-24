@@ -1,3 +1,5 @@
+import Image from "next/image";
+import { Image as ImageAnd } from "antd";
 import React from "react";
 
 const GalleryPage = () => {
@@ -5,12 +7,12 @@ const GalleryPage = () => {
     <div className="flex justify-center items-center text-black">
       <div className="2xl:mx-auto 2xl:container lg:px-20 lg:py-16 md:py-12 md:px-6 py-9 px-4 w-96 sm:w-auto">
         <div role="main" className="flex flex-col items-center justify-center">
-          <h1 className="text-4xl font-semibold leading-9 text-center">
+          <h1 className=" text-[2.3rem] font-serif uppercase text-[#4d4c4c]">
             Our Gallery
           </h1>
-          <p className="text-base leading-normal text-center text-slate-500 mt-4 lg:w-1/2 md:w-10/12 w-11/12">
+          <p className="mt-3 font-medium font-sans text-[#5f5d5d]">
             Our gallery with clean lines, simple decor, and a clutter-free
-            environment for maximum productivity.
+            environment related interior  for maximum productivity.
           </p>
         </div>
         <div className="lg:flex items-stretch md:mt-12 mt-8">
@@ -30,7 +32,11 @@ const GalleryPage = () => {
                     </p>
                   </div>
                 </div>
-                <img
+                <ImageAnd
+                  // height={200}
+                  // width={200}
+                  // fill
+                  preview={false}
                   src="https://i.ibb.co/DYxtCJq/img-1.png"
                   className="w-full"
                   alt="chair"
@@ -50,7 +56,10 @@ const GalleryPage = () => {
                     </p>
                   </div>
                 </div>
-                <img
+                <ImageAnd
+                  // height={200}
+                  // width={200}
+                  // fill
                   src="https://i.ibb.co/3C5HvxC/img-2.png"
                   className="w-full"
                   alt="wall design"
@@ -71,16 +80,28 @@ const GalleryPage = () => {
                   </p>
                 </div>
               </div>
-              <img
-                src="https://i.ibb.co/Ms4qyXp/img-3.png"
-                alt="sitting place"
-                className="w-full mt-8 md:mt-6 hidden sm:block"
-              />
-              <img
-                className="w-full mt-4 sm:hidden"
-                src="https://i.ibb.co/6XYbN7f/Rectangle-29.png"
-                alt="sitting place"
-              />
+              <div className="w-full mt-8 md:mt-6 hidden sm:block">
+                <ImageAnd
+                  // height={200}
+                  // width={200}
+                  // fill
+                  src="https://i.ibb.co/Ms4qyXp/img-3.png"
+                  alt="sitting place"
+                  className="w-full mt-8 md:mt-6 hidden sm:block"
+                />
+              </div>
+
+              <div className="w-full mt-4 sm:hidden">
+
+                <ImageAnd
+                  // height={200}
+                  // width={200}
+                  // fill
+                  className="w-full mt-4 sm:hidden"
+                  src="https://i.ibb.co/6XYbN7f/Rectangle-29.png"
+                  alt="sitting place"
+                />
+              </div>
             </div>
           </div>
           <div className="lg:w-1/2 xl:ml-8 lg:ml-4 lg:mt-0 md:mt-6 mt-4 lg:flex flex-col justify-between">
@@ -96,16 +117,27 @@ const GalleryPage = () => {
                   </p>
                 </div>
               </div>
-              <img
-                src="https://i.ibb.co/6Wfjf2w/img-4.png"
-                alt="sitting place"
-                className="w-full sm:block hidden"
-              />
-              <img
-                className="w-full sm:hidden"
-                src="https://i.ibb.co/dpXStJk/Rectangle-29.png"
-                alt="sitting place"
-              />
+              <div className="w-full sm:block hidden">
+                <ImageAnd
+                  // height={200}
+                  // width={200}
+                  // fill
+                  src="https://i.ibb.co/6Wfjf2w/img-4.png"
+                  alt="sitting place"
+                  className="w-full sm:block hidden"
+                />
+              </div>
+              <div className="w-full sm:hidden">
+                <ImageAnd
+                  // height={200}
+                  // width={200}
+                  // fill
+                  className="w-full sm:hidden"
+                  src="https://i.ibb.co/dpXStJk/Rectangle-29.png"
+                  alt="sitting place"
+                />
+              </div>
+
             </div>
             <div className="sm:flex items-center justify-between xl:gap-x-8 gap-x-6 md:mt-6 mt-4">
               <div className="relative w-full">
@@ -122,11 +154,17 @@ const GalleryPage = () => {
                     </p>
                   </div>
                 </div>
-                <img
-                  src="https://i.ibb.co/3yvZBpm/img-5.png"
-                  className="w-full"
-                  alt="chair"
-                />
+                <div className="">
+                  <ImageAnd
+                    // height={200}
+                    // width={200}
+                    // fill
+                    src="https://i.ibb.co/3yvZBpm/img-5.png"
+                    className="w-full"
+                    alt="chair"
+                  />
+                </div>
+
               </div>
               <div className="relative w-full sm:mt-0 mt-4">
                 <div>
@@ -142,11 +180,17 @@ const GalleryPage = () => {
                     </p>
                   </div>
                 </div>
-                <img
-                  src="https://i.ibb.co/gDdnJb5/img-6.png"
-                  className="w-full"
-                  alt="wall design"
-                />
+                <div className="">
+                  <ImageAnd
+                    // height={200}
+                    // width={200}
+                    // fill
+                    src="https://i.ibb.co/gDdnJb5/img-6.png"
+                    className="w-full"
+                    alt="wall design"
+                  />
+                </div>
+
               </div>
             </div>
           </div>

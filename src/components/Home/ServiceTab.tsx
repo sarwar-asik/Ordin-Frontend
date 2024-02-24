@@ -111,6 +111,8 @@ const ServiceTabs = () => {
     ),
   };
 
+  const servicesData: any = data?.services || []
+
   return (
     <div className=" bg-secondary text-center py-5 rounded-md px-1">
       <section className="text-center">
@@ -162,7 +164,7 @@ const ServiceTabs = () => {
         // color="blue"
         items={tabsItems}
       />
-      {isLoading && <LoaderService />}
+      {(isLoading || servicesData?.length < 1) && <LoaderService />}
     </div>
   );
 };

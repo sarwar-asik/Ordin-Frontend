@@ -82,22 +82,22 @@ const BannerHome = () => {
           {
             cardData?.map((card) => {
 
-              return <div className=" border border-white px-7 py-[5rem] shadow-lg" style={{ backgroundColor: '#ffffff' }} key={card?.title}>
+              return <div className=" border border-white px-7 py-[5rem] shadow-lg hover:shadow-xl hover:-mt-7 transition-transform duration-500 ease-in-out group" style={{ backgroundColor: '#ffffff' }} key={card?.title}>
                 <div className="flex flex-col items-center justify-center gap-2">
                   <div className="t">
                     {card?.icon}
 
                   </div>
                   <div className="">
-                    <h5 className=" text-[2rem] text-center mt-7 leading-3 text-[#4d4c4c]" style={{ color: '#252525', marginTop: '6px' }}>
+                    <h5 className=" text-[2rem] text-center mt-7 leading-3 text-[#4d4c4c] group-hover:text-black" style={{ color: '#252525', marginTop: '6px' }}>
                       {card?.title}
                     </h5>
-                    <p className="mt-5" style={{ color: '#585858' }}>
+                    <p className="mt-5 group-hover:text-black" style={{ color: '#585858' }}>
                       {card?.description}
                     </p>
                   </div>
 
-                  <p className="text-xl mt-3  text-slate-600">{card?.details}</p>
+                  <p className="text-xl mt-3  text-slate-600 group-hover:text-black">{card?.details}</p>
 
                 </div>
               </div>
