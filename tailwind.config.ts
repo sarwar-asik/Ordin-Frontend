@@ -13,16 +13,17 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
-      colors:{
+      colors: {
         // primary:"#4BB4B4", ///blue
-        primary:"#16697a",
-        secondary:'#F6F9FC'
-      }
+        // primary:"#16697a",
+        primary: "black",
+        secondary: "#F6F9FC",
+      },
     },
     // screens:{
     //   sm:"425px",
     //   md:"786px",
-    //   lg:"1080px" 
+    //   lg:"1080px"
     // }
   },
   corePlugins: {
