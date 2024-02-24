@@ -80,6 +80,7 @@ export const sidebarItems = (role: string) => {
       icon: <InsertRowLeftOutlined />,
       children: serviceItems,
     },
+
     {
       label: <Link href={`/`}> Categories</Link>,
       key: `/categoriesInt`,
@@ -95,6 +96,10 @@ export const sidebarItems = (role: string) => {
       key: "blogs",
       label: <Link href="blogs">Blogs</Link>,
       icon: <SnippetsOutlined />,
+    },
+    {
+      key: "Packages",
+      label: <Link href="/packages">Packages</Link>,
     },
     {
       key: "gallery",

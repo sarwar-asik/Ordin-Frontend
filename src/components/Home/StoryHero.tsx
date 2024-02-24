@@ -30,7 +30,8 @@ const Feature = ({ text, icon, iconBg }: FeatureProps) => {
           alignItems: "center",
           justifyContent: "center",
           borderRadius: "50%",
-          backgroundColor: iconBg,
+          // backgroundColor: iconBg,
+          backgroundColor: 'white',
         }}
       >
         {icon}
@@ -42,13 +43,13 @@ const Feature = ({ text, icon, iconBg }: FeatureProps) => {
 
 const StoryHero: React.FC = () => {
   return (
-    <Row gutter={16} justify="center" className="bg-secondary">
-      <Col xs={{ span: 24 }} md={{ span: 12 }}>
+    <Row gutter={16} justify="center" className="bg-secondary ">
+      <Col xs={{ span: 24 }} md={{ span: 12 }} className="py-12 lg:py-20">
         <div style={{ padding: "16px" }}>
           <Text
             style={{
               textTransform: "uppercase",
-              color: "blue",
+              color: "black",
               fontWeight: 600,
               fontSize: "sm",
               backgroundColor: "#e6f7ff",
@@ -75,7 +76,7 @@ const StoryHero: React.FC = () => {
           >
             <Feature
               icon={
-                <TableOutlined style={{ color: "blue", fontSize: "20px" }} />
+                <TableOutlined style={{ color: "black", fontSize: "20px" }} />
               }
               iconBg="#fffbe6"
               text="Unique Design"
@@ -92,7 +93,7 @@ const StoryHero: React.FC = () => {
             <Feature
               icon={
                 <ThunderboltOutlined
-                  style={{ color: "purple", fontSize: "20px" }}
+                  style={{ color: "black", fontSize: "20px" }}
                 />
               }
               iconBg="#f9e6ff"
