@@ -75,7 +75,7 @@ const UserAvatar = ({ userId }: { userId: string }) => {
             className="text-2xl"
             href="/user/cart"
           >
-            <ShoppingCartOutlined />
+            <ShoppingCartOutlined style={{ color: "black" }} />
           </Link>
         </Badge>
 

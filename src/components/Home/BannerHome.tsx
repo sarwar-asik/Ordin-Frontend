@@ -40,10 +40,11 @@ const BannerHome = () => {
   }, []);
 
   const cardData = [
-    { title: "Our Office", description: "Lorem ipsum dolor sit amet, iusto quando vocibus te vim no mea.", details: "" },
-    { title: "WHAT WE DO", description: "Lorem ipsum dolor sit amet, iusto quando vocibus te vim no mea.", details: "" },
+    { title: "Our Office", description: "Lorem ipsum dolor sit amet, iusto quando vocibus te vim no mea.", details: "", icon: <EnvironmentOutlined style={{ color: '#231f20', fontSize: '58px' }} /> },
+    { title: "WHAT WE DO", description: "Lorem ipsum dolor sit amet, iusto quando vocibus te vim no mea.", details: "", icon: <LineChartOutlined style={{ color: '#231f20', fontSize: '58px' }} /> },
     {
-      title: "OUR PROJECT", description: "Duo erat iriure inciderint no, pro ad decore laudem. Lorem ipsum.", details: ""
+      title: "OUR PROJECT", description: "Duo erat iriure inciderint no, pro ad decore laudem. Lorem ipsum.", details: "",
+      icon: <BookOutlined style={{ color: '#231f20', fontSize: '58px' }} />
     },
   ]
 
@@ -72,20 +73,21 @@ const BannerHome = () => {
               return <div className="border border-white px-4 py-7 shadow-lg" style={{ backgroundColor: '#ffffff' }} key={card?.title}>
                 <div className="flex flex-col items-center justify-center gap-2">
                   <div className="">
-                    <span className="" data-color="#231f20">
-                      <EnvironmentOutlined style={{ color: '#231f20', fontSize: '58px' }} />
-                    </span>
+                    {card?.icon}
+
                   </div>
                   <div className="">
-                    <h5 className="" style={{ color: '#252525', marginTop: '6px' }}>
-                      <span className="">WHAT WE DO</span>
+                    <h5 className=" text-xl text-center my-3" style={{ color: '#252525', marginTop: '6px' }}>
+                      {card?.title}
                     </h5>
                     <p className="" style={{ color: '#585858' }}>
-                      Eum cu probatus delicata. Eruditi conclu daturque est an, affert.
+                      {card?.description}
                     </p>
                   </div>
                   <div className="  ">
-                    <div className=""></div>
+                    <div className="">
+                      .......
+                    </div>
                   </div>
                 </div>
               </div>

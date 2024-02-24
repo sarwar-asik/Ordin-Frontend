@@ -22,7 +22,7 @@ const Navbar = () => {
 
   // console.log(user);
   return (
-    <div className="bg-transparent   backdrop-blur-sm py-3  text-black shadow-xl lg:px-5 px-3 sticky -top-[0rem]  lg:-top-[0.2rem] z-40">
+    <div className="bg-transparent   backdrop-blur-sm py-2 lg:py-4  text-black shadow-xl lg:px-5 px-3 sticky -top-[0rem]  lg:-top-[0.2rem] z-40">
       <div className="bg-whit   flex justify-between container mx-auto">
         <div className="flex lg:hidden">
           {isClient && <SideBar />}
@@ -32,7 +32,7 @@ const Navbar = () => {
         </section>
         <Menu
           mode="horizontal"
-          className="hidden lg:flex bg-transparent  backdrop-blur-s border-none text-slate-800 font-[500] text-[16px]"
+          className="hidden lg:flex bg-transparent  backdrop-blur-s border-none text-slate-800 font-[500] text-[18px]"
           disabledOverflow
           items={sidebarItems("nav")}
         />
