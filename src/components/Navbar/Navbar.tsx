@@ -22,18 +22,21 @@ const Navbar = () => {
 
   // console.log(user);
   return (
-    <div>
-      <div className="bg-white  text-black shadow-xl lg:px-2 px-1 flex justify-between">
+    <div className="bg-transparent   backdrop-blur-sm py-3  text-black shadow-xl lg:px-5 px-3 sticky -top-[0rem]  lg:-top-[0.4rem] z-40">
+      <div className="bg-whit   flex justify-between container mx-auto">
+        <div className="flex lg:hidden">
+          {isClient && <SideBar />}
+        </div>
         <section className="flex items-center gap-2">
           <Logo />
         </section>
         <Menu
           mode="horizontal"
-          className="hidden lg:flex"
+          className="hidden lg:flex bg-transparent  backdrop-blur-s border-none"
           disabledOverflow
           items={sidebarItems("nav")}
         />
-        {/* {isClient && user?.role ? (
+        {isClient && user?.role ? (
           <UserAvatar userId={user?.id} />
         ) : (
           <section className="px-2 text-black">
@@ -41,10 +44,8 @@ const Navbar = () => {
               Login
             </Link>
           </section>
-        )} */}
-        <div className="flex lg:hidden">
-          {isClient && <SideBar />}
-        </div>
+        )}
+
       </div>
     </div>
   );

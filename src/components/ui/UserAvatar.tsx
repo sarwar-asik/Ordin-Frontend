@@ -64,30 +64,35 @@ const UserAvatar = ({ userId }: { userId: string }) => {
   ];
 
   return (
-    <section style={{ display: "flex", alignItems: "center", gap: "1.5em" }}>
-      <Badge count={cartDataLength} status="success">
-        <Link
-          // hidden={userData?.role === "user" ? false : true}
-          className="text-2xl"
-          href="/user/cart"
-        >
-          <ShoppingCartOutlined />
-        </Link>
-      </Badge>
+    <div className="">
+      {/* {
+        userData
+      } */}
+      <section style={{ display: "flex", alignItems: "center", gap: "1.5em" }}>
+        <Badge count={cartDataLength} status="success">
+          <Link
+            // hidden={userData?.role === "user" ? false : true}
+            className="text-2xl"
+            href="/user/cart"
+          >
+            <ShoppingCartOutlined />
+          </Link>
+        </Badge>
 
-      <Dropdown
-        overlayStyle={{
-          padding: "10px 0",
-        }}
-        menu={{ items }}
-        placement="bottomLeft"
-        arrow
-      >
-        <Space wrap size={16}>
-          <Avatar size="large" src={userData?.img} icon={<UserOutlined />} />
-        </Space>
-      </Dropdown>
-    </section>
+        <Dropdown
+          overlayStyle={{
+            padding: "10px 0",
+          }}
+          menu={{ items }}
+          placement="bottomLeft"
+          arrow
+        >
+          <Space wrap size={16}>
+            <Avatar size="large" src={userData?.img} icon={<UserOutlined />} />
+          </Space>
+        </Dropdown>
+      </section>
+    </div>
   );
 };
 

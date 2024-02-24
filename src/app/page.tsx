@@ -6,7 +6,7 @@ import AvailableService from "@/components/Home/AvailableService";
 import Footer from "@/components/ui/Footer";
 import CategoriesPage from "./(public)/categories/Page";
 import ServiceTabs from "@/components/Home/ServiceTab";
-import TopPage from "@/components/Home/TopPage";
+import BannerHome from "@/components/Home/BannerHome";
 import SurveyOverviewPage from "@/components/Home/Servey";
 import BlogPage from "@/components/Home/Blogs";
 import ReviewsPage from "@/components/Home/Rating";
@@ -34,6 +34,7 @@ const HomePage = () => {
     <div className="min-h-s">
       {/* <Header></Header> */}
       <Navbar />
+      <BannerHome></BannerHome>
       {/* //! Content */}
       <section
         style={{
@@ -43,8 +44,8 @@ const HomePage = () => {
           gap: "6rem",
         }}
       >
-        
-        {/* //! Float Icon */ }
+
+        {/* //! Float Icon */}
         {/* <FloatButton.Group
           trigger="click"
           type="primary"
@@ -60,7 +61,7 @@ const HomePage = () => {
           <FloatButton icon={<CommentOutlined />} />
         </FloatButton.Group> */}
         {/* //! main content */}
-        <TopPage></TopPage>
+
         <CategoriesPage />
         {/* <HeroOne /> */}
         <TrustedBy></TrustedBy>
@@ -68,7 +69,7 @@ const HomePage = () => {
         <GalleryPage />
         <BlogPage />
         <ReviewsPage />
-        
+
         {/* <HeroTwo></HeroTwo> */}
         {/* <SurveyOverviewPage/> */}
         <StoryHero />
