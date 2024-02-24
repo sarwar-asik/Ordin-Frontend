@@ -41,13 +41,14 @@ const TrustedBy = () => {
         </p>
       </section>
 
-      <section className="grid grid-cols-4 gap-1 container mx-auto ">
+      <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-1 container mx-auto ">
 
         {companyData?.map((item: any) => (
           <div className="px-5 py-9  hover:shadow-xl hover:translate-y-2 transition-transform duration-75  text-center grayscale hover:grayscale-0" key={item?.name}>
             <Image
               height={150}
-              width={180}
+              width={160}
+
               src={item?.img}
               className=""
               style={{

@@ -5,40 +5,41 @@ import AccordionItem from '../ui/AccordionItem';
 import { useFAQAllQuery } from '@/redux/api/FAQApi';
 import LoadingData from '../ui/Loader/LoadingData';
 import dynamic from 'next/dynamic';
+import LoaderCategory from '../ui/Loader/LoaderCategory';
 
 const FAQPage = () => {
-    const {data,isLoading} = useFAQAllQuery({page:1,limit:12})
-    // console.log("🚀 ~ file: FAQ.tsx:9 ~ FAQPage ~ data:", data)
-    const FAQData = data?.FAQs;
+  const { data, isLoading } = useFAQAllQuery({ page: 1, limit: 12 })
+  // console.log("🚀 ~ file: FAQ.tsx:9 ~ FAQPage ~ data:", data)
+  const FAQData = data?.FAQs || []
 
-    
-    return (
-        <section className="relative overflow-hidden bg-white pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
+
+  return (
+    <section className="relative overflow-hidden bg-white pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
       <div className="container mx-auto">
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4">
             <div className="mx-auto mb-[60px] max-w-[520px] text-center lg:mb-20">
-              
+
               <h2 className="mb-4 text-3xl font-bold text-dark sm:text-4xl md:text-[40px]">
                 Any Questions? Look Here
               </h2>
               <p className="text-base text-body-color">
-                You can Follow some dynamic common Question about our 
-                Interior Design and our processing . 
+                You can Follow some dynamic common Question about our
+                Interior Design and our processing .
               </p>
             </div>
           </div>
         </div>
-        {isLoading&& <LoadingData/>}
+        {(isLoading || FAQData?.length < 1) && <LoaderCategory />}
 
         <div className="grid grid-cols-1 lg:grid-cols-2 ">
-         {
-            FAQData?.map((item:any,i)=>(
-                <div key={i} className="">
-                 <AccordionItem header={item?.question} text={item?.answer}/>
-                </div>
+          {
+            FAQData?.map((item: any, i) => (
+              <div key={i} className="">
+                <AccordionItem header={item?.question} text={item?.answer} />
+              </div>
             ))
-         }
+          }
         </div>
       </div>
 
@@ -71,14 +72,14 @@ const FAQPage = () => {
           </defs>
         </svg>
       </div>
-      </section>
-    );
+    </section>
+  );
 };
 
 // export default FAQPage;
 
 
 
-export default  dynamic(()=>Promise.resolve(FAQPage))
+export default dynamic(() => Promise.resolve(FAQPage))
 
 

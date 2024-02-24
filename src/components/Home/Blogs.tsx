@@ -23,7 +23,7 @@ const BlogPage = () => {
       {isLoading && <LoaderBlogs />}
       {/* <LoaderBlogs/> */}
       <Layout>
-        <Content style={{ padding: "20px" }}>
+        <Content style={{ padding: "18px" }}>
           <Row gutter={16}>
             {blogs?.blogs?.map((blog: any) => {
               return (

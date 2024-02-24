@@ -13,8 +13,8 @@ const AllService = ({ data }: { data: any }) => {
           return <SingleService key={i} product={product} />;
         })}
       </Row>
-      {data?.length < 10 && (
-        <Link href={`/services`} className="px-4 bg-gray-900 flex justify-between items-center w-full lg:w-[7rem] h-14 mx-auto  text-white hover:bg-gray-700">
+      {data?.length > 4 && (
+        <Link href={`/services`} className="px-4 bg-gray-900 flex justify-between items-center w-full lg:w-[6rem] h-14 mx-auto  text-white hover:bg-gray-700">
           <p className="text-xl font-medium leading-5">See All</p>
           <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M6.66663 16H25.3333" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
