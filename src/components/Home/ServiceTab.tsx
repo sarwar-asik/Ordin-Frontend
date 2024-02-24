@@ -64,7 +64,7 @@ const ServiceTabs = () => {
     setSearchTerm("");
   };
 
-  const activeClass = `text-white font-bold bg-primary mx w-full text-center text-[15px] py-2.5 px-4 rounded-tl-2xl rounded-tr-2xl cursor-pointer`
+  const activeClass = `text-white font-bold bg-black mx w-full text-center text-[15px] py-2.5 px-4 rounded-tl-2xl rounded-tr-2xl cursor-pointer`
   // console.log(query,"quer-2");
   const { data, isLoading } = useServicesQuery({ ...query });
   const tabsItems: TabsProps["items"] = [

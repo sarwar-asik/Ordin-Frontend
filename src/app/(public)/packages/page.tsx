@@ -16,10 +16,10 @@ export default function PackagesPage() {
                         </p>
                         <div className="w-56">
                             <div className="bg-gray-100 shadow rounded-full flex items-center mt-10">
-                                <button className="bg-gray-100 focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:outline-none text-base leading-none text-gray-600 rounded-full py-4 px-6 mr-1" id="monthly">
+                                <button className="bg-gray-100 focus:ring-2 focus:ring-offset-2 focus:ring-black focus:outline-none text-base leading-none text-gray-600 rounded-full py-4 px-6 mr-1" id="monthly">
                                     Monthly
                                 </button>
-                                <button className="bg-primary focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:outline-none text-base leading-none text-white rounded-full py-4 px-6" id="annually">
+                                <button className="bg-black focus:ring-2 focus:ring-offset-2 focus:ring-black focus:outline-none text-base leading-none text-white rounded-full py-4 px-6" id="annually">
                                     Annually
                                 </button>
                             </div>
@@ -36,7 +36,7 @@ export default function PackagesPage() {
                             <p className="md:w-80 text-base leading-6 mt-4 text-gray-600">Full access to all features and no credit card required</p>
                         </div>
                         <div role="listitem" className="bg-white cursor-pointer shadow rounded-lg mt-3 flex relative z-30">
-                            <div className="w-2.5  h-auto bg-primary rounded-tl-md rounded-bl-md" />
+                            <div className="w-2.5  h-auto bg-black rounded-tl-md rounded-bl-md" />
                             <div className="w-full p-8">
                                 <div className="md:flex items-center justify-between">
                                     <h2 className="text-2xl font-semibold leading-6 text-gray-800">Premium</h2>
@@ -67,7 +67,7 @@ export default function PackagesPage() {
                     <p className="text-lg font-medium text-gray-500 mb-7 md:text-xl darktext-gray-400">
                         We providing best package combo for you</p>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center gap-3 -mx-">
-                        <div className="w-full px-3 ">
+                        <div className="w-full px-3 py-3 ">
                             <div
                                 className="relative flex flex-col items-center px-8 py-8 shadow-md lg:rounded-3xl bg-gradient-to-b from-yellow-100 via-blue-200 to-yellow-100 darkfrom-gray-800 darkvia-gray-800 darkto-gray-800">
                                 <h2
@@ -76,8 +76,8 @@ export default function PackagesPage() {
                                 </h2>
                                 <div className="mb-4">
                                     <span
-                                        className="relative text-3xl font-bold text-primary darktext-gray-300 -top-20 right-1">$</span>
-                                    <span className="font-bold text-primary text-9xl darktext-gray-300">10</span>
+                                        className="relative text-3xl font-bold text-black darktext-gray-300 -top-20 right-1">$</span>
+                                    <span className="font-bold text-black text-9xl darktext-gray-300">10</span>
                                 </div>
                                 <p className="mb-4 text-lg font-medium text-gray-700 md:text-xl darktext-gray-400">
                                     Home Category
@@ -134,12 +134,12 @@ export default function PackagesPage() {
                                 </ul>
                                 <div className="mt-4 ">
                                     <div
-                                        className="absolute bottom-0 right-0 w-ful px-3 py-4 text-sm text-center text-gray-100 bg-primary lg:w-32 rounded-tl-3xl cursor-pointer rounded-br-3xl darkbg-gray-900 darkhover:bg-gray-700 hover:bg-green-700  hover:text-gray-100">
-                                        Get More</div>
+                                        className="absolute bottom-0 right-0 w-ful px-3 py-4 text-sm text-center text-gray-100 bg-black lg:w-32 rounded-tl-3xl cursor-pointer rounded-br-3xl darkbg-gray-900 darkhover:bg-gray-700 hover:bg-green-700  hover:text-gray-100">
+                                        Pay Now</div>
                                 </div>
                             </div>
                         </div>
-                        <div className="w-full px-3 ">
+                        <div className="w-full px-3 py-3 ">
                             <div
                                 className="relative flex flex-col items-center px-8 py-8 shadow-md lg:rounded-3xl bg-gradient-to-b from-pink-100 via-gray-300 to-pink-100 darkfrom-gray-800 darkvia-gray-800 darkto-gray-800">
                                 <h2
@@ -148,8 +148,8 @@ export default function PackagesPage() {
                                 </h2>
                                 <div className="mb-4">
                                     <span
-                                        className="relative text-3xl font-bold text-primary darktext-gray-300 -top-20 right-1">$</span>
-                                    <span className="font-bold text-primary text-9xl darktext-gray-300">20</span>
+                                        className="relative text-3xl font-bold text-black darktext-gray-300 -top-20 right-1">$</span>
+                                    <span className="font-bold text-black text-9xl darktext-gray-300">20</span>
                                 </div>
                                 <p className="mb-4 text-lg font-medium text-gray-700 md:text-xl darktext-gray-400">
                                     Best Office Combo
@@ -206,12 +206,12 @@ export default function PackagesPage() {
                                 </ul>
                                 <div className="mt-4 ">
                                     <div
-                                        className="absolute bottom-0 right-0 w-ful px-3 py-4 text-sm text-center text-gray-100 bg-primary lg:w-32 rounded-tl-3xl cursor-pointer rounded-br-3xl darkbg-gray-900 darkhover:bg-gray-700 hover:bg-green-700  hover:text-gray-100">
-                                        Get More</div>
+                                        className="absolute bottom-0 right-0 w-ful px-3 py-4 text-sm text-center text-gray-100 bg-black lg:w-32 rounded-tl-3xl cursor-pointer rounded-br-3xl darkbg-gray-900 darkhover:bg-gray-700 hover:bg-green-700  hover:text-gray-100">
+                                        Pay Now</div>
                                 </div>
                             </div>
                         </div>
-                        <div className="w-full px-3 ">
+                        <div className="w-full px-3 py-3 ">
                             <div
                                 className="relative flex flex-col items-center px-8 py-8 shadow-md lg:rounded-3xl bg-gradient-to-b from-green-100 via-blue-100 to-green-100 darkfrom-gray-800 darkvia-gray-800 darkto-gray-800">
                                 <h2
@@ -220,8 +220,8 @@ export default function PackagesPage() {
                                 </h2>
                                 <div className="mb-4">
                                     <span
-                                        className="relative text-3xl font-bold text-primary darktext-gray-300 -top-20 right-1">$</span>
-                                    <span className="font-bold text-primary text-9xl darktext-gray-300">30</span>
+                                        className="relative text-3xl font-bold text-black darktext-gray-300 -top-20 right-1">$</span>
+                                    <span className="font-bold text-black text-9xl darktext-gray-300">30</span>
                                 </div>
                                 <p className="mb-4 text-lg font-medium text-gray-700 md:text-xl darktext-gray-400">
                                     Choice ultimate for your capacity
@@ -278,8 +278,8 @@ export default function PackagesPage() {
                                 </ul>
                                 <div className="mt-4 ">
                                     <div
-                                        className="absolute bottom-0 right-0 w-ful px-3 py-4 text-sm text-center text-gray-100 bg-primary lg:w-32 rounded-tl-3xl cursor-pointer rounded-br-3xl darkbg-gray-900 darkhover:bg-gray-700 hover:bg-green-700  hover:text-gray-100">
-                                        Get More</div>
+                                        className="absolute bottom-0 right-0 w-ful px-3 py-4 text-sm text-center text-gray-100 bg-black lg:w-32 rounded-tl-3xl cursor-pointer rounded-br-3xl darkbg-gray-900 darkhover:bg-gray-700 hover:bg-green-700  hover:text-gray-100">
+                                        Pay Now</div>
                                 </div>
                             </div>
                         </div>
