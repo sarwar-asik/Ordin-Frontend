@@ -18,7 +18,7 @@ const CategoriesPage = () => {
   // console.log(categories,'categories');
 
   return (
-    <div className=" bg-secondary py-5 rounded-md px-1">
+    <div className=" bg-secondary py-5 rounded-md">
       <section className="my-7 text-center">
         <h1 className=" text-[2.3rem] font-serif uppercase text-[#4d4c4c]">What we Provide?</h1>
 

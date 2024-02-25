@@ -39,13 +39,13 @@ const ReviewsPage = () => {
         }
         {/* <LoaderRating/> */}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
           {reviewsData?.map((item: any) => {
             const reviews = item.reviews?.length > 64 ? item.reviews : `${item?.reviews} Arranged my house with the best interior design .`;
             return (
               <div
                 key={item?.name}
-                className="flex flex-col justify-between max-w-sm mx-4 my-6 shadow-lg bg-gray-100"
+                className="flex flex-col justify-between max-w-sm mx-auto  my-6 shadow-lg bg-gray-100"
               >
                 <div className="px-4 py-12 rounded-t-lg sm:px-8 md:px-12">
                   <p className="relative px-6 py-1 text-lg italic text-center text-gray-800">

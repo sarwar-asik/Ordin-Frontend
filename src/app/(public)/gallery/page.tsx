@@ -5,7 +5,7 @@ import React from "react";
 const GalleryPage = () => {
   return (
     <div className="flex justify-center items-center text-black">
-      <div className="2xl:mx-auto 2xl:container lg:px-20 lg:py-16 md:py-12 md:px-6 py-9 px-4 w-96 sm:w-auto">
+      <div className="container  mx-auto lg:px-20 lg:py-16 md:py-12 md:px-6 py-9 px-4 w- sm:w-auto">
         <div role="main" className="flex flex-col items-center justify-center">
           <h1 className=" text-[2.3rem] font-serif uppercase text-[#4d4c4c]">
             Our Gallery
@@ -15,7 +15,7 @@ const GalleryPage = () => {
             environment related interior  for maximum productivity.
           </p>
         </div>
-        <div className="lg:flex items-stretch md:mt-12 mt-8">
+        <div className=" lg:flex items-stretch md:mt-12 mt-8">
           <div className="lg:w-1/2">
             <div className="sm:flex items-center justify-between xl:gap-x-8 gap-x-6">
               <div className="sm:w-1/2 relative">

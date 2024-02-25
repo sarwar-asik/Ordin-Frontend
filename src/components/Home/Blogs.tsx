@@ -22,8 +22,8 @@ const BlogPage = () => {
       </section>
       {isLoading && <LoaderBlogs />}
       {/* <LoaderBlogs/> */}
-      <Layout>
-        <Content style={{ padding: "18px" }}>
+      <Layout className="container  mx-auto mt-[4rem] ">
+        <Content style={{ padding: "" }}>
           <Row gutter={16}>
             {blogs?.blogs?.map((blog: any) => {
               return (

@@ -78,7 +78,7 @@ const BannerHome = () => {
         </div>
 
         {/* //!  card section */}
-        <div className="bg-white -mt-[8.5rem] max-w-[84%]  mx-auto grid grid-cols-1 lg:grid-cols-3 py-3 ">
+        <div className="bg-white -mt-[8.5rem] container  mx-auto grid grid-cols-1 lg:grid-cols-3 py-3 ">
           {
             cardData?.map((card) => {
 

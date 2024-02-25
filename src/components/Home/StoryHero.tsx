@@ -43,7 +43,7 @@ const Feature = ({ text, icon, iconBg }: FeatureProps) => {
 
 const StoryHero: React.FC = () => {
   return (
-    <Row gutter={16} justify="center" className="bg-secondary ">
+    <Row gutter={16} justify="center" className=" container  mx-auto ">
       <Col xs={{ span: 24 }} md={{ span: 12 }} className="py-12 lg:py-20">
         <div style={{ padding: "16px" }}>
           <Text
