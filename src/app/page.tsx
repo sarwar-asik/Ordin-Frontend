@@ -53,7 +53,7 @@ const HomePage = () => {
           trigger="click"
           type="primary"
           style={{ right: 24 }}
-          icon={<CommentOutlined />}
+          icon={<CommentOutlined style={{}} />}
         >
           <FloatButton icon={<CustomerServiceOutlined />} />
 
