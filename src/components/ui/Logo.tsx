@@ -8,8 +8,9 @@ const Logo = () => {
       style={{
         textDecoration: "none",
         fontWeight: "700",
-        color: "#16697a",
-        fontSize: "1.3rem",
+        // color: "#16697a",
+        color: "white",
+        fontSize: "2.3rem",
         fontFamily: "sans-serif",
         // background:"white",
         // paddingBlock:"0.2rem",

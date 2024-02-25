@@ -36,14 +36,16 @@ export const sidebarItems = (role: string) => {
 
       key: `/Home`,
     },
+    // {
+    //   // label: <DropDownMenuUI name="Category" items={CategoriesItems} />,
+    //   label: <Link href={`/category`}> Category</Link>,
+    //   key: `/category`,
+    // },
     {
       label: <Link href={`/services`}> Services</Link>,
       key: `/service`,
     },
-    {
-      label: <DropDownMenuUI name="Category" items={CategoriesItems} />,
-      key: `/category`,
-    },
+
     {
       key: "Packages",
       label: <Link href="/packages">Packages</Link>,
@@ -78,6 +80,7 @@ export const sidebarItems = (role: string) => {
       icon: <InsertRowLeftOutlined />,
       children: serviceItems,
     },
+
     {
       label: <Link href={`/`}> Categories</Link>,
       key: `/categoriesInt`,
@@ -93,6 +96,10 @@ export const sidebarItems = (role: string) => {
       key: "blogs",
       label: <Link href="blogs">Blogs</Link>,
       icon: <SnippetsOutlined />,
+    },
+    {
+      key: "Packages",
+      label: <Link href="/packages">Packages</Link>,
     },
     {
       key: "gallery",

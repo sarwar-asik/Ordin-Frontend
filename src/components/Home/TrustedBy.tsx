@@ -33,30 +33,32 @@ const TrustedBy = () => {
   ];
 
   return (
-    <div>
+    <div className="container mx-auto">
       <section className="mb-7 text-center">
-        <h1 className=" text-[2.3rem]  my-3">Trusted By</h1>
-        <p className="mt-3 font-medium font-sans">
-          We provided some familiar company in worldWide . These company showroom and other branch <br/> interior designed by our expertise designers .
+        <h1 className=" text-[2.3rem] font-serif uppercase text-[#4d4c4c]">Trusted By</h1>
+        <p className="mt-3 font-medium font-sans text-[#5f5d5d]">
+          We provided some familiar company in worldWide . These company showroom and other branch <br /> interior designed by our expertise designers .
         </p>
       </section>
 
-      <section>
-        <Row justify="center" gutter={[20,10]}>
-          {companyData?.map((item: any) => (
-            <Col sm={12} md={8} lg={4} key={item?.name}>
-              <Image
-                height={100}
-                width={150}
-                src={item?.img}
-                style={{
-                  filter: "grayscale(100%) contrast(200%) brightness(120%)",
-                }}
-                alt="trust"
-              />
-            </Col>
-          ))}
-        </Row>
+      <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-1 container mx-auto shadow my-3 pb-[10px]">
+
+        {companyData?.map((item: any) => (
+          <div className="px-5 py-9  hover:shadow-xl hover:translate-y-2 transition-transform duration-75  text-center grayscale hover:grayscale-0" key={item?.name}>
+            <Image
+              height={150}
+              width={160}
+
+              src={item?.img}
+              className=""
+              style={{
+                // filter: "grayscale(100%) contrast(100%) brightness(100%)",
+              }}
+              alt="trust"
+            />
+          </div>
+        ))}
+
       </section>
     </div>
   );

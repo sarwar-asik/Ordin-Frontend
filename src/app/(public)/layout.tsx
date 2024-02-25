@@ -6,9 +6,9 @@ import Footer from "@/components/ui/Footer";
 const PublicLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <Navbar></Navbar>
-      <section style={{ padding: "0 2re", minHeight: "100vh", margin: "1r 0" }}>{children}</section>
+      <section style={{ minHeight: "100vh", margin: "auto", padding: "2vh 5vw", }}>{children}</section>
       <Footer />
     </div>
   );

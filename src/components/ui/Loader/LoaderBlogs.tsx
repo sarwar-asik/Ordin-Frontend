@@ -15,7 +15,7 @@ const LoaderBlogs = () => {
                 height={300}
                 viewBox="0 0 700 300"
                 backgroundColor="#f3f3f3"
-                foregroundColor="#4BB4B4"
+                foregroundColor="black"
               >
                 <rect x="12" y="35" rx="0" ry="0" width="6" height="246" />
                 <rect x="14" y="34" rx="0" ry="0" width="408" height="6" />

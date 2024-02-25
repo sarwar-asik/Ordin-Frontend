@@ -64,7 +64,7 @@ const ServiceTabs = () => {
     setSearchTerm("");
   };
 
-  const activeClass = `text-white font-bold bg-primary mx w-full text-center text-[15px] py-2.5 px-4 rounded-tl-2xl rounded-tr-2xl cursor-pointer`
+  const activeClass = `text-white font-bold bg-black mx w-full text-center text-[15px] py-2.5 px-4 rounded-tl-2xl rounded-tr-2xl cursor-pointer`
   // console.log(query,"quer-2");
   const { data, isLoading } = useServicesQuery({ ...query });
   const tabsItems: TabsProps["items"] = [
@@ -111,13 +111,15 @@ const ServiceTabs = () => {
     ),
   };
 
+  const servicesData: any = data?.services || []
+
   return (
     <div className=" bg-secondary text-center py-5 rounded-md px-1">
       <section className="text-center">
-        <h1 className=" text-[2.3rem] font-serif my-3 ">
+        <h1 className=" text-[2.3rem] font-serif uppercase text-[#4d4c4c]">
           Our Interior Package
         </h1>
-        <p className="mt-3 font-medium font-sans">
+        <p className="mt-3 font-medium font-sans text-[#5f5d5d]">
           Best interior service of our . We provide the services in flexible
           time with best demandable design. <br /> Here service of our
           available,upcoming Service interior.
@@ -162,7 +164,7 @@ const ServiceTabs = () => {
         // color="blue"
         items={tabsItems}
       />
-      {isLoading && <LoaderService />}
+      {(isLoading || servicesData?.length < 1) && <LoaderService />}
     </div>
   );
 };

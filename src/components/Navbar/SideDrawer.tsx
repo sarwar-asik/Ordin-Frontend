@@ -46,15 +46,15 @@ const SideBar = () => {
         )}
       </Space>
       <Drawer
-        className="bg-secondary"
+        className="bg-transparent backdrop-blur-xl"
         // title="Drawer with extra actions"
         placement={"right"}
-        width={400}
+        width={300}
         onClose={onClose}
         open={open}
         extra={
           <Space>
-            <Button className="bg-secondary border-none " onClick={onClose}>
+            <Button className="bg-transparent backdrop-blur-xl border-none " onClick={onClose}>
               <Logo />
             </Button>
           </Space>
@@ -62,12 +62,12 @@ const SideBar = () => {
       >
         <Menu
           mode="inline"
+          className="bg-transparent backdrop-blur-xl text-white"
           selectedKeys={[selectedItem]}
           style={{ borderRight: "none" }}
           items={sidebarItems("sidebar")}
         />
-       
-       
+
       </Drawer>
     </>
   );

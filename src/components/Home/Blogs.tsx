@@ -14,16 +14,16 @@ const BlogPage = () => {
   return (
     <div className=" bg-secondary py-5  px-2 ">
       <section className="text-center mb-4">
-        <h1 className=" text-[2.3rem] font-serif my-3">Our Blogs</h1>
-        <p className="mt-3 font-medium font-sans">
+        <h1 className=" text-[2.3rem] font-serif uppercase text-[#4d4c4c]">Our Blogs</h1>
+        <p className="mt-3 font-medium font-sans text-[#5f5d5d]">
           Some blogs about our service are present for you .Our Interior are
           very popular in the worldwide .
         </p>
       </section>
-      {isLoading && <LoaderBlogs/>}
+      {isLoading && <LoaderBlogs />}
       {/* <LoaderBlogs/> */}
-      <Layout>
-        <Content style={{ padding: "20px" }}>
+      <Layout className="container  mx-auto mt-[4rem] ">
+        <Content style={{ padding: "" }}>
           <Row gutter={16}>
             {blogs?.blogs?.map((blog: any) => {
               return (
@@ -31,15 +31,25 @@ const BlogPage = () => {
                   <Card
                     title={blog.title}
                     extra={<span>Author: {blog?.author}</span>}
+                    style={{
+                      padding: "3rem 0"
+                    }}
                   >
                     <p
                       style={{
                         color: "#94A3B8",
+
+
                       }}
                     >
                       <Card.Meta
                         title={blog?.publishedTime}
-                        description={blog.content.slice(0, 220)}
+                        description={<span style={{
+                          fontSize: "16px"
+                        }}>{blog.content.slice(0, 220)}</span>}
+                        style={{
+                          marginTop: "1rem 0"
+                        }}
                       />
                     </p>
                     <Link className="text-primary" href={`/blogs/${blog.id}`}>
