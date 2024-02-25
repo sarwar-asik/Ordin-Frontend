@@ -23,6 +23,8 @@ import TrustedBy from "@/components/Home/TrustedBy";
 import FAQPage from "@/components/Home/FAQ";
 import GalleryPage from "./(public)/gallery/page";
 import StoryHero from "@/components/Home/StoryHero";
+// import CookieComponent from "@/components/Home/Cookie";
+const CookieComponent = React.lazy(() => import("@/components/Home/Cookie"));
 
 const HomePage = () => {
   const [open, setOpen] = useState(true);
@@ -45,6 +47,7 @@ const HomePage = () => {
         }}
       >
 
+        <CookieComponent />
         {/* //! Float Icon */}
         {/* <FloatButton.Group
           trigger="click"
