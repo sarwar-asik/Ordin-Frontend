@@ -9,7 +9,7 @@ export const ServiceApi = baseApi.injectEndpoints({
         method: "POST",
         data: serviceData,
       }),
-      invalidatesTags: ["service"],
+      invalidatesTags: ["service", "category"],
     }),
     services: build.query({
       query: (arg: Record<string, any>) => {
@@ -25,7 +25,7 @@ export const ServiceApi = baseApi.injectEndpoints({
           meta,
         };
       },
-      providesTags: ["service"],
+      providesTags: ["service", "category"],
     }),
 
     SingleService: build.query({
@@ -33,22 +33,22 @@ export const ServiceApi = baseApi.injectEndpoints({
         url: `/service/${id}`,
         method: "GET",
       }),
-      providesTags: ["service"],
+      providesTags: ["service", "category"],
     }),
     updateService: build.mutation({
-      query: ({data,id}) => ({
+      query: ({ data, id }) => ({
         url: `/service/${id}`,
         method: "PATCH",
         data: data,
       }),
-      invalidatesTags: ["service"],
+      invalidatesTags: ["service", "category"],
     }),
     deleteService: build.mutation({
       query: (id) => ({
         url: `/service/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["service"],
+      invalidatesTags: ["service", "category"],
     }),
   }),
 });

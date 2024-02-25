@@ -9,14 +9,14 @@ export const CategoryApi = baseApi.injectEndpoints({
         method: "POST",
         data: categoryData,
       }),
-      invalidatesTags: ["category"],
+      invalidatesTags:["service", "category"],
     }),
     singleCategory: build.query({
       query: (id) => ({
         url: `/category/${id}`,
         method: "GET",
       }),
-      providesTags: ["category"],
+      providesTags:["service", "category"],
     }),
     categories: build.query({
       query: (arg: Record<string, any>) => {
@@ -32,7 +32,7 @@ export const CategoryApi = baseApi.injectEndpoints({
           meta,
         };
       },
-      providesTags: ["category"],
+      providesTags:["service", "category"],
     }),
     updateCategory: build.mutation({
       query: ({ data, id }) => ({
@@ -40,14 +40,14 @@ export const CategoryApi = baseApi.injectEndpoints({
         method: "PATCH",
         data: data,
       }),
-      invalidatesTags: ["category"],
+      invalidatesTags:["service", "category"],
     }),
     deleteCategory: build.mutation({
       query: (id) => ({
         url: `/category/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["category"],
+      invalidatesTags:["service", "category"],
     }),
   }),
 });
