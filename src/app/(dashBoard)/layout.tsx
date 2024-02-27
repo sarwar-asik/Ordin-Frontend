@@ -70,7 +70,7 @@ const DashBoardLayout = ({ children }: { children: React.ReactNode }) => {
           </section>
         )}
 
-        <Layout style={{ overflow: "hidden" }}>
+        <Layout style={{ overflow: "hidden", background: "#F3F4F6" }}>
           <DashNavBar collapsed={collapsed} setCollapsed={setCollapsed} />
           <Content style={{ padding: "1em", minHeight: "100vh" }}>
             {children}
