@@ -256,7 +256,7 @@ export default function ProfileInfo({ profileData }: { profileData: any }) {
                                                     <a href="javascript:;"
                                                         className="relative z-20 inline-flex items-center justify-center w-6 h-6 text-white transition-all duration-200 border-2 border-white border-solid ease-soft-in-out text-xs rounded-circle hover:z-30"
                                                         data-target="tooltip_trigger" data-placement="bottom">
-                                                        <img className="w-full rounded-circle" alt="Image placeholder" src="https://i.ibb.co/KqdRK2M/Ellipse-34.pngteam-1.jpg" />
+                                                        <Image height={40} width={50} className="w-full rounded-circle" alt="Image placeholder" src="https://i.ibb.co/KqdRK2M/Ellipse-34.pngteam-1.jpg" />
                                                     </a>
                                                     <div data-target="tooltip" className="hidden px-2 py-1 text-white bg-black rounded-lg text-sm"
                                                         role="tooltip">
@@ -268,7 +268,7 @@ export default function ProfileInfo({ profileData }: { profileData: any }) {
                                                     <a href="javascript:;"
                                                         className="relative z-20 inline-flex items-center justify-center w-6 h-6 -ml-4 text-white transition-all duration-200 border-2 border-white border-solid ease-soft-in-out text-xs rounded-circle hover:z-30"
                                                         data-target="tooltip_trigger" data-placement="bottom">
-                                                        <img className="w-full rounded-circle" alt="Image placeholder" src="https://i.ibb.co/KqdRK2M/Ellipse-34.pngteam-2.jpg" />
+                                                        <Image height={40} width={50} className="w-full rounded-circle" alt="Image placeholder" src="https://i.ibb.co/KqdRK2M/Ellipse-34.pngteam-2.jpg" />
                                                     </a>
                                                     <div data-target="tooltip" className="hidden px-2 py-1 text-white bg-black rounded-lg text-sm"
                                                         role="tooltip">
@@ -280,7 +280,7 @@ export default function ProfileInfo({ profileData }: { profileData: any }) {
                                                     <a href="javascript:;"
                                                         className="relative z-20 inline-flex items-center justify-center w-6 h-6 -ml-4 text-white transition-all duration-200 border-2 border-white border-solid ease-soft-in-out text-xs rounded-circle hover:z-30"
                                                         data-target="tooltip_trigger" data-placement="bottom">
-                                                        <img className="w-full rounded-circle" alt="Image placeholder" src="https://i.ibb.co/KqdRK2M/Ellipse-34.png" />
+                                                        <Image height={40} width={50} className="w-full rounded-circle" alt="Image placeholder" src="https://i.ibb.co/KqdRK2M/Ellipse-34.png" />
                                                     </a>
                                                     <div data-target="tooltip" className="hidden px-2 py-1 text-white bg-black rounded-lg text-sm"
                                                         role="tooltip">
@@ -292,7 +292,7 @@ export default function ProfileInfo({ profileData }: { profileData: any }) {
                                                     <a href="javascript:;"
                                                         className="relative z-20 inline-flex items-center justify-center w-6 h-6 -ml-4 text-white transition-all duration-200 border-2 border-white border-solid ease-soft-in-out text-xs rounded-circle hover:z-30"
                                                         data-target="tooltip_trigger" data-placement="bottom">
-                                                        <img className="w-full rounded-circle" alt="Image placeholder" src="https://i.ibb.co/KqdRK2M/Ellipse-34.png" />
+                                                        <Image height={40} width={50} className="w-full rounded-circle" alt="Image placeholder" src="https://i.ibb.co/KqdRK2M/Ellipse-34.png" />
                                                     </a>
                                                     <div data-target="tooltip" className="hidden px-2 py-1 text-white bg-black rounded-lg text-sm"
                                                         role="tooltip">
@@ -332,7 +332,7 @@ export default function ProfileInfo({ profileData }: { profileData: any }) {
                                                     <a href="javascript:;"
                                                         className="relative z-20 inline-flex items-center justify-center w-6 h-6 text-white transition-all duration-200 border-2 border-white border-solid ease-soft-in-out text-xs rounded-circle hover:z-30"
                                                         data-target="tooltip_trigger" data-placement="bottom">
-                                                        <img className="w-full rounded-circle" alt="Image placeholder" src="https://i.ibb.co/KqdRK2M/Ellipse-34.png" />
+                                                        <Image height={40} width={50} className="w-full rounded-circle" alt="Image placeholder" src="https://i.ibb.co/KqdRK2M/Ellipse-34.png" />
                                                     </a>
                                                     <div data-target="tooltip" className="hidden px-2 py-1 text-white bg-black rounded-lg text-sm"
                                                         role="tooltip">
@@ -344,7 +344,7 @@ export default function ProfileInfo({ profileData }: { profileData: any }) {
                                                     <a href="javascript:;"
                                                         className="relative z-20 inline-flex items-center justify-center w-6 h-6 -ml-4 text-white transition-all duration-200 border-2 border-white border-solid ease-soft-in-out text-xs rounded-circle hover:z-30"
                                                         data-target="tooltip_trigger" data-placement="bottom">
-                                                        <img className="w-full rounded-circle" alt="Image placeholder" src="https://i.ibb.co/KqdRK2M/Ellipse-34.png" />
+                                                        <Image height={40} width={50} className="w-full rounded-circle" alt="Image placeholder" src="https://i.ibb.co/KqdRK2M/Ellipse-34.png" />
                                                     </a>
                                                     <div data-target="tooltip" className="hidden px-2 py-1 text-white bg-black rounded-lg text-sm"
                                                         role="tooltip">
@@ -356,7 +356,7 @@ export default function ProfileInfo({ profileData }: { profileData: any }) {
                                                     <a href="javascript:;"
                                                         className="relative z-20 inline-flex items-center justify-center w-6 h-6 -ml-4 text-white transition-all duration-200 border-2 border-white border-solid ease-soft-in-out text-xs rounded-circle hover:z-30"
                                                         data-target="tooltip_trigger" data-placement="bottom">
-                                                        <img className="w-full rounded-circle" alt="Image placeholder" src="https://i.ibb.co/KqdRK2M/Ellipse-34.png" />
+                                                        <Image height={40} width={50} className="w-full rounded-circle" alt="Image placeholder" src="https://i.ibb.co/KqdRK2M/Ellipse-34.png" />
                                                     </a>
                                                     <div data-target="tooltip" className="hidden px-2 py-1 text-white bg-black rounded-lg text-sm"
                                                         role="tooltip">
@@ -368,7 +368,7 @@ export default function ProfileInfo({ profileData }: { profileData: any }) {
                                                     <a href="javascript:;"
                                                         className="relative z-20 inline-flex items-center justify-center w-6 h-6 -ml-4 text-white transition-all duration-200 border-2 border-white border-solid ease-soft-in-out text-xs rounded-circle hover:z-30"
                                                         data-target="tooltip_trigger" data-placement="bottom">
-                                                        <img className="w-full rounded-circle" alt="Image placeholder" src="https://i.ibb.co/KqdRK2M/Ellipse-34.png" />
+                                                        <Image height={40} width={50} className="w-full rounded-circle" alt="Image placeholder" src="https://i.ibb.co/KqdRK2M/Ellipse-34.png" />
                                                     </a>
                                                     <div data-target="tooltip" className="hidden px-2 py-1 text-white bg-black rounded-lg text-sm"
                                                         role="tooltip">
@@ -409,7 +409,7 @@ export default function ProfileInfo({ profileData }: { profileData: any }) {
                                                     <a href="javascript:;"
                                                         className="relative z-20 inline-flex items-center justify-center w-6 h-6 text-white transition-all duration-200 border-2 border-white border-solid ease-soft-in-out text-xs rounded-circle hover:z-30"
                                                         data-target="tooltip_trigger" data-placement="bottom">
-                                                        <img className="w-full rounded-circle" alt="Image placeholder" src="https://i.ibb.co/KqdRK2M/Ellipse-34.pngteam-4.jpg" />
+                                                        <Image height={40} width={50} className="w-full rounded-circle" alt="Image placeholder" src="https://i.ibb.co/KqdRK2M/Ellipse-34.pngteam-4.jpg" />
                                                     </a>
                                                     <div data-target="tooltip" className="hidden px-2 py-1 text-white bg-black rounded-lg text-sm"
                                                         role="tooltip">
@@ -421,7 +421,7 @@ export default function ProfileInfo({ profileData }: { profileData: any }) {
                                                     <a href="javascript:;"
                                                         className="relative z-20 inline-flex items-center justify-center w-6 h-6 -ml-4 text-white transition-all duration-200 border-2 border-white border-solid ease-soft-in-out text-xs rounded-circle hover:z-30"
                                                         data-target="tooltip_trigger" data-placement="bottom">
-                                                        <img className="w-full rounded-circle" alt="Image placeholder" src="https://i.ibb.co/KqdRK2M/Ellipse-34.png" />
+                                                        <Image height={40} width={50} className="w-full rounded-circle" alt="Image placeholder" src="https://i.ibb.co/KqdRK2M/Ellipse-34.png" />
                                                     </a>
                                                     <div data-target="tooltip" className="hidden px-2 py-1 text-white bg-black rounded-lg text-sm"
                                                         role="tooltip">
@@ -433,7 +433,7 @@ export default function ProfileInfo({ profileData }: { profileData: any }) {
                                                     <a href="javascript:;"
                                                         className="relative z-20 inline-flex items-center justify-center w-6 h-6 -ml-4 text-white transition-all duration-200 border-2 border-white border-solid ease-soft-in-out text-xs rounded-circle hover:z-30"
                                                         data-target="tooltip_trigger" data-placement="bottom">
-                                                        <img className="w-full rounded-circle" alt="Image placeholder" src="https://i.ibb.co/KqdRK2M/Ellipse-34.pngteam-2.jpg" />
+                                                        <Image height={40} width={50} className="w-full rounded-circle" alt="Image placeholder" src="https://i.ibb.co/KqdRK2M/Ellipse-34.pngteam-2.jpg" />
                                                     </a>
                                                     <div data-target="tooltip" className="hidden px-2 py-1 text-white bg-black rounded-lg text-sm"
                                                         role="tooltip">
@@ -445,7 +445,7 @@ export default function ProfileInfo({ profileData }: { profileData: any }) {
                                                     <a href="javascript:;"
                                                         className="relative z-20 inline-flex items-center justify-center w-6 h-6 -ml-4 text-white transition-all duration-200 border-2 border-white border-solid ease-soft-in-out text-xs rounded-circle hover:z-30"
                                                         data-target="tooltip_trigger" data-placement="bottom">
-                                                        <img className="w-full rounded-circle" alt="Image placeholder" src="https://i.ibb.co/KqdRK2M/Ellipse-34.pngteam-1.jpg" />
+                                                        <Image height={40} width={50} className="w-full rounded-circle" alt="Image placeholder" src="https://i.ibb.co/KqdRK2M/Ellipse-34.pngteam-1.jpg" />
                                                     </a>
                                                     <div data-target="tooltip" className="hidden px-2 py-1 text-white bg-black rounded-lg text-sm"
                                                         role="tooltip">
