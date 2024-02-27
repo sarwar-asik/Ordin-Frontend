@@ -9,6 +9,7 @@ import Link from "next/link";
 import BreadCumbUI from "@/components/ui/BreadCumbUI";
 import LoadingData from "@/components/ui/Loader/LoadingData";
 import ProfileUserSection from "@/components/profile/ProfileUserSection";
+import ProfileInfo from "@/components/profile/ProfileInfo";
 
 const { Content } = Layout;
 const { Title, Text } = Typography;
@@ -76,7 +77,8 @@ const Profile = () => {
       </Content>
     </Layout> */}
 
-      <ProfileUserSection profileData={data}/>
+      <ProfileUserSection profileData={data} />
+      <ProfileInfo profileData={data} />
     </>
   );
 };
