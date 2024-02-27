@@ -49,20 +49,29 @@ const HomePage = () => {
 
         <CookieComponent />
         {/* //! Float Icon */}
-        {/* <FloatButton.Group
+
+        {/* 
+
+ 
+
+        <FloatButton.Group
           trigger="click"
           type="primary"
           style={{ right: 24 }}
           icon={<CommentOutlined style={{}} />}
         >
           <FloatButton icon={<CustomerServiceOutlined />} />
-
           <FloatButton
             badge={{ count: 12 }}
             icon={<QuestionCircleOutlined />}
           />
           <FloatButton icon={<CommentOutlined />} />
-        </FloatButton.Group> */}
+        </FloatButton.Group> 
+        
+        
+        */}
+
+        
         {/* //! main content */}
 
         <CategoriesPage />
