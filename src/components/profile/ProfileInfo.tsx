@@ -480,14 +480,8 @@ export default function ProfileInfo({ profileData }: { profileData: any }) {
                     <div className="flex flex-wrap items-center -mx-3 lg:justify-between">
                         <div className="w-full max-w-full px-3 mt-0 mb-6 shrink-0 lg:mb-0 lg:w-1/2 lg:flex-none">
                             <div className="leading-normal text-center text-sm text-slate-500 lg:text-left">
-                                ©
-                                <script>
-                                    {new Date().getFullYear() + ","}
-                                </script>
-                                made with <i className="fa fa-heart"></i> by
-                                <a href="https://www.creative-tim.com" className="font-semibold text-slate-700" target="_blank">Creative
-                                    Tim</a>
-                                for a better web.
+                                ©sarwar hossain
+
                             </div>
                         </div>
                         <div className="w-full max-w-full px-3 mt-0 shrink-0 lg:w-1/2 lg:flex-none">
