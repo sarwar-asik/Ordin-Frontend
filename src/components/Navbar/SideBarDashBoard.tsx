@@ -25,7 +25,7 @@ const SideBarDashBoard = ({
       className="bg-secondary "
       collapsed={collapsed}
       onCollapse={(value) => setCollapsed(value)}
-      width={300}
+      width={250}
       style={{
         overflow: "auto",
         height: "110vh",
@@ -34,25 +34,24 @@ const SideBarDashBoard = ({
         left: 0,
         top: 0,
         bottom: 0,
-        padding:"10px 0 0 0",
+        padding: "10px 0 0 0",
         // width: "70vw",
         // background: "red",
         // background:"",
       }}
     >
       <Link
-      href={`/${role}`}
-        className={`font-semibold font-serif text-primary  text-center px-2 ${
-          collapsed ? "text-[0.7rem]" : "text-[1.4rem]"
-        }  h-[4rem]`}
-        // style={{
-        //   color: "white",
-        //   fontSize: "1rem",
-        //   textAlign: "center",
-        //   fontFamily: "serif",
-        //   marginBottom: "1rem",
-        //   marginTop: "10px",
-        // }}
+        href={`/${role}`}
+        className={`font-semibold font-serif text-primary  text-center px-2 ${collapsed ? "text-[0.7rem]" : "text-[1.4rem]"
+          }  h-[4rem]`}
+      // style={{
+      //   color: "white",
+      //   fontSize: "1rem",
+      //   textAlign: "center",
+      //   fontFamily: "serif",
+      //   marginBottom: "1rem",
+      //   marginTop: "10px",
+      // }}
       >
 
       </Link>

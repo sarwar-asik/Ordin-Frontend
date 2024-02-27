@@ -28,7 +28,7 @@ const SingleCategory = ({ category }: { category: any }) => {
         src={category.img}
         // height={230}
         // width={120}
-        style={{ height: "25rem", width: screens?.sm ? "full" : "full" }}
+        style={{ height: "22rem", width: screens?.sm ? "full" : "full" }}
         // className="w-[23rem] lg:w-[27rem] mx-auto shadow-xl"
         alt={category?.title}
       />
