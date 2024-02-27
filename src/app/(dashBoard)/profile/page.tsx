@@ -8,6 +8,8 @@ import { EditOutlined } from "@ant-design/icons";
 import Link from "next/link";
 import BreadCumbUI from "@/components/ui/BreadCumbUI";
 import LoadingData from "@/components/ui/Loader/LoadingData";
+import ProfileUserSection from "@/components/profile/ProfileUserSection";
+import ProfileInfo from "@/components/profile/ProfileInfo";
 
 const { Content } = Layout;
 const { Title, Text } = Typography;
@@ -17,7 +19,7 @@ const Profile = () => {
   const user = getUserInfo() as any;
   // console.log(user);
   const { data, isLoading } = useProfileUserQuery(undefined);
-  console.log("🚀 ~ file: ~ data:", data);
+  // console.log("🚀 ~ file: ~ data:", data);
 
   useEffect(() => {
     if (!user?.role) {
@@ -28,9 +30,9 @@ const Profile = () => {
   // const {role,email,img,contact} = data
 
   return (
- <>
+    <>
 
-<BreadCumbUI
+      <BreadCumbUI
         items={[
           {
             label: `${data?.role}`,
@@ -43,9 +45,9 @@ const Profile = () => {
         ]}
       />
       {
-        isLoading&& <LoadingData/>
+        isLoading && <LoadingData />
       }
-    <Layout style={{ minHeight: "100vh" }}>
+      {/* <Layout style={{ minHeight: "100vh" }}>
       <Content style={{ padding: "24px" }}>
         <Row gutter={16}>
           <Col xs={24} sm={24} md={12} lg={8}>
@@ -73,8 +75,11 @@ const Profile = () => {
           </Col>
         </Row>
       </Content>
-    </Layout>
- </>
+    </Layout> */}
+
+      <ProfileUserSection profileData={data} />
+      <ProfileInfo profileData={data} />
+    </>
   );
 };
 
