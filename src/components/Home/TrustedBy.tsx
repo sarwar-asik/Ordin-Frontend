@@ -41,7 +41,7 @@ const TrustedBy = () => {
         </p>
       </section>
 
-      <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-1 container mx-auto shadow my-3 pb-[10px]">
+      <section className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-1 container mx-auto shadow my-3 pb-[10px]">
 
         {companyData?.map((item: any) => (
           <div className="px-5 py-9  hover:shadow-xl hover:translate-y-2 transition-transform duration-75  text-center grayscale hover:grayscale-0" key={item?.name}>
@@ -50,7 +50,7 @@ const TrustedBy = () => {
               width={160}
 
               src={item?.img}
-              className=""
+              className="max-w-[300p]"
               style={{
                 // filter: "grayscale(100%) contrast(100%) brightness(100%)",
               }}

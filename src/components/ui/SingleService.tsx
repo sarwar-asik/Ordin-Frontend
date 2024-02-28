@@ -70,7 +70,7 @@ const SingleService = ({ product }: { product: any }) => {
       </Card> */}
       <div className="">
         <Image height={300} width={350} className="group-hover:opacity-60 transition duration-500 w-full" src={img} alt="sofa-2" />
-        <div className="sm:py-28 py-36 px-10 group group-hover:bg-opacity-60 transition duration-500 relative bg-gray-50  flex justify-center items-center">
+        <div className="sm:py-28 py-[5rem]  px-10 group group-hover:bg-opacity-60 transition duration-500 relative bg-gray-50  flex justify-center items-center">
           <div className="absolute sm:top- top-3 left-4 sm:left-8 flex justify-start items-start flex-col space-y-2">
             <div>
               <p className="group-hover:opacity-60 transition duration-500 text-xl leading-5 text-gray-600">{title}</p>
@@ -83,7 +83,7 @@ const SingleService = ({ product }: { product: any }) => {
             <button className="bg-white border rounded-full focus:bg-gray-800 border-gray-600 p-1.5" />
             <button className="bg-white border rounded-full focus:bg-gray-800 border-gray-600 p-1.5" />
           </div>
-          <div className="flex flex-col bottom-8 right-8 space-y-4 absolute opacity-100 group-hover:bg-opacity-90 transition duration-500">
+          <div className="flex flex-col bottom-8 right-8 space-y-2 absolute opacity-100 group-hover:bg-opacity-90 transition duration-500">
             <AddToCartButton service={product}></AddToCartButton>
 
             <Link href={`/services/${id}`}>
@@ -95,7 +95,7 @@ const SingleService = ({ product }: { product: any }) => {
                 />
               </svg>
             </Link>
-            <Link href={`/book/${id}`} className="bg-gray-100 w-10 h-10 flex items-center justify-center rounded-full cursor-pointer ml-auto">
+            <Link href={`/book/${id}`} className="bg-gray-10 w-10 h-8 flex items-center justify-center rounded-full cursor-pointer ml-aut">
               <svg xmlns="http://www.w3.org/2000/svg" width="18px" className="fill-gray-800 inline-block" viewBox="0 0 64 64">
                 <path
                   d="M45.5 4A18.53 18.53 0 0 0 32 9.86 18.5 18.5 0 0 0 0 22.5C0 40.92 29.71 59 31 59.71a2 2 0 0 0 2.06 0C34.29 59 64 40.92 64 22.5A18.52 18.52 0 0 0 45.5 4ZM32 55.64C26.83 52.34 4 36.92 4 22.5a14.5 14.5 0 0 1 26.36-8.33 2 2 0 0 0 3.27 0A14.5 14.5 0 0 1 60 22.5c0 14.41-22.83 29.83-28 33.14Z"

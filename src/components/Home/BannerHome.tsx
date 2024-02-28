@@ -44,19 +44,19 @@ const BannerHome = () => {
       title: 'Our Office',
       description: 'Visit our office in Hatiya, Chattogram, Bangladesh to explore our design ideas.',
       details: 'Hatiya, Chattogram, Bangladesh',
-      icon: <EnvironmentOutlined style={{ fontSize: '70px', color: "#989696" }} />,
+      icon: <EnvironmentOutlined style={{ fontSize: '4rem', color: "#989696" }} />,
     },
     {
       title: 'WHAT WE DO',
       description: 'Transforming spaces with innovative interior design solutions to enhance your lifestyle.',
       details: 'Explore our diverse range of interior design services.',
-      icon: <LineChartOutlined style={{ fontSize: '70px', color: "#989696" }} />,
+      icon: <LineChartOutlined style={{ fontSize: '4rem', color: "#989696" }} />,
     },
     {
       title: 'OUR PROJECT',
       description: 'Discover our portfolio of completed interior design projects for various clients.',
       details: 'Browse through our work to find inspiration for your.',
-      icon: <BookOutlined style={{ fontSize: '70px', color: "#989696" }} />,
+      icon: <BookOutlined style={{ fontSize: '4rem', color: "#989696" }} />,
     },
   ]
 
@@ -65,7 +65,7 @@ const BannerHome = () => {
 
       <div className="relative">
         <video
-          className="w-full h-[20rem] lg:h-[52rem] object-cover"
+          className="w-full h-[30rem] lg:h-[52rem] object-cover"
           autoPlay
           ref={videoRef}
           loop
@@ -73,31 +73,29 @@ const BannerHome = () => {
           src="https://res.cloudinary.com/dwaiudyzc/video/upload/v1708758334/bannerVideo_a5tcfx.mp4"
         />
 
-        <div className="absolute  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center">
-          <h1 className="text-xl lg:text-8xl font-bold uppercase"> Decorate your WorkSpace</h1>
+        <div className="absolute top-[16%]  lg:top-[46%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center">
+          <h1 className="text-2xl lg:text-8xl font-bold uppercase"> Decorate your WorkSpace</h1>
         </div>
 
         {/* //!  card section */}
         <div className="bg-white -mt-[8.5rem] container  mx-auto grid grid-cols-1 lg:grid-cols-3 py-3 ">
           {
             cardData?.map((card) => {
-
-              return <div className=" border border-white px-7 py-[5rem] shadow-lg hover:shadow-xl hover:-mt-7 transition-transform duration-500 ease-in-out group" style={{ backgroundColor: '#ffffff' }} key={card?.title}>
+              return <div className=" border border-white px-7 py-[2rem] lg:py-[5rem] shadow-lg hover:shadow-xl hover:-mt-7 transition-transform duration-500 ease-in-out group" style={{ backgroundColor: '#ffffff' }} key={card?.title}>
                 <div className="flex flex-col items-center justify-center gap-2">
                   <div className="t">
                     {card?.icon}
-
                   </div>
                   <div className="">
-                    <h5 className=" text-[2rem] text-center mt-7 leading-3 text-[#4d4c4c] group-hover:text-black" style={{ color: '#252525', marginTop: '6px' }}>
+                    <h5 className="text-[1.5em] lg:text-[2rem] text-center mt-7 leading-3 text-[#4d4c4c] group-hover:text-black" style={{ color: '#252525', marginTop: '6px' }}>
                       {card?.title}
                     </h5>
-                    <p className="mt-5 group-hover:text-black" style={{ color: '#585858' }}>
+                    <p className="text-base lg:text-lg mt-5 group-hover:text-black" style={{ color: '#585858' }}>
                       {card?.description}
                     </p>
                   </div>
 
-                  <p className="text-xl mt-3  text-slate-600 group-hover:text-black">{card?.details}</p>
+                  <p className="text-base lg:text-xl mt-3  text-slate-600 group-hover:text-black">{card?.details}</p>
 
                 </div>
               </div>

@@ -11,7 +11,7 @@ import Logo from "./Logo";
 
 const Footer = () => {
   return (
-    <footer className="w-full px-4 divide-  bg-[#080808] text-white  no-underline">
+    <footer className="w-ful px-4 divide-  bg-[#080808] text-white  no-underline">
       <div className="container mx-auto flex flex-col justify-between py-[8rem]  space-y-8 lg:flex-row lg:space-y-0">
         <div className="flex justify-center flex-col space-x-3 gap-3 lg:justify-start lg:w-1/3">
           {/* <Link href="/" className=" text-white no-underline">
